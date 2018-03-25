@@ -296,7 +296,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="http://taohuaxiaozhai.github.io" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h1 id="PyCharm-的初始设置"><a href="#PyCharm-的初始设置" class="headerlink" title="PyCharm 的初始设置"></a>PyCharm 的初始设置</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<h1 id="PyCharm-的初始设置（知道）"><a href="#PyCharm-的初始设置（知道）" class="headerlink" title="PyCharm 的初始设置（知道）"></a>PyCharm 的初始设置（知道）</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
 <li>恢复 PyCharm 的初始设置</li>
 <li>第一次启动 PyCharm</li>
 <li>新建一个 Python 项目</li>
@@ -304,10 +304,213 @@ var _hmt = _hmt || [];
 <li>PyCharm 的升级以及其他</li>
 </ul>
 <p>PyCharm 的官方网站地址是：<a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/</a></p>
-<h2 id="01-恢复-PyCharm-的初始设置"><a href="#01-恢复-PyCharm-的初始设置" class="headerlink" title="01. 恢复 PyCharm 的初始设置"></a>01. 恢复 PyCharm 的初始设置</h2>
-        
-          <a class="article-more-a" href="/2017/07/13/PyCharm 的初始设置（知道）/#more">more >></a>
-        
+<h2 id="01-恢复-PyCharm-的初始设置"><a href="#01-恢复-PyCharm-的初始设置" class="headerlink" title="01. 恢复 PyCharm 的初始设置"></a>01. 恢复 PyCharm 的初始设置</h2><p><code>PyCharm</code> 的 <strong>配置信息</strong> 是保存在 <strong>用户家目录下</strong> 的 <code>.PyCharmxxxx.x</code> 目录下的，<code>xxxx.x</code> 表示当前使用的 <code>PyCharm</code> 的版本号</p>
+<p>如果要恢复 <code>PyCharm</code> 的初始设置，可以按照以下步骤进行：</p>
+<ul>
+<li><ol>
+<li>关闭正在运行的 <code>PyCharm</code></li>
+</ol>
+</li>
+<li><ol>
+<li>在终端中执行以下终端命令，删除 <code>PyCharm</code> 的配置信息目录：</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -r ~/.PyCharm2016.3</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>重新启动 <code>PyCharm</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="02-第一次启动-PyCharm"><a href="#02-第一次启动-PyCharm" class="headerlink" title="02. 第一次启动 PyCharm"></a>02. 第一次启动 PyCharm</h2><ol>
+<li>导入配置信息</li>
+<li>选择许可协议</li>
+<li>配置初始界面</li>
+</ol>
+<h3 id="2-1-导入配置信息"><a href="#2-1-导入配置信息" class="headerlink" title="2.1 导入配置信息"></a>2.1 导入配置信息</h3><ul>
+<li>在第一次启动 <code>PyCharm</code> 时，会首先提示用户是否导入 <strong>之前的配置信息</strong></li>
+<li>如果是第一次使用，直接点击 <strong>OK</strong> 按钮</li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/001.png" alt="001_PyCharm导入配置信息-w603"></p>
+<h3 id="2-2-选择许可协议"><a href="#2-2-选择许可协议" class="headerlink" title="2.2 选择许可协议"></a>2.2 选择许可协议</h3><ul>
+<li>PyCharm 是一个付费软件，购买费用为 <strong>199$ / 年</strong> 或者 <strong>19.90$ ／ 月</strong></li>
+<li>不过 PyCharm 提供了对 <strong>学生和教师免费使用的版本</strong><ul>
+<li>下载地址是：<a href="https://www.jetbrains.com/pycharm-edu/download/#section=linux" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm-edu/download/#section=linux</a></li>
+</ul>
+</li>
+<li>商业版本会提示输入注册信息，或者选择免费评估</li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/002.png" alt="002_激活许可证-w495"></p>
+<h3 id="2-3-PyCharm-的配置初始界面"><a href="#2-3-PyCharm-的配置初始界面" class="headerlink" title="2.3 PyCharm 的配置初始界面"></a>2.3 PyCharm 的配置初始界面</h3><ul>
+<li>在初始配置界面，可以通过 <code>Editor colors and fonts</code> 选择 <strong>编辑器的配色方案</strong></li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/003.png" alt="003_PyCharm初始配置界面-w491"></p>
+<h3 id="2-4-欢迎界面"><a href="#2-4-欢迎界面" class="headerlink" title="2.4 欢迎界面"></a>2.4 欢迎界面</h3><ul>
+<li>所有基础配置工作结束之后，就可以看到 <code>PyCharm</code> 的 <strong>欢迎界面</strong>了，通过 <strong>欢迎界面</strong> 就可以开始开发 Python 项目了</li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/004.png" alt="004_PyCharm欢迎页面-w664"></p>
+<h2 id="03-新建-打开一个-Python-项目"><a href="#03-新建-打开一个-Python-项目" class="headerlink" title="03. 新建/打开一个 Python 项目"></a>03. 新建/打开一个 Python 项目</h2><h3 id="3-1-项目简介"><a href="#3-1-项目简介" class="headerlink" title="3.1 项目简介"></a>3.1 项目简介</h3><ul>
+<li>开发 <strong>项目</strong> 就是开发一个 <strong>专门解决一个复杂业务功能的软件</strong></li>
+<li>通常每 <strong>一个项目</strong> 就具有一个 <strong>独立专属的目录</strong>，用于保存 <strong>所有和项目相关的文件</strong><ul>
+<li>一个项目通常会包含 <strong>很多源文件</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-打开-Python-项目"><a href="#3-2-打开-Python-项目" class="headerlink" title="3.2 打开 Python 项目"></a>3.2 打开 Python 项目</h3><ul>
+<li>直接点击 <strong>Open</strong> 按钮，然后浏览到之前保存 <strong>Python 文件的目录</strong>，既可以打开项目</li>
+<li>打开之后，会在目录下新建一个 <code>.idea</code> 的目录，用于保存 <strong>项目相关的信息</strong>，例如：<strong>解释器版本</strong>、<strong>项目包含的文件</strong>等等</li>
+<li>第一次打开项目，需要耐心等待 <code>PyCharm</code> 对项目<strong>进行初始设置</strong></li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/005.png" alt="005_打开已有Python项目-w423"></p>
+<h4 id="设置项目使用的解释器版本"><a href="#设置项目使用的解释器版本" class="headerlink" title="设置项目使用的解释器版本"></a>设置项目使用的解释器版本</h4><ul>
+<li>打开的目录如果不是由 <code>PyCharm</code> 建立的项目目录，<strong>有的时候</strong> 使用的解释器版本是 <code>Python 2.x</code> 的，需要<strong>单独设置解释器的版本</strong></li>
+<li>通过 <strong>File</strong> / <strong>Settings…</strong> 可以打开设置窗口，如下图所示：</li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/006.png" alt="006_选择项目的解释器版本-w975"></p>
+<h3 id="3-3-新建项目"><a href="#3-3-新建项目" class="headerlink" title="3.3 新建项目"></a>3.3 新建项目</h3><h4 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1) 命名规则"></a>1) 命名规则</h4><ul>
+<li>以后 <strong>项目名</strong> 前面都以 <strong>数字编号</strong>，<strong>随着知识点递增，编号递增</strong><ul>
+<li>例如：<strong>01_Python 基础</strong>、<strong>02_分支</strong>、<strong>03_循环</strong>…</li>
+</ul>
+</li>
+<li><p>每个项目下的 <strong>文件名</strong> 都以 <code>hm_xx_知识点</code> 方式来命名</p>
+<ul>
+<li>其中 <strong>xx</strong> 是演练文件的序号</li>
+</ul>
+</li>
+<li><p>注意</p>
+<ul>
+<li><ol>
+<li>命名文件名时建议只使用 <strong>小写字母</strong>、<strong>数字</strong> 和 <strong>下划线</strong></li>
+</ol>
+</li>
+<li><ol>
+<li><strong>文件名不能以数字开始</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>通过 <strong>欢迎界面</strong> 或者菜单 <strong>File</strong> / <strong>New Project</strong> 可以新建项目</p>
+</li>
+</ul>
+<h4 id="2-演练步骤"><a href="#2-演练步骤" class="headerlink" title="2) 演练步骤"></a>2) 演练步骤</h4><ul>
+<li>新建 <code>01_Python基础</code> 项目，使用 <strong>Python 3.x 解释器</strong></li>
+<li>在项目下新建 <code>hm_01_hello.py</code> Python 文件</li>
+<li>编写 <code>print(&quot;Hello Python&quot;)</code> 代码</li>
+</ul>
+<h2 id="04-设置-PyCharm-的字体显示"><a href="#04-设置-PyCharm-的字体显示" class="headerlink" title="04. 设置 PyCharm 的字体显示"></a>04. 设置 PyCharm 的字体显示</h2><p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/007.png" alt="007_PyCharm设置编辑器字体-w500"></p>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/008.png" alt="008_PyCharm设置控制台字体-w500"></p>
+<h2 id="05-PyCharm-的升级以及其他"><a href="#05-PyCharm-的升级以及其他" class="headerlink" title="05. PyCharm 的升级以及其他"></a>05. PyCharm 的升级以及其他</h2><blockquote>
+<p>PyCharm 提供了对 <strong>学生和教师免费使用的版本</strong></p>
+</blockquote>
+<ul>
+<li>教育版下载地址：<a href="https://www.jetbrains.com/pycharm-edu/download/#section=linux" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm-edu/download/#section=linux</a></li>
+<li>专业版下载地址：<a href="https://www.jetbrains.com/pycharm/download/#section=linux" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download/#section=linux</a></li>
+</ul>
+<h3 id="5-1-安装和启动步骤"><a href="#5-1-安装和启动步骤" class="headerlink" title="5.1 安装和启动步骤"></a>5.1 安装和启动步骤</h3><ul>
+<li><ol>
+<li>执行以下终端命令，解压缩下载后的安装包</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf pycharm-professional-2017.1.3.tar.gz</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>将解压缩后的目录移动到 <code>/opt</code> 目录下，可以方便其他用户使用</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><code>/opt</code> 目录用户存放给主机额外安装的软件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mv pycharm-2017.1.3/ /opt/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>切换工作目录</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/pycharm-2017.1.3/bin</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>启动 <code>PyCharm</code></li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./pycharm.sh</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-设置专业版启动图标"><a href="#5-2-设置专业版启动图标" class="headerlink" title="5.2 设置专业版启动图标"></a>5.2 设置专业版启动图标</h3><ul>
+<li>在<strong>专业版</strong>中，选择菜单 <strong>Tools</strong> / <strong>Create Desktop Entry…</strong> 可以设置任务栏启动图标<ul>
+<li>注意：设置图标时，需要勾选 <code>Create the entry for all users</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="/2017/07/13/PyCharm 的初始设置（知道）/a/009.png" alt="009_创建桌面图标-w657"></p>
+<h3 id="5-3-卸载之前版本的-PyCharm"><a href="#5-3-卸载之前版本的-PyCharm" class="headerlink" title="5.3 卸载之前版本的 PyCharm"></a>5.3 卸载之前版本的 PyCharm</h3><h4 id="1-程序安装"><a href="#1-程序安装" class="headerlink" title="1) 程序安装"></a>1) 程序安装</h4><ul>
+<li><ol>
+<li><strong>程序文件目录</strong> <ul>
+<li>将安装包解压缩，并且移动到 <code>/opt</code> 目录下</li>
+<li><strong>所有的相关文件都保存在解压缩的目录中</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><strong>配置文件目录</strong><ul>
+<li>启动 <code>PyCharm</code> 后，会在用户家目录下建立一个 <code>.PyCharmxxx</code> 的隐藏目录</li>
+<li><strong>保存 <code>PyCharm</code> 相关的配置信息</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><strong>快捷方式文件</strong><ul>
+<li><code>/usr/share/applications/jetbrains-pycharm.desktop</code> </li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>在 <code>ubuntu</code> 中，应用程序启动的快捷方式通常都保存在 <code>/usr/share/applications</code> 目录下</p>
+</blockquote>
+<h4 id="2-程序卸载"><a href="#2-程序卸载" class="headerlink" title="2) 程序卸载"></a>2) 程序卸载</h4><ul>
+<li><p>要卸载 <code>PyCharm</code> 只需要做以下两步工作：</p>
+</li>
+<li><ol>
+<li>删除解压缩目录</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rm -r /opt/pycharm-2016.3.1/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>删除家目录下用于保存配置信息的隐藏目录</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -r ~/.PyCharm2016.3/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不再使用 PyCharm 还需要将 <code>/usr/share/applications/</code> 下的 <code>jetbrains-pycharm.desktop</code> 删掉</p>
+</blockquote>
+<h3 id="5-4-教育版安装演练"><a href="#5-4-教育版安装演练" class="headerlink" title="5.4 教育版安装演练"></a>5.4 教育版安装演练</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 解压缩下载后的安装包</span></span><br><span class="line">$ tar -zxvf pycharm-edu-3.5.1.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 将解压缩后的目录移动到 `/opt` 目录下，可以方便其他用户使用</span></span><br><span class="line">$ sudo mv pycharm-edu-3.5.1/ /opt/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 启动 `PyCharm`</span></span><br><span class="line">/opt/pycharm-edu-3.5.1/bin/pycharm.sh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>后续课程<strong>都使用专业版本演练</strong></p>
+</blockquote>
+<h4 id="设置启动图标"><a href="#设置启动图标" class="headerlink" title="设置启动图标"></a>设置启动图标</h4><ul>
+<li><ol>
+<li>编辑快捷方式文件</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gedit /usr/share/applications/jetbrains-pycharm.desktop</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>按照以下内容修改文件内容，需要注意<strong>指定正确的 <code>pycharm</code> 目录</strong></li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=PyCharm</span><br><span class="line">Icon=/opt/pycharm-edu-3.5.1/bin/pycharm.png</span><br><span class="line">Exec=&quot;/opt/pycharm-edu-3.5.1/bin/pycharm.sh&quot; %f</span><br><span class="line">Comment=The Drive to Develop</span><br><span class="line">Categories=Development;IDE;</span><br><span class="line">Terminal=false</span><br><span class="line">StartupWMClass=jetbrains-pycharm</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -473,7 +676,7 @@ var _hmt = _hmt || [];
 <h1 id="认识-Python"><a href="#认识-Python" class="headerlink" title="认识 Python"></a>认识 Python</h1><blockquote>
 <p>人生苦短，我用 Python —— Life is short, you need Python</p>
 </blockquote>
-<p><img src="/2017/07/11/认识 Python/14950329208518/001_%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%E6%88%91%E7%94%A8python.jpg" alt="001_人生苦短我用python"></p>
+<p><img src="/2017/07/11/认识 Python/005.jpg" alt="001_人生苦短我用python"></p>
 <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
 <li>Python 的起源</li>
 <li>为什么要用 Python？</li>
