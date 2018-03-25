@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统   多用户操作系统：指一台计算机在同一时间可以由 多个用户 使用，多个用户共同享用系统的全部硬件和软件资源  Unix 和 Linux">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/media/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/media/14927564336623/001-Windows%E4%B8%8B%E5%A4%9A%E4%B8%AA%E7%9B%98%E4%B8%BA%E8%8A%82%E7%82%B9%E7%9A%84%E7%9B%AE%E5%BD%95%E5%88%86%E6%94%AF.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/media/14927564336623/002_Ubuntu%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/media/14927564336623/003-Linux%E7%9A%84%E6%A0%91%E5%BD%A2%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/14927564336623/001-Windows%E4%B8%8B%E5%A4%9A%E4%B8%AA%E7%9B%98%E4%B8%BA%E8%8A%82%E7%82%B9%E7%9A%84%E7%9B%AE%E5%BD%95%E5%88%86%E6%94%AF.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/14927564336623/002_Ubuntu%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/14927564336623/003-Linux%E7%9A%84%E6%A0%91%E5%BD%A2%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:updated_time" content="2017-05-17T10:58:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="aparke&#39;s blog">
 <meta name="twitter:description" content="文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统   多用户操作系统：指一台计算机在同一时间可以由 多个用户 使用，多个用户共同享用系统的全部硬件和软件资源  Unix 和 Linux">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/media/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/25/linux/文件和目录（理解）/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -215,19 +215,19 @@ var _hmt = _hmt || [];
 <h2 id="02-Windows-和-Linux-文件系统区别"><a href="#02-Windows-和-Linux-文件系统区别" class="headerlink" title="02. Windows 和 Linux 文件系统区别"></a>02. <code>Windows</code> 和 <code>Linux</code> 文件系统区别</h2><h3 id="2-1-Windows-下的文件系统"><a href="#2-1-Windows-下的文件系统" class="headerlink" title="2.1 Windows 下的文件系统"></a>2.1 <code>Windows</code> 下的文件系统</h3><ul>
 <li>在 <code>Windows</code> 下，打开 “计算机”，我们看到的是一个个的驱动器盘符：</li>
 </ul>
-<p><img src="media/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png" alt="001_Windows下的多个盘"></p>
+<p><img src="/2018/03/25/linux/文件和目录（理解）/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png" alt="001_Windows下的多个盘"></p>
 <ul>
 <li>每个驱动器都有自己的根目录结构，这样形成了多个树并列的情形，如图所示：</li>
 </ul>
-<p><img src="media/14927564336623/001-Windows%E4%B8%8B%E5%A4%9A%E4%B8%AA%E7%9B%98%E4%B8%BA%E8%8A%82%E7%82%B9%E7%9A%84%E7%9B%AE%E5%BD%95%E5%88%86%E6%94%AF.png" alt="001-Windows下多个盘为节点的目录分支"></p>
+<p><img src="/2018/03/25/linux/文件和目录（理解）/14927564336623/001-Windows%E4%B8%8B%E5%A4%9A%E4%B8%AA%E7%9B%98%E4%B8%BA%E8%8A%82%E7%82%B9%E7%9A%84%E7%9B%AE%E5%BD%95%E5%88%86%E6%94%AF.png" alt="001-Windows下多个盘为节点的目录分支"></p>
 <h3 id="2-2-Linux-下的文件系统"><a href="#2-2-Linux-下的文件系统" class="headerlink" title="2.2 Linux 下的文件系统"></a>2.2 <code>Linux</code> 下的文件系统</h3><ul>
 <li>在 <code>Linux</code> 下，我们是看不到这些驱动器盘符，我们看到的是文件夹（目录）：</li>
 </ul>
-<p><img src="media/14927564336623/002_Ubuntu%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" alt="002_Ubuntu文件目录"></p>
+<p><img src="/2018/03/25/linux/文件和目录（理解）/14927564336623/002_Ubuntu%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" alt="002_Ubuntu文件目录"></p>
 <ul>
 <li><code>Ubuntu</code> 没有盘符这个概念，只有一个根目录 <code>/</code>，所有文件都在它下面</li>
 </ul>
-<p><img src="media/14927564336623/003-Linux%E7%9A%84%E6%A0%91%E5%BD%A2%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="003-Linux的树形示意图"></p>
+<p><img src="/2018/03/25/linux/文件和目录（理解）/14927564336623/003-Linux%E7%9A%84%E6%A0%91%E5%BD%A2%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="003-Linux的树形示意图"></p>
 <h3 id="2-3-用户目录"><a href="#2-3-用户目录" class="headerlink" title="2.3 用户目录"></a>2.3 用户目录</h3><p>位于 <code>/home/user</code>，称之为用户工作目录或家目录，表示方式：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/home/user</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
 <h3 id="2-4-Linux-主要目录速查表"><a href="#2-4-Linux-主要目录速查表" class="headerlink" title="2.4 Linux 主要目录速查表"></a>2.4 <code>Linux</code> 主要目录速查表</h3><ul>

@@ -15,16 +15,16 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念1.1 基本概念 用户 是 Linux 系统工作中重要的一环，用户管理包括 用户 与 组 管理 在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限 在 Linux 中，可以指定 每一个">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/media/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/media/14934198815905/002_%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/media/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/media/14934198815905/003_su%E5%92%8Cexit%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/media/14934198815905/004_%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/14934198815905/002_%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/14934198815905/003_su%E5%92%8Cexit%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/14934198815905/004_%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:updated_time" content="2017-05-17T10:58:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="aparke&#39;s blog">
 <meta name="twitter:description" content="用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念1.1 基本概念 用户 是 Linux 系统工作中重要的一环，用户管理包括 用户 与 组 管理 在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限 在 Linux 中，可以指定 每一个">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/media/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/25/linux/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -247,7 +247,7 @@ var _hmt = _hmt || [];
 <h3 id="1-2-组"><a href="#1-2-组" class="headerlink" title="1.2 组"></a>1.2 组</h3><ul>
 <li>为了方便用户管理，提出了 <strong>组</strong> 的概念，如下图所示</li>
 </ul>
-<p><img src="media/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_组示意图"></p>
+<p><img src="/2018/03/25/linux/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_组示意图"></p>
 <ul>
 <li>在实际应用中，可以预先针对 <strong>组</strong> 设置好权限，然后 <strong>将不同的用户添加到对应的组中</strong>，从而<strong>不用依次为每一个用户设置权限</strong></li>
 </ul>
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<p><img src="media/14934198815905/002_%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="002_权限示意图"></p>
+<p><img src="/2018/03/25/linux/用户权限相关命令/14934198815905/002_%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="002_权限示意图"></p>
 <h3 id="1-4-chmod-简单使用（重要）"><a href="#1-4-chmod-简单使用（重要）" class="headerlink" title="1.4 chmod 简单使用（重要）"></a>1.4 <code>chmod</code> 简单使用（重要）</h3><ul>
 <li><code>chmod</code> 可以修改 <strong>用户／组</strong> 对 <strong>文件／目录</strong> 的权限</li>
 <li>命令格式如下：</li>
@@ -327,7 +327,7 @@ var _hmt = _hmt || [];
 <li><code>/etc</code> 目录是专门用来保存 <strong>系统配置信息</strong> 的目录</li>
 </ul>
 </blockquote>
-<p><img src="media/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_组示意图"></p>
+<p><img src="/2018/03/25/linux/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_组示意图"></p>
 <ul>
 <li>在实际应用中，可以预先针对 <strong>组</strong> 设置好权限，然后 <strong>将不同的用户添加到对应的组中</strong>，从而<strong>不用依次为每一个用户设置权限</strong></li>
 </ul>
@@ -484,7 +484,7 @@ var _hmt = _hmt || [];
 <li><code>su</code> 不接用户名，可以切换到 <code>root</code>，但是不推荐使用，因为不安全</li>
 <li><code>exit</code> 示意图如下：</li>
 </ul>
-<p><img src="media/14934198815905/003_su%E5%92%8Cexit%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="003_su和exit示意图"></p>
+<p><img src="/2018/03/25/linux/用户权限相关命令/14934198815905/003_su%E5%92%8Cexit%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="003_su和exit示意图"></p>
 <h2 id="04-修改文件权限"><a href="#04-修改文件权限" class="headerlink" title="04. 修改文件权限"></a>04. 修改文件权限</h2><table>
 <thead>
 <tr>
@@ -519,7 +519,7 @@ var _hmt = _hmt || [];
 <li><code>chmod</code> 在设置权限时，可以简单地使用三个数字分别对应 <strong>拥有者</strong> ／ <strong>组</strong> 和 <strong>其他</strong> 用户的权限</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接修改文件|目录的 读|写|执行 权限，但是不能精确到 拥有者|组|其他</span></span><br><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
-<p><img src="media/14934198815905/004_%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="004_文件权限示意图"></p>
+<p><img src="/2018/03/25/linux/用户权限相关命令/14934198815905/004_%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="004_文件权限示意图"></p>
 <ul>
 <li>常见数字组合有（<code>u</code>表示用户／<code>g</code>表示组／<code>o</code>表示其他）：<ul>
 <li><code>777</code> ===&gt; <code>u=rwx,g=rwx,o=rwx</code> </li>
