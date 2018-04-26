@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aparke.cn">
-  <title>Archives: 2017/6 | aparke&#39;s blog</title>
+  <title>Linux 系统信息相关命令 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="aparke.cn,aparke,强李">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aparke&#39;s blog">
-<meta property="og:url" content="http://aparke.cn/archives/2017/06/index.html">
+  <meta name="description" content="Linux 系统信息相关命令 本节内容主要是为了方便通过远程终端维护服务器时，查看服务器上当前 系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况 本小结学习的终端命令基本都是查询命令，通过这些命令对系统资源的使用情况有个了解  目标 时间和日期 date cal   磁盘和目录空间 df du   进程信息 ps top kill    01. 时间和日期">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 系统信息相关命令">
+<meta property="og:url" content="http://aparke.cn/2017/09/30/系统信息相关命令/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="aparke.cn,aparke,强李">
+<meta property="og:description" content="Linux 系统信息相关命令 本节内容主要是为了方便通过远程终端维护服务器时，查看服务器上当前 系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况 本小结学习的终端命令基本都是查询命令，通过这些命令对系统资源的使用情况有个了解  目标 时间和日期 date cal   磁盘和目录空间 df du   进程信息 ps top kill    01. 时间和日期">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-04-26T16:31:49.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aparke&#39;s blog">
-<meta name="twitter:description" content="aparke.cn,aparke,强李">
+<meta name="twitter:title" content="Linux 系统信息相关命令">
+<meta name="twitter:description" content="Linux 系统信息相关命令 本节内容主要是为了方便通过远程终端维护服务器时，查看服务器上当前 系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况 本小结学习的终端命令基本都是查询命令，通过这些命令对系统资源的使用情况有个了解  目标 时间和日期 date cal   磁盘和目录空间 df du   进程信息 ps top kill    01. 时间和日期">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -186,87 +188,363 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-系统信息相关命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/12/install_ubuntu/" class="archive-article-date">
-  	<time datetime="2017-06-12T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/12/install_ubuntu/">在虚拟机中安装 Ubuntu</a>
+    <h1 class="article-title" itemprop="name">
+      Linux 系统信息相关命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/30/系统信息相关命令/" class="archive-article-date">
+  	<time datetime="2017-09-30T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux-系统信息相关命令"><a href="#Linux-系统信息相关命令" class="headerlink" title="Linux 系统信息相关命令"></a>Linux 系统信息相关命令</h1><ul>
+<li>本节内容主要是为了方便通过远程终端维护服务器时，查看服务器上当前 <strong>系统日期和时间</strong> ／ <strong>磁盘空间占用情况</strong> ／ <strong>程序执行情况</strong></li>
+<li>本小结学习的终端命令基本都是查询命令，通过这些命令对系统资源的使用情况有个了解</li>
+</ul>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>时间和日期<ul>
+<li><code>date</code></li>
+<li><code>cal</code></li>
+</ul>
+</li>
+<li>磁盘和目录空间<ul>
+<li><code>df</code></li>
+<li><code>du</code></li>
+</ul>
+</li>
+<li>进程信息<ul>
+<li><code>ps</code></li>
+<li><code>top</code></li>
+<li><code>kill</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="01-时间和日期"><a href="#01-时间和日期" class="headerlink" title="01. 时间和日期 "></a>01. 时间和日期 <a id="more"></a></h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>date</td>
+<td>查看系统时间</td>
+</tr>
+<tr>
+<td>02</td>
+<td>cal</td>
+<td><code>calendar</code> 查看日历，<code>-y</code> 选项可以查看一年的日历</td>
+</tr>
+</tbody>
+</table>
+<h2 id="02-磁盘信息"><a href="#02-磁盘信息" class="headerlink" title="02. 磁盘信息"></a>02. 磁盘信息</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>df -h</td>
+<td><code>disk free</code> 显示磁盘剩余空间</td>
+</tr>
+<tr>
+<td>02</td>
+<td>du -h [目录名]</td>
+<td><code>disk usage</code> 显示目录下的文件大小</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>选项说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h</td>
+<td>以人性化的方式显示文件大小</td>
+</tr>
+</tbody>
+</table>
+<h2 id="03-进程信息"><a href="#03-进程信息" class="headerlink" title="03. 进程信息"></a>03. 进程信息</h2><ul>
+<li>所谓 <strong>进程</strong>，通俗地说就是 <strong>当前正在执行的一个程序</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>ps aux</td>
+<td><code>process status</code> 查看进程的详细状况</td>
+</tr>
+<tr>
+<td>02</td>
+<td>top</td>
+<td>动态显示运行中的进程并且排序</td>
+</tr>
+<tr>
+<td>03</td>
+<td>kill [-9] 进程代号</td>
+<td>终止指定代号的进程，<code>-9</code> 表示强行终止</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>ps</code> 默认只会显示当前用户通过终端启动的应用程序</p>
+</blockquote>
+<ul>
+<li><code>ps</code> 选项说明</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>显示终端上的所有进程，包括其他用户的进程</td>
+</tr>
+<tr>
+<td>u</td>
+<td>显示进程的详细状态</td>
+</tr>
+<tr>
+<td>x</td>
+<td>显示没有控制终端的进程</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>提示：使用 <code>kill</code> 命令时，最好只终止由当前用户开启的进程，而不要终止 <code>root</code> 身份开启的进程，否则可能导致系统崩溃</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>要退出 <code>top</code> 可以直接输入 <code>q</code></li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你,请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://aparke.cn/2017/09/30/系统信息相关命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-01T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/10/06/远程管理常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux 远程管理常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/24/文件和目录常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux 文件和目录常用命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/01/hello-world/">hello-world</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="系统信息相关命令" data-title="Linux 系统信息相关命令" data-url="http://aparke.cn/2017/09/30/系统信息相关命令/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://aparke.cn/2017/09/30/系统信息相关命令/", 
+    sourceId: "系统信息相关命令",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="系统信息相关命令" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -289,8 +567,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
