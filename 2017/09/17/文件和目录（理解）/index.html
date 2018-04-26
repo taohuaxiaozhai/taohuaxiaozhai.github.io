@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://aparke.cn">
   <title>Linux 文件和目录（理解） | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统   多用户操作系统：指一台计算机在同一时间可以由 多个用户 使用，多个用户共同享用系统的全部硬件和软件资源  Unix 和">
+  <meta name="description" content="Linux文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 文件和目录（理解）">
 <meta property="og:url" content="http://aparke.cn/2017/09/17/文件和目录（理解）/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Linux文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统   多用户操作系统：指一台计算机在同一时间可以由 多个用户 使用，多个用户共同享用系统的全部硬件和软件资源  Unix 和">
+<meta property="og:description" content="Linux文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://aparke.cn/2017/09/17/文件和目录（理解）/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/17/文件和目录（理解）/14927564336623/001-Windows%E4%B8%8B%E5%A4%9A%E4%B8%AA%E7%9B%98%E4%B8%BA%E8%8A%82%E7%82%B9%E7%9A%84%E7%9B%AE%E5%BD%95%E5%88%86%E6%94%AF.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/17/文件和目录（理解）/14927564336623/002_Ubuntu%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/17/文件和目录（理解）/14927564336623/003-Linux%E7%9A%84%E6%A0%91%E5%BD%A2%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:updated_time" content="2018-04-26T16:28:36.292Z">
+<meta property="og:updated_time" content="2018-04-26T16:41:48.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 文件和目录（理解）">
-<meta name="twitter:description" content="Linux文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统   多用户操作系统：指一台计算机在同一时间可以由 多个用户 使用，多个用户共同享用系统的全部硬件和软件资源  Unix 和">
+<meta name="twitter:description" content="Linux文件和目录（理解）目标 理解 Linux 文件目录的结构  01. 单用户操作系统和多用户操作系统（科普） 单用户操作系统：指一台计算机在同一时间 只能由一个用户 使用，一个用户独自享用系统的全部硬件和软件资源  Windows XP 之前的版本都是单用户操作系统">
 <meta name="twitter:image" content="http://aparke.cn/2017/09/17/文件和目录（理解）/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 <h2 id="01-单用户操作系统和多用户操作系统（科普）"><a href="#01-单用户操作系统和多用户操作系统（科普）" class="headerlink" title="01. 单用户操作系统和多用户操作系统（科普）"></a>01. 单用户操作系统和多用户操作系统（科普）</h2><ul>
 <li><p><strong>单用户操作系统</strong>：指一台计算机在同一时间 <strong>只能由一个用户</strong> 使用，一个用户独自享用系统的全部硬件和软件资源</p>
 <ul>
-<li><strong>Windows XP</strong> 之前的版本都是单用户操作系统</li>
+<li><strong>Windows XP</strong> 之前的版本都是单用户操作系统<a id="more"></a></li>
 </ul>
 </li>
 <li><p><strong>多用户操作系统</strong>：指一台计算机在同一时间可以由 <strong>多个用户</strong> 使用，多个用户共同享用系统的全部硬件和软件资源</p>
@@ -228,7 +228,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<h2 id="02-Windows-和-Linux-文件系统区别"><a href="#02-Windows-和-Linux-文件系统区别" class="headerlink" title="02. Windows 和 Linux 文件系统区别"></a>02. <code>Windows</code> 和 <code>Linux</code> 文件系统区别</h2><h3 id="2-1-Windows-下的文件系统"><a href="#2-1-Windows-下的文件系统" class="headerlink" title="2.1 Windows 下的文件系统"></a>2.1 <code>Windows</code> 下的文件系统<a id="more"></a></h3><ul>
+<h2 id="02-Windows-和-Linux-文件系统区别"><a href="#02-Windows-和-Linux-文件系统区别" class="headerlink" title="02. Windows 和 Linux 文件系统区别"></a>02. <code>Windows</code> 和 <code>Linux</code> 文件系统区别</h2><h3 id="2-1-Windows-下的文件系统"><a href="#2-1-Windows-下的文件系统" class="headerlink" title="2.1 Windows 下的文件系统"></a>2.1 <code>Windows</code> 下的文件系统</h3><ul>
 <li>在 <code>Windows</code> 下，打开 “计算机”，我们看到的是一个个的驱动器盘符：</li>
 </ul>
 <p><img src="/2017/09/17/文件和目录（理解）/14927564336623/001_Windows%E4%B8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%9B%98.png" alt="001_Windows下的多个盘"></p>

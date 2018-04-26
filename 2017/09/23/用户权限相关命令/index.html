@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://aparke.cn">
   <title>Linux 用户权限相关命令 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux 用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念1.1 基本概念 用户 是 Linux 系统工作中重要的一环，用户管理包括 用户 与 组 管理 在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限 在 Linux 中，可以">
+  <meta name="description" content="Linux 用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 用户权限相关命令">
 <meta property="og:url" content="http://aparke.cn/2017/09/23/用户权限相关命令/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Linux 用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念1.1 基本概念 用户 是 Linux 系统工作中重要的一环，用户管理包括 用户 与 组 管理 在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限 在 Linux 中，可以">
+<meta property="og:description" content="Linux 用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://aparke.cn/2017/09/23/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/23/用户权限相关命令/14934198815905/002_%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/23/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/23/用户权限相关命令/14934198815905/003_su%E5%92%8Cexit%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:image" content="http://aparke.cn/2017/09/23/用户权限相关命令/14934198815905/004_%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:updated_time" content="2018-04-26T16:31:06.725Z">
+<meta property="og:updated_time" content="2018-04-26T16:42:24.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 用户权限相关命令">
-<meta name="twitter:description" content="Linux 用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念1.1 基本概念 用户 是 Linux 系统工作中重要的一环，用户管理包括 用户 与 组 管理 在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限 在 Linux 中，可以">
+<meta name="twitter:description" content="Linux 用户权限相关命令目标 用户 和 权限 的基本概念 用户管理 终端命令 组管理 终端命令 修改权限 终端命令  01. 用户 和 权限 的基本概念">
 <meta name="twitter:image" content="http://aparke.cn/2017/09/23/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
@@ -220,7 +220,8 @@ var _hmt = _hmt || [];
 <li><strong>组管理</strong> 终端命令</li>
 <li><strong>修改权限</strong> 终端命令</li>
 </ul>
-<h2 id="01-用户-和-权限-的基本概念"><a href="#01-用户-和-权限-的基本概念" class="headerlink" title="01. 用户 和 权限 的基本概念"></a>01. <strong>用户</strong> 和 <strong>权限</strong> 的基本概念</h2><h3 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h3><ul>
+<h2 id="01-用户-和-权限-的基本概念"><a href="#01-用户-和-权限-的基本概念" class="headerlink" title="01. 用户 和 权限 的基本概念"></a>01. <strong>用户</strong> 和 <strong>权限</strong> 的基本概念</h2><a id="more"></a>
+<h3 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h3><ul>
 <li><strong>用户</strong> 是 Linux 系统工作中重要的一环，用户管理包括 <strong>用户</strong> 与 <strong>组</strong> 管理</li>
 <li>在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都<strong>必须拥有一个账号</strong>，并且<strong>对于不同的系统资源拥有不同的使用权限</strong></li>
 <li>在 Linux 中，可以指定 <strong>每一个用户</strong> 针对 <strong>不同的文件或者目录</strong> 的 <strong>不同权限</strong></li>
@@ -260,7 +261,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
-<h3 id="1-2-组"><a href="#1-2-组" class="headerlink" title="1.2 组"></a>1.2 组<a id="more"></a></h3><ul>
+<h3 id="1-2-组"><a href="#1-2-组" class="headerlink" title="1.2 组"></a>1.2 组</h3><ul>
 <li>为了方便用户管理，提出了 <strong>组</strong> 的概念，如下图所示</li>
 </ul>
 <p><img src="/2017/09/23/用户权限相关命令/14934198815905/001_%E7%BB%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_组示意图"></p>
