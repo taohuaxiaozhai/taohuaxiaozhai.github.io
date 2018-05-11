@@ -9,7 +9,7 @@
   <title>Ubuntu apache2安装ssl证书 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Welcome to aparke’s blog!  前言">
-<meta name="keywords" content="网站">
+<meta name="keywords" content="网站，linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu apache2安装ssl证书">
 <meta property="og:url" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/index.html">
@@ -27,13 +27,15 @@
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/08.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/09.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/10.jpg">
+<meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/11.jpg">
+<meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/12.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/13.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/14.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/15.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/16.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/17.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/18.jpg">
-<meta property="og:updated_time" content="2018-05-11T19:38:45.730Z">
+<meta property="og:updated_time" content="2018-05-11T19:55:37.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu apache2安装ssl证书">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  前言">
@@ -235,7 +237,7 @@ var _hmt = _hmt || [];
 <h2 id="1-先简单介绍一下ssl"><a href="#1-先简单介绍一下ssl" class="headerlink" title="1.先简单介绍一下ssl"></a><strong>1.先简单介绍一下ssl</strong></h2><p>网站使用ssl必将是一个趋势。<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/01.jpg" alt="01"></p>
 <p>据外媒报道，自2018年5月1日起，如果Https网站所使用的SSL凭证未出现在公共证书透明度（Certificate Transparency，以下简称CT）日志中，谷歌Chrome浏览器就会出现全屏警告画面。</p>
 <p>SSL是网站安全重要的防护。目前，SSL证书的使用范围遍及世界各地网络。SSL对于网站来说是十分重要的安全协议，因为它能保护网站以及用户的个人隐私信息，以及数据的安全性和完整性。详细介绍<a href="https://baike.baidu.com/item/ssl/320778?fr=aladdin" target="_blank" rel="noopener">关于ssl</a></p>
-<h2 id="2-安装apache2"><a href="#2-安装apache2" class="headerlink" title="2.安装apache2"></a><strong>2.安装apache2</strong></h2><p> 本次实验使用腾讯云的服务器Ubuntu14.04<strong>（属于Debian一下方法都可以实现）</strong></p>
+<h2 id="2-安装apache2"><a href="#2-安装apache2" class="headerlink" title="2.安装apache2"></a><strong>2.安装apache2</strong></h2><p> 本次实验使用腾讯云的服务器Ubuntu14.04<strong>（属于Debian以下方法都可以实现）</strong></p>
 <p> 使用ip:<strong>110.230.107.42</strong></p>
 <p> 使用的域名：<strong>xsscss.cn</strong> (提到此域名，我就得说一下我一直付费到2024年啦，都是money啊23333)</p>
 <p> 使用的证书：由腾讯云提供的免费证书（怎么申请自行百度）</p>
@@ -243,8 +245,9 @@ var _hmt = _hmt || [];
 <li>1.)<strong>安装apache</strong>   </li>
 </ul>
 <blockquote>
-<p>为了方便 我直接使用root权限操作一切（<figure class="highlight plain"><figcaption><span>一般使用使用执行命令需要```sudo``` ）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"># sudo su</span><br></pre></td></tr></table></figure></p>
+<p>为了方便 我直接使用root权限操作一切（<code>ubuntu</code> 一般使用使用执行命令需要<code>sudo</code>）</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo su</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apt install apache2 -y</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/02.jpg" alt="02"></p>
 <ul>
@@ -265,7 +268,7 @@ var _hmt = _hmt || [];
 <p>其中 <strong> apache2.conf</strong> 是整个Apache的主配置文件</p>
 <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/04.jpg" alt="04"></p>
 <h2 id="3-安装openssl"><a href="#3-安装openssl" class="headerlink" title="3.安装openssl"></a><strong>3.安装openssl</strong></h2><p>其实一般最新的服务器都会<strong>默认自带openssl</strong>的，本次实验我们覆盖安装最新的，是没有影响的，如果非要卸载再安装的给你一行代码自己实现</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#~~ apt remove openssl~~</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apt remove openssl</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>1.)<strong>安装openssl以及所需要的依赖包</strong></li>
 </ul>
@@ -318,20 +321,25 @@ var _hmt = _hmt || [];
 <p>2_xsscss.cn.crt证书公钥(一般以域名命名)</p>
 <p>3_xsscss.cn.key私钥文件(一般以域名命名)</p>
 <p>接下里我们要做的就是让<strong>ssl模块</strong>加载这三个文件</p>
-<h2 id="5-配置openssl"><a href="#5-配置openssl" class="headerlink" title="5.配置openssl"></a><strong>5.配置openssl</strong></h2><p>####Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件</p>
+<h2 id="5-配置openssl"><a href="#5-配置openssl" class="headerlink" title="5.配置openssl"></a><strong>5.配置openssl</strong></h2><h4 id="Apache加载SSL模块后，会在-etc-apache2-sites-available下生成default-ssl-conf文件"><a href="#Apache加载SSL模块后，会在-etc-apache2-sites-available下生成default-ssl-conf文件" class="headerlink" title="Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件"></a>Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件</h4><p><strong>配置三个地方</strong></p>
 <ul>
 <li>1.）进入配置</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /etc/apache2/sites-available/</span></span><br><span class="line"><span class="comment"># ls</span></span><br><span class="line"><span class="comment"># vi default-ssl.conf</span></span><br></pre></td></tr></table></figure>
-<p><strong>配置三个地方</strong></p>
-<blockquote>
 <ul>
-<li>添加一个</li>
+<li>添加一行</li>
 </ul>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>www.xsscss.cn```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; * 添加（修改）链接到三个证书文件，注意自己ssl证书所在的路径</span><br></pre></td></tr></table></figure>
-<p> SSLCertificateFile      /etc/apache2/ssl/2_xsscss.cn.crt<br> SSLCertificateKeyFile  /etc/apache2/ssl/3_xsscss.cn.key<br> SSLCertificateChainFile  /etc/apache2/ssl/1_root_bundle.crt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">![11](Ubuntu-Apache2安装ssl证书/11.jpg)</span><br><span class="line">![12](Ubuntu-Apache2安装ssl证书/12.jpg)</span><br><span class="line"></span><br><span class="line">* 2.）设置一个软链接使其apache加载ssl配置文件</span><br><span class="line"></span><br><span class="line">进入到site-enabled文夹中查看当期只有一个000-default.conf文件</span><br><span class="line">通过一些命令做一个映射使其apache加载ssl配置文件</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"> #cd /etc/apache2/sites-enabled/</span><br><span class="line"> #ls </span><br><span class="line"> #ln -s /etc/apache2/sites-available/default-ssl.conf ./</span><br></pre></td></tr></table></figure>
+<p><code>ServerName www.xsscss.cn</code></p>
+<ul>
+<li>添加（修改）链接到三个证书文件，注意自己ssl证书所在的路径</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SSLCertificateFile      /etc/apache2/ssl/2_xsscss.cn.crt</span><br><span class="line">SSLCertificateKeyFile  /etc/apache2/ssl/3_xsscss.cn.key</span><br><span class="line">SSLCertificateChainFile  /etc/apache2/ssl/1_root_bundle.crt</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/11.jpg" alt="11"><br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/12.jpg" alt="12"></p>
+<ul>
+<li>2.）设置一个软链接使其apache加载ssl配置文件</li>
+</ul>
+<p>进入到site-enabled文夹中查看当期只有一个000-default.conf文件<br>通过一些命令做一个映射使其apache加载ssl配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#cd /etc/apache2/sites-enabled/</span></span><br><span class="line"><span class="comment">#ls </span></span><br><span class="line"><span class="comment">#ln -s /etc/apache2/sites-available/default-ssl.conf ./</span></span><br></pre></td></tr></table></figure>
 <p>映射（创建软链接）成功后会发现在/etc/apache2/sites-enabled/ 下增加了default-ssl.conf文件，实际是一个软链接</p>
 <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/13.jpg" alt="13"></p>
 <ul>
@@ -348,12 +356,11 @@ var _hmt = _hmt || [];
 </ul>
 </blockquote>
 <p><strong>进入正题</strong>：<br>—修改两个地方或者一个我这使用两个地方：</p>
-<p>url重定向嘛，就是访问”<a href="http://xsscss.cn&quot;自动跳转到&quot;https://xsscss.cn&quot;上去了" target="_blank" rel="noopener">http://xsscss.cn&quot;自动跳转到&quot;https://xsscss.cn&quot;上去了</a></p>
+<p>url重定向嘛，就是访问”<a href="http://xsscss.cn" target="_blank" rel="noopener">http://xsscss.cn</a>“  自动跳转到  “<a href="https://xsscss.cn&quot;上去了" target="_blank" rel="noopener">https://xsscss.cn&quot;上去了</a></p>
 <ul>
 <li>首先：配置我们最初说的<strong><em>apache.conf</em></strong>核心文件<br>修改 AllowOverride 参数None 为All 根据字面意思我们就知道了 允许覆盖为all</li>
 </ul>
-<p>修改前<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/15.jpg" alt="15"></p>
-<p>修改后<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/16.jpg" alt="16"></p>
+<p>修改前<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/15.jpg" alt="15"><br>修改后<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/16.jpg" alt="16"></p>
 <ul>
 <li>然后：在网站根目录下 /var/www使用 touch .htaccess创建.htaccess文件</li>
 </ul>
@@ -362,16 +369,20 @@ var _hmt = _hmt || [];
 <p>先百描述一波<strong>.htaccess文件</strong>(或者”分布式配置文件”）,全称是Hypertext Access(超文本入口)。<strong>提供了针对目录改变配置的方法</strong>， 即，在一个特定的文档目录中放置一个包含一个或多个指令的文件， 以作用于此目录及其所有子目录。作为用户，所能使用的命令受到限制。管理员可以通过Apache的AllowOverride指令来设置。</p>
 </blockquote>
 <p>这个文件要是有php环境等其他动态网站的话  我们需要自己新建一个把我们需要的URL跳转规则放进去<br>这个的话有好几种实现方法</p>
-<p>1.全服务器网站跳转<br>2.一个网站跳转<br>3.某些页面（目录跳转）</p>
+<ul>
+<li>1.全服务器网站跳转</li>
+<li>2.一个网站跳转</li>
+<li>3.某些页面（目录跳转）</li>
+</ul>
 <p>这里主要讲下全服务器网站和单个网站跳转</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi .htaceess</span></span><br></pre></td></tr></table></figure>
 <h4 id="全服务器跳转："><a href="#全服务器跳转：" class="headerlink" title="全服务器跳转："></a>全服务器跳转：</h4><p>添加以下代码(使用正则表达式过滤的，在Java和python爬虫中用过，还有js验证过滤用的也多)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; !^443$</span><br><span class="line">RewriteRule ^(.*)?$ https://%&#123;SERVER_NAME&#125;/$1 [L,R]</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/17.jpg" alt="17"></p>
 <h4 id="如果对某个目录做强制跳转，则使用以下代码："><a href="#如果对某个目录做强制跳转，则使用以下代码：" class="headerlink" title="如果对某个目录做强制跳转，则使用以下代码："></a>如果对某个目录做强制跳转，则使用以下代码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line">#RewriteBase /website</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; !^443$</span><br><span class="line">RewriteRule ^.*$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]</span><br></pre></td></tr></table></figure>
-<p>Apache http访问转到https</p>
-<h2 id="7-测试访问"><a href="#7-测试访问" class="headerlink" title="7.测试访问"></a><strong>7.测试访问</strong></h2><p>最后重启服务</p>
+<p>最后重启服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># service apache2 restart</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-测试访问"><a href="#7-测试访问" class="headerlink" title="7.测试访问"></a><strong>7.测试访问</strong></h2><p>至此  Apache http访问转到https 配置结束</p>
 <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/18.jpg" alt="18"></p>
 <p>大功告成</p>
 <p>需注意到地方（会一直跟新这个地方，把我遇到的坑，都会罗列出来）</p>
@@ -412,7 +423,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网站，linux</a>
         		</li>
       		
 		</ul>
@@ -684,7 +695,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color4">网站，linux</a>
               </li>
              
               <li class="article-tag-list-item">
