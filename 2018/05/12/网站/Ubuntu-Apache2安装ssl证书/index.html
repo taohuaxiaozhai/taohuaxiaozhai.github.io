@@ -9,15 +9,15 @@
   <title>Ubuntu apache2安装ssl证书 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Welcome to aparke’s blog!  前言">
-<meta name="keywords" content="网站，linux">
+<meta name="keywords" content="网站,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu apache2安装ssl证书">
 <meta property="og:url" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog!  前言">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/Google-ssl.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/01.jpg">
+<meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/Google-ssl.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/02.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/03.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/04.jpg">
@@ -31,15 +31,16 @@
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/12.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/13.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/14.jpg">
+<meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/ssl.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/15.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/16.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/17.jpg">
 <meta property="og:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/18.jpg">
-<meta property="og:updated_time" content="2018-05-11T19:55:37.358Z">
+<meta property="og:updated_time" content="2018-05-11T20:03:53.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu apache2安装ssl证书">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  前言">
-<meta name="twitter:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/Google-ssl.jpg">
+<meta name="twitter:image" content="http://aparke.cn/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/01.jpg">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -228,13 +229,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/Google-ssl.jpg" alt="Google-ssl"></p>
+        <p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/01.jpg" alt="01"></p>
 <p>Welcome to <a href="http://aparke.cn">aparke’s blog</a>! </p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><a id="more"></a>
 <blockquote>
 <p>好久没有动手写过博客了，之后有时间再把原来在wordpress上搭建网站的文章迁过来（因为自己的md语法还不是很熟练，所以一直没更新）<br>前几天看见群里有同学说安装了ssl证书了后，网站直接403了，也就是资源请求错误。感觉他可能一个跳转没写好，于是我就自己在Ubuntu上测试一下 其实不管什么版本基本都一样。下面卖弄一下自己实现的方法。</p>
 </blockquote>
-<h2 id="1-先简单介绍一下ssl"><a href="#1-先简单介绍一下ssl" class="headerlink" title="1.先简单介绍一下ssl"></a><strong>1.先简单介绍一下ssl</strong></h2><p>网站使用ssl必将是一个趋势。<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/01.jpg" alt="01"></p>
+<h2 id="1-先简单介绍一下ssl"><a href="#1-先简单介绍一下ssl" class="headerlink" title="1.先简单介绍一下ssl"></a><strong>1.先简单介绍一下ssl</strong></h2><p>网站使用ssl必将是一个趋势。<br><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/Google-ssl.jpg" alt="01"></p>
 <p>据外媒报道，自2018年5月1日起，如果Https网站所使用的SSL凭证未出现在公共证书透明度（Certificate Transparency，以下简称CT）日志中，谷歌Chrome浏览器就会出现全屏警告画面。</p>
 <p>SSL是网站安全重要的防护。目前，SSL证书的使用范围遍及世界各地网络。SSL对于网站来说是十分重要的安全协议，因为它能保护网站以及用户的个人隐私信息，以及数据的安全性和完整性。详细介绍<a href="https://baike.baidu.com/item/ssl/320778?fr=aladdin" target="_blank" rel="noopener">关于ssl</a></p>
 <h2 id="2-安装apache2"><a href="#2-安装apache2" class="headerlink" title="2.安装apache2"></a><strong>2.安装apache2</strong></h2><p> 本次实验使用腾讯云的服务器Ubuntu14.04<strong>（属于Debian以下方法都可以实现）</strong></p>
@@ -321,7 +322,8 @@ var _hmt = _hmt || [];
 <p>2_xsscss.cn.crt证书公钥(一般以域名命名)</p>
 <p>3_xsscss.cn.key私钥文件(一般以域名命名)</p>
 <p>接下里我们要做的就是让<strong>ssl模块</strong>加载这三个文件</p>
-<h2 id="5-配置openssl"><a href="#5-配置openssl" class="headerlink" title="5.配置openssl"></a><strong>5.配置openssl</strong></h2><h4 id="Apache加载SSL模块后，会在-etc-apache2-sites-available下生成default-ssl-conf文件"><a href="#Apache加载SSL模块后，会在-etc-apache2-sites-available下生成default-ssl-conf文件" class="headerlink" title="Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件"></a>Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件</h4><p><strong>配置三个地方</strong></p>
+<h2 id="5-配置openssl"><a href="#5-配置openssl" class="headerlink" title="5.配置openssl"></a><strong>5.配置openssl</strong></h2><p><strong>Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件</strong></p>
+<p><strong><em>需要配置三个地方</em></strong></p>
 <ul>
 <li>1.）进入配置</li>
 </ul>
@@ -355,6 +357,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </blockquote>
+<p><img src="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/ssl.jpg" alt="ssl">)</p>
 <p><strong>进入正题</strong>：<br>—修改两个地方或者一个我这使用两个地方：</p>
 <p>url重定向嘛，就是访问”<a href="http://xsscss.cn" target="_blank" rel="noopener">http://xsscss.cn</a>“  自动跳转到  “<a href="https://xsscss.cn&quot;上去了" target="_blank" rel="noopener">https://xsscss.cn&quot;上去了</a></p>
 <ul>
@@ -423,7 +426,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网站，linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网站,Linux</a>
         		</li>
       		
 		</ul>
@@ -695,7 +698,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网站，linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
               </li>
              
               <li class="article-tag-list-item">
