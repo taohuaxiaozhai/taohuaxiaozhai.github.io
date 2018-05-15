@@ -9,22 +9,22 @@
   <title>Centos下搭建LNMP环境最后安装wordpress | aparke &#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Welcome to aparke’s blog!">
-<meta name="keywords" content="Linux,网站">
+<meta name="keywords" content="网站,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos下搭建LNMP环境最后安装wordpress">
-<meta property="og:url" content="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/index.html">
+<meta property="og:url" content="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/index.html">
 <meta property="og:site_name" content="aparke &#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog!">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/01.JPG">
-<meta property="og:image" content="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/02.JPG">
-<meta property="og:image" content="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/03.JPG">
-<meta property="og:image" content="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/05.JPG">
-<meta property="og:updated_time" content="2018-05-15T08:12:56.392Z">
+<meta property="og:image" content="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/01.JPG">
+<meta property="og:image" content="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/02.JPG">
+<meta property="og:image" content="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/03.JPG">
+<meta property="og:image" content="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/05.JPG">
+<meta property="og:updated_time" content="2018-05-15T08:42:47.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos下搭建LNMP环境最后安装wordpress">
 <meta name="twitter:description" content="Welcome to aparke’s blog!">
-<meta name="twitter:image" content="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/01.JPG">
+<meta name="twitter:image" content="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/01.JPG">
   
     <link rel="alternative" href="/atom.xml" title="aparke &#39;s blog" type="application/atom+xml">
   
@@ -205,15 +205,16 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/" class="archive-article-date">
-  	<time datetime="2017-11-01T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
+        <a href="/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/" class="archive-article-date">
+  	<time datetime="2017-11-01T16:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://aparke.cn">aparke’s blog</a>!<br><img src="/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/01.JPG" alt="01"><br><a id="more"></a><br>实验环境：<strong>Centos 6.8 32</strong><br>考虑到很多镜像的源可能不同，以下代码可能直接测试在你的服务器或者虚拟机里会失效。</p>
+        <hr>
+<p>Welcome to <a href="http://aparke.cn">aparke’s blog</a>!<br><img src="/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/01.JPG" alt="01"><br><a id="more"></a><br>实验环境：<strong>Centos 6.8 32</strong><br>考虑到很多镜像的源可能不同，以下代码可能直接测试在你的服务器或者虚拟机里会失效。</p>
 <p>问题不大，一般的源里这些文件都有。想要和本实验的代码实现一摸一样的话，最直接的解决办法就是换源成和我的一样。我使用的是腾讯云的源。</p>
 <p>另外呢，我会在以下文章解决源不同，怎么安装这些软件。</p>
 <hr>
@@ -267,7 +268,7 @@ var _hmt = _hmt || [];
 <li>浏览器访问：<code>http://localhost</code> 或者<code>127.0.0.1</code> 或者子网ip</li>
 <li>出现以下页面则安装完成</li>
 </ul>
-<p><img src="/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/02.JPG" alt="02"></p>
+<p><img src="/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/02.JPG" alt="02"></p>
 <h2 id="第二步：安装MySQL数据库服务"><a href="#第二步：安装MySQL数据库服务" class="headerlink" title="第二步：安装MySQL数据库服务"></a>第二步：安装MySQL数据库服务</h2><hr>
 <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a><strong>安装MySQL</strong></h3><blockquote>
 <p>使用  yum 安装MySQL：</p>
@@ -297,7 +298,7 @@ var _hmt = _hmt || [];
 <p>退出MySQL环境：</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qiut</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/03.JPG" alt="03"></p>
+<p><img src="/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/03.JPG" alt="03"></p>
 <h3 id="至此MySQL安装配置完成"><a href="#至此MySQL安装配置完成" class="headerlink" title="至此MySQL安装配置完成"></a><strong>至此MySQL安装配置完成</strong></h3><h2 id="第三步：搭建-PHP-环境"><a href="#第三步：搭建-PHP-环境" class="headerlink" title="第三步：搭建 PHP 环境"></a>第三步：搭建 PHP 环境</h2><hr>
 <h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a><strong>安装 PHP</strong></h3><blockquote>
 <p>安装php 和php-fpm php-mysql软件包</p>
@@ -335,13 +336,22 @@ var _hmt = _hmt || [];
 </ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   phpinfo();</span><br></pre></td></tr></table></figure>
 <ul>
-<li>访问IP网址：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 出现PHP版本号及一些权限是否打开的详细信息，则安装完成。</span><br><span class="line"></span><br><span class="line">![04](Centos下搭建LNMP环境最后安装wordpress/04.JPG)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 第四步：安装 WordPress</span><br><span class="line">---</span><br><span class="line">**配置好 LNMP 环境后，继续使用 yum 来安装 WordPress：**</span><br><span class="line">### **安装 WordPress**</span><br></pre></td></tr></table></figure>
+<li>访问IP网址：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 出现PHP版本号及一些权限是否打开的详细信息，则安装完成。</span><br><span class="line"></span><br><span class="line">![04](Centos搭建LNMP环境安装wordpress/04.JPG)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 第四步：安装 WordPress</span><br><span class="line">---</span><br><span class="line">**配置好 LNMP 环境后，继续使用 yum 来安装 WordPress：**</span><br><span class="line">### **安装 WordPress**</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">yum install wordpress -y</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>yum install wordpress -y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;另外呢,此部分可参考 `wget`下载到本地也是可以安装的，这里也提一下(我用的是wget 可以使用中文版本),`unzip`解压了，然后`mv`到`/usr/share/wordpress`下</span><br></pre></td></tr></table></figure></p>
-<pre><code>wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.zip
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;安装完成后，就可以在/usr/share/wordpress  看到WordPress的源代码了</span><br><span class="line"></span><br><span class="line">### **创建wordpress的nginx配置文件**</span><br><span class="line">&gt;配置Nginx</span><br><span class="line"></span><br><span class="line">***WordPress已经安装完毕，我们配置Nginx把请求转发给PHP-FPM来处理***</span><br><span class="line"></span><br><span class="line">* 首先，重命名默认的配置文件：</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">cd /etc/nginx/conf.d/</span><br><span class="line">mv default.conf defaut.conf.bak</span><br></pre></td></tr></table></figure>
-</code></pre><ul>
+<blockquote>
+<p>另外呢，此部分可参考 <code>wget</code>下载到本地也是可以安装的，这里也提一下(我用的是wget 可以使用中文版本),<code>unzip</code>解压了，然后<code>mv</code>到<code>/usr/share/wordpress</code>下<br><code>wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.zip</code></p>
+<p>安装完成后，就可以在/usr/share/wordpress  看到WordPress的源代码了</p>
+</blockquote>
+<h3 id="创建wordpress的nginx配置文件"><a href="#创建wordpress的nginx配置文件" class="headerlink" title="创建wordpress的nginx配置文件"></a><strong>创建wordpress的nginx配置文件</strong></h3><blockquote>
+<p>配置Nginx</p>
+</blockquote>
+<p><strong><em>WordPress已经安装完毕，我们配置Nginx把请求转发给PHP-FPM来处理</em></strong></p>
+<ul>
+<li>首先，重命名默认的配置文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/conf.d/</span><br><span class="line">mv default.conf defaut.conf.bak</span><br></pre></td></tr></table></figure>
+<ul>
 <li>然后，在<code>/etc/nginx/conf.d</code>创建<code>wordpress.conf</code>配置，参考下面的内容：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen <span class="number">80</span>;</span><br><span class="line">root /usr/share/wordpress;</span><br><span class="line">location / &#123;</span><br><span class="line">index index.php index.html index.htm;</span><br><span class="line">try_files $uri $uri/ /index.php index.php;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">#pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">location ~ .php$ &#123;</span><br><span class="line">fastcgi_pass <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -372,7 +382,7 @@ var _hmt = _hmt || [];
 <p>最后重启nginx</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/05.JPG" alt="04"></p>
+<p><img src="/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/05.JPG" alt="04"></p>
 
       
 
@@ -407,7 +417,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux,网站</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网站,Linux</a>
         		</li>
       		
 		</ul>
@@ -463,7 +473,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -516,7 +526,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="网站/Centos下搭建LNMP环境最后安装wordpress" data-title="Centos下搭建LNMP环境最后安装wordpress" data-url="http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/"></div>
+	<div class="ds-thread" data-thread-key="网站/Centos下搭建LNMP环境最后安装wordpress" data-title="Centos下搭建LNMP环境最后安装wordpress" data-url="http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -539,7 +549,7 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://aparke.cn/2017/11/01/网站/Centos下搭建LNMP环境最后安装wordpress/", 
+    url: "http://aparke.cn/2017/11/02/网站/Centos下搭建LNMP环境最后安装wordpress/", 
     sourceId: "网站/Centos下搭建LNMP环境最后安装wordpress",
     productKey: "true",
     target: "cloud-tie-wrapper"
@@ -685,10 +695,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux,网站</a>
               </li>
              
               <li class="article-tag-list-item">
