@@ -17,7 +17,7 @@
 <meta property="og:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
-<meta property="og:updated_time" content="2018-07-19T10:59:35.166Z">
+<meta property="og:updated_time" content="2018-07-19T11:05:37.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6.x下MySQL5.5以上编译安装">
 <meta name="twitter:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
@@ -242,13 +242,14 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>以上的编译的参数可以参考<a href="http://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html" target="_blank" rel="noopener"><strong>点此</strong></a>!</p>
 </blockquote>
-<p><strong>cmake</strong> 安装要是出错了 就安装在上面的第二条依赖并且一定要删除掉CMakeCache.txt重新<figure class="highlight cmake"><figcaption><span>\```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```bash</span><br><span class="line">rm -rf CMakeCache.txt</span><br></pre></td></tr></table></figure></p>
+<p><strong>cmake</strong> 安装要是出错了 就安装在上面的第二条依赖并且一定要删除掉CMakeCache.txt重新cmake</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf CMakeCache.txt</span><br></pre></td></tr></table></figure>
 <h2 id="修改-usr-local-mysql权限"><a href="#修改-usr-local-mysql权限" class="headerlink" title="修改/usr/local/mysql权限"></a>修改/usr/local/mysql权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +w /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">chown -R mysql:mysql /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">cp support-files/my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
 <p>执行初始化配置脚本，创建系统自带的数据库和表，注意配置文件的路径：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --defaults-file=/etc/my.cnf --basedir=/usr/<span class="built_in">local</span>/mysql --datadir=/usr/<span class="built_in">local</span>/mysql/data --user=mysql</span><br></pre></td></tr></table></figure>
 <p>拷贝mysql安装目录下support-files服务脚本到init.d目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">**赋予权限:**</span><br><span class="line">chmod +x /etc/init.d/mysqld</span><br><span class="line">**设置开机启动/可以不操作**</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">**启动mysql**</span><br><span class="line">service mysqld start</span><br><span class="line">**或者**</span><br><span class="line">/etc/init.d/mysql start</span><br></pre></td></tr></table></figure>
-<h3 id="MySQL5-6-x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不-不能直接调用mysql，操作如下："><a href="#MySQL5-6-x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不-不能直接调用mysql，操作如下：" class="headerlink" title="MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不,不能直接调用mysql，操作如下："></a>MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不,不能直接调用mysql，操作如下：</h3><p>修改/etc/profile文件</p>
+<h3 id="MySQL5-6-x启动成功后，root默认没有密码，我们需要设置root密码。先配置环境变量："><a href="#MySQL5-6-x启动成功后，root默认没有密码，我们需要设置root密码。先配置环境变量：" class="headerlink" title="MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。先配置环境变量："></a>MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。先配置环境变量：</h3><p>修改/etc/profile文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
 <p>在文件末尾添加</p>
 <figure class="highlight bash"><figcaption><span>php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=/usr/<span class="built_in">local</span>/mysql/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
@@ -257,8 +258,7 @@ var _hmt = _hmt || [];
 <p>登陆,直接回车就可进入</p>
 <p>设置mysql密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/bin/mysqladmin -uroot -p password <span class="string">'123456'</span></span><br></pre></td></tr></table></figure></p>
 <p><em>到这里MySQL编译安装就完成了</em></p>
-<p>###可能遇到的坑：</p>
-<p>初始化默认数据库运行此命令：</p>
+<h3 id="可能遇到的坑："><a href="#可能遇到的坑：" class="headerlink" title="可能遇到的坑："></a>可能遇到的坑：</h3><p>初始化默认数据库运行此命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/ </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">**出现错误：**</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">FATAL ERROR: please install the following Perl modules before executing /usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db:</span><br></pre></td></tr></table></figure>
 <p>初始化mysql数据库提示缺少Data:dumper模块解决方法<br>Data::Dumper   </p>
 <p><strong>解决方法：</strong> 安装autoconf库</p>
