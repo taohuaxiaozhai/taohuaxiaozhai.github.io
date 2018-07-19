@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aparke.cn">
-  <title>CentOS6.x下MySQL5.6.2编译安装 | aparke&#39;s blog</title>
+  <title>CentOS6.x下MySQL5.5以上编译安装 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS6.x下MySQL5.6.2编译安装">
+<meta property="og:title" content="CentOS6.x下MySQL5.5以上编译安装">
 <meta property="og:url" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
-<meta property="og:updated_time" content="2018-07-19T10:49:29.220Z">
+<meta property="og:updated_time" content="2018-07-19T10:59:35.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS6.x下MySQL5.6.2编译安装">
+<meta name="twitter:title" content="CentOS6.x下MySQL5.5以上编译安装">
 <meta name="twitter:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
 <meta name="twitter:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
   
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS6.x下MySQL5.6.2编译安装
+      CentOS6.x下MySQL5.5以上编译安装
     </h1>
   
 
@@ -217,53 +217,51 @@ var _hmt = _hmt || [];
 <p>源码安装步骤：<br>    1、下载<br>    2、查看源码<br>    3、准备编译环境<br>    4、检查（依赖，兼容），预编译<br>    5、编译<br>    6、安装<a id="more"></a></p>
 </blockquote>
 <h2 id="检查是否安装了mysql"><a href="#检查是否安装了mysql" class="headerlink" title="检查是否安装了mysql"></a>检查是否安装了mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep mysql</span><br></pre></td></tr></table></figure>
-<p><strong>如果安装了就卸载</strong></p>
-<p><strong>强制删除</strong></p>
+<p>如果安装了就卸载</p>
+<p>强制删除</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e  --nodeps mysql-libs-5.1.73-3.el6_5.x86_64</span><br></pre></td></tr></table></figure>
-<p><strong>普通模式删除</strong></p>
+<p>普通模式删除</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e mysql</span><br></pre></td></tr></table></figure>
-<p><strong>创建用户组并且添加一个用户</strong></p>
+<p>创建用户组并且添加一个用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br></pre></td></tr></table></figure>
-<p><strong>创建一个用户，不允许登陆和不创主目录</strong></p>
+<p>创建一个用户，不允许登陆和不创主目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /sbin/nologin -g mysql -M mysql</span><br></pre></td></tr></table></figure>
-<p><strong>检查创建用户</strong></p>
+<p>检查创建用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -10 /etc/passwd</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注：MySQL从5.5版本开始，通过./configure进行编译配置方式已经被取消，取而代之的是cmake工具。因此，我们首先要在系统中源码编译安装cmake工具。</strong></p>
 </blockquote>
-<p>##安装编译代码需要的包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc-c++ cmake bison-devel  ncurses-devel</span><br><span class="line"></span><br><span class="line">如果之后cmake安装的时候还报错，就是缺少依赖，在安装下面的这些依赖，有点慢</span><br><span class="line"></span><br><span class="line">yum install make  autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel  perl kernel-headers compat*  cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel  libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libpng* ncurses* libtool* libxml2-devel  bison libaio-devel</span><br></pre></td></tr></table></figure>
-<p><strong>上传本地下载好的mysql源码文件</strong></p>
-<p><strong>解压</strong></p>
+<h2 id="安装编译代码需要的包"><a href="#安装编译代码需要的包" class="headerlink" title="安装编译代码需要的包"></a>安装编译代码需要的包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc-c++ cmake bison-devel  ncurses-devel</span><br><span class="line"></span><br><span class="line">如果之后cmake安装的时候还报错，就是缺少依赖，在安装下面的这些依赖，有点慢</span><br><span class="line"></span><br><span class="line">yum install make  autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel  perl kernel-headers compat*  cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel  libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libpng* ncurses* libtool* libxml2-devel  bison libaio-devel</span><br></pre></td></tr></table></figure>
+<p>上传本地下载好的mysql源码文件</p>
+<p>解压</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mysql-5.6.37.tar.gz | <span class="built_in">cd</span> mysql</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake \</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql \	<span class="comment">#指定安装目录</span></span><br><span class="line">-DMYSQL_DATADIR=/usr/<span class="built_in">local</span>/mysql/data \		<span class="comment">#mysql数据文件存放目录</span></span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \		<span class="comment">#安装myisam存储引擎</span></span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \		<span class="comment">#安装innodb存储引擎</span></span><br><span class="line">-DWITH_MEMORY_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_READLINE=1 \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/var/lib/mysql/mysql.sock \	<span class="comment">#指定mysql.sock地址</span></span><br><span class="line">-DMYSQL_TCP_PORT=3306 \				<span class="comment">#端口</span></span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \			<span class="comment">#指定默认的字符集</span></span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \	<span class="comment">#指定默认的排序字符集</span></span><br><span class="line">-DMYSQL_USER=mysql \</span><br><span class="line">-DWITH_DEBUG=0 \</span><br><span class="line">-DWITH_SSL=system</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<p><strong>最后</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql \	<span class="comment">#指定安装目录</span></span><br><span class="line">-DMYSQL_DATADIR=/usr/<span class="built_in">local</span>/mysql/data \		<span class="comment">#mysql数据文件存放目录</span></span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \		<span class="comment">#安装myisam存储引擎</span></span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \		<span class="comment">#安装innodb存储引擎</span></span><br><span class="line">-DWITH_MEMORY_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_READLINE=1 \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/var/lib/mysql/mysql.sock \	<span class="comment">#指定mysql.sock地址</span></span><br><span class="line">-DMYSQL_TCP_PORT=3306 \				<span class="comment">#端口</span></span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \			<span class="comment">#指定默认的字符集</span></span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \		<span class="comment">#指定默认的排序字符集</span></span><br><span class="line">-DMYSQL_USER=mysql \</span><br><span class="line">-DWITH_DEBUG=0 \</span><br><span class="line">-DWITH_SSL=system</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>最后</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>以上的编译的参数可以参考<a href="http://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html" target="_blank" rel="noopener"><strong>点此</strong></a>!</p>
 </blockquote>
 <p><strong>cmake</strong> 安装要是出错了 就安装在上面的第二条依赖并且一定要删除掉CMakeCache.txt重新<figure class="highlight cmake"><figcaption><span>\```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```bash</span><br><span class="line">rm -rf CMakeCache.txt</span><br></pre></td></tr></table></figure></p>
-<p>##修改/usr/local/mysql权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +w /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">chown -R mysql:mysql /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">cp support-files/my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p><strong>执行初始化配置脚本，创建系统自带的数据库和表，注意配置文件的路径：</strong></p>
+<h2 id="修改-usr-local-mysql权限"><a href="#修改-usr-local-mysql权限" class="headerlink" title="修改/usr/local/mysql权限"></a>修改/usr/local/mysql权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +w /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">chown -R mysql:mysql /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">cp support-files/my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>执行初始化配置脚本，创建系统自带的数据库和表，注意配置文件的路径：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --defaults-file=/etc/my.cnf --basedir=/usr/<span class="built_in">local</span>/mysql --datadir=/usr/<span class="built_in">local</span>/mysql/data --user=mysql</span><br></pre></td></tr></table></figure>
-<p><strong>拷贝mysql安装目录下support-files服务脚本到init.d目录</strong></p>
+<p>拷贝mysql安装目录下support-files服务脚本到init.d目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">**赋予权限:**</span><br><span class="line">chmod +x /etc/init.d/mysqld</span><br><span class="line">**设置开机启动/可以不操作**</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">**启动mysql**</span><br><span class="line">service mysqld start</span><br><span class="line">**或者**</span><br><span class="line">/etc/init.d/mysql start</span><br></pre></td></tr></table></figure>
-<p>###MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不,不能直接调用mysql，操作如下：<br>修改/etc/profile文件</p>
+<h3 id="MySQL5-6-x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不-不能直接调用mysql，操作如下："><a href="#MySQL5-6-x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不-不能直接调用mysql，操作如下：" class="headerlink" title="MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不,不能直接调用mysql，操作如下："></a>MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不,不能直接调用mysql，操作如下：</h3><p>修改/etc/profile文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p><strong>在文件末尾添加</strong></p>
+<p>在文件末尾添加</p>
 <figure class="highlight bash"><figcaption><span>php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=/usr/<span class="built_in">local</span>/mysql/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
-<p><strong>让配置立即生效</strong></p>
+<p>让配置立即生效</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-<p><strong>登陆,直接回车就可进入</strong></p>
-<p><strong>设置mysql密码</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/bin/mysqladmin -uroot -p password <span class="string">'123456'</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>到这里MySQL编译安装就完成了</strong></p>
+<p>登陆,直接回车就可进入</p>
+<p>设置mysql密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/bin/mysqladmin -uroot -p password <span class="string">'123456'</span></span><br></pre></td></tr></table></figure></p>
+<p><em>到这里MySQL编译安装就完成了</em></p>
 <p>###可能遇到的坑：</p>
 <p>初始化默认数据库运行此命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/ ```  </span><br><span class="line">  </span><br><span class="line">**出现错误：**</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">FATAL ERROR: please install the following Perl modules before executing /usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db:</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/ </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">**出现错误：**</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">FATAL ERROR: please install the following Perl modules before executing /usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db:</span><br></pre></td></tr></table></figure>
 <p>初始化mysql数据库提示缺少Data:dumper模块解决方法<br>Data::Dumper   </p>
-<p><strong>解决方法</strong> ：安装autoconf库</p>
+<p><strong>解决方法：</strong> 安装autoconf库</p>
 <p>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> yum-y install autoconf //此包安装时会安装Data:Dumper模块</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">初始化mysql数据库提示缺少Data:dumper模块解决方法</span><br><span class="line"></span><br><span class="line">安装完autoconf库，再运行</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/</span><br></pre></td></tr></table></figure></p>
 <p>问题消失！！！</p>
 <p>总结一句，遇到所有的坑都是缺少依赖。</p>
@@ -401,7 +399,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Linux/centos6.x编译安装" data-title="CentOS6.x下MySQL5.6.2编译安装" data-url="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/"></div>
+	<div class="ds-thread" data-thread-key="Linux/centos6.x编译安装" data-title="CentOS6.x下MySQL5.5以上编译安装" data-url="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
