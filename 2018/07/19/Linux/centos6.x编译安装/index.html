@@ -6,23 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aparke.cn">
-  <title>操作系统 | aparke&#39;s blog</title>
+  <title>aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目标 了解操作系统及作用  1. 操作系统（Operation System，OS） 操作系统作为接口的示意图">
-<meta name="keywords" content="linux">
+  <meta name="description" content="CentOS6.x下MySQL5.5以上编译安装title: CentOS6.x下MySQL5.6.2编译安装date: 2018-07-19 15:54:03 tags: Linux Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统">
-<meta property="og:url" content="http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/index.html">
+<meta property="og:title" content="aparke&#39;s blog">
+<meta property="og:url" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="目标 了解操作系统及作用  1. 操作系统（Operation System，OS） 操作系统作为接口的示意图">
+<meta property="og:description" content="CentOS6.x下MySQL5.5以上编译安装title: CentOS6.x下MySQL5.6.2编译安装date: 2018-07-19 15:54:03 tags: Linux Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/14924509291640/001_OS%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/14924509291640/002_%E6%9C%BA%E6%88%BF%E7%85%A7%E7%89%87.jpg">
-<meta property="og:updated_time" content="2018-05-06T17:27:03.019Z">
+<meta property="og:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
+<meta property="og:updated_time" content="2018-07-19T09:45:15.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="操作系统">
-<meta name="twitter:description" content="目标 了解操作系统及作用  1. 操作系统（Operation System，OS） 操作系统作为接口的示意图">
-<meta name="twitter:image" content="http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/14924509291640/001_OS%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta name="twitter:title" content="aparke&#39;s blog">
+<meta name="twitter:description" content="CentOS6.x下MySQL5.5以上编译安装title: CentOS6.x下MySQL5.6.2编译安装date: 2018-07-19 15:54:03 tags: Linux Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编">
+<meta name="twitter:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -191,89 +189,48 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux/操作系统（科普章节）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux/centos6.x编译安装" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      操作系统
-    </h1>
-  
-
-        
-        <a href="/2017/09/10/Linux/操作系统（科普章节）/" class="archive-article-date">
-  	<time datetime="2017-09-10T13:04:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>了解<strong>操作系统</strong>及作用</li>
-</ul>
-<h2 id="1-操作系统（Operation-System，OS）"><a href="#1-操作系统（Operation-System，OS）" class="headerlink" title="1. 操作系统（Operation System，OS）"></a>1. 操作系统（Operation System，OS）</h2><blockquote>
-<p>操作系统作为接口的示意图<br><a id="more"></a><br><img src="/2017/09/10/Linux/操作系统（科普章节）/14924509291640/001_OS%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_OS作为接口的示意图"></p>
-<p>没有安装操作系统的计算机，通常被称为 <strong>裸机</strong></p>
-<ul>
-<li>如果想在 <strong>裸机</strong> 上运行自己所编写的程序，就必须用机器语言书写程序</li>
-<li>如果计算机上安装了操作系统，就可以在操作系统上安装支持的高级语言环境，用高级语言开发程序</li>
-</ul>
+        <h2 id="CentOS6-x下MySQL5-5以上编译安装"><a href="#CentOS6-x下MySQL5-5以上编译安装" class="headerlink" title="CentOS6.x下MySQL5.5以上编译安装"></a>CentOS6.x下MySQL5.5以上编译安装</h2><p>title: CentOS6.x下MySQL5.6.2编译安装<br>date: 2018-07-19 15:54:03</p>
+<h2 id="tags-Linux"><a href="#tags-Linux" class="headerlink" title="tags: Linux "></a>tags: Linux </h2><p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<p><img src="/2018/07/19/Linux/centos6.x编译安装/1.jpg" alt=""></p>
+<h3 id="编译安装主要步骤"><a href="#编译安装主要步骤" class="headerlink" title="编译安装主要步骤"></a>编译安装主要步骤</h3><p><strong>手动编译安装</strong></p>
+<blockquote>
+<p>源码安装步骤：<br>    1、下载<br>    2、查看源码<br>    3、准备编译环境<br>    4、检查（依赖，兼容），预编译<br>    5、编译<br>    6、安装<a id="more"></a></p>
 </blockquote>
-<h3 id="1-1-操作系统的作用"><a href="#1-1-操作系统的作用" class="headerlink" title="1.1 操作系统的作用"></a>1.1 操作系统的作用</h3><ul>
-<li>是现代计算机系统中 <strong>最基本和最重要</strong> 的系统软件</li>
-<li>是 <strong>配置在计算机硬件上的第一层软件</strong>，是对硬件系统的首次扩展</li>
-<li>主要作用是<strong>管理好硬件设备</strong>，并为用户和应用程序提供一个简单的接口，以便于使用</li>
-<li>而其他的诸如编译程序、数据库管理系统，以及大量的应用软件，都直接依赖于操作系统的支持</li>
-</ul>
-<h3 id="1-2-不同应用领域的主流操作系统"><a href="#1-2-不同应用领域的主流操作系统" class="headerlink" title="1.2 不同应用领域的主流操作系统"></a>1.2 不同应用领域的主流操作系统</h3><ul>
-<li>桌面操作系统</li>
-<li>服务器操作系统</li>
-<li>嵌入式操作系统</li>
-<li>移动设备操作系统</li>
-</ul>
-<h4 id="1-gt-桌面操作系统"><a href="#1-gt-桌面操作系统" class="headerlink" title="1&gt; 桌面操作系统"></a>1&gt; 桌面操作系统</h4><ul>
-<li>Windows 系列<ul>
-<li>用户群体大</li>
-</ul>
-</li>
-<li>macOS<ul>
-<li>适合于开发人员</li>
-</ul>
-</li>
-<li>Linux<ul>
-<li>应用软件少</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-gt-服务器操作系统"><a href="#2-gt-服务器操作系统" class="headerlink" title="2&gt; 服务器操作系统"></a>2&gt; 服务器操作系统</h4><ul>
-<li>Linux<ul>
-<li>安全、稳定、免费</li>
-<li>占有率高</li>
-</ul>
-</li>
-<li>Windows Server<ul>
-<li>付费</li>
-<li>占有率低</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2017/09/10/Linux/操作系统（科普章节）/14924509291640/002_%E6%9C%BA%E6%88%BF%E7%85%A7%E7%89%87.jpg" alt="002_机房照片"></p>
-<h4 id="3-gt-嵌入式操作系统"><a href="#3-gt-嵌入式操作系统" class="headerlink" title="3&gt; 嵌入式操作系统"></a>3&gt; 嵌入式操作系统</h4><ul>
-<li>Linux</li>
-</ul>
-<h4 id="4-gt-移动设备操作系统"><a href="#4-gt-移动设备操作系统" class="headerlink" title="4&gt; 移动设备操作系统"></a>4&gt; 移动设备操作系统</h4><ul>
-<li>iOS</li>
-<li>Android（基于 <code>Linux</code>）</li>
-</ul>
-<h3 id="1-3-虚拟机"><a href="#1-3-虚拟机" class="headerlink" title="1.3 虚拟机"></a>1.3 虚拟机</h3><p>虚拟机（Virtual Machine）指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统</p>
-<ul>
-<li>虚拟系统通过生成现有操作系统的全新虚拟镜像，具有真实操作系统完全一样的功能</li>
-<li>进入虚拟系统后，所有操作都是在这个全新的独立的虚拟系统里面进行，可以独立安装运行软件，保存数据，拥有自己的独立桌面，不会对真正的系统产生任何影响</li>
-<li>而且能够在现有系统与虚拟镜像之间灵活切换的一类操作系统</li>
-</ul>
+<p>##检查是否安装了mysql</p>
+<figure class="highlight plain"><figcaption><span>rpm -qa|grep mysql```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**如果安装了就卸载 **</span><br><span class="line"></span><br><span class="line">**强制删除**</span><br><span class="line"></span><br><span class="line">```#rpm -e  --nodeps mysql-libs-5.1.73-3.el6_5.x86_64</span><br></pre></td></tr></table></figure>
+<p><strong>普通模式删除</strong></p>
+<figure class="highlight plain"><figcaption><span>-e mysql```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">**创建用户组并且添加一个用户**</span><br><span class="line"></span><br><span class="line">```#groupadd mysql</span><br></pre></td></tr></table></figure>
+<p><strong>创建一个用户，不允许登陆和不创主目录</strong></p>
+<figure class="highlight plain"><figcaption><span>-s</span><a href="/sbin/nologin">-g mysql -M mysql```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**检查创建用户**</span><br><span class="line"></span><br><span class="line">```#tail -10 /etc/passwd</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注：MySQL从5.5版本开始，通过./configure进行编译配置方式已经被取消，取而代之的是cmake工具。因此，我们首先要在系统中源码编译安装cmake工具。</strong></p>
+</blockquote>
+<p>##安装编译代码需要的包</p>
+<figure class="highlight plain"><figcaption><span>-y install make gcc-c++ cmake bison-devel  ncurses-devel```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;如果之后cmake安装的时候还报错，就是缺少依赖，在安装下面的这些依赖，有点慢</span><br><span class="line"></span><br><span class="line">```#yum install make  autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel  perl kernel-headers compat*  cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel  libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libpng* ncurses* libtool* libxml2-devel  bison libaio-devel</span><br></pre></td></tr></table></figure>
+<p><strong>上传本地下载好的mysql源码文件</strong></p>
+<p><strong>解压</strong></p>
+<figure class="highlight plain"><figcaption><span>-zxvf mysql-5.6.37.tar.gz | cd mysql```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```cmake \</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql \	<span class="comment">#指定安装目录</span></span><br><span class="line">-DMYSQL_DATADIR=/usr/<span class="built_in">local</span>/mysql/data \		<span class="comment">#mysql数据文件存放目录</span></span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \		<span class="comment">#安装myisam存储引擎</span></span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \		<span class="comment">#安装innodb存储引擎</span></span><br><span class="line">-DWITH_MEMORY_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_READLINE=1 \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/var/lib/mysql/mysql.sock \	<span class="comment">#指定mysql.sock地址</span></span><br><span class="line">-DMYSQL_TCP_PORT=3306 \				<span class="comment">#端口</span></span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \			<span class="comment">#指定默认的字符集</span></span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \	<span class="comment">#指定默认的排序字符集</span></span><br><span class="line">-DMYSQL_USER=mysql \</span><br><span class="line">-DWITH_DEBUG=0 \</span><br><span class="line">-DWITH_SSL=system</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p><strong>最后</strong></p>
+<figure class="highlight plain"><figcaption><span>&& make install```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;以上的编译的参数可以参考[**点此**](http://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html)!</span><br><span class="line"></span><br><span class="line">**cmake** 安装要是出错了 就安装在上面的第二条依赖并且一定要删除掉CMakeCache.txt重新```cmake \</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>rm -rf CMakeCache.txt```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##修改/usr/local/mysql权限</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```bash python</span><br><span class="line">chmod +w /usr/local/mysql</span><br><span class="line">chown -R mysql:mysql /usr/local/mysql</span><br><span class="line">cp support-files/my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p><strong>执行初始化配置脚本，创建系统自带的数据库和表，注意配置文件的路径：</strong></p>
+<figure class="highlight plain"><figcaption><span>--defaults-file</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**拷贝mysql安装目录下support-files服务脚本到init.d目录**</span><br><span class="line"></span><br><span class="line">```bash python</span><br><span class="line">cp support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">**赋予权限:**</span><br><span class="line">chmod +x /etc/init.d/mysqld</span><br><span class="line">**设置开机启动/可以不操作**</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">**启动mysql**</span><br><span class="line">service mysqld start</span><br><span class="line">**或者**</span><br><span class="line">/etc/init.d/mysql start</span><br></pre></td></tr></table></figure>
+<p>#####MySQL5.6.x启动成功后，root默认没有密码，我们需要设置root密码。设置之前，我们需要先设置PATH，要不,不能直接调用mysql，操作如下：<br>修改/etc/profile文件</p>
+<figure class="highlight plain"><figcaption><span>vim</span><a href="/etc/profile```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**在文件末尾添加**</span><br><span class="line"></span><br><span class="line">```bash php</span><br><span class="line">PATH=/usr/local/mysql/bin:$PATH</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure>
+<p><strong>让配置立即生效</strong></p>
+<figure class="highlight plain"><figcaption><span>/etc/profile```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**登陆,直接回车就可进入**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**设置mysql密码**</span><br></pre></td></tr></table></figure>
+<p>/usr/local/mysql/bin/mysqladmin -uroot -p password ‘123456’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**到这里MySQL编译安装就完成了**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###可能遇到的坑：</span><br><span class="line"></span><br><span class="line">初始化默认数据库运行此命令：</span><br><span class="line"></span><br><span class="line">```/usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ ```  </span><br><span class="line">  </span><br><span class="line">**出现错误：**</span><br><span class="line"></span><br><span class="line">```FATAL ERROR: please install the following Perl modules before executing /usr/local/mysql/scripts/mysql_install_db:</span><br></pre></td></tr></table></figure></p>
+<p>初始化mysql数据库提示缺少Data:dumper模块解决方法<br>Data::Dumper   </p>
+<p><strong>解决方法</strong> ：安装autoconf库</p>
+<p>命令：<figure class="highlight plain"><figcaption><span>install autoconf```</span><a href="//此包安装时会安装Data:Dumper模块">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">初始化mysql数据库提示缺少Data:dumper模块解决方法</span><br><span class="line"></span><br><span class="line">安装完autoconf库，再运行</span><br><span class="line"></span><br><span class="line">````/usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/</span><br></pre></td></tr></table></figure></p>
+<p>问题消失！！！</p>
+<p>总结一句，遇到所有的坑都是缺少依赖。</p>
 
       
 
@@ -303,17 +260,6 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -364,7 +310,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -378,18 +324,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/09/10/Linux/操作系统的发展史（科普章节）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          操作系统的发展史
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/13/python/PyCharm 的初始设置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PyCharm 的初始设置(IDE)</div>
+    <a href="/2018/07/18/随笔/暑假的日子/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">暑假</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -417,7 +354,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Linux/操作系统（科普章节）" data-title="操作系统" data-url="http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/"></div>
+	<div class="ds-thread" data-thread-key="Linux/centos6.x编译安装" data-title="" data-url="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -440,8 +377,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://aparke.cn/2017/09/10/Linux/操作系统（科普章节）/", 
-    sourceId: "Linux/操作系统（科普章节）",
+    url: "http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/", 
+    sourceId: "Linux/centos6.x编译安装",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -450,7 +387,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Linux/操作系统（科普章节）" ></div> 
+  <div id="SOHUCS" sid="Linux/centos6.x编译安装" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
