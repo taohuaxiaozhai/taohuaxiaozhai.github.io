@@ -17,7 +17,7 @@
 <meta property="og:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
-<meta property="og:updated_time" content="2018-07-19T10:38:21.912Z">
+<meta property="og:updated_time" content="2018-07-19T10:41:03.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6.x下MySQL5.6.2编译安装">
 <meta name="twitter:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
@@ -216,10 +216,9 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>源码安装步骤：<br>    1、下载<br>    2、查看源码<br>    3、准备编译环境<br>    4、检查（依赖，兼容），预编译<br>    5、编译<br>    6、安装<a id="more"></a></p>
 </blockquote>
-<p>##检查是否安装了mysql</p>
-<figure class="highlight plain"><figcaption><span>-qa|grep mysql ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**如果安装了就卸载**</span><br><span class="line"></span><br><span class="line">**强制删除**</span><br><span class="line"></span><br><span class="line">``` #rpm -e  --nodeps mysql-libs-5.1.73-3.el6_5.x86_64</span><br></pre></td></tr></table></figure>
+<h2 id="检查是否安装了mysql"><a href="#检查是否安装了mysql" class="headerlink" title="检查是否安装了mysql"></a>检查是否安装了mysql</h2><figure class="highlight plain"><figcaption><span>-qa|grep mysql```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**如果安装了就卸载**</span><br><span class="line"></span><br><span class="line">**强制删除**</span><br><span class="line"></span><br><span class="line">```rpm -e  --nodeps mysql-libs-5.1.73-3.el6_5.x86_64</span><br></pre></td></tr></table></figure>
 <p><strong>普通模式删除</strong></p>
-<figure class="highlight plain"><figcaption><span>-e mysql```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">**创建用户组并且添加一个用户**</span><br><span class="line"></span><br><span class="line">``` #groupadd mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>-e mysql```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">**创建用户组并且添加一个用户**</span><br><span class="line"></span><br><span class="line">```groupadd mysql</span><br></pre></td></tr></table></figure>
 <p><strong>创建一个用户，不允许登陆和不创主目录</strong></p>
 <figure class="highlight plain"><figcaption><span>-s</span><a href="/sbin/nologin">-g mysql -M mysql```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**检查创建用户**</span><br><span class="line"></span><br><span class="line">``` #tail -10 /etc/passwd</span><br></pre></td></tr></table></figure>
 <blockquote>
