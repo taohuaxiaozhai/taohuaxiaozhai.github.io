@@ -17,7 +17,7 @@
 <meta property="og:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://aparke.cn/2018/07/19/Linux/centos6.x编译安装/1.jpg">
-<meta property="og:updated_time" content="2018-07-19T11:05:37.159Z">
+<meta property="og:updated_time" content="2018-07-19T11:09:13.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6.x下MySQL5.5以上编译安装">
 <meta name="twitter:description" content="Welcome to aparke’s blog!   编译安装主要步骤手动编译安装  源码安装步骤：    1、下载    2、查看源码    3、准备编译环境    4、检查（依赖，兼容），预编译    5、编译    6、安装">
@@ -261,8 +261,8 @@ var _hmt = _hmt || [];
 <h3 id="可能遇到的坑："><a href="#可能遇到的坑：" class="headerlink" title="可能遇到的坑："></a>可能遇到的坑：</h3><p>初始化默认数据库运行此命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/ </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">**出现错误：**</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">FATAL ERROR: please install the following Perl modules before executing /usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db:</span><br></pre></td></tr></table></figure>
 <p>初始化mysql数据库提示缺少Data:dumper模块解决方法<br>Data::Dumper   </p>
-<p><strong>解决方法：</strong> 安装autoconf库</p>
-<p>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> yum-y install autoconf //此包安装时会安装Data:Dumper模块</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">初始化mysql数据库提示缺少Data:dumper模块解决方法</span><br><span class="line"></span><br><span class="line">安装完autoconf库，再运行</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/</span><br></pre></td></tr></table></figure></p>
+<p><strong>解决方法：</strong><br>安装autoconf库 命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum-y install autoconf //此包安装时会安装Data:Dumper模块</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">初始化mysql数据库提示缺少Data:dumper模块解决方法</span><br><span class="line"></span><br><span class="line">安装完autoconf库，再运行</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">/usr/<span class="built_in">local</span>/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql/</span><br></pre></td></tr></table></figure>
 <p>问题消失！！！</p>
 <p>总结一句，遇到所有的坑都是缺少依赖。</p>
 
