@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/03.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/04.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/05.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/06.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/06.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/07.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/08.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/09.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/15.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/16.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/17.png">
-<meta property="og:updated_time" content="2019-01-24T03:20:54.109Z">
+<meta property="og:updated_time" content="2019-01-24T03:35:01.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ALS算法音乐推荐">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  前言 本章实现的是歌曲推荐，使用的是ALS算法，ALS是spark.mllib中唯一的推荐算法，因为只有ALS算法可以进行并行运算。  使用的算法  交替最小二乘推荐算法   现在我们要给这个隐式反馈数据选择一个合适的推荐算法。这个数据及只记录了用户和歌曲之间的交互情况。除了歌曲ID的名字外，数据集没有包含用户的信息，也没有提供歌手的其他任何信">
@@ -322,7 +322,7 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">val artistByID = rawArtistData.flatMap &#123; line =&gt;          </span><br><span class="line">    val (id, name) = line.span(_ != <span class="string">'\t'</span>)</span><br><span class="line">    <span class="keyword">if</span> (name.isEmpty) &#123;</span><br><span class="line">        None</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Some((id.toInt, name.trim))</span><br><span class="line">        &#125; catch &#123;</span><br><span class="line">            <span class="keyword">case</span> e: NumberFormatException =&gt; None</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/05.png" alt="05"></p>
 <p>2.若字符串为 null，则返回None：</p>
-<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/06.png" alt="06"></p>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/06.png" alt="06"></p>
 <h3 id="构建模型阶段"><a href="#构建模型阶段" class="headerlink" title="构建模型阶段"></a>构建模型阶段</h3><p>1.导入依赖包<br>import org.apache.spark.mllib.recommendation._  </p>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/07.png" alt="07"> </p>
 <p>数据集的形式完全符合Spark Mllib 的ALS 算法实现的要求，但我们还需额外做两个转换：<br>第一，    如果歌曲ID 存在一个不同的正规 ID，我们要用别名数据集对象将所有的歌曲ID 转换成正规 ID。<br>第二，    需要把数据转成 Rating 对象，Rating 对象是ALS 算法实现对“用户 – 产品 – 值” 的抽象，其中产品指“向人们推荐的物品”。 </p>
@@ -659,11 +659,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
