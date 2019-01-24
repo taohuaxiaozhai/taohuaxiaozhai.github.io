@@ -189,6 +189,200 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-大数据/使用ALS算法音乐推荐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/大数据/使用ALS算法音乐推荐/">使用ALS算法音乐推荐</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/23/大数据/使用ALS算法音乐推荐/" class="archive-article-date">
+  	<time datetime="2019-01-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="">aparke’s blog</a>! </p>
+<p>####前言</p>
+<blockquote>
+<p>本章实现的是歌曲推荐，使用的是ALS算法，ALS是spark.mllib中唯一的推荐算法，因为只有ALS算法可以进行并行运算。</p>
+</blockquote>
+<p><strong>使用的算法</strong></p>
+<ol>
+<li>交替最小二乘推荐算法</li>
+</ol>
+<blockquote>
+<p>现在我们要给这个隐式反馈数据选择一个合适的推荐算法。这个数据及只记录了用户和歌曲之间的交互情况。<br>除了歌曲ID的名字外，数据集没有包含用户的信息，也没有提供歌手的其他任何信息。我们要找的学习算法不需要用户和艺术家的属性信息。这类算法通常称为协同过滤算法。</p>
+<p>举个例子：根据两个用户的年龄相同来判断他们可能有相似的偏好，这不叫协同过滤。相反，根据两个用户播放过许多相同歌曲来判断他们可能都喜欢某首歌，这才叫协同过滤</p>
+</blockquote>
+<ol>
+<li>矩阵分解模型</li>
+</ol>
+<blockquote>
+<p>现在我们的用户和产品数据可以视为一个大矩阵A，矩阵第i 行和第j 列上的元素都有值，代表用户i 播放过艺术家 j 的音乐。可以预料到，矩阵A 是稀疏的，里面大多数元素为0.因为相对于所有可能的 用户 – 艺术家 组合，只有很少一部分组合会出现在数据中。这里我们使用的是一种矩阵分解模型( Non-negative matrix factorization)。</p>
+</blockquote>
+<ol>
+<li>潜在因素</li>
+</ol>
+<blockquote>
+<p>潜在因素（factor analysis）模型：<br>潜在因素模型试图通过数量相对较少的未被观察到的底层原因，来解释大量用户和产品之间可观察到的交互。<br>例如：有几千个专辑可选，为什么数百万人偏偏只买其中某些专辑？可以用对类别（可能只有数十种）的偏好来解释用户和专辑的关系，其中偏好信息并不能直接观察到，而数据也没有给出这些信息。<br>这里的偏好，其实就是我们上述要求的 k 里的值。这个k就是潜在因素，用于解释数据中的交互关系。由于k 很小，矩阵分解算法只能是某种近似。所以上述图里用的约等于号。</p>
+</blockquote>
+<ol>
+<li>矩阵补全算法<blockquote>
+<p>矩阵分解算法有时也称为矩阵补全（matrix completion）算法。因为原始矩阵A 可能非常稀疏，但是乘积        是稠密的。<br>因为在我们计算出所有列里的系数（最优解）后，在使用 XYT 还原A时，大部分数据会被补全。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>两个矩阵分别有一行对应每个用户和每个艺术家。每行的值很少，只有 k 个。每个值代表了对应模型的一个隐含特征。</p>
+<p>因此行表示了用户和艺术家怎样关联到这些隐含特征，而隐含特征可能就对应偏好或类别。</p>
+<p>于是问题就简化为 用户 – 特征矩阵 和 特征 – 艺术家矩阵 的乘积，该乘积的结果是对整个稠密的 用户 – 艺术家 相互关系矩阵的完整估计。</p>
+<p>不幸的是，A = XYT  通常根本没有解。原因就是X 和 Y 通常不够大（严格来讲，就是矩阵的阶太小），无法完美表示 A。</p>
+<p>这其实也是好事。A 只是所有可能出现的交互关系的一个微小样本。在某种程度上我们认为 A 是对基本事实的一次观察，它太稀疏，因此很难解释这个基本事实。但用少数几个因素（k 个）就能很好地解释这个基本事实。</p>
+<p>XYT 应该尽可能逼近 A，毕竟这是所有后续工作的基础，但它不能也不应该完全复制A。然而同样不幸的是，想直接得到 X 和 Y 的最优解是不可能的。好消息是，如果 Y 已知，求 X 的最优解是非常容易的，反之亦然。但 X 和 Y 事先都是未知的</p>
+<p>当然，我们仍有办法求解X 和 Y，其中之一便是交替最小二乘（Alternating Least Squares, ALS）法。Spark Mllib 的ALS 就是此算法的实现。</p>
+<p>虽然 Y 是未知的，但我们可以把它初始化为随机行向量矩阵。接着运用简单的线性代数，就能在给定 A 和 Y 的条件下求出 X 的最优解。</p>
+<p>实际上，X 的第 i 行是 A 的第 i 行和 Y 的函数，因此可以很容易分开计算 X 的每一行。因为 X 的每一行可以分开计算，所以我们可以将其并行化，而并行化是大规模计算的一大优点。</p>
+<p>　AiY(YTY)-1 = Xi</p>
+<p>想要两边精确相等是不可能的，因此实际的目标是最小化  | AiY(YTY)-1 - Xi | ，或者最小化它们的平方误差（为了计算优化方便）。这也就是著名的最小二乘法。</p>
+<p>这里给出的方程式只是为了说明行向量的计算方法，但实践中从来不会对矩阵求逆，我们会借助于QR 分解之类的方法，这种方法速度更快且更直接。</p>
+<p>同理，我们可以由X 计算  Yj 。然后又可以由 Y 计算 X，这样反复下去。这就是算法中“交替”的由来。</p>
+<p>这里 Y 是随机的，X是由最优化计算出来的，如此迭代下去，X 和 Y 最终会收敛得到一个合适的结果。</p>
+<p>将 ALS 算法用于隐形数据矩阵分解时，ALS 矩阵分解稍微复杂一点。它不是直接分解输入矩阵 A，而是分解由 0 和 1 组成的矩阵 P，当 A 中元素为正时，P 中对应元素为 1，否则为 0。A 中的具体值会在后面以权重的形式反映出来。</p>
+</blockquote>
+<p>==<strong>ALS 算法也可以利用输入数据是稀疏的这一特点。稀疏的输入数据、可以用简单的线性代数运算求最优解，以及数据本身可并行化，这三点使得算法在大规模数据上速度非常快</strong>。==</p>
+<p>##环境准备阶段</p>
+<p><strong>实验环境</strong>：spark-shell 单节点伪分布式 需要此环境在8G以上</p>
+<p>数据集：<a href="https://github.com/libaoquan95/aasPractice/tree/master/c3/profiledata_06-May-2005" target="_blank" rel="noopener">https://github.com/libaoquan95/aasPractice/tree/master/c3/profiledata_06-May-2005</a></p>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/01.jpg" alt="01"><br>| 数据文件 | 含义 |<br>|–|–|<br>| user_artist_data.txt |  包含该的是（用户ID、歌曲ID、用户听的次数） |<br>| artist_data.txt | 这个文件包含的是（歌曲ID，歌曲名字） |<br>| artist_alias.txt |  输入错误，或者不同某种原因，同一首歌曲可能具有不同ID，这个是歌曲勘误表（bad_id, good_id） |</p>
+<p>####上传数据集至HDFS<br>1.启动hadoop</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<p>2.上传数据到hdfs中</p>
+<p>3.在hdfs中创建aparke文件，将三个数据集上传到hdfs中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /aparke</span><br><span class="line">hadoop fs -put artist_data.txt  /aparke</span><br><span class="line">hadoop fs -put artist_alias.txt  /aparke</span><br><span class="line">hadoop fs -put user_artist_data.txt  /aparke</span><br></pre></td></tr></table></figure>
+<p>####确认上传无误后，启动spark-shell</p>
+<p>由于数据集比较大，启动的时候需指定内存为<strong>6g</strong>以上</p>
+<p>1.启动spark-shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --driver-memory 6g</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/02.png" alt="02"></p>
+<p>2.读入三个数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val rawUserArtistData =sc.textFile(<span class="string">"hdfs://localhost:9000/aparke/user_artist_data_1.txt"</span>)</span><br><span class="line">val rawArtistData =sc.textFile(<span class="string">"hdfs://localhost:9000/aparke/artist_data.txt"</span>)</span><br><span class="line">val rawArtistAlias =sc.textFile(<span class="string">"hdfs://localhost:9000/aparke/artist_alias.txt"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/03.png" alt="03"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rawUserArtistData.map(_.split(<span class="string">' '</span>)(0).toDouble).stats()  </span><br><span class="line">rawUserArtistData.map(_.split(<span class="string">' '</span>)(1).toDouble).stats()</span><br></pre></td></tr></table></figure>
+<p>//stats方法会返回每一列的最大值，最小值，均值、方差、总数等</p>
+<p>查看核心数据第一行，数据各代表什么</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val first = rawUserArtistData.first</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/04.png" alt="04"></p>
+<p>分别代表用户id  歌曲id  听歌次数</p>
+<p>###数据处理阶段</p>
+<p>1.数据的缺失值处理，把空值和异常值用None代替</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">val artistByID = rawArtistData.flatMap &#123; line =&gt;          </span><br><span class="line">    val (id, name) = line.span(_ != <span class="string">'\t'</span>)</span><br><span class="line">    <span class="keyword">if</span> (name.isEmpty) &#123;</span><br><span class="line">        None</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Some((id.toInt, name.trim))</span><br><span class="line">        &#125; catch &#123;</span><br><span class="line">            <span class="keyword">case</span> e: NumberFormatException =&gt; None</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/05.png" alt="05"></p>
+<p>2.若字符串为 null，则返回None：</p>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/06.png" alt="06"></p>
+<p>###构建模型阶段</p>
+<p>1.导入依赖包<br>import org.apache.spark.mllib.recommendation._  </p>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/07.png" alt="07"> </p>
+<p>数据集的形式完全符合Spark Mllib 的ALS 算法实现的要求，但我们还需额外做两个转换：<br>第一，    如果歌曲ID 存在一个不同的正规 ID，我们要用别名数据集对象将所有的歌曲ID 转换成正规 ID。<br>第二，    需要把数据转成 Rating 对象，Rating 对象是ALS 算法实现对“用户 – 产品 – 值” 的抽象，其中产品指“向人们推荐的物品”。 </p>
+<p>val bArtistAlias = sc.broadcast(artistAlias)</p>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/08.png" alt="08"></p>
+<p>val trainData = rawUserArtistData.map { line =&gt;<br>    val Array(userID, artistID, count) = line.split(‘ ‘).map(_.toInt)<br>    val finalArtistID =<br>    bArtistAlias.value.getOrElse(artistID, artistID)<br>    Rating(userID, finalArtistID, count)<br>}.cache()</p>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/09.png" alt="09"></p>
+<blockquote>
+<p>这里用了一个广播变量，将artistAlias 变量作为一个广播变量。广播变量的作用如下：<br>Broadcast variables allow the programmer to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks.<br>Explicitly creating broadcast variables is only useful when tasks across multiple stages need the same data or when caching the data in deserialized form is important.<br>广播变量主要用于在迭代中一直需要被访问的只读变量。它将此变量缓存在每个executor 里，以减少集群网络传输消耗</p>
+<p>Spark 执行一个阶段（stage）时，会为待执行函数建立闭包，也就是该阶段所有任务所需信息的二进制形式。这个闭包包括驱动程序里函数引用的所有数据结构。Spark 把这个闭包发送到集群的每个executor 上。<br>当许多任务需要访问同一个（不可变的）数据结构时，我们应该使用广播变量。它对任务闭包的常规处理进行扩展，是我们能够：</p>
+<p>1.在每个 executor 上将数据缓存为原始的 Java 对象，这样就不用为每个人物执行反序列化<br>2.在多个作业和阶段之间缓存数据</p>
+<p>在函数最后，我们调用了 cache() 以指示 Spark 在 RDD 计算好后将其暂时存储在集群的内存里。这样是有益的，因为 ALS 算法是 迭代的，通常情况下至少要访问该数据 10 次以上。如果不调用 cache()，那么每次要用到 RDD 时都需要从原始数据中重新计算。</p>
+</blockquote>
+<p>2.构建模型</p>
+<p>现在我们已有了训练数据 Rating，格式如下：</p>
+<p> Rating(1000002,1,55.0)</p>
+<p>分别对应用户id，歌曲id，听的次数</p>
+<p>然后我们构建模型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">val model = ALS.trainImplicit(trainData, 10, 5, 0.01, 1.0)</span><br><span class="line">```  </span><br><span class="line">![10](大数据/使用ALS算法音乐推荐/10.png)</span><br><span class="line"> </span><br><span class="line">模型的参数含义：</span><br><span class="line"></span><br><span class="line">• rank = 10</span><br><span class="line">模型的潜在因素的个数k,即“用户 - 特征”和“产品 - 特征”矩阵的列数;一般来说,它也是矩阵的阶。</span><br><span class="line"></span><br><span class="line">• iterations = 5</span><br><span class="line">矩阵分解迭代的次数;迭代的次数越多,花费的时间越长,但分解的结果可能会更好。</span><br><span class="line"></span><br><span class="line">• lambda = 0.01</span><br><span class="line">标准的过拟合参数;值越大越不容易产生过拟合,但值太大会降低分解的准确度。</span><br><span class="line"></span><br><span class="line">• alpha = 1.0</span><br><span class="line">控制矩阵分解时,被观察到的“用户 - 产品”交互相对没被观察到的交互的权重。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">显示为用户id是90的特征向量</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">model.userFeatures.first</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/11.png" alt="11"></p>
+<p>找出用户ID为2093760的数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val rawArtistsForUser = rawUserArtistData.map(_.split(<span class="string">' '</span>)).filter &#123; <span class="keyword">case</span> Array(user,_,_) =&gt; user.toInt == 2093760 &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/12.png" alt="12"></p>
+<p>把歌曲的ID号转为int型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val existingProducts =rawArtistsForUser.map &#123;                </span><br><span class="line">    <span class="keyword">case</span> Array(_,artist,_) =&gt; artist.toInt </span><br><span class="line">    &#125;.collect().toSet</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/13.png" alt="13"></p>
+<p>根据artist_data.txt打印歌曲名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">artistByID.filter &#123; <span class="keyword">case</span> (id, name) =&gt;                                </span><br><span class="line">    existingProducts.contains(id)</span><br><span class="line">&#125;.values.collect().foreach(println)</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/14.png" alt="14"> </p>
+<p>利用刚刚训练好的模型给2093760用户推荐5首歌曲</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val recommendations = model.recommendProducts(2093760, 5)</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/15.png" alt="15"></p>
+<p>输出结果是</p>
+<p>Rating(2093760,2814,0.03569566367141015), Rating(2093760,1300642,0.03488258629334969), Rating(2093760,1001819,0.0345300595926977), Rating(2093760,1007614,0.03371890215740113), Rating(2093760,4605,0.033588342423490986)</p>
+<p>每个Rating 包括用户id，艺术家id，以及一个评分值<br>结果中每行最后的数值是0到1之间的模糊值，值越大，推荐质量越好，分数越高代表用户越喜欢。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val recommendedProductIDs = recommendations.map(_.product).toSet</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/16.png" alt="16"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">artistByID.filter &#123; <span class="keyword">case</span> (id, name) =&gt;</span><br><span class="line">        recommendedProductIDs.contains(id)</span><br><span class="line">&#125;.values.collect().foreach(println)</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/17.png" alt="17"></p>
+<p>看得出这些推荐，虽然这些用户都比较受欢迎，而且是hippop之类的歌曲。但好像并没有针对用户的收听习惯进行个性化</p>
+<p>参考文献：Spark高级数据分析第三章 音乐推荐和Audioscrobbler数据集</p>
+<p>参考博客：<a href="https://www.cnblogs.com/zackstang/p/9425299.html" target="_blank" rel="noopener">https://www.cnblogs.com/zackstang/p/9425299.html</a><br>    <a href="https://blog.csdn.net/u014779006/article/details/75095363" target="_blank" rel="noopener">https://blog.csdn.net/u014779006/article/details/75095363</a><br>    <a href="https://www.cnblogs.com/mr-totoro/p/5775759.html" target="_blank" rel="noopener">https://www.cnblogs.com/mr-totoro/p/5775759.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/23/大数据/使用ALS算法音乐推荐/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-随笔/2018-11-15随笔" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -472,6 +666,148 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/05/12/网站/Ubuntu-Apache2安装ssl证书/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-大数据/hadoop集群的搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/01/大数据/hadoop集群的搭建/">hadoop集群的搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/01/大数据/hadoop集群的搭建/" class="archive-article-date">
+  	<time datetime="2018-04-01T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
+<p><img src="/2018/04/01/大数据/hadoop集群的搭建/1.jpg" alt="01"></p>
+<p>##前言</p>
+<blockquote>
+<p>Hadoop是一个由Apache基金会所开发的分布式系统基础架构。<br>用户可以在不了解分布式底层细节的情况下，开发分布式程序。充分利用集群的威力进行高速运算和存储。</p>
+<p>Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。HDFS有高容错性的特点，并且设计用来部署在低廉的（low-cost）硬件上；而且它提供高吞吐量（high throughput）来访问应用程序的数据，适合那些有着超大数据集（large data set）的应用程序。HDFS放宽了（relax）POSIX的要求，可以以流的形式访问（streaming access）文件系统中的数据。</p>
+<p>Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，而MapReduce则为海量的数据提供了计算。 </p>
+</blockquote>
+<p>#搭建集群</p>
+<p>##集群规划，必须设置为静态ip</p>
+<p><strong>需要4台centos 6.x 配置ssh免密登陆</strong></p>
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th>静态ip</th>
+<th>HDFS</th>
+<th>yarn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>master</td>
+<td>192.168.179.200</td>
+<td>NameNode,SecondaryNameNode</td>
+<td>ResourceManager</td>
+</tr>
+<tr>
+<td>slave1</td>
+<td>192.168.179.201</td>
+<td>DataNode</td>
+<td>NodeManager</td>
+</tr>
+<tr>
+<td>slave2</td>
+<td>192.168.179.202</td>
+<td>DataNode</td>
+<td>NodeManager</td>
+</tr>
+<tr>
+<td>slave3</td>
+<td>192.168.179.203</td>
+<td>DataNode</td>
+<td>NodeManager</td>
+</tr>
+</tbody>
+</table>
+<p>###设置每一台虚拟机的主机名分别为master、slave1、slave2、slave3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/04/01/大数据/hadoop集群的搭建/2.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/3.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/4.jpg" alt="01"></p>
+<p>###设置每个虚拟机添加hosts值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<p>192.168.179.200  master</p>
+<p>192.168.179.201  slave1</p>
+<p>192.168.179.202  slave2</p>
+<p>192.168.179.203  slave3</p>
+<p><img src="/2018/04/01/大数据/hadoop集群的搭建/5.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/6.jpg" alt="01"></p>
+<p>###配置SSH</p>
+<p>（1）在master机器上，使用ssh-keygen生成私钥和公钥<br>命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/04/01/大数据/hadoop集群的搭建/7.jpg" alt="01"><br>（2）分别在slave1,2,3机器上，输入命令：ssh-keygen，然后连续四下回车</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/04/01/大数据/hadoop集群的搭建/8.jpg" alt="01"></p>
+<p>（3）在master1机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
+<p>（4）在slave1机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
+<p>（5）在slave2机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
+<p>（6）在slave3机器上输入命令：ssh-copy-id -i msater，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
+<p>。</p>
+<p>###不想写了，太累了。没时间写博客了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/01/大数据/hadoop集群的搭建/">展开全文 >></a>
         </p>
       
 
@@ -813,184 +1149,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Linux/系统信息相关命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/30/Linux/系统信息相关命令/">Linux 系统信息相关命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/30/Linux/系统信息相关命令/" class="archive-article-date">
-  	<time datetime="2017-09-30T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<p> <strong>系统日期和时间</strong> ／ <strong>磁盘空间占用情况</strong> ／ <strong>程序执行情况</strong></p>
-<ul>
-<li><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2></li>
-<li><p>时间和日期</p>
-<ul>
-<li><code>date</code></li>
-<li><code>cal</code></li>
-</ul>
-</li>
-<li>磁盘和目录空间</li></ul>
-        
-          <a class="article-more-a" href="/2017/09/30/Linux/系统信息相关命令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/30/Linux/系统信息相关命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux/文件和目录常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/Linux/文件和目录常用命令/">Linux 文件和目录常用命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/24/Linux/文件和目录常用命令/" class="archive-article-date">
-  	<time datetime="2017-09-24T13:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>查看目录内容<ul>
-<li><code>ls</code></li>
-</ul>
-</li>
-<li>切换目录<ul>
-<li><code>cd</code></li>
-</ul>
-</li>
-<li>创建和删除操作<ul>
-<li><code>touch</code></li>
-<li><code>rm</code></li>
-<li><code>mkdir</code></li>
-</ul>
-</li>
-<li>拷贝和移动文件</li></ul>
-        
-          <a class="article-more-a" href="/2017/09/24/Linux/文件和目录常用命令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/24/Linux/文件和目录常用命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1109,15 +1267,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
