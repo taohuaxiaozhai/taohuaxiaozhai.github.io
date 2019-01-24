@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/15.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/16.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/23/大数据/使用ALS算法音乐推荐/17.png">
-<meta property="og:updated_time" content="2019-01-24T03:35:01.657Z">
+<meta property="og:updated_time" content="2019-01-24T05:26:33.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ALS算法音乐推荐">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  前言 本章实现的是歌曲推荐，使用的是ALS算法，ALS是spark.mllib中唯一的推荐算法，因为只有ALS算法可以进行并行运算。  使用的算法  交替最小二乘推荐算法   现在我们要给这个隐式反馈数据选择一个合适的推荐算法。这个数据及只记录了用户和歌曲之间的交互情况。除了歌曲ID的名字外，数据集没有包含用户的信息，也没有提供歌手的其他任何信">
@@ -323,12 +323,13 @@ var _hmt = _hmt || [];
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/05.png" alt="05"></p>
 <p>2.若字符串为 null，则返回None：</p>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/06.png" alt="06"></p>
-<h3 id="构建模型阶段"><a href="#构建模型阶段" class="headerlink" title="构建模型阶段"></a>构建模型阶段</h3><p>1.导入依赖包<br>import org.apache.spark.mllib.recommendation._  </p>
+<h3 id="构建模型阶段"><a href="#构建模型阶段" class="headerlink" title="构建模型阶段"></a>构建模型阶段</h3><p>1.导入依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.spark.mllib.recommendation._</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/07.png" alt="07"> </p>
 <p>数据集的形式完全符合Spark Mllib 的ALS 算法实现的要求，但我们还需额外做两个转换：<br>第一，    如果歌曲ID 存在一个不同的正规 ID，我们要用别名数据集对象将所有的歌曲ID 转换成正规 ID。<br>第二，    需要把数据转成 Rating 对象，Rating 对象是ALS 算法实现对“用户 – 产品 – 值” 的抽象，其中产品指“向人们推荐的物品”。 </p>
-<p>val bArtistAlias = sc.broadcast(artistAlias)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val bArtistAlias = sc.broadcast(artistAlias)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/08.png" alt="08"></p>
-<p>val trainData = rawUserArtistData.map { line =&gt;<br>    val Array(userID, artistID, count) = line.split(‘ ‘).map(_.toInt)<br>    val finalArtistID =<br>    bArtistAlias.value.getOrElse(artistID, artistID)<br>    Rating(userID, finalArtistID, count)<br>}.cache()</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">val trainData = rawUserArtistData.map &#123; line =&gt;</span><br><span class="line">    val Array(userID, artistID, count) = line.split(<span class="string">' '</span>).map(_.toInt)</span><br><span class="line">    val finalArtistID =</span><br><span class="line">    bArtistAlias.value.getOrElse(artistID, artistID)               </span><br><span class="line">    Rating(userID, finalArtistID, count)</span><br><span class="line">&#125;.cache()</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/09.png" alt="09"></p>
 <blockquote>
 <p>这里用了一个广播变量，将artistAlias 变量作为一个广播变量。广播变量的作用如下：<br>Broadcast variables allow the programmer to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks.<br>Explicitly creating broadcast variables is only useful when tasks across multiple stages need the same data or when caching the data in deserialized form is important.<br>广播变量主要用于在迭代中一直需要被访问的只读变量。它将此变量缓存在每个executor 里，以减少集群网络传输消耗</p>
@@ -659,11 +660,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
