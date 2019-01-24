@@ -210,8 +210,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="">aparke’s blog</a>! </p>
-<p>####前言</p>
-<blockquote>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
 <p>本章实现的是歌曲推荐，使用的是ALS算法，ALS是spark.mllib中唯一的推荐算法，因为只有ALS算法可以进行并行运算。</p>
 </blockquote>
 <p><strong>使用的算法</strong></p>
@@ -257,18 +256,17 @@ var _hmt = _hmt || [];
 <p>这里 Y 是随机的，X是由最优化计算出来的，如此迭代下去，X 和 Y 最终会收敛得到一个合适的结果。</p>
 <p>将 ALS 算法用于隐形数据矩阵分解时，ALS 矩阵分解稍微复杂一点。它不是直接分解输入矩阵 A，而是分解由 0 和 1 组成的矩阵 P，当 A 中元素为正时，P 中对应元素为 1，否则为 0。A 中的具体值会在后面以权重的形式反映出来。</p>
 </blockquote>
-<p>==<strong>ALS 算法也可以利用输入数据是稀疏的这一特点。稀疏的输入数据、可以用简单的线性代数运算求最优解，以及数据本身可并行化，这三点使得算法在大规模数据上速度非常快</strong>。==</p>
+<p><strong>ALS 算法也可以利用输入数据是稀疏的这一特点。稀疏的输入数据、可以用简单的线性代数运算求最优解，以及数据本身可并行化，这三点使得算法在大规模数据上速度非常快</strong></p>
 <p>##环境准备阶段</p>
 <p><strong>实验环境</strong>：spark-shell 单节点伪分布式 需要此环境在8G以上</p>
 <p>数据集：<a href="https://github.com/libaoquan95/aasPractice/tree/master/c3/profiledata_06-May-2005" target="_blank" rel="noopener">https://github.com/libaoquan95/aasPractice/tree/master/c3/profiledata_06-May-2005</a></p>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/01.jpg" alt="01"><br>| 数据文件 | 含义 |<br>|–|–|<br>| user_artist_data.txt |  包含该的是（用户ID、歌曲ID、用户听的次数） |<br>| artist_data.txt | 这个文件包含的是（歌曲ID，歌曲名字） |<br>| artist_alias.txt |  输入错误，或者不同某种原因，同一首歌曲可能具有不同ID，这个是歌曲勘误表（bad_id, good_id） |</p>
-<p>####上传数据集至HDFS<br>1.启动hadoop</p>
+<h4 id="上传数据集至HDFS"><a href="#上传数据集至HDFS" class="headerlink" title="上传数据集至HDFS"></a>上传数据集至HDFS</h4><p>1.启动hadoop</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
 <p>2.上传数据到hdfs中</p>
 <p>3.在hdfs中创建aparke文件，将三个数据集上传到hdfs中</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /aparke</span><br><span class="line">hadoop fs -put artist_data.txt  /aparke</span><br><span class="line">hadoop fs -put artist_alias.txt  /aparke</span><br><span class="line">hadoop fs -put user_artist_data.txt  /aparke</span><br></pre></td></tr></table></figure>
-<p>####确认上传无误后，启动spark-shell</p>
-<p>由于数据集比较大，启动的时候需指定内存为<strong>6g</strong>以上</p>
+<h4 id="确认上传无误后，启动spark-shell"><a href="#确认上传无误后，启动spark-shell" class="headerlink" title="确认上传无误后，启动spark-shell"></a>确认上传无误后，启动spark-shell</h4><p>由于数据集比较大，启动的时候需指定内存为<strong>6g</strong>以上</p>
 <p>1.启动spark-shell</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --driver-memory 6g</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/02.png" alt="02"></p>
@@ -281,14 +279,12 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val first = rawUserArtistData.first</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/04.png" alt="04"></p>
 <p>分别代表用户id  歌曲id  听歌次数</p>
-<p>###数据处理阶段</p>
-<p>1.数据的缺失值处理，把空值和异常值用None代替</p>
+<h3 id="数据处理阶段"><a href="#数据处理阶段" class="headerlink" title="数据处理阶段"></a>数据处理阶段</h3><p>1.数据的缺失值处理，把空值和异常值用None代替</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">val artistByID = rawArtistData.flatMap &#123; line =&gt;          </span><br><span class="line">    val (id, name) = line.span(_ != <span class="string">'\t'</span>)</span><br><span class="line">    <span class="keyword">if</span> (name.isEmpty) &#123;</span><br><span class="line">        None</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Some((id.toInt, name.trim))</span><br><span class="line">        &#125; catch &#123;</span><br><span class="line">            <span class="keyword">case</span> e: NumberFormatException =&gt; None</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/05.png" alt="05"></p>
 <p>2.若字符串为 null，则返回None：</p>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/06.png" alt="06"></p>
-<p>###构建模型阶段</p>
-<p>1.导入依赖包<br>import org.apache.spark.mllib.recommendation._  </p>
+<h3 id="构建模型阶段"><a href="#构建模型阶段" class="headerlink" title="构建模型阶段"></a>构建模型阶段</h3><p>1.导入依赖包<br>import org.apache.spark.mllib.recommendation._  </p>
 <p><img src="/2019/01/23/大数据/使用ALS算法音乐推荐/使用ALS算法音乐推荐/07.png" alt="07"> </p>
 <p>数据集的形式完全符合Spark Mllib 的ALS 算法实现的要求，但我们还需额外做两个转换：<br>第一，    如果歌曲ID 存在一个不同的正规 ID，我们要用别名数据集对象将所有的歌曲ID 转换成正规 ID。<br>第二，    需要把数据转成 Rating 对象，Rating 对象是ALS 算法实现对“用户 – 产品 – 值” 的抽象，其中产品指“向人们推荐的物品”。 </p>
 <p>val bArtistAlias = sc.broadcast(artistAlias)</p>
