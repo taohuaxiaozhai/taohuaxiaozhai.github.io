@@ -189,104 +189,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-大数据/使用ALS算法音乐推荐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/23/大数据/使用ALS算法音乐推荐/">使用ALS算法音乐推荐</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/23/大数据/使用ALS算法音乐推荐/" class="archive-article-date">
-  	<time datetime="2019-01-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="">aparke’s blog</a>! </p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
-<p>本章实现的是歌曲推荐，使用的是ALS算法，ALS是spark.mllib中唯一的推荐算法，因为只有ALS算法可以进行并行运算。</p>
-</blockquote>
-<p><strong>使用的算法</strong></p>
-<ol>
-<li>交替最小二乘推荐算法</li>
-</ol>
-<blockquote>
-<p>现在我们要给这个隐式反馈数据选择一个合适的推荐算法。这个数据及只记录了用户和歌曲之间的交互情况。<br>除了歌曲ID的名字外，数据集没有包含用户的信息，也没有提供歌手的其他任何信息。我们要找的学习算法不需要用户和艺术家的属性信息。这类算法通常称为协同过滤算法。</p>
-<p>举个例子：根据两个用户的年龄相同来判断他们可能有相似的偏好，这不叫协同过滤。相反，根据两个用户播放过许多相同歌曲来判断他们可能都喜欢某首歌，这才叫协同过滤</p>
-</blockquote>
-<ol>
-<li>矩阵分解模型</li>
-</ol>
-<blockquote>
-<p>现在我们的用户和产品数据可以视为一个大矩阵A，矩阵第i 行和第j 列上的元素都有值，代表用户i 播放过艺术家 j 的音乐。可以预料到，矩阵A 是稀疏的，里面大多数元素为0.因为相对于所有可能的 用户 – 艺术家 组合，只有很少一部分组合会出现在数据中。这里我们使用的是一种矩阵分解模型( Non-negative matrix factorization)。</p>
-</blockquote>
-<ol>
-<li>潜在因素</li>
-</ol>
-<blockquote>
-<p>潜在因素（factor analysis）模型：<br>潜在因素模型试图通过数量相对较少的未被观察到的底层原因，来解释大量用户和产品之间可观察到的交互。<br>例如：有几千个专辑可选，为什么数百万人偏偏只买其中某些专辑？可以用对类别（可能只有数十种）的偏好来解释用户和专辑的关系，其中偏好信息并不能直接观察到，而数据也没有给出这些信息。<br>这里的偏好，其实就是我们上述要求的 k 里的值。这个k就是潜在因素，用于解释数据中的交互关系。由于k 很小，矩阵分解算法只能是某种近似。所以上述图里用的约等于号。</p></blockquote>
-        
-          <a class="article-more-a" href="/2019/01/23/大数据/使用ALS算法音乐推荐/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/23/大数据/使用ALS算法音乐推荐/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-随笔/2018-11-15随笔" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1053,6 +955,92 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-Linux/系统信息相关命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/30/Linux/系统信息相关命令/">Linux 系统信息相关命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/30/Linux/系统信息相关命令/" class="archive-article-date">
+  	<time datetime="2017-09-30T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
+<p> <strong>系统日期和时间</strong> ／ <strong>磁盘空间占用情况</strong> ／ <strong>程序执行情况</strong></p>
+<ul>
+<li><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2></li>
+<li><p>时间和日期</p>
+<ul>
+<li><code>date</code></li>
+<li><code>cal</code></li>
+</ul>
+</li>
+<li>磁盘和目录空间</li></ul>
+        
+          <a class="article-more-a" href="/2017/09/30/Linux/系统信息相关命令/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/30/Linux/系统信息相关命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1171,11 +1159,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
