@@ -45,7 +45,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/10/网站/docker下一键快速部署dvwa环境/015.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/10/网站/docker下一键快速部署dvwa环境/016.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/10/网站/docker下一键快速部署dvwa环境/017.jpg">
-<meta property="og:updated_time" content="2019-04-13T12:24:04.911Z">
+<meta property="og:updated_time" content="2019-04-13T12:28:44.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker下一键快速部署dvwa环境">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  简单描述docker Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。Docker 支持跨平台可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,">
@@ -289,11 +289,11 @@ var _hmt = _hmt || [];
 <h4 id="此处需要注意的是："><a href="#此处需要注意的是：" class="headerlink" title="此处需要注意的是："></a>此处需要注意的是：</h4><p><strong>docker cp 、attach 后面的参数是容器id，不是镜像名，每次启动id都是不同的，如果每次启动docker镜像后都有修改，退出时记得一定要保存镜像，或者后台，否则直接退出docker上次的操作就没有了。</strong></p>
 <h3 id="进入后台运行的docker"><a href="#进入后台运行的docker" class="headerlink" title="进入后台运行的docker"></a>进入后台运行的docker</h3><p><code>docker attach 1967d9fb88f4</code></p>
 <p><img src="/2019/04/10/网站/docker下一键快速部署dvwa环境/083.jpg" alt="083"></p>
-<h3 id="删除网站根目录下默认的文件"><a href="#删除网站根目录下默认的文件" class="headerlink" title="删除网站根目录下默认的文件"></a>删除网站根目录下默认的文件</h3><p>`cd /var/www/html</p>
-<p>#rm -rf ./*<br>`</p>
+<h3 id="删除网站根目录下默认的文件"><a href="#删除网站根目录下默认的文件" class="headerlink" title="删除网站根目录下默认的文件"></a>删除网站根目录下默认的文件</h3><p><code>cd /var/www/html</code></p>
+<p><code>rm -rf ./*</code></p>
 <p><img src="/2019/04/10/网站/docker下一键快速部署dvwa环境/084.jpg" alt="084"></p>
-<h3 id="复制网站源码到网站根目录下"><a href="#复制网站源码到网站根目录下" class="headerlink" title="复制网站源码到网站根目录下"></a>复制网站源码到网站根目录下</h3><p>`cd /jddvwa</p>
-<p>#cp -r ./* /var/www/html<br>`</p>
+<h3 id="复制网站源码到网站根目录下"><a href="#复制网站源码到网站根目录下" class="headerlink" title="复制网站源码到网站根目录下"></a>复制网站源码到网站根目录下</h3><p><code>cd /jddvwa</code></p>
+<p><code>cp -r ./* /var/www/html</code></p>
 <p><img src="/2019/04/10/网站/docker下一键快速部署dvwa环境/085.jpg" alt="085"></p>
 <h3 id="启动web容器apache2的服务"><a href="#启动web容器apache2的服务" class="headerlink" title="启动web容器apache2的服务"></a>启动web容器apache2的服务</h3><p><img src="/2019/04/10/网站/docker下一键快速部署dvwa环境/086.jpg" alt="086"></p>
 <h3 id="修改网站源码中的配置文件的"><a href="#修改网站源码中的配置文件的" class="headerlink" title="修改网站源码中的配置文件的"></a>修改网站源码中的配置文件的</h3><p><img src="/2019/04/10/网站/docker下一键快速部署dvwa环境/0861.jpg" alt="0861"></p>
@@ -699,11 +699,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,11 +719,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
