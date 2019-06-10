@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux 系统信息相关命令 | aparke&#39;s blog</title>
+  <title>词法分析代码语言代码解析参考 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog!   系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况  目标 时间和日期  date cal   磁盘和目录空间">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="Welcome to aparke’s blog!  直接看代码里的注释即可">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 系统信息相关命令">
-<meta property="og:url" content="http://yoursite.com/2017/09/30/Linux/系统信息相关命令/index.html">
+<meta property="og:title" content="词法分析代码语言代码解析参考">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/随笔/词法分析代码语言代码解析参考/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog!   系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况  目标 时间和日期  date cal   磁盘和目录空间">
+<meta property="og:description" content="Welcome to aparke’s blog!  直接看代码里的注释即可">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-04T15:05:27.414Z">
+<meta property="og:updated_time" content="2019-06-10T16:06:07.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 系统信息相关命令">
-<meta name="twitter:description" content="Welcome to aparke’s blog!   系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况  目标 时间和日期  date cal   磁盘和目录空间">
+<meta name="twitter:title" content="词法分析代码语言代码解析参考">
+<meta name="twitter:description" content="Welcome to aparke’s blog!  直接看代码里的注释即可">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -189,172 +189,31 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux/系统信息相关命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-随笔/词法分析代码语言代码解析参考" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux 系统信息相关命令
+      词法分析代码语言代码解析参考
     </h1>
   
 
         
-        <a href="/2017/09/30/Linux/系统信息相关命令/" class="archive-article-date">
-  	<time datetime="2017-09-30T09:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
+        <a href="/2019/06/10/随笔/词法分析代码语言代码解析参考/" class="archive-article-date">
+  	<time datetime="2019-06-10T09:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<p> <strong>系统日期和时间</strong> ／ <strong>磁盘空间占用情况</strong> ／ <strong>程序执行情况</strong></p>
-<ul>
-<li><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2></li>
-<li><p>时间和日期</p>
-<ul>
-<li><code>date</code></li>
-<li><code>cal</code></li>
-</ul>
-</li>
-<li>磁盘和目录空间<a id="more"></a><ul>
-<li><code>df</code></li>
-<li><code>du</code></li>
-</ul>
-</li>
-<li>进程信息<ul>
-<li><code>ps</code></li>
-<li><code>top</code></li>
-<li><code>kill</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="01-时间和日期"><a href="#01-时间和日期" class="headerlink" title="01. 时间和日期"></a>01. 时间和日期</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td>date</td>
-<td>查看系统时间</td>
-</tr>
-<tr>
-<td>02</td>
-<td>cal</td>
-<td><code>calendar</code> 查看日历，<code>-y</code> 选项可以查看一年的日历</td>
-</tr>
-</tbody>
-</table>
-<h2 id="02-磁盘信息"><a href="#02-磁盘信息" class="headerlink" title="02. 磁盘信息"></a>02. 磁盘信息</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td>df -h</td>
-<td><code>disk free</code> 显示磁盘剩余空间</td>
-</tr>
-<tr>
-<td>02</td>
-<td>du -h [目录名]</td>
-<td><code>disk usage</code> 显示目录下的文件大小</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>选项说明</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-h</td>
-<td>以人性化的方式显示文件大小</td>
-</tr>
-</tbody>
-</table>
-<h2 id="03-进程信息"><a href="#03-进程信息" class="headerlink" title="03. 进程信息"></a>03. 进程信息</h2><ul>
-<li>所谓 <strong>进程</strong>，通俗地说就是 <strong>当前正在执行的一个程序</strong></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td>ps aux</td>
-<td><code>process status</code> 查看进程的详细状况</td>
-</tr>
-<tr>
-<td>02</td>
-<td>top</td>
-<td>动态显示运行中的进程并且排序</td>
-</tr>
-<tr>
-<td>03</td>
-<td>kill [-9] 进程代号</td>
-<td>终止指定代号的进程，<code>-9</code> 表示强行终止</td>
-</tr>
-</tbody>
-</table>
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h2 id="直接看代码里的注释即可"><a href="#直接看代码里的注释即可" class="headerlink" title="直接看代码里的注释即可"></a>直接看代码里的注释即可</h2><a id="more"></a>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="comment">/* prog[80]将读入的字符保存在prog[80],</span></span><br><span class="line"><span class="comment">token为存放的单词自身字符串</span></span><br><span class="line"><span class="comment">syn为每个字符的序号，p代表当前都字符的数组下标，</span></span><br><span class="line"><span class="comment">m代表数组字符串token[]的指针，n为六个标识符的下标</span></span><br><span class="line"><span class="comment">sum代表数字 */</span></span><br><span class="line"><span class="keyword">char</span> prog[<span class="number">80</span>],token[<span class="number">8</span>],ch;</span><br><span class="line"><span class="keyword">int</span> syn,p,m,n,sum;</span><br><span class="line"></span><br><span class="line"><span class="comment">//rwtab是一个 char* 型的指针型数组，元素1指向 "begin" ;元素2指向 "if" 依次类推</span></span><br><span class="line"><span class="keyword">char</span> *rwtab[<span class="number">6</span>]= &#123;<span class="string">"begin"</span>,<span class="string">"if"</span>,<span class="string">"then"</span>,<span class="string">"while"</span>,<span class="string">"do"</span>,<span class="string">"end"</span>&#125;;</span><br><span class="line"><span class="comment">//声明scaner()函数</span></span><br><span class="line">scaner();</span><br><span class="line"></span><br><span class="line"><span class="comment">//主函数，程序入口vc6.0可以直接main()这样定义,如果是C99以后的标准必须为int main()</span></span><br><span class="line">main() &#123;</span><br><span class="line">	p=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n please input a string(end with '#'):\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输入字符，直到输入后#程序结束</span></span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;ch);</span><br><span class="line">		prog[p++]=ch;<span class="comment">//prog []保存读到的字符在数组中</span></span><br><span class="line">	&#125; <span class="keyword">while</span>(ch!=<span class="string">'#'</span>);</span><br><span class="line">	p=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		scaner();</span><br><span class="line">		<span class="keyword">switch</span>(syn)</span><br><span class="line"></span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"( %-10d%5d )\n"</span>,sum,syn);<span class="comment">//输出(数的二元组)，整型打印</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"you have input a wrong string\n"</span>);</span><br><span class="line">			getch();</span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"( %-10s%5d )\n"</span>,token,syn);<span class="comment">//输出(其他单词二元组)，以字符串方式打印</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">while</span>(syn!=<span class="number">0</span>);</span><br><span class="line">	getch();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//针对读入的每个字符做处理</span></span><br><span class="line">scaner() &#123;</span><br><span class="line">	sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(m=<span class="number">0</span>; m&lt;<span class="number">8</span>; m++)</span><br><span class="line">		token[m++]=<span class="literal">NULL</span>;<span class="comment">//给token[]数组中每个元素初始化</span></span><br><span class="line">	<span class="comment">//读入第一个字符</span></span><br><span class="line">	ch=prog[p++];</span><br><span class="line">	m=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//判断如果读入的是空格或者换行，继续读下一个</span></span><br><span class="line">	<span class="keyword">while</span>((ch==<span class="string">' '</span>)||(ch==<span class="string">'\n'</span>))</span><br><span class="line">		ch=prog[p++];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//判断读入的是大写字母或者小写字母进入while循环</span></span><br><span class="line">	<span class="keyword">if</span>(((ch&lt;=<span class="string">'z'</span>)&amp;&amp;(ch&gt;=<span class="string">'a'</span>))||((ch&lt;=<span class="string">'Z'</span>)&amp;&amp;(ch&gt;=<span class="string">'A'</span>))) &#123;</span><br><span class="line">		<span class="comment">//判断读入的是字母 或者以字母开头的字符后面是数字的</span></span><br><span class="line">		<span class="keyword">while</span>(((ch&lt;=<span class="string">'z'</span>)&amp;&amp;(ch&gt;=<span class="string">'a'</span>))||((ch&lt;=<span class="string">'Z'</span>)&amp;&amp;(ch&gt;=<span class="string">'A'</span>))||((ch&gt;=<span class="string">'0'</span>)&amp;&amp;(ch&lt;=<span class="string">'9'</span>))) &#123;</span><br><span class="line">			<span class="comment">//将读入的按下标字符赋值给token[]数组</span></span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			ch=prog[p++];<span class="comment">//继续读下一个字符</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//如果不满if条件，则p--,回退一次，并且给序号为10 代表为字字符串</span></span><br><span class="line">		p--;</span><br><span class="line">		syn=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//判断读入的字符串是否为关键字 比较六个字符串</span></span><br><span class="line">		<span class="keyword">for</span>(n=<span class="number">0</span>; n&lt;<span class="number">6</span>; n++)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(token,&amp;rwtab[n])==<span class="number">0</span>) &#123; <span class="comment">// 两个字符串是否相等</span></span><br><span class="line">				syn=n+<span class="number">1</span>;<span class="comment">//如果相等序号+1 按照定义关键字的顺便 给序号begin=1,if=2,then=3,while=4,do=5,end=6</span></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//判断读入是否为数字</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>((ch&gt;=<span class="string">'0'</span>)&amp;&amp;(ch&lt;=<span class="string">'9'</span>)) &#123;</span><br><span class="line">		<span class="comment">//将字符变为int型</span></span><br><span class="line">		<span class="keyword">while</span>((ch&gt;=<span class="string">'0'</span>)&amp;&amp;(ch&lt;=<span class="string">'9'</span>)) &#123;</span><br><span class="line">			sum=sum*<span class="number">10</span>+ch-<span class="string">'0'</span>;<span class="comment">//如果是数字则 sum=sum*10+ch-'0';  读入数字的ascii减去48（0的ascii）</span></span><br><span class="line">			ch=prog[p++];<span class="comment">//继续读下一个字符</span></span><br><span class="line">		&#125;</span><br><span class="line">		p--;<span class="comment">//如果不是，回退一次，</span></span><br><span class="line">		syn=<span class="number">11</span>;<span class="comment">//数字默认为序号11</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//其他字符 </span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">switch</span>(ch) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">			token[m++]=ch;<span class="comment">//判断第一个读入的字符是否为符号</span></span><br><span class="line">			ch=prog[p++];</span><br><span class="line">			<span class="keyword">if</span>(ch==<span class="string">'='</span>) &#123;</span><br><span class="line">				syn=<span class="number">22</span>;</span><br><span class="line">				token[m++]=ch;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				syn=<span class="number">20</span>;</span><br><span class="line">				p--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			ch=prog[p++];</span><br><span class="line">			<span class="keyword">if</span>(ch==<span class="string">'='</span>) &#123;</span><br><span class="line">				syn=<span class="number">24</span>;</span><br><span class="line">				token[m++]=ch;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				syn=<span class="number">23</span>;</span><br><span class="line">				p--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			ch=prog[p++];</span><br><span class="line">			<span class="keyword">if</span>(ch==<span class="string">'+'</span>) &#123;</span><br><span class="line">				syn=<span class="number">17</span>;</span><br><span class="line">				token[m++]=ch;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				syn=<span class="number">13</span>;</span><br><span class="line">				p--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			ch=prog[p++];</span><br><span class="line">			<span class="keyword">if</span>(ch==<span class="string">'-'</span>) &#123;</span><br><span class="line">				syn=<span class="number">29</span>;</span><br><span class="line">				token[m++]=ch;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				syn=<span class="number">14</span>;</span><br><span class="line">				p--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">case</span> <span class="string">'!'</span>:</span><br><span class="line">			ch=prog[p++];</span><br><span class="line">			<span class="keyword">if</span>(ch==<span class="string">'='</span>) &#123;</span><br><span class="line">				syn=<span class="number">21</span>;</span><br><span class="line">				token[m++]=ch;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				syn=<span class="number">31</span>;</span><br><span class="line">				p--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">case</span> <span class="string">'='</span>:</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			ch=prog[p++];</span><br><span class="line">			<span class="keyword">if</span>(ch==<span class="string">'='</span>) &#123;</span><br><span class="line">				syn=<span class="number">25</span>;</span><br><span class="line">				token[m++]=ch;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				syn=<span class="number">18</span>;</span><br><span class="line">				p--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">			syn=<span class="number">15</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">			syn=<span class="number">16</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'('</span>:</span><br><span class="line">			syn=<span class="number">27</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">')'</span>:</span><br><span class="line">			syn=<span class="number">28</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&#123;'</span>:</span><br><span class="line">			syn=<span class="number">5</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&#125;'</span>:</span><br><span class="line">			syn=<span class="number">6</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">';'</span>:</span><br><span class="line">			syn=<span class="number">26</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'\"'</span>:</span><br><span class="line">			syn=<span class="number">30</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'#'</span>:</span><br><span class="line">			syn=<span class="number">0</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">':'</span>:</span><br><span class="line">			syn=<span class="number">17</span>;</span><br><span class="line">			token[m++]=ch;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			syn=<span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	token[m++]=<span class="string">'\0'</span>;</span><br><span class="line">&#125; <span class="comment">//scanf函数结束</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><code>ps</code> 默认只会显示当前用户通过终端启动的应用程序</p>
-</blockquote>
-<ul>
-<li><code>ps</code> 选项说明</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>显示终端上的所有进程，包括其他用户的进程</td>
-</tr>
-<tr>
-<td>u</td>
-<td>显示进程的详细状态</td>
-</tr>
-<tr>
-<td>x</td>
-<td>显示没有控制终端的进程</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>提示：使用 <code>kill</code> 命令时，最好只终止由当前用户开启的进程，而不要终止 <code>root</code> 身份开启的进程，否则可能导致系统崩溃</p>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<ul>
-<li>要退出 <code>top</code> 可以直接输入 <code>q</code></li>
-</ul>
+<p>仅供参考，若有问题可以探讨</p>
 </blockquote>
 
       
@@ -400,7 +259,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -456,7 +315,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/09/30/Linux/系统信息相关命令/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/10/随笔/词法分析代码语言代码解析参考/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -470,18 +329,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/10/02/Linux/Ubuntu 16.04安装ftp-server/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Ubuntu 16.04安装ftp-server
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/24/Linux/文件和目录常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux 文件和目录常用命令</div>
+    <a href="/2019/05/29/大数据/基于Spark预测出租车在一定区域内的抵达时间/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于Spark预测出租车在一定区域内的抵达时间</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -509,7 +359,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Linux/系统信息相关命令" data-title="Linux 系统信息相关命令" data-url="http://yoursite.com/2017/09/30/Linux/系统信息相关命令/"></div>
+	<div class="ds-thread" data-thread-key="随笔/词法分析代码语言代码解析参考" data-title="词法分析代码语言代码解析参考" data-url="http://yoursite.com/2019/06/10/随笔/词法分析代码语言代码解析参考/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -532,8 +382,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/09/30/Linux/系统信息相关命令/", 
-    sourceId: "Linux/系统信息相关命令",
+    url: "http://yoursite.com/2019/06/10/随笔/词法分析代码语言代码解析参考/", 
+    sourceId: "随笔/词法分析代码语言代码解析参考",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -542,7 +392,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Linux/系统信息相关命令" ></div> 
+  <div id="SOHUCS" sid="随笔/词法分析代码语言代码解析参考" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
