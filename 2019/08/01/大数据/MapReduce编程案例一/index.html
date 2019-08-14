@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog Mapreduce经典案例    题目描述用户在某个位置从某个时刻开始停留了多长时间    现有如下数据文件需要处理格式：input.csv字段：用户ID，位置ID，开始时间，停留时长(分钟）4行样例：UserA,LocationA,2018-01-01 08:00:00,60UserA,LocationA,2018-01-01 09:00:00,">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-14T03:34:59.921Z">
+<meta property="og:updated_time" content="2019-08-14T03:36:32.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MapReduce编程案例一">
 <meta name="twitter:description" content="Welcome to aparke’s blog Mapreduce经典案例    题目描述用户在某个位置从某个时刻开始停留了多长时间    现有如下数据文件需要处理格式：input.csv字段：用户ID，位置ID，开始时间，停留时长(分钟）4行样例：UserA,LocationA,2018-01-01 08:00:00,60UserA,LocationA,2018-01-01 09:00:00,">
@@ -213,11 +213,7 @@ var _hmt = _hmt || [];
 <p>Mapreduce经典案例   </p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>用户在某个位置从某个时刻开始停留了多长时间  </p>
 <blockquote>
-<p><strong>现有如下数据文件需要处理</strong><br>格式：input.csv<br>字段：用户ID，位置ID，开始时间，停留时长(分钟）<br>4行样例：<br>UserA,LocationA,2018-01-01 08:00:00,60<br>UserA,LocationA,2018-01-01 09:00:00,60<br>UserA,LocationB,2018-01-01 10:00:00,60<br>UserA,LocationA,2018-01-01 11:00:00,60 </p>
-</blockquote>
- <a id="more"></a>
-<blockquote>
-<p><strong>解读：</strong><br>样例数据中的数据含义是：<br>用户UserA，在LocationA位置，从8点开始，停留了60分钟<br>用户UserA，在LocationA位置，从9点开始，停留了60分钟<br>用户UserA，在LocationB位置，从10点开始，停留了60分钟<br>用户UserA，在LocationA位置，从11点开始，停留了60分钟  </p>
+<p><strong>现有如下数据文件需要处理</strong><br>格式：input.csv<br>字段：用户ID，位置ID，开始时间，停留时长(分钟）<br>4行样例：<br>UserA,LocationA,2018-01-01 08:00:00,60<br>UserA,LocationA,2018-01-01 09:00:00,60<br>UserA,LocationB,2018-01-01 10:00:00,60<br>UserA,LocationA,2018-01-01 11:00:00,60  <a id="more"></a><br><strong>解读：</strong><br>样例数据中的数据含义是：<br>用户UserA，在LocationA位置，从8点开始，停留了60分钟<br>用户UserA，在LocationA位置，从9点开始，停留了60分钟<br>用户UserA，在LocationB位置，从10点开始，停留了60分钟<br>用户UserA，在LocationA位置，从11点开始，停留了60分钟  </p>
 <p><strong>该样例期待输出：</strong><br>UserA,LocationA,2018-01-01 08:00:00,120<br>UserA,LocationB,2018-01-01 10:00:00,60<br>UserA,LocationA,2018-01-01 11:00:00,60  </p>
 <p><strong>处理逻辑：</strong><br>1 对同一个用户，在同一个位置，连续的多条记录进行合并<br>2 合并原则：开始时间取最早时间，停留时长加和  </p>
 </blockquote>
