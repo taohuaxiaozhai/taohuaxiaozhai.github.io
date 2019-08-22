@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>第一个 Python 程序 | aparke&#39;s blog</title>
+  <title>MapReduce编程案例二 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog!  目标 第一个 HelloPython 程序 Python 2.x 与 3​​.x 版本简介 执行 Python 程序的三种方式 解释器 —— python / python3 交互式 —— ipython 集成开发环境 —— PyCharm">
-<meta name="keywords" content="python">
+  <meta name="description" content="Welcome to aparke’s blog Mapreduce经典案例之Partitioner   题目描述统计不同归属地的用户上网流量">
+<meta name="keywords" content="大数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一个 Python 程序">
-<meta property="og:url" content="http://yoursite.com/2017/07/12/python/第一个 Python 程序/index.html">
+<meta property="og:title" content="MapReduce编程案例二">
+<meta property="og:url" content="http://yoursite.com/2019/08/05/大数据/MapReduce编程案例二/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog!  目标 第一个 HelloPython 程序 Python 2.x 与 3​​.x 版本简介 执行 Python 程序的三种方式 解释器 —— python / python3 交互式 —— ipython 集成开发环境 —— PyCharm">
+<meta property="og:description" content="Welcome to aparke’s blog Mapreduce经典案例之Partitioner   题目描述统计不同归属地的用户上网流量">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://yoursite.com/2017/07/12/python/第一个%20Python%20程序/001_积跬步以至千里.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/07/12/python/第一个%20Python%20程序/001_PyCharm的界面结构.png">
-<meta property="og:image" content="http://yoursite.com/2017/07/12/python/第一个%20Python%20程序/002_PyCharm运行工具栏.png">
-<meta property="og:image" content="http://yoursite.com/2017/07/12/python/第一个%20Python%20程序/003_PyCharm调试器.png">
-<meta property="og:updated_time" content="2018-05-11T20:23:01.795Z">
+<meta property="og:updated_time" content="2019-08-22T05:50:20.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一个 Python 程序">
-<meta name="twitter:description" content="Welcome to aparke’s blog!  目标 第一个 HelloPython 程序 Python 2.x 与 3​​.x 版本简介 执行 Python 程序的三种方式 解释器 —— python / python3 交互式 —— ipython 集成开发环境 —— PyCharm">
-<meta name="twitter:image" content="http://yoursite.com/2017/07/12/python/第一个%20Python%20程序/001_积跬步以至千里.jpg">
+<meta name="twitter:title" content="MapReduce编程案例二">
+<meta name="twitter:description" content="Welcome to aparke’s blog Mapreduce经典案例之Partitioner   题目描述统计不同归属地的用户上网流量">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -194,226 +189,47 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python/第一个 Python 程序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-大数据/MapReduce编程案例二" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      第一个 Python 程序
+      MapReduce编程案例二
     </h1>
   
 
         
-        <a href="/2017/07/12/python/第一个 Python 程序/" class="archive-article-date">
-  	<time datetime="2017-07-12T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2019/08/05/大数据/MapReduce编程案例二/" class="archive-article-date">
+  	<time datetime="2019-08-04T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>第一个 <code>HelloPython</code> 程序</li>
-<li><code>Python 2.x</code> 与 <code>3​​.x</code> 版本简介</li>
-<li>执行 <code>Python</code> 程序的三种方式<ul>
-<li>解释器 —— <code>python</code> / <code>python3</code></li>
-<li>交互式 —— <code>ipython</code></li>
-<li>集成开发环境 —— <code>PyCharm</code><a id="more"></a>
-<h2 id="01-第一个-HelloPython-程序"><a href="#01-第一个-HelloPython-程序" class="headerlink" title="01. 第一个 HelloPython 程序"></a>01. 第一个 <code>HelloPython</code> 程序</h2></li>
-</ul>
-</li>
-</ul>
-<h3 id="1-1-Python-源程序的基本概念"><a href="#1-1-Python-源程序的基本概念" class="headerlink" title="1.1 Python 源程序的基本概念"></a>1.1 Python 源程序的基本概念</h3><ol>
-<li>Python 源程序就是<strong>一个特殊格式的文本文件</strong>，可以<strong>使用任意文本编辑软件</strong>做 <code>Python</code> 的开发</li>
-<li>Python 程序的 <strong>文件扩展名</strong> 通常都是 <code>.py</code></li>
-</ol>
-<h3 id="1-2-演练步骤"><a href="#1-2-演练步骤" class="headerlink" title="1.2 演练步骤"></a>1.2 演练步骤</h3><ul>
-<li>在桌面下，新建 <code>认识Python</code> 目录</li>
-<li>在 <code>认识Python</code> 目录下新建 <code>01-HelloPython.py</code> 文件</li>
-<li>使用 <strong>gedit</strong> 编辑 <code>01-HelloPython.py</code> 并且输入以下内容：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello python"</span>)</span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在终端中输入以下命令执行 <code>01-HelloPython.py</code></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python 01-HelloPython.py</span><br></pre></td></tr></table></figure>
+        <p>Welcome to <a href="#">aparke’s blog</a></p>
+<p>Mapreduce经典案例之Partitioner  </p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>统计不同归属地的用户上网流量</p>
+  <a id="more"></a>  
 <blockquote>
-<p><code>print</code> 是 <code>python</code> 中我们学习的第一个 <strong>函数</strong></p>
-<p><code>print</code> 函数的作用，可以把 <strong>“”</strong> 内部的内容，输出到屏幕上</p>
+<p><strong>解读：</strong><br>一组数据中是样例数据中属性分别是<br>时间戳  手机号  MAC地址  ip地址  访问网站域名 上行数据包  下行数据包 上行流量 下行流量 访问响应状态码</p>
+<p><strong>处理逻辑：</strong><br>1 先切分出需要的数据列第二列以及倒数第二三列。<br>2 通过Partitioner类，实现getPartition方法，在Mapper阶段，当Mapper处理好数据后，这些数匀的分据需要经过Partitioner进行分区，来选择不同的Reducer处理，从而将Mapper的输出结果按自定义分区在Reducer上面执行，然后设置Reduce个数job.setNumReduceTasks();将不同类型结果输出到不同文件中。</p>
 </blockquote>
-<h3 id="1-3-演练扩展-——-认识错误（BUG）"><a href="#1-3-演练扩展-——-认识错误（BUG）" class="headerlink" title="1.3 演练扩展 —— 认识错误（BUG）"></a>1.3 演练扩展 —— 认识错误（BUG）</h3><h4 id="关于错误"><a href="#关于错误" class="headerlink" title="关于错误"></a>关于错误</h4><ul>
-<li>编写的程序<strong>不能正常执行</strong>，或者<strong>执行的结果不是我们期望的</strong></li>
-<li>俗称 <code>BUG</code>，是程序员在开发时非常常见的，初学者常见错误的原因包括：<ol>
-<li>手误</li>
-<li>对已经学习过的知识理解还存在不足</li>
-<li>对语言还有需要学习和提升的内容</li>
-</ol>
-</li>
-<li>在学习语言时，不仅要<strong>学会语言的语法</strong>，而且还要<strong>学会如何认识错误和解决错误的方法</strong></li>
-</ul>
-<blockquote>
-<p>每一个程序员都是在不断地修改错误中成长的</p>
+<h2 id="处理逻辑代码"><a href="#处理逻辑代码" class="headerlink" title="处理逻辑代码"></a>处理逻辑代码</h2><h3 id="Mapper类"><a href="#Mapper类" class="headerlink" title="Mapper类"></a>Mapper类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.mr.flow;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 需求说明 现有如下数据 1363157985066 13726230503 00-FD-07-A4-72-B8:CMCC 120.196.100.82 i02.c.aliimg.com 24 27 2481 24681 200 </span></span><br><span class="line"><span class="comment"> * 分别为 ：时间戳 	手机号 	mac地址  ip	网址 上下行数据包    上下行流量 及响应状态</span></span><br><span class="line"><span class="comment"> * 通过以上数据输出一个人的手机号为key value 输出上下总流量 下行总流量 以及总流量</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * key 手机号 value 上行流量 下行流量 总流量</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * map	 输入 LongWritable Text </span></span><br><span class="line"><span class="comment"> * 		 输出 Text FlowBean</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlowMapper</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">LongWritable</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">FlowBean</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">	Text keyout = <span class="keyword">new</span> Text();</span><br><span class="line">	FlowBean flowBean = <span class="keyword">new</span> FlowBean();</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(LongWritable key, Text value, Mapper&lt;LongWritable, Text, Text, FlowBean&gt;.Context context)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">		String[] fields = value.toString().split(<span class="string">"\t"</span>);</span><br><span class="line">		String phone = fields[<span class="number">1</span>];<span class="comment">//手机号</span></span><br><span class="line">		</span><br><span class="line">		String upFlow = fields[fields.length-<span class="number">3</span>];<span class="comment">//拿到上行流量</span></span><br><span class="line">		String downFlow = fields[fields.length-<span class="number">2</span>];<span class="comment">//拿到下行流量</span></span><br><span class="line">		</span><br><span class="line">		flowBean.setUpFlow(Integer.parseInt(upFlow));</span><br><span class="line">		flowBean.setDownFlow(Integer.parseInt(downFlow));</span><br><span class="line">		</span><br><span class="line">		keyout.set(phone);</span><br><span class="line">		context.write(keyout, flowBean);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Reducer类"><a href="#Reducer类" class="headerlink" title="Reducer类"></a>Reducer类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.mr.flow;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlowReducer</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">FlowBean</span>, <span class="title">Text</span>, <span class="title">FlowBean</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">	FlowBean outValue=<span class="keyword">new</span> FlowBean();</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;FlowBean&gt; values,Context context)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> upSum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> downSum=<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (FlowBean value : values) &#123;</span><br><span class="line">			upSum+=value.getUpFlow();</span><br><span class="line">			downSum+=value.getDownFlow();</span><br><span class="line">		&#125;</span><br><span class="line">		outValue.setUpFlow(upSum);</span><br><span class="line">		outValue.setDownFlow(downSum);</span><br><span class="line">		outValue.setAmount(upSum, downSum);</span><br><span class="line">		</span><br><span class="line">		context.write(key, outValue);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Job提交类"><a href="#Job提交类" class="headerlink" title="Job提交类"></a>Job提交类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.mr.flow;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobSumbitToLocal</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		Configuration conf = <span class="keyword">new</span> Configuration();</span><br><span class="line">		Job job = Job.getInstance(conf,<span class="string">"流量统计"</span>);</span><br><span class="line">		</span><br><span class="line">		job.setJarByClass(JobSumbitToLocal.class);</span><br><span class="line">		job.setMapperClass(FlowMapper.class);</span><br><span class="line">		job.setReducerClass(FlowReducer.class);</span><br><span class="line">		job.setOutputKeyClass(Text.class);</span><br><span class="line">		job.setOutputValueClass(FlowBean.class);</span><br><span class="line">		</span><br><span class="line">		Path inpath=<span class="keyword">new</span> Path(<span class="string">"d:/testdata/flow/input"</span>);</span><br><span class="line">		Path outpath=<span class="keyword">new</span> Path(<span class="string">"d:/testdata/flow/outputplus"</span>);</span><br><span class="line">		FileSystem fs = FileSystem.get(conf);</span><br><span class="line">		<span class="keyword">if</span> (fs.exists(outpath)) &#123;</span><br><span class="line">			fs.delete(outpath, <span class="keyword">true</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//实现自定义分区必须有下面两行代码，因为设置了有六个分区器需要设置六个reduceTask</span></span><br><span class="line">		<span class="comment">//设置参数：maptask在做数据分区时，用哪个分区逻辑类  （如果不指定，它会用默认的HashPartitioner）</span></span><br><span class="line"><span class="comment">//		设置自定义分区规则</span></span><br><span class="line">		job.setPartitionerClass(FlowPartitioner.class);</span><br><span class="line"><span class="comment">//		设置Reduce个数</span></span><br><span class="line">		job.setNumReduceTasks(<span class="number">6</span>);</span><br><span class="line">		</span><br><span class="line">		FileInputFormat.setInputPaths(job, inpath);</span><br><span class="line">		FileOutputFormat.setOutputPath(job, outpath);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">boolean</span> waitForCompletion = job.waitForCompletion(<span class="keyword">true</span>);</span><br><span class="line">		</span><br><span class="line">		System.exit(waitForCompletion?<span class="number">0</span>:<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FlowBean对象类"><a href="#FlowBean对象类" class="headerlink" title="FlowBean对象类"></a>FlowBean对象类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.mr.flow;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.DataInput;</span><br><span class="line"><span class="keyword">import</span> java.io.DataOutput;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Writable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * /**</span></span><br><span class="line"><span class="comment"> * 自定义复杂数据类型：</span></span><br><span class="line"><span class="comment"> *  (1)需要实现Writable接口</span></span><br><span class="line"><span class="comment"> *  (2)需要实现接口中的write和readFields方法</span></span><br><span class="line"><span class="comment"> *  (3)比较隐蔽的一点,需要定义默认的空构造方法</span></span><br><span class="line"><span class="comment"> *  如果是key使用自定义类型，就必须覆盖CompareTo方法！value则不用。</span></span><br><span class="line"><span class="comment"> *  属性必须覆盖getter/setter方法!</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlowBean</span> <span class="keyword">implements</span> <span class="title">Writable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> upFlow;<span class="comment">//上行流量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> downFlow;<span class="comment">//下行流量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> amount;<span class="comment">//总流量</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//	public FlowBean() &#123;</span></span><br><span class="line"><span class="comment">//		// TODO Auto-generated constructor stub</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> amount;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAmount</span><span class="params">(<span class="keyword">int</span> upFlow, <span class="keyword">int</span> downFlow)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.amount = upFlow+downFlow;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//		return "FlowBean [upFlow=" + upFlow + ", downFlow=" + downFlow + ", amount=" + amount + "]";</span></span><br><span class="line">		<span class="keyword">return</span> upFlow + <span class="string">"\t"</span> + downFlow + <span class="string">"\t"</span> +amount;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUpFlow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> upFlow;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpFlow</span><span class="params">(<span class="keyword">int</span> upFlow)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.upFlow = upFlow;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDownFlow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> downFlow;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDownFlow</span><span class="params">(<span class="keyword">int</span> downFlow)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.downFlow = downFlow;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readFields</span><span class="params">(DataInput in)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.upFlow = in.readInt();</span><br><span class="line">		<span class="keyword">this</span>.downFlow = in.readInt();</span><br><span class="line">		<span class="keyword">this</span>.amount = in.readInt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(DataOutput out)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		out.writeInt(upFlow);</span><br><span class="line">		out.writeInt(downFlow);</span><br><span class="line">		out.writeInt(amount);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Partitioner类"><a href="#Partitioner类" class="headerlink" title="Partitioner类"></a>Partitioner类</h3><blockquote>
+<p><strong>描述</strong><br>Partitioner决定了Map Task 输出的每条数据交给哪个Reduce Task 来处理。Partitioner 有两个功能：<br>１) 均衡负载。它尽量将工作均匀地分配给不同的 Reduce。<br>２) 效率。它的分配速度一定要非常快。  </p>
+<p>Partitioner 的默认实现：hash(key) mod R，这里的R代表Reduce Task 的数目，意思就是对key进行hash处理然后取模。很多情况下，用户需要自定义 Partitioner，比如“hash(hostname(URL)) mod R”，它确保相同域名下的网页交给同一个 Reduce Task 来处理。 用户自定义Partitioner，需要继承Partitioner类，实现它提供的一个方法。</p>
+<p><strong>自定义partitioner</strong><br>每一个Reduce的输出都是有序的，但是将所有Reduce的输出合并到一起却并非是全局有序的，如果要做到全局有序，我们该怎么做呢？最简单的方式，只设置一个Reduce task，但是这样完全发挥不出集群的优势，而且能应对的数据量也很受限。最佳的方式是自己定义一个Partitioner，用输入数据的最大值除以系统Reduce task数量的商作为分割边界，也就是说分割数据的边界为此商的1倍、2倍至numPartitions-1倍，这样就能保证执行partition后的数据是整体有序的。</p>
+<p><strong>解决数据倾斜</strong><br>另一种需要我们自己定义一个Partitioner的情况是各个Reduce task处理的键值对数量极不平衡。对于某些数据集，由于很多不同的key的hash值都一样，导致这些键值对都被分给同一个Reducer处理，而其他的Reducer处理的键值对很少，从而拖延整个任务的进度。当然，编写自己的Partitioner必须要保证具有相同key值的键值对分发到同一个Reducer。</p>
+<p>自定义的Key包含了好几个字段，比如自定义key是一个对象，包括type1，type2，type3,只需要根据type1去分发数据，其他字段用作二次排序。</p>
 </blockquote>
-<h4 id="第一个演练中的常见错误"><a href="#第一个演练中的常见错误" class="headerlink" title="第一个演练中的常见错误"></a>第一个演练中的常见错误</h4><ul>
-<li>1&gt; <strong>手误</strong>，例如使用 <code>pirnt(&quot;Hello world&quot;)</code> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NameError: name &apos;pirnt&apos; is not defined</span><br><span class="line"></span><br><span class="line">名称错误：&apos;pirnt&apos; 名字没有定义</span><br></pre></td></tr></table></figure>
-<ul>
-<li>2&gt; 将多条 <code>print</code> 写在一行</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: invalid syntax</span><br><span class="line"></span><br><span class="line">语法错误：语法无效</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>每行代码负责完成一个动作</p>
-</blockquote>
-<ul>
-<li>3&gt; 缩进错误</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IndentationError: unexpected indent</span><br><span class="line"></span><br><span class="line">缩进错误：不期望出现的缩进</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>Python 是一个格式非常严格的程序设计语言</li>
-<li>目前而言，大家记住每行代码前面都不要增加空格</li>
-</ul>
-</blockquote>
-<ul>
-<li>4&gt; <strong>python 2.x 默认不支持中文</strong> </li>
-</ul>
-<p>目前市场上有两个 Python 的版本并存着，分别是 <code>Python 2.x</code> 和 <code>Python 3.x</code></p>
-<ul>
-<li><strong>Python 2.x 默认不支持中文</strong>，具体原因，等到介绍 <strong>字符编码</strong> 时给大家讲解</li>
-<li>Python 2.x 的解释器名称是 <strong>python</strong></li>
-<li>Python 3.x 的解释器名称是 <strong>python3</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character &apos;\xe4&apos; in file 01-HelloPython.py on line 3, </span><br><span class="line">but no encoding declared; </span><br><span class="line">see http://python.org/dev/peps/pep-0263/ for details</span><br><span class="line"></span><br><span class="line">语法错误： 在 01-HelloPython.py 中第 3 行出现了非 ASCII 字符 &apos;\xe4&apos;，但是没有声明文件编码</span><br><span class="line">请访问 http://python.org/dev/peps/pep-0263/ 了解详细信息</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li><code>ASCII</code> 字符只包含 <code>256</code> 个字符，不支持中文</li>
-<li>有关字符编码的问题，后续会讲</li>
-</ul>
-</blockquote>
-<h4 id="单词列表"><a href="#单词列表" class="headerlink" title="单词列表"></a>单词列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">* error 错误</span><br><span class="line">* name 名字</span><br><span class="line">* defined 已经定义</span><br><span class="line">* syntax 语法</span><br><span class="line">* invalid 无效</span><br><span class="line">* Indentation 索引</span><br><span class="line">* unexpected 意外的，不期望的</span><br><span class="line">* character 字符</span><br><span class="line">* line 行</span><br><span class="line">* encoding 编码</span><br><span class="line">* declared 声明</span><br><span class="line">* details 细节，详细信息</span><br><span class="line">* ASCII 一种字符编码</span><br></pre></td></tr></table></figure>
-<h2 id="02-Python-2-x-与-3​​-x-版本简介"><a href="#02-Python-2-x-与-3​​-x-版本简介" class="headerlink" title="02. Python 2.x 与 3​​.x 版本简介"></a>02. <code>Python 2.x</code> 与 <code>3​​.x</code> 版本简介</h2><p>目前市场上有两个 Python 的版本并存着，分别是 <code>Python 2.x</code> 和 <code>Python 3.x</code></p>
-<blockquote>
-<p>新的 Python 程序建议使用 <code>Python 3.0</code> 版本的语法</p>
-</blockquote>
-<ul>
-<li>Python 2.x 是 <strong>过去的版本</strong><ul>
-<li>解释器名称是 <strong>python</strong></li>
-</ul>
-</li>
-<li>Python 3.x 是 <strong>现在和未来 主流的版本</strong><ul>
-<li>解释器名称是 <strong>python3</strong></li>
-<li>相对于 <code>Python</code> 的早期版本，这是一个 <strong>较大的升级</strong></li>
-<li>为了不带入过多的累赘，<code>Python 3.0</code> 在设计的时候 <strong>没有考虑向下兼容</strong><ul>
-<li>许多早期 <code>Python</code> 版本设计的程序都无法在 <code>Python 3.0</code> 上正常执行</li>
-</ul>
-</li>
-<li>Python 3.0 发布于 <strong>2008 年</strong></li>
-<li>到目前为止，Python 3.0 的稳定版本已经有很多年了<ul>
-<li>Python 3.3 发布于 2012</li>
-<li>Python 3.4 发布于 2014</li>
-<li>Python 3.5 发布于 2015</li>
-<li>Python 3.6 发布于 2016</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>为了照顾现有的程序，官方提供了一个过渡版本 —— <strong>Python 2.6</strong><ul>
-<li>基本使用了 <code>Python 2.x</code> 的语法和库</li>
-<li>同时考虑了向 <code>Python 3.0</code> 的迁移，<strong>允许使用部分</strong> <code>Python 3.0</code> 的语法与函数</li>
-<li>2010 年中推出的 <code>Python 2.7</code> 被确定为 <strong>最后一个Python 2.x 版本</strong></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>提示：如果开发时，无法立即使用 Python 3.0（还有极少的第三方库不支持 3.0 的语法），建议</p>
-<ul>
-<li>先使用 <code>Python 3.0</code> 版本进行开发</li>
-<li>然后使用 <code>Python 2.6</code>、<code>Python 2.7</code> 来执行，并且做一些兼容性的处理</li>
-</ul>
-</blockquote>
-<h2 id="03-执行-Python-程序的三种方式"><a href="#03-执行-Python-程序的三种方式" class="headerlink" title="03. 执行 Python 程序的三种方式"></a>03. 执行 Python 程序的三种方式</h2><h3 id="3-1-解释器-python-python3"><a href="#3-1-解释器-python-python3" class="headerlink" title="3.1. 解释器 python / python3"></a>3.1. 解释器 <code>python</code> / <code>python3</code></h3><h4 id="Python-的解释器"><a href="#Python-的解释器" class="headerlink" title="Python 的解释器"></a>Python 的解释器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 python 2.x 解释器</span></span><br><span class="line">$ python xxx.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python 3.x 解释器</span></span><br><span class="line">$ python3 xxx.py</span><br></pre></td></tr></table></figure>
-<h5 id="其他解释器（知道）"><a href="#其他解释器（知道）" class="headerlink" title="其他解释器（知道）"></a>其他解释器（知道）</h5><p><strong>Python 的解释器</strong> 如今有多个语言的实现，包括：</p>
-<ul>
-<li><code>CPython</code> —— 官方版本的 C 语言实现</li>
-<li><code>Jython</code> —— 可以运行在 Java 平台</li>
-<li><code>IronPython</code> —— 可以运行在 .NET 和 Mono 平台</li>
-<li><code>PyPy</code> —— Python 实现的，支持 JIT 即时编译</li>
-</ul>
-<h3 id="3-2-交互式运行-Python-程序"><a href="#3-2-交互式运行-Python-程序" class="headerlink" title="3.2. 交互式运行 Python 程序"></a>3.2. 交互式运行 Python 程序</h3><ul>
-<li>直接在终端中运行解释器，而不输入要执行的文件名</li>
-<li>在 Python 的 <code>Shell</code> 中直接输入 <strong>Python 的代码</strong>，会立即看到程序执行结果</li>
-</ul>
-<h4 id="1-交互式运行-Python-的优缺点"><a href="#1-交互式运行-Python-的优缺点" class="headerlink" title="1) 交互式运行 Python 的优缺点"></a>1) 交互式运行 Python 的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
-<li>适合于学习/验证 Python 语法或者局部代码</li>
-</ul>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
-<li>代码不能保存</li>
-<li>不适合运行太大的程序</li>
-</ul>
-<h4 id="2-退出-官方的解释器"><a href="#2-退出-官方的解释器" class="headerlink" title="2) 退出 官方的解释器"></a>2) 退出 官方的解释器</h4><h5 id="1-gt-直接输入-exit"><a href="#1-gt-直接输入-exit" class="headerlink" title="1&gt; 直接输入 exit()"></a>1&gt; 直接输入 <code>exit()</code></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
-<h5 id="2-gt-使用热键退出"><a href="#2-gt-使用热键退出" class="headerlink" title="2&gt; 使用热键退出"></a>2&gt; 使用热键退出</h5><p>在 python 解释器中，按热键 <code>ctrl + d</code> 可以退出解释器</p>
-<p><img src="/2017/07/12/python/第一个 Python 程序/001_积跬步以至千里.jpg" alt="001_积跬步以至千里"></p>
-<h4 id="3-IPython"><a href="#3-IPython" class="headerlink" title="3) IPython"></a>3) IPython</h4><ul>
-<li>IPython 中 的 “I” 代表 <strong>交互 interactive</strong></li>
-</ul>
-<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
-<li>IPython 是一个 python 的 <strong>交互式 shell</strong>，比默认的 <code>python shell</code> 好用得多<ul>
-<li>支持自动补全</li>
-<li>自动缩进</li>
-<li>支持 <code>bash shell</code> 命令</li>
-<li>内置了许多很有用的功能和函数</li>
-</ul>
-</li>
-<li>IPython 是基于 BSD 开源的</li>
-</ul>
-<h5 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h5><ul>
-<li>Python 2.x 使用的解释器是 <strong>ipython</strong></li>
-<li><p>Python 3.x 使用的解释器是 <strong>ipython3</strong></p>
-</li>
-<li><p>要退出解释器可以有以下两种方式：</p>
-</li>
-</ul>
-<h5 id="1-gt-直接输入-exit-1"><a href="#1-gt-直接输入-exit-1" class="headerlink" title="1&gt; 直接输入 exit"></a>1&gt; 直接输入 <code>exit</code></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: exit</span><br></pre></td></tr></table></figure>
-<h5 id="2-gt-使用热键退出-1"><a href="#2-gt-使用热键退出-1" class="headerlink" title="2&gt; 使用热键退出"></a>2&gt; 使用热键退出</h5><p>在 IPython 解释器中，按热键 <code>ctrl + d</code>，<code>IPython</code> 会询问是否退出解释器</p>
-<h4 id="IPython-的安装"><a href="#IPython-的安装" class="headerlink" title="IPython 的安装"></a>IPython 的安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-Python-的-IDE-——-PyCharm"><a href="#3-3-Python-的-IDE-——-PyCharm" class="headerlink" title="3.3. Python 的 IDE —— PyCharm"></a>3.3. Python 的 IDE —— <code>PyCharm</code></h2><h3 id="1）-集成开发环境（IDE）"><a href="#1）-集成开发环境（IDE）" class="headerlink" title="1） 集成开发环境（IDE）"></a>1） 集成开发环境（IDE）</h3><p>集成开发环境（<code>IDE</code>，Integrated Development Environment）—— <strong>集成了开发软件需要的所有工具</strong>，一般包括以下工具：</p>
-<ul>
-<li>图形用户界面</li>
-<li>代码编辑器（支持 <strong>代码补全</strong>／<strong>自动缩进</strong>）</li>
-<li>编译器／解释器</li>
-<li>调试器（<strong>断点</strong>／<strong>单步执行</strong>）</li>
-<li>……</li>
-</ul>
-<h3 id="2）PyCharm-介绍"><a href="#2）PyCharm-介绍" class="headerlink" title="2）PyCharm 介绍"></a>2）PyCharm 介绍</h3><ul>
-<li><code>PyCharm</code> 是 Python 的一款非常优秀的集成开发环境</li>
-<li><code>PyCharm</code> 除了具有一般 IDE 所必备功能外，还可以在 <code>Windows</code>、<code>Linux</code>、<code>macOS</code> 下使用</li>
-<li><code>PyCharm</code> 适合开发大型项目<ul>
-<li>一个项目通常会包含 <strong>很多源文件</strong></li>
-<li>每个 <strong>源文件</strong> 的代码行数是有限的，通常在几百行之内</li>
-<li>每个 <strong>源文件</strong> 各司其职，共同完成复杂的业务功能</li>
-</ul>
-</li>
-</ul>
-<h3 id="3）PyCharm-快速体验"><a href="#3）PyCharm-快速体验" class="headerlink" title="3）PyCharm 快速体验"></a>3）PyCharm 快速体验</h3><p><img src="/2017/07/12/python/第一个 Python 程序/001_PyCharm的界面结构.png" alt="001_PyCharm的界面结构"></p>
-<ul>
-<li><strong>文件导航区域</strong> 能够 <strong>浏览</strong>／<strong>定位</strong>／<strong>打开</strong> 项目文件</li>
-<li><strong>文件编辑区域</strong> 能够 <strong>编辑</strong> 当前打开的文件</li>
-<li><strong>控制台区域</strong> 能够：<ul>
-<li>输出程序执行内容</li>
-<li>跟踪调试代码的执行</li>
-</ul>
-</li>
-<li>右上角的 <strong>工具栏</strong> 能够 <strong>执行(SHIFT + F10)</strong> / <strong>调试(SHIFT + F9)</strong> 代码</li>
-</ul>
-<p><img src="/2017/07/12/python/第一个 Python 程序/002_PyCharm运行工具栏.png" alt="002_PyCharm运行工具栏"></p>
-<ul>
-<li>通过控制台上方的<strong>单步执行按钮(F8)</strong>，可以单步执行代码</li>
-</ul>
-<p><img src="/2017/07/12/python/第一个 Python 程序/003_PyCharm调试器.png" alt="003_PyCharm调试器"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.mr.flow;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Partitioner;</span><br><span class="line"></span><br><span class="line"><span class="comment">//需求：将统计结果按照手机号的前缀进行区分,写到不同的文件中。</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">自定义FlowPartitioner类实现 ，继承Partitioner类 重写方法getPartition</span></span><br><span class="line"><span class="comment">定义MapReduce自定义分区规则</span></span><br><span class="line"><span class="comment">Driver参数</span></span><br><span class="line"><span class="comment">设置自定义分区规则</span></span><br><span class="line"><span class="comment">job.setPartitionerClass(FlowPartitioner.class);</span></span><br><span class="line"><span class="comment">设置Reduce个数</span></span><br><span class="line"><span class="comment">job.setNumReduceTasks(3);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输入是Map的结果对&lt;key, value&gt;和Reducer的数目，输出则是分配的Reducer（整数编号）。</span></span><br><span class="line"><span class="comment"> * 就是指定Mappr输出的键值对到哪一个reducer上去。</span></span><br><span class="line"><span class="comment"> * 系统缺省的Partitioner是HashPartitioner，它以key的Hash值对Reducer的数目取模，</span></span><br><span class="line"><span class="comment"> * 得到对应的Reducer。这样保证如果有相同的key值，肯定被分配到同一个reducre上。</span></span><br><span class="line"><span class="comment"> * 如果有N个reducer，编号就为0,1,2,3……(N-1)。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> aparke</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlowPartitioner</span> <span class="keyword">extends</span> <span class="title">Partitioner</span>&lt;<span class="title">Text</span>, <span class="title">FlowBean</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//定义一个hashMap 通过手机号前缀的不同放置到不同的分区编号</span></span><br><span class="line">	<span class="comment">//此处只是简单模拟使用partition的方法，实际生产中我们可以根据不同地区的手机前几位不同我们可以将数据归到不同的归属地</span></span><br><span class="line">	<span class="comment">//此处是不是用静态都行</span></span><br><span class="line">	<span class="keyword">static</span> HashMap&lt;String, Integer&gt; mapCount=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		mapCount.put(<span class="string">"135"</span>, <span class="number">0</span>);</span><br><span class="line">		mapCount.put(<span class="string">"136"</span>, <span class="number">1</span>);</span><br><span class="line">		mapCount.put(<span class="string">"137"</span>, <span class="number">2</span>);</span><br><span class="line">		mapCount.put(<span class="string">"138"</span>, <span class="number">3</span>);</span><br><span class="line">		mapCount.put(<span class="string">"139"</span>, <span class="number">4</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//传进来的是map的key value 通过自己设置分区器数量</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPartition</span><span class="params">(Text key, FlowBean value, <span class="keyword">int</span> numPartitions)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		Integer parts = mapCount.get(key.toString().substring(<span class="number">0</span>, <span class="number">3</span>));<span class="comment">//拿到key的前三位，通过hashmap得到对应的所属分区</span></span><br><span class="line">		<span class="keyword">if</span> (parts!=<span class="keyword">null</span>) &#123;<span class="comment">//如果没有匹配的则放到编号为5的分区</span></span><br><span class="line">			<span class="keyword">return</span> parts;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//方法二：通过string的startsWith方法匹配字符串开始元素，匹配到设置分区</span></span><br><span class="line">	 <span class="comment">/* </span></span><br><span class="line"><span class="comment">	 	if (key.toString().startsWith("135"))&#123;</span></span><br><span class="line"><span class="comment">            return 0;</span></span><br><span class="line"><span class="comment">        &#125;else if(key.toString().startsWith("136"))&#123;</span></span><br><span class="line"><span class="comment">            return 1;</span></span><br><span class="line"><span class="comment">        &#125;else &#123;</span></span><br><span class="line"><span class="comment">            return 2;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/xsscss/Mapreduce" target="_blank" rel="noopener">Mapreduce经典案例一</a></p>
 
       
 
@@ -458,7 +274,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
         		</li>
       		
 		</ul>
@@ -514,7 +330,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/12/python/第一个 Python 程序/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/05/大数据/MapReduce编程案例二/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -528,18 +344,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/07/13/python/PyCharm 的初始设置/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          PyCharm 的初始设置(IDE)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/10/python/认识 Python/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">认识 Python</div>
+    <a href="/2019/08/01/大数据/MapReduce编程案例一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MapReduce编程案例一</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -567,7 +374,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="python/第一个 Python 程序" data-title="第一个 Python 程序" data-url="http://yoursite.com/2017/07/12/python/第一个 Python 程序/"></div>
+	<div class="ds-thread" data-thread-key="大数据/MapReduce编程案例二" data-title="MapReduce编程案例二" data-url="http://yoursite.com/2019/08/05/大数据/MapReduce编程案例二/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -590,8 +397,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/07/12/python/第一个 Python 程序/", 
-    sourceId: "python/第一个 Python 程序",
+    url: "http://yoursite.com/2019/08/05/大数据/MapReduce编程案例二/", 
+    sourceId: "大数据/MapReduce编程案例二",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -600,7 +407,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="python/第一个 Python 程序" ></div> 
+  <div id="SOHUCS" sid="大数据/MapReduce编程案例二" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
