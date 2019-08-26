@@ -235,11 +235,11 @@ var _hmt = _hmt || [];
 <li>在 <code>认识Python</code> 目录下新建 <code>01-HelloPython.py</code> 文件</li>
 <li>使用 <strong>gedit</strong> 编辑 <code>01-HelloPython.py</code> 并且输入以下内容：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello python"</span>)</span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"hello python"</span>)</span><br><span class="line">print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在终端中输入以下命令执行 <code>01-HelloPython.py</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python 01-HelloPython.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ python 01-HelloPython.py</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>print</code> 是 <code>python</code> 中我们学习的第一个 <strong>函数</strong></p>
 <p><code>print</code> 函数的作用，可以把 <strong>“”</strong> 内部的内容，输出到屏幕上</p>
@@ -260,18 +260,18 @@ var _hmt = _hmt || [];
 <h4 id="第一个演练中的常见错误"><a href="#第一个演练中的常见错误" class="headerlink" title="第一个演练中的常见错误"></a>第一个演练中的常见错误</h4><ul>
 <li>1&gt; <strong>手误</strong>，例如使用 <code>pirnt(&quot;Hello world&quot;)</code> </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NameError: name &apos;pirnt&apos; is not defined</span><br><span class="line"></span><br><span class="line">名称错误：&apos;pirnt&apos; 名字没有定义</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">NameError: name &apos;pirnt&apos; is not defined</span><br><span class="line"></span><br><span class="line">名称错误：&apos;pirnt&apos; 名字没有定义</span><br></pre></td></tr></table></figure>
 <ul>
 <li>2&gt; 将多条 <code>print</code> 写在一行</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: invalid syntax</span><br><span class="line"></span><br><span class="line">语法错误：语法无效</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SyntaxError: invalid syntax</span><br><span class="line"></span><br><span class="line">语法错误：语法无效</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>每行代码负责完成一个动作</p>
 </blockquote>
 <ul>
 <li>3&gt; 缩进错误</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IndentationError: unexpected indent</span><br><span class="line"></span><br><span class="line">缩进错误：不期望出现的缩进</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IndentationError: unexpected indent</span><br><span class="line"></span><br><span class="line">缩进错误：不期望出现的缩进</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li>Python 是一个格式非常严格的程序设计语言</li>
@@ -287,14 +287,14 @@ var _hmt = _hmt || [];
 <li>Python 2.x 的解释器名称是 <strong>python</strong></li>
 <li>Python 3.x 的解释器名称是 <strong>python3</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character &apos;\xe4&apos; in file 01-HelloPython.py on line 3, </span><br><span class="line">but no encoding declared; </span><br><span class="line">see http://python.org/dev/peps/pep-0263/ for details</span><br><span class="line"></span><br><span class="line">语法错误： 在 01-HelloPython.py 中第 3 行出现了非 ASCII 字符 &apos;\xe4&apos;，但是没有声明文件编码</span><br><span class="line">请访问 http://python.org/dev/peps/pep-0263/ 了解详细信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character &apos;\xe4&apos; in file 01-HelloPython.py on line 3, </span><br><span class="line">but no encoding declared; </span><br><span class="line">see http://python.org/dev/peps/pep-0263/ for details</span><br><span class="line"></span><br><span class="line">语法错误： 在 01-HelloPython.py 中第 3 行出现了非 ASCII 字符 &apos;\xe4&apos;，但是没有声明文件编码</span><br><span class="line">请访问 http://python.org/dev/peps/pep-0263/ 了解详细信息</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li><code>ASCII</code> 字符只包含 <code>256</code> 个字符，不支持中文</li>
 <li>有关字符编码的问题，后续会讲</li>
 </ul>
 </blockquote>
-<h4 id="单词列表"><a href="#单词列表" class="headerlink" title="单词列表"></a>单词列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">* error 错误</span><br><span class="line">* name 名字</span><br><span class="line">* defined 已经定义</span><br><span class="line">* syntax 语法</span><br><span class="line">* invalid 无效</span><br><span class="line">* Indentation 索引</span><br><span class="line">* unexpected 意外的，不期望的</span><br><span class="line">* character 字符</span><br><span class="line">* line 行</span><br><span class="line">* encoding 编码</span><br><span class="line">* declared 声明</span><br><span class="line">* details 细节，详细信息</span><br><span class="line">* ASCII 一种字符编码</span><br></pre></td></tr></table></figure>
+<h4 id="单词列表"><a href="#单词列表" class="headerlink" title="单词列表"></a>单词列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* error 错误</span><br><span class="line">* name 名字</span><br><span class="line">* defined 已经定义</span><br><span class="line">* syntax 语法</span><br><span class="line">* invalid 无效</span><br><span class="line">* Indentation 索引</span><br><span class="line">* unexpected 意外的，不期望的</span><br><span class="line">* character 字符</span><br><span class="line">* line 行</span><br><span class="line">* encoding 编码</span><br><span class="line">* declared 声明</span><br><span class="line">* details 细节，详细信息</span><br><span class="line">* ASCII 一种字符编码</span><br></pre></td></tr></table></figure>
 <h2 id="02-Python-2-x-与-3​​-x-版本简介"><a href="#02-Python-2-x-与-3​​-x-版本简介" class="headerlink" title="02. Python 2.x 与 3​​.x 版本简介"></a>02. <code>Python 2.x</code> 与 <code>3​​.x</code> 版本简介</h2><p>目前市场上有两个 Python 的版本并存着，分别是 <code>Python 2.x</code> 和 <code>Python 3.x</code></p>
 <blockquote>
 <p>新的 Python 程序建议使用 <code>Python 3.0</code> 版本的语法</p>
@@ -335,7 +335,7 @@ var _hmt = _hmt || [];
 <li>然后使用 <code>Python 2.6</code>、<code>Python 2.7</code> 来执行，并且做一些兼容性的处理</li>
 </ul>
 </blockquote>
-<h2 id="03-执行-Python-程序的三种方式"><a href="#03-执行-Python-程序的三种方式" class="headerlink" title="03. 执行 Python 程序的三种方式"></a>03. 执行 Python 程序的三种方式</h2><h3 id="3-1-解释器-python-python3"><a href="#3-1-解释器-python-python3" class="headerlink" title="3.1. 解释器 python / python3"></a>3.1. 解释器 <code>python</code> / <code>python3</code></h3><h4 id="Python-的解释器"><a href="#Python-的解释器" class="headerlink" title="Python 的解释器"></a>Python 的解释器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 python 2.x 解释器</span></span><br><span class="line">$ python xxx.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python 3.x 解释器</span></span><br><span class="line">$ python3 xxx.py</span><br></pre></td></tr></table></figure>
+<h2 id="03-执行-Python-程序的三种方式"><a href="#03-执行-Python-程序的三种方式" class="headerlink" title="03. 执行 Python 程序的三种方式"></a>03. 执行 Python 程序的三种方式</h2><h3 id="3-1-解释器-python-python3"><a href="#3-1-解释器-python-python3" class="headerlink" title="3.1. 解释器 python / python3"></a>3.1. 解释器 <code>python</code> / <code>python3</code></h3><h4 id="Python-的解释器"><a href="#Python-的解释器" class="headerlink" title="Python 的解释器"></a>Python 的解释器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 python 2.x 解释器</span></span><br><span class="line">$ python xxx.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python 3.x 解释器</span></span><br><span class="line">$ python3 xxx.py</span><br></pre></td></tr></table></figure>
 <h5 id="其他解释器（知道）"><a href="#其他解释器（知道）" class="headerlink" title="其他解释器（知道）"></a>其他解释器（知道）</h5><p><strong>Python 的解释器</strong> 如今有多个语言的实现，包括：</p>
 <ul>
 <li><code>CPython</code> —— 官方版本的 C 语言实现</li>
@@ -354,7 +354,7 @@ var _hmt = _hmt || [];
 <li>代码不能保存</li>
 <li>不适合运行太大的程序</li>
 </ul>
-<h4 id="2-退出-官方的解释器"><a href="#2-退出-官方的解释器" class="headerlink" title="2) 退出 官方的解释器"></a>2) 退出 官方的解释器</h4><h5 id="1-gt-直接输入-exit"><a href="#1-gt-直接输入-exit" class="headerlink" title="1&gt; 直接输入 exit()"></a>1&gt; 直接输入 <code>exit()</code></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
+<h4 id="2-退出-官方的解释器"><a href="#2-退出-官方的解释器" class="headerlink" title="2) 退出 官方的解释器"></a>2) 退出 官方的解释器</h4><h5 id="1-gt-直接输入-exit"><a href="#1-gt-直接输入-exit" class="headerlink" title="1&gt; 直接输入 exit()"></a>1&gt; 直接输入 <code>exit()</code></h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>exit()</span><br></pre></td></tr></table></figure>
 <h5 id="2-gt-使用热键退出"><a href="#2-gt-使用热键退出" class="headerlink" title="2&gt; 使用热键退出"></a>2&gt; 使用热键退出</h5><p>在 python 解释器中，按热键 <code>ctrl + d</code> 可以退出解释器</p>
 <p><img src="/2017/07/12/python/第一个 Python 程序/001_积跬步以至千里.jpg" alt="001_积跬步以至千里"></p>
 <h4 id="3-IPython"><a href="#3-IPython" class="headerlink" title="3) IPython"></a>3) IPython</h4><ul>
@@ -377,9 +377,9 @@ var _hmt = _hmt || [];
 <li><p>要退出解释器可以有以下两种方式：</p>
 </li>
 </ul>
-<h5 id="1-gt-直接输入-exit-1"><a href="#1-gt-直接输入-exit-1" class="headerlink" title="1&gt; 直接输入 exit"></a>1&gt; 直接输入 <code>exit</code></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: exit</span><br></pre></td></tr></table></figure>
+<h5 id="1-gt-直接输入-exit-1"><a href="#1-gt-直接输入-exit-1" class="headerlink" title="1&gt; 直接输入 exit"></a>1&gt; 直接输入 <code>exit</code></h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: exit</span><br></pre></td></tr></table></figure>
 <h5 id="2-gt-使用热键退出-1"><a href="#2-gt-使用热键退出-1" class="headerlink" title="2&gt; 使用热键退出"></a>2&gt; 使用热键退出</h5><p>在 IPython 解释器中，按热键 <code>ctrl + d</code>，<code>IPython</code> 会询问是否退出解释器</p>
-<h4 id="IPython-的安装"><a href="#IPython-的安装" class="headerlink" title="IPython 的安装"></a>IPython 的安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br></pre></td></tr></table></figure>
+<h4 id="IPython-的安装"><a href="#IPython-的安装" class="headerlink" title="IPython 的安装"></a>IPython 的安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br></pre></td></tr></table></figure>
 <h2 id="3-3-Python-的-IDE-——-PyCharm"><a href="#3-3-Python-的-IDE-——-PyCharm" class="headerlink" title="3.3. Python 的 IDE —— PyCharm"></a>3.3. Python 的 IDE —— <code>PyCharm</code></h2><h3 id="1）-集成开发环境（IDE）"><a href="#1）-集成开发环境（IDE）" class="headerlink" title="1） 集成开发环境（IDE）"></a>1） 集成开发环境（IDE）</h3><p>集成开发环境（<code>IDE</code>，Integrated Development Environment）—— <strong>集成了开发软件需要的所有工具</strong>，一般包括以下工具：</p>
 <ul>
 <li>图形用户界面</li>
@@ -727,11 +727,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

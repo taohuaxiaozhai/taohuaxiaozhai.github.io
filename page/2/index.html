@@ -189,6 +189,74 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据结构/java三大排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/12/数据结构/java三大排序/">java三大排序</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/12/数据结构/java三大排序/" class="archive-article-date">
+  	<time datetime="2019-05-12T05:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="百科"><a href="#百科" class="headerlink" title="百科"></a>百科</h3><blockquote>
+<p>冒泡排序算法的原理如下：<br>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>2.对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<br>3.针对所有的元素重复以上的步骤，除了最后一个。<br>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2019/05/12/数据结构/java三大排序/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/12/数据结构/java三大排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-随笔/数据库实验一作业" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -822,10 +890,10 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <p>###设置每一台虚拟机的主机名分别为master、slave1、slave2、slave3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/etc/sysconfig/network</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/2.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/3.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/4.jpg" alt="01"></p>
 <p>###设置每个虚拟机添加hosts值</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
 <p>192.168.179.200  master</p>
 <p>192.168.179.201  slave1</p>
 <p>192.168.179.202  slave2</p>
@@ -833,9 +901,9 @@ var _hmt = _hmt || [];
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/5.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/6.jpg" alt="01"></p>
 <p>###配置SSH</p>
 <p>（1）在master机器上，使用ssh-keygen生成私钥和公钥<br>命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/7.jpg" alt="01"><br>（2）分别在slave1,2,3机器上，输入命令：ssh-keygen，然后连续四下回车</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/8.jpg" alt="01"></p>
 <p>（3）在master1机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
 <p>（4）在slave1机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
@@ -973,86 +1041,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-网站/Centos搭建LNMP环境安装wordpress" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/">Centos下搭建LNMP环境最后安装wordpress</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/" class="archive-article-date">
-  	<time datetime="2017-11-01T16:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>!<br><img src="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/01.jpg" alt="01"><br></p>
-        
-          <a class="article-more-a" href="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网站,Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1168,11 +1159,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

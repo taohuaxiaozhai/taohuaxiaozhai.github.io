@@ -275,19 +275,19 @@ var _hmt = _hmt || [];
 <li>直接在终端中输入 <code>apt</code> 即可以查阅命令的帮助信息</li>
 <li>常用命令如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装软件</span></span><br><span class="line">$ sudo apt install 软件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 卸载软件</span></span><br><span class="line">$ sudo apt remove 软件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 更新可用软件包列表</span></span><br><span class="line">$ sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 更新已安装的包</span></span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 安装软件</span></span><br><span class="line">$ sudo apt install 软件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 卸载软件</span></span><br><span class="line">$ sudo apt remove 软件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 更新可用软件包列表</span></span><br><span class="line">$ sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 更新已安装的包</span></span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
 <h4 id="1-软件更新和升级"><a href="#1-软件更新和升级" class="headerlink" title="1) 软件更新和升级"></a>1) 软件更新和升级</h4><ul>
 <li>通常安装完 ubuntu 之后，可以先使用 <code>upgrade</code> 更新一下当前系统中可以升级的的软件包</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>提示</strong> 如果增加、更换了软件源，通常需要使用 <code>update</code> 更新一下本地缓存</li>
 </ul>
 <h4 id="2-安装常用工具"><a href="#2-安装常用工具" class="headerlink" title="2) 安装常用工具"></a>2) 安装常用工具</h4><p><strong>提示</strong> apt 安装命令的格式是不需要记忆的，如果在终端中输入的软件没有安装，系统会提示 <strong>apt 命令</strong> 的使用格式</p>
-<h5 id="python-程序员"><a href="#python-程序员" class="headerlink" title="python 程序员"></a>python 程序员</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br><span class="line">$ sudo apt install ipython3</span><br><span class="line">$ sudo apt install python-pip</span><br><span class="line">$ sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
-<h5 id="C-程序员"><a href="#C-程序员" class="headerlink" title="C++ 程序员"></a>C++ 程序员</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install cmake</span><br><span class="line">$ sudo apt install qtcreator</span><br></pre></td></tr></table></figure>
-<h5 id="ruby-程序员"><a href="#ruby-程序员" class="headerlink" title="ruby 程序员"></a>ruby 程序员</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ruby</span><br></pre></td></tr></table></figure>
-<h5 id="安装-ssh-服务器"><a href="#安装-ssh-服务器" class="headerlink" title="安装 ssh 服务器"></a>安装 ssh 服务器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
+<h5 id="python-程序员"><a href="#python-程序员" class="headerlink" title="python 程序员"></a>python 程序员</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br><span class="line">$ sudo apt install ipython3</span><br><span class="line">$ sudo apt install python-pip</span><br><span class="line">$ sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
+<h5 id="C-程序员"><a href="#C-程序员" class="headerlink" title="C++ 程序员"></a>C++ 程序员</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install cmake</span><br><span class="line">$ sudo apt install qtcreator</span><br></pre></td></tr></table></figure>
+<h5 id="ruby-程序员"><a href="#ruby-程序员" class="headerlink" title="ruby 程序员"></a>ruby 程序员</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install ruby</span><br></pre></td></tr></table></figure>
+<h5 id="安装-ssh-服务器"><a href="#安装-ssh-服务器" class="headerlink" title="安装 ssh 服务器"></a>安装 ssh 服务器</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
 <p>安装之后，才可以在其他系统中，通过 ssh 工具远程登陆</p>
 <h4 id="3-删除不使用的软件"><a href="#3-删除不使用的软件" class="headerlink" title="3) 删除不使用的软件"></a>3) 删除不使用的软件</h4><p><strong>libreoffice</strong></p>
 <ul>
@@ -295,22 +295,22 @@ var _hmt = _hmt || [];
 <li>不过无论是界面交互还是执行性能都还有很大的提升空间</li>
 <li>卸载 libreoffice 可以释放大概 <strong>300M</strong> 的磁盘空间</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt remove libreoffice-common</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt remove libreoffice-common</span><br></pre></td></tr></table></figure>
 <p><strong>Amazon</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt remove unity-webapps-common</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt remove unity-webapps-common</span><br></pre></td></tr></table></figure>
 <h4 id="4-扩展：apt-和-apt-get"><a href="#4-扩展：apt-和-apt-get" class="headerlink" title="4) 扩展：apt 和 apt-get"></a>4) 扩展：<code>apt</code> 和 <code>apt-get</code></h4><ul>
 <li><code>apt</code> 和 <code>apt-get</code> 都是 ubuntu 下常用的安装软件的命令</li>
 <li><strong>早期</strong> 使用 <code>apt-get</code>，从 ununtu 16 开始，官方建议使用 <code>apt</code></li>
 <li>这两个命令的 <strong>使用方式非常类似</strong></li>
 </ul>
 <h3 id="3-4-deb-安装格式"><a href="#3-4-deb-安装格式" class="headerlink" title="3.4 deb 安装格式"></a>3.4 deb 安装格式</h3><p><strong>deb</strong> 是 Debian Linux 的安装格式，在 ubuntu 中同样可以使用。要安装 deb 安装包，需要使用 <code>dpkg</code> 这个终端命令，命令格式如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i &lt;package.deb&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo dpkg -i &lt;package.deb&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="1-谷歌浏览器"><a href="#1-谷歌浏览器" class="headerlink" title="1) 谷歌浏览器"></a>1) 谷歌浏览器</h4><ol>
 <li>从 <a href="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" target="_blank" rel="noopener">https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</a> 下载最新版本的安装文件</li>
 <li>在终端中执行以下命令：</li>
 </ol>
 <!--sudo apt-get install libappindicator1 libindicator7 -->
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install libappindicator1 libindicator7</span><br><span class="line">$ sudo dpkg -i google-chrome-stable_current_amd64.deb   </span><br><span class="line">$ sudo apt -f install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install libappindicator1 libindicator7</span><br><span class="line">$ sudo dpkg -i google-chrome-stable_current_amd64.deb   </span><br><span class="line">$ sudo apt -f install</span><br></pre></td></tr></table></figure>
 <h4 id="2-搜狗输入法"><a href="#2-搜狗输入法" class="headerlink" title="2) 搜狗输入法"></a>2) 搜狗输入法</h4><p><strong>fcitx</strong> 被称为 <strong>小企鹅输入法</strong>，是一个以 GPL 方式发布的 <strong>输入法平台</strong>，可以通过安装引擎支持多种输入法。它的优点是，短小精悍、跟程序的兼容性比较好！</p>
 <ol>
 <li>打开 <strong>系统设置</strong> <strong>语言支持</strong><ul>
@@ -320,7 +320,7 @@ var _hmt = _hmt || [];
 <li>访问网站 <a href="http://pinyin.sogou.com/linux/" target="_blank" rel="noopener">http://pinyin.sogou.com/linux/</a> 下载最新版本的安装文件</li>
 <li>在终端中执行以下命令：</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i sogoupinyin_2.1.0.0086_amd64.deb</span><br><span class="line">$ sudo apt -f install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo dpkg -i sogoupinyin_2.1.0.0086_amd64.deb</span><br><span class="line">$ sudo apt -f install</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>提示，安装输入法之后，需要重新启动系统</p>
 </blockquote>
@@ -637,11 +637,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

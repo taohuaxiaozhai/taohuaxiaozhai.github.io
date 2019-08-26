@@ -243,26 +243,26 @@ var _hmt = _hmt || [];
 <h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a><strong>安装Nginx</strong></h3><blockquote>
 <p>检测自己源里是否有Nginx(这个一般都有，名字也一直不变)</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list | grep nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum list | grep nginx</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>使用 yum 安装Nginx：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install nginx -y</span><br></pre></td></tr></table></figure>
 <h3 id="修改nginx的配置-取消对ipv6的监听"><a href="#修改nginx的配置-取消对ipv6的监听" class="headerlink" title="修改nginx的配置,取消对ipv6的监听"></a>修改nginx的配置,<strong>取消</strong>对ipv6的监听</h3><blockquote>
 <p>Centos的lnmp环境禁止ipv6访问，若不取消监听，nginx启动失败</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi  /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
 <p><strong>在</strong><code>listen       [::]:80 default_server;</code><strong>前面添加#注释掉</strong></p>
 <p>如下面代码所示</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       <span class="number">80</span> default_server;</span><br><span class="line">    <span class="comment"># listen       [::]:80 default_server;</span></span><br><span class="line">    server_name  _;</span><br><span class="line">    root         /usr/share/nginx/html;</span><br><span class="line">    <span class="comment"># Load configuration files for the default server block.</span></span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line">    location / &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page <span class="number">404</span> /<span class="number">404.</span>html;</span><br><span class="line">        location = /<span class="number">40</span>x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span> /<span class="number">50</span>x.html;</span><br><span class="line">        location = /<span class="number">50</span>x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       <span class="number">80</span> default_server;</span><br><span class="line">    <span class="comment"># listen       [::]:80 default_server;</span></span><br><span class="line">    server_name  _;</span><br><span class="line">    root         /usr/share/nginx/html;</span><br><span class="line">    <span class="comment"># Load configuration files for the default server block.</span></span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line">    location / &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page <span class="number">404</span> /<span class="number">404.</span>html;</span><br><span class="line">        location = /<span class="number">40</span>x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span> /<span class="number">50</span>x.html;</span><br><span class="line">        location = /<span class="number">50</span>x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>启动nginx</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>设置开机自启</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig nginx on</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig nginx on</span><br></pre></td></tr></table></figure>
 <h3 id="至此Nginx安装完成"><a href="#至此Nginx安装完成" class="headerlink" title="至此Nginx安装完成"></a><strong>至此Nginx安装完成</strong></h3><blockquote>
 <p>测试</p>
 </blockquote>
@@ -275,68 +275,68 @@ var _hmt = _hmt || [];
 <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a><strong>安装MySQL</strong></h3><blockquote>
 <p>使用  yum 安装MySQL：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install mysql-server -y</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>安装完成后，启动MySQL服务：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将MySQL设置为开机自动启动：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig mysqld on</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig mysqld on</span><br></pre></td></tr></table></figure>
 <h3 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a><strong>配置MySQL</strong></h3><blockquote>
 <p>进入MySQL设置MySQL密码：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>回车进入,Centos默认安装MySQL是没有密码的</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> password = password(<span class="string">'newpassword'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> password = password(<span class="string">'newpassword'</span>);</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>创建一个数据库名的<code>WordPress</code> (等会搭建博客要使用)</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database wordpress;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create database wordpress;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>退出MySQL环境：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qiut</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">qiut</span><br></pre></td></tr></table></figure>
 <p><img src="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/03.jpg" alt="03"></p>
 <h3 id="至此MySQL安装配置完成"><a href="#至此MySQL安装配置完成" class="headerlink" title="至此MySQL安装配置完成"></a><strong>至此MySQL安装配置完成</strong></h3><h2 id="第三步：搭建-PHP-环境"><a href="#第三步：搭建-PHP-环境" class="headerlink" title="第三步：搭建 PHP 环境"></a>第三步：搭建 PHP 环境</h2><hr>
 <h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a><strong>安装 PHP</strong></h3><blockquote>
 <p>安装php 和php-fpm php-mysql软件包</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php php-fpm php-mysql -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install php php-fpm php-mysql -y</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>安装之后，启动 PHP-FPM 进程：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service php-fpm start</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>把 PHP-FPM 也设置成开机自动启动：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig php-fpm on</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig php-fpm on</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>修改nginx配置文件让PHP的请求转发到php-fpm所绑定的ip和端口上：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在server{};里面最底端输入(PHP-FPM默认监听9000端口)</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">         fastcgi_pass   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">         fastcgi_index  index.php;</span><br><span class="line">         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">         include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">         fastcgi_pass   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">         fastcgi_index  index.php;</span><br><span class="line">         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">         include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>重启nginx：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
 <h3 id="至此PHP搭建完成"><a href="#至此PHP搭建完成" class="headerlink" title="至此PHP搭建完成"></a><strong>至此PHP搭建完成</strong></h3><blockquote>
 <p>测试</p>
 </blockquote>
 <ul>
 <li>验证是否处理请求PHP文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/share/nginx/html/info.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /usr/share/nginx/html/info.php</span><br></pre></td></tr></table></figure>
 <ul>
 <li>编辑以下内容：</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   phpinfo();</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   phpinfo();</span><br></pre></td></tr></table></figure>
 <ul>
 <li>访问IP网址：<br><code>http://127.0.0.1/info.php</code></li>
 </ul>
@@ -346,11 +346,11 @@ var _hmt = _hmt || [];
 <p><img src="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/04.jpg" alt="04"></p>
 <h2 id="第四步：安装-WordPress"><a href="#第四步：安装-WordPress" class="headerlink" title="第四步：安装 WordPress"></a>第四步：安装 WordPress</h2><hr>
 <p><strong>配置好 LNMP 环境后，继续使用 yum 来安装 WordPress：</strong></p>
-<h3 id="安装-WordPress"><a href="#安装-WordPress" class="headerlink" title="安装 WordPress"></a><strong>安装 WordPress</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wordpress -y</span><br></pre></td></tr></table></figure>
+<h3 id="安装-WordPress"><a href="#安装-WordPress" class="headerlink" title="安装 WordPress"></a><strong>安装 WordPress</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install wordpress -y</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>另外呢，此部分可参考 <code>wget</code>下载到本地也是可以安装的，这里也提一下(我用的是wget 可以使用中文版本),<code>unzip</code>解压了，然后<code>mv</code>到<code>/usr/share/wordpress</code>下<br>附链接：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.zip</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>安装完成后，就可以在/usr/share/wordpress  看到WordPress的源代码了</p>
 </blockquote>
@@ -361,38 +361,38 @@ var _hmt = _hmt || [];
 <ul>
 <li>首先，重命名默认的配置文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/conf.d/</span><br><span class="line">mv default.conf defaut.conf.bak</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/conf.d/</span><br><span class="line">mv default.conf defaut.conf.bak</span><br></pre></td></tr></table></figure>
 <ul>
 <li>然后，在<code>/etc/nginx/conf.d</code>创建<code>wordpress.conf</code>配置，参考下面的内容：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen <span class="number">80</span>;</span><br><span class="line">root /usr/share/wordpress;</span><br><span class="line">location / &#123;</span><br><span class="line">index index.php index.html index.htm;</span><br><span class="line">try_files $uri $uri/ /index.php index.php;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">#pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">location ~ .php$ &#123;</span><br><span class="line">fastcgi_pass <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen <span class="number">80</span>;</span><br><span class="line">root /usr/share/wordpress;</span><br><span class="line">location / &#123;</span><br><span class="line">index index.php index.html index.htm;</span><br><span class="line">try_files $uri $uri/ /index.php index.php;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">#pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">location ~ .php$ &#123;</span><br><span class="line">fastcgi_pass <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="配置WP-config-php文件"><a href="#配置WP-config-php文件" class="headerlink" title="配置WP-config.php文件"></a><strong>配置WP-config.php文件</strong></h3><blockquote>
 <p>打开配置文件</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/wordpress/wp-config.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/wordpress/wp-config.php</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>修改三个地方</p>
 </blockquote>
 <ul>
 <li>修改刚创建的数据库名，刚创建的和默认一样</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ** MySQL settings – You can get this info from your web host ** //</span></span><br><span class="line"><span class="comment">/** The name of the database for WordPress */</span></span><br><span class="line">define(‘DB_NAME’, ‘wordpress’);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ** MySQL settings – You can get this info from your web host ** //</span></span><br><span class="line"><span class="comment">/** The name of the database for WordPress */</span></span><br><span class="line">define(‘DB_NAME’, ‘wordpress’);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>修改刚创建的数据库名帐户名root，刚创建的和默认一样</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** MySQL database username */</span></span><br><span class="line">define(‘DB_USER’, ‘root’);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** MySQL database username */</span></span><br><span class="line">define(‘DB_USER’, ‘root’);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>修改刚创建的数据库名帐户密码</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** MySQL database password */</span></span><br><span class="line">define(‘DB_PASSWORD’, ‘newpassword’);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** MySQL database password */</span></span><br><span class="line">define(‘DB_PASSWORD’, ‘newpassword’);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>修改刚创建的数据库主机地址，默认就是本地</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** MySQL hostname */</span></span><br><span class="line">define(‘DB_HOST’, ‘localhost’);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** MySQL hostname */</span></span><br><span class="line">define(‘DB_HOST’, ‘localhost’);</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>最后重启nginx</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nginx -s</span><br></pre></td></tr></table></figure>
 <p><img src="/2017/11/02/网站/Centos搭建LNMP环境安装wordpress/05.jpg" alt="04"></p>
 
       
@@ -707,11 +707,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

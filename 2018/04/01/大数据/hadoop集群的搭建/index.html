@@ -266,10 +266,10 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <p>###设置每一台虚拟机的主机名分别为master、slave1、slave2、slave3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/etc/sysconfig/network</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/2.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/3.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/4.jpg" alt="01"></p>
 <p>###设置每个虚拟机添加hosts值</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
 <p>192.168.179.200  master</p>
 <p>192.168.179.201  slave1</p>
 <p>192.168.179.202  slave2</p>
@@ -277,9 +277,9 @@ var _hmt = _hmt || [];
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/5.jpg" alt="01"><br><img src="/2018/04/01/大数据/hadoop集群的搭建/6.jpg" alt="01"></p>
 <p>###配置SSH</p>
 <p>（1）在master机器上，使用ssh-keygen生成私钥和公钥<br>命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/7.jpg" alt="01"><br>（2）分别在slave1,2,3机器上，输入命令：ssh-keygen，然后连续四下回车</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/04/01/大数据/hadoop集群的搭建/8.jpg" alt="01"></p>
 <p>（3）在master1机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
 <p>（4）在slave1机器上输入命令：ssh-copy-id -i master，然后输入对应密码，再输入ssh-copy-id -i slave1，输入对应密码，………..然后输入命令：ssh-copy-id -i slave3；</p>
@@ -600,11 +600,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

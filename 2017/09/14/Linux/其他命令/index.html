@@ -263,21 +263,21 @@ var _hmt = _hmt || [];
 </ol>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name <span class="string">"*1*"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find -name <span class="string">"*1*"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><ol>
 <li>搜索桌面目录下，所有以 <code>.txt</code> 为扩展名的文件</li>
 </ol>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name <span class="string">"*.txt"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find -name <span class="string">"*.txt"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><ol>
 <li>搜索桌面目录下，以数字 <code>1</code> 开头的文件</li>
 </ol>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name <span class="string">"1*"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find -name <span class="string">"1*"</span></span><br></pre></td></tr></table></figure>
 <h2 id="02-软链接"><a href="#02-软链接" class="headerlink" title="02. 软链接"></a>02. 软链接</h2><table>
 <thead>
 <tr>
@@ -367,7 +367,7 @@ var _hmt = _hmt || [];
 <li><code>tar</code> 是 Linux 中最常用的 <strong>备份</strong>工具，此命令可以 <strong>把一系列文件</strong> 打包到 <strong>一个大文件中</strong>，也可以把一个 <strong>打包的大文件恢复成一系列文件</strong></li>
 <li><code>tar</code> 的命令格式如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打包文件</span></span><br><span class="line">tar -cvf 打包文件.tar 被打包的文件／路径...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解包文件</span></span><br><span class="line">tar -xvf 打包文件.tar</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打包文件</span></span><br><span class="line">tar -cvf 打包文件.tar 被打包的文件／路径...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解包文件</span></span><br><span class="line">tar -xvf 打包文件.tar</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>tar</code> 选项说明</li>
 </ul>
@@ -423,7 +423,7 @@ var _hmt = _hmt || [];
 <li><p>命令格式如下：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件</span></span><br><span class="line">tar -zcvf 打包文件.tar.gz 被压缩的文件／路径...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩到指定路径</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz -C 目标路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 压缩文件</span></span><br><span class="line">tar -zcvf 打包文件.tar.gz 被压缩的文件／路径...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩到指定路径</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz -C 目标路径</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -450,13 +450,13 @@ var _hmt = _hmt || [];
 <li><p>命令格式如下：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件</span></span><br><span class="line">tar -jcvf 打包文件.tar.bz2 被压缩的文件／路径...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">tar -jxvf 打包文件.tar.bz2</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 压缩文件</span></span><br><span class="line">tar -jcvf 打包文件.tar.bz2 被压缩的文件／路径...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">tar -jxvf 打包文件.tar.bz2</span><br></pre></td></tr></table></figure>
 <h2 id="04-软件安装"><a href="#04-软件安装" class="headerlink" title="04. 软件安装"></a>04. 软件安装</h2><h2 id="4-1-通过-apt-安装／卸载软件"><a href="#4-1-通过-apt-安装／卸载软件" class="headerlink" title="4.1 通过 apt 安装／卸载软件"></a>4.1 通过 apt 安装／卸载软件</h2><ul>
 <li>apt 是 <code>Advanced Packaging Tool</code>，是 Linux 下的一款安装包管理工具</li>
 <li>可以在终端中方便的 <strong>安装</strong>／<strong>卸载</strong>／<strong>更新软件包</strong></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装软件</span></span><br><span class="line">$ sudo apt install 软件包</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 卸载软件</span></span><br><span class="line">$ sudo apt remove 软件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 更新已安装的包</span></span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
-<h3 id="安装演练"><a href="#安装演练" class="headerlink" title="安装演练"></a>安装演练</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一个小火车提示</span></span><br><span class="line">$ sudo apt install sl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一个比较漂亮的查看当前进程排名的软件</span></span><br><span class="line">$ sudo apt install htop</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 安装软件</span></span><br><span class="line">$ sudo apt install 软件包</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 卸载软件</span></span><br><span class="line">$ sudo apt remove 软件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 更新已安装的包</span></span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<h3 id="安装演练"><a href="#安装演练" class="headerlink" title="安装演练"></a>安装演练</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一个小火车提示</span></span><br><span class="line">$ sudo apt install sl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一个比较漂亮的查看当前进程排名的软件</span></span><br><span class="line">$ sudo apt install htop</span><br></pre></td></tr></table></figure>
 <h2 id="4-2-配置软件源"><a href="#4-2-配置软件源" class="headerlink" title="4.2 配置软件源"></a>4.2 配置软件源</h2><ul>
 <li>如果希望在 <code>ubuntu</code> 中安装软件，<strong>更加快速</strong>，可以通过设置<strong>镜像源</strong>，选择一个访问网速更快的服务器，来提供软件下载／安装服务</li>
 <li>提示：更换服务器之后，需要一个相对比较长时间的更新过程，需要耐心等待。更新完成后，再安装软件都会从新设置的服务器下载软件了</li>
@@ -779,11 +779,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

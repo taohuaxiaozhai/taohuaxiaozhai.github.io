@@ -288,7 +288,7 @@ var _hmt = _hmt || [];
 <li><code>chmod</code> 可以修改 <strong>用户／组</strong> 对 <strong>文件／目录</strong> 的权限</li>
 <li>命令格式如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>提示：以上方式会一次性修改 <code>拥有者</code> / <code>组</code> 权限，有关 <code>chmod</code> 的高级用法，后续会讲</p>
 </blockquote>
@@ -447,11 +447,11 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>提示：设置了用户的附加组之后，需要重新登录才能生效！</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改用户的主组（passwd 中的 GID）</span></span><br><span class="line">usermod -g 组 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户的附加组</span></span><br><span class="line">usermod -G 组 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户登录 Shell</span></span><br><span class="line">usermod -s /bin/bash 用户名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改用户的主组（passwd 中的 GID）</span></span><br><span class="line">usermod -g 组 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户的附加组</span></span><br><span class="line">usermod -G 组 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户登录 Shell</span></span><br><span class="line">usermod -s /bin/bash 用户名</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：默认使用 <code>useradd</code> 添加的用户是没有权限使用 <code>sudo</code> 以 <code>root</code> 身份执行命令的，可以使用以下命令，将用户添加到 <code>sudo</code> 附加组中</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -G sudo 用户名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">usermod -G sudo 用户名</span><br></pre></td></tr></table></figure>
 <h4 id="which（重要）"><a href="#which（重要）" class="headerlink" title="which（重要）"></a>which（重要）</h4><blockquote>
 <p>提示</p>
 <ul>
@@ -462,7 +462,7 @@ var _hmt = _hmt || [];
 <ul>
 <li><code>which</code> 命令可以查看执行命令所在位置，例如：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># /bin/ls</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">which</span> useradd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># /usr/sbin/useradd</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">which</span> ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># /bin/ls</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">which</span> useradd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># /usr/sbin/useradd</span></span><br></pre></td></tr></table></figure>
 <h5 id="bin-和-sbin"><a href="#bin-和-sbin" class="headerlink" title="bin 和 sbin"></a><code>bin</code> 和 <code>sbin</code></h5><ul>
 <li>在 <code>Linux</code> 中，绝大多数可执行文件都是保存在 <code>/bin</code>、<code>/sbin</code>、<code>/usr/bin</code>、<code>/usr/sbin</code></li>
 <li><code>/bin</code>（<code>binary</code>）是二进制执行文件目录，主要用于具体应用</li>
@@ -533,11 +533,11 @@ var _hmt = _hmt || [];
 <ul>
 <li>命令格式如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改文件|目录的拥有者</span></span><br><span class="line">chown 用户名 文件名|目录名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归修改文件|目录的组</span></span><br><span class="line">chgrp -R 组名 文件名|目录名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归修改文件权限</span></span><br><span class="line">chmod -R 755 文件名|目录名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改文件|目录的拥有者</span></span><br><span class="line">chown 用户名 文件名|目录名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归修改文件|目录的组</span></span><br><span class="line">chgrp -R 组名 文件名|目录名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归修改文件权限</span></span><br><span class="line">chmod -R 755 文件名|目录名</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>chmod</code> 在设置权限时，可以简单地使用三个数字分别对应 <strong>拥有者</strong> ／ <strong>组</strong> 和 <strong>其他</strong> 用户的权限</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接修改文件|目录的 读|写|执行 权限，但是不能精确到 拥有者|组|其他</span></span><br><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 直接修改文件|目录的 读|写|执行 权限，但是不能精确到 拥有者|组|其他</span></span><br><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
 <p><img src="/2017/09/23/Linux/用户权限相关命令/14934198815905/004_%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="004_文件权限示意图"></p>
 <ul>
 <li>常见数字组合有（<code>u</code>表示用户／<code>g</code>表示组／<code>o</code>表示其他）：<ul>
@@ -865,11 +865,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
