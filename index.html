@@ -737,6 +737,102 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-大数据/使用Hadoop-Stream实现wordCount" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">使用Hadoop-Stream实现wordCount</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/" class="archive-article-date">
+  	<time datetime="2019-07-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="">aparke’s blog</a>! </p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer，例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p>
+</blockquote>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer。<br>Hadoop Streaming是利用“标准输入”和“标准输出”与我们编写的Map和Reduce进行数据的交换。<br>那么，任何能够使用“标准输入”和“标准输出”的编程语言都应该可以用来编写MapReduce程序。<br>例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p>
+</blockquote>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><p><code>map.py</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/bin/env python</span></span><br><span class="line"><span class="comment">#-*- coding:UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> line  <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    word_arr=line.strip().split(<span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> word_arr:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'%s\t%s'</span> % (word,<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p><code>reduce.py</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">(last_key, sum) = (<span class="keyword">None</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    (key, count) = line.strip().split(<span class="string">'\t'</span>)</span><br><span class="line">    <span class="keyword">if</span> last_key == key :</span><br><span class="line">        sum += int(count)</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">if</span> last_key : <span class="keyword">print</span> <span class="string">'%s\t%s'</span> % (last_key, sum)</span><br><span class="line">        (last_key, sum) = (key, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> last_key : <span class="keyword">print</span> <span class="string">'%s\t%s'</span> % (last_key, sum)</span><br></pre></td></tr></table></figure></p>
+<h4 id="集群提交"><a href="#集群提交" class="headerlink" title="集群提交"></a>集群提交</h4><p><img src="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/01.png" alt="02"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">集群提交命令</span><br><span class="line">yarn jar /opt/hadoop-2.9.2/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar \</span><br><span class="line">-Dmapreduce.job.name=<span class="string">"py_aparke"</span> \</span><br><span class="line">-input /user/root/hap_stream_wc \</span><br><span class="line">-output /user/root/hap_stream_wcreuslt_py \</span><br><span class="line">-mapper <span class="string">"pymap.py"</span> \</span><br><span class="line">-reducer ./pyreduce.py \</span><br><span class="line">-file pymap.py \</span><br><span class="line">-file pyreduce.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">命令解释</span><br><span class="line">/opt/hadoop-2.9.2/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar  使用的stream的驱动类</span><br><span class="line">-Dmapreduce.job.name=&quot;aparke&quot; 指定job提交后的命令 可无</span><br><span class="line">-input /user/root/hap_stream_wc \ 输入文件路径</span><br><span class="line">-output /user/root/hap_stream_wcreuslt \ 输出文见路径 不存在</span><br><span class="line">-mapper &quot;map.sh&quot; \ 指定mapper的脚本</span><br><span class="line">-reducer ./reduce.sh \ 指定reducer 的脚本</span><br><span class="line">-file 上传本地map 和reducerd的脚本到集群</span><br></pre></td></tr></table></figure>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/02.png" alt="02"></p>
+<h2 id="Shell实现"><a href="#Shell实现" class="headerlink" title="Shell实现"></a>Shell实现</h2><p><code>map.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">tr <span class="string">' '</span> <span class="string">'\n'</span></span><br></pre></td></tr></table></figure>
+<p><code>reduce.sh</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">uniq -c | awk <span class="string">'&#123;print$2"\t"$1&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="命令行提交"><a href="#命令行提交" class="headerlink" title="命令行提交"></a>命令行提交</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat wordcount.txt | tr <span class="string">" "</span> <span class="string">"\n"</span>  |sort| uniq -c | awk <span class="string">'&#123;print$2"\t"$1&#125;'</span></span><br></pre></td></tr></table></figure>
+<h4 id="shell-脚本提交"><a href="#shell-脚本提交" class="headerlink" title="shell 脚本提交"></a>shell 脚本提交</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat wordcount.txt | ./map.sh |sort|  ./reduce.sh</span><br></pre></td></tr></table></figure>
+<h4 id="集群提交-1"><a href="#集群提交-1" class="headerlink" title="集群提交"></a>集群提交</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yarn jar /opt/hadoop-2.9.2/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar \</span><br><span class="line">-Dmapreduce.job.name=<span class="string">"aparke"</span> \</span><br><span class="line">-input /user/root/hap_stream_wc \</span><br><span class="line">-output /user/root/hap_stream_wcreuslt \</span><br><span class="line">-mapper <span class="string">"map.sh"</span> \</span><br><span class="line">-reducer ./reduce.sh \</span><br><span class="line">-file map.sh \</span><br><span class="line">-file reduce.sh</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/03.png" alt="02"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">集群提交命令</span><br><span class="line">yarn jar /opt/hadoop-2.9.2/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar \</span><br><span class="line">-Dmapreduce.job.name=<span class="string">"py_aparke"</span> \</span><br><span class="line">-input /user/root/hap_stream_wc \</span><br><span class="line">-output /user/root/hap_stream_wcreuslt_py \</span><br><span class="line">-mapper <span class="string">"pymap.py"</span> \</span><br><span class="line">-reducer ./pyreduce.py \</span><br><span class="line">-file pymap.py \</span><br><span class="line">-file pyreduce.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">命令解释</span><br><span class="line">/opt/hadoop-2.9.2/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar  使用的stream的驱动类</span><br><span class="line">-Dmapreduce.job.name=&quot;aparke&quot; 指定job提交后的命令 可无</span><br><span class="line">-input /user/root/hap_stream_wc \ 输入文件路径</span><br><span class="line">-output /user/root/hap_stream_wcreuslt \ 输出文见路径 不存在</span><br><span class="line">-mapper &quot;map.sh&quot; \ 指定mapper的脚本</span><br><span class="line">-reducer ./reduce.sh \ 指定reducer 的脚本  </span><br><span class="line">-file 上传本地map 和reducerd的脚本到集群</span><br></pre></td></tr></table></figure>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/04.png" alt="04"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-随笔/词法分析C语言代码解析参考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -893,83 +989,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-随笔/数据库实验二作业" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/16/随笔/数据库实验二作业/">数据库实验二作业</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/16/随笔/数据库实验二作业/" class="archive-article-date">
-  	<time datetime="2019-05-16T07:04:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h4 id="1：-选择表中的若干列-求全体学生的学号、姓名、性别和年龄。"><a href="#1：-选择表中的若干列-求全体学生的学号、姓名、性别和年龄。" class="headerlink" title="1： (选择表中的若干列)  求全体学生的学号、姓名、性别和年龄。"></a>1： (选择表中的若干列)  求全体学生的学号、姓名、性别和年龄。</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> SNO,SNAME,SSEX,SAGE </span><br><span class="line"><span class="keyword">FROM</span> student;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/05/16/随笔/数据库实验二作业/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/16/随笔/数据库实验二作业/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1088,11 +1107,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
