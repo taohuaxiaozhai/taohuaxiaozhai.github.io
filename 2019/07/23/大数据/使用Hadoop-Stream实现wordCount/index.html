@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/02.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/03.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/04.png">
-<meta property="og:updated_time" content="2019-08-27T13:49:17.517Z">
+<meta property="og:updated_time" content="2019-08-27T14:05:32.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hadoop-Stream实现wordCount">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  前言 Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer，例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）  原理 Hadoop Streaming是Hadoop提供的一个编程工具，它允许">
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 <p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer，例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p>
 </blockquote>
 <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer。<br>Hadoop Streaming是利用“标准输入”和“标准输出”与我们编写的Map和Reduce进行数据的交换。<br>那么，任何能够使用“标准输入”和“标准输出”的编程语言都应该可以用来编写MapReduce程序。<br>例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p>
+<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer。<br>Hadoop Streaming是利用“标准输入”和“标准输出”与我们编写的Map和Reduce进行数据的交换。<br>那么，任何能够使用“标准输入”和“标准输出”的编程语言都应该可以用来编写MapReduce程序。<br>例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）<a id="more"></a></p>
 </blockquote>
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><p><code>map.py</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/bin/env python</span></span><br><span class="line"><span class="comment">#-*- coding:UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> line  <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    word_arr=line.strip().split(<span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> word_arr:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'%s\t%s'</span> % (word,<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
 <p><code>reduce.py</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">(last_key, sum) = (<span class="keyword">None</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    (key, count) = line.strip().split(<span class="string">'\t'</span>)</span><br><span class="line">    <span class="keyword">if</span> last_key == key :</span><br><span class="line">        sum += int(count)</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">if</span> last_key : <span class="keyword">print</span> <span class="string">'%s\t%s'</span> % (last_key, sum)</span><br><span class="line">        (last_key, sum) = (key, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> last_key : <span class="keyword">print</span> <span class="string">'%s\t%s'</span> % (last_key, sum)</span><br></pre></td></tr></table></figure></p>
@@ -550,11 +550,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +566,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
