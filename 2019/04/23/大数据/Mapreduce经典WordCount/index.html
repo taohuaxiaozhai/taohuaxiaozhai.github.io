@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/7 | aparke&#39;s blog</title>
+  <title>Mapreduce经典WordCount | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="aparke,强李,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aparke&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+  <meta name="description" content="Welcome to aparke’s blog!  代码">
+<meta name="keywords" content="大数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mapreduce经典WordCount">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/大数据/Mapreduce经典WordCount/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="aparke,强李,">
+<meta property="og:description" content="Welcome to aparke’s blog!  代码">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-08-28T01:36:21.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aparke&#39;s blog">
-<meta name="twitter:description" content="aparke,强李,">
+<meta name="twitter:title" content="Mapreduce经典WordCount">
+<meta name="twitter:description" content="Welcome to aparke’s blog!  代码">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -187,36 +189,67 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据/Mapreduce经典WordCount" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/" class="archive-article-date">
-  	<time datetime="2019-07-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">使用Hadoop-Stream实现wordCount</a>
+    <h1 class="article-title" itemprop="name">
+      Mapreduce经典WordCount
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/23/大数据/Mapreduce经典WordCount/" class="archive-article-date">
+  	<time datetime="2019-04-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="">aparke’s blog</a>! </p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">package</span> cn.aparke.mr.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URI;</span><br><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.WhileClosure;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * mr实现wordcount</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> aparke</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordCountMap</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">LongWritable</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(LongWritable key, Text value, Context context)</span></span></span><br><span class="line"><span class="function">		<span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">	 </span><br><span class="line">		<span class="comment">//切单词</span></span><br><span class="line">		String line = value.toString();</span><br><span class="line">		String[] words = line.split(<span class="string">" "</span>);</span><br><span class="line">		<span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">			context.write(<span class="keyword">new</span> Text(word), <span class="keyword">new</span> IntWritable(<span class="number">1</span>));</span><br><span class="line">						</span><br><span class="line">		&#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordCountReduce</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> IntWritable result=<span class="keyword">new</span> IntWritable();</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span></span></span><br><span class="line"><span class="function"><span class="params">		Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line"><span class="comment">//		int count=0;</span></span><br><span class="line"><span class="comment">//		for (IntWritable val : values) &#123;</span></span><br><span class="line"><span class="comment">//			count+=val.get();</span></span><br><span class="line"><span class="comment">//		&#125;</span></span><br><span class="line"><span class="comment">//		result.set(count);</span></span><br><span class="line"><span class="comment">//		context.write(key, result);</span></span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">		Iterator&lt;IntWritable&gt; iterator = values.iterator();</span><br><span class="line">		<span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">			IntWritable value = iterator.next();</span><br><span class="line">			sum+=value.get();</span><br><span class="line">		&#125;</span><br><span class="line">		result.set(sum);</span><br><span class="line">		context.write(key, result);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException, URISyntaxException </span>&#123;</span><br><span class="line">		<span class="comment">// 启动mr的driver方法</span></span><br><span class="line">		Configuration conf = <span class="keyword">new</span> Configuration();<span class="comment">//程序里，只需写这么一句话，就会加载到hadoop的配置文件了</span></span><br><span class="line">		<span class="comment">//Configuration类代表作业的配置，该类会加载mapred-site.xml、hdfs-site.xml、core-site.xml等配置文件。</span></span><br><span class="line">		</span><br><span class="line">		Job job = Job.getInstance(conf); <span class="comment">//job对象指定了作业执行规范，可以用它来控制整个作业的运行。</span></span><br><span class="line">		<span class="comment">//指定本次执行主类的wordconut类</span></span><br><span class="line">		job.setJarByClass(WordCount.class);</span><br><span class="line">		<span class="comment">//指定map类</span></span><br><span class="line">		job.setMapperClass(WordCountMap.class);</span><br><span class="line">		<span class="comment">//指定reduce类</span></span><br><span class="line">		job.setReducerClass(WordCountReduce.class);</span><br><span class="line">		<span class="comment">//指定</span></span><br><span class="line">		<span class="comment">//一般情况下mapper和reducer的输出的数据类型是一样的，所以我们用上面两条命令就行，如果不一样，</span></span><br><span class="line">		<span class="comment">//我们就可以用下面两条命令单独指定mapper的输出key、value的数据类型</span></span><br><span class="line"><span class="comment">//		job.setMapOutputKeyClass(Text.class);</span></span><br><span class="line"><span class="comment">//		job.setMapOutputValueClass(IntWritable.class);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//指定job的key value输出类</span></span><br><span class="line">		job.setOutputKeyClass(Text.class);</span><br><span class="line">		job.setOutputValueClass(IntWritable.class);</span><br><span class="line">		</span><br><span class="line">		Path output = <span class="keyword">new</span> Path(<span class="string">"D:\\testdata\\wordcount\\output"</span>);</span><br><span class="line">		FileSystem fs = FileSystem.get(<span class="keyword">new</span> URI(<span class="string">"file:///"</span>),conf);</span><br><span class="line">		<span class="keyword">if</span>(fs.exists(output))&#123;</span><br><span class="line">			fs.delete(output, <span class="keyword">true</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//指定输出路径</span></span><br><span class="line">		FileInputFormat.setInputPaths(job, <span class="keyword">new</span> Path(<span class="string">"D:\\testdata\\wordcount\\input"</span>));</span><br><span class="line">		FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(<span class="string">"D:\\testdata\\wordcount\\output"</span>));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//提交</span></span><br><span class="line">	</span><br><span class="line">		System.exit(job.waitForCompletion(<span class="keyword">true</span>)?<span class="number">0</span>:<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你，给我糖吃，aparke<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,19 +261,156 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/23/大数据/Mapreduce经典WordCount/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/05/10/随笔/数据库实验一作业/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据库实验一作业
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/04/10/网站/docker下一键快速部署dvwa环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker下一键快速部署dvwa环境</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="大数据/Mapreduce经典WordCount" data-title="Mapreduce经典WordCount" data-url="http://yoursite.com/2019/04/23/大数据/Mapreduce经典WordCount/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/04/23/大数据/Mapreduce经典WordCount/", 
+    sourceId: "大数据/Mapreduce经典WordCount",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+  <div id="SOHUCS" sid="大数据/Mapreduce经典WordCount" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -263,8 +433,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
