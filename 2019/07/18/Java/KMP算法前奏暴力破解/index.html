@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog Java实现暴力匹配算法 代码">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-28T02:20:09.460Z">
+<meta property="og:updated_time" content="2019-08-28T02:56:18.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP算法前奏暴力破解">
 <meta name="twitter:description" content="Welcome to aparke’s blog Java实现暴力匹配算法 代码">
@@ -212,7 +212,9 @@ var _hmt = _hmt || [];
         <p>Welcome to <a href="#">aparke’s blog</a></p>
 <p>Java实现暴力匹配算法</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.kmp;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 暴力匹配算法</span></span><br><span class="line"><span class="comment"> * 1.如果用暴力匹配的思路，并假设现在str1匹配到 i 位置，子串str2匹配到 j 位置，则有:</span></span><br><span class="line"><span class="comment"> * 2.如果当前字符匹配成功（即str1[i] == str2[j]），则i++，j++，继续匹配下一个字符</span></span><br><span class="line"><span class="comment"> * 3.如果失配（即str1[i]! = str2[j]），令i = i - (j - 1)，j = 0。   此时i就从第二位开始继续暴力匹配， 相当于每次匹配失败时，i 回溯，j 被置为0。</span></span><br><span class="line"><span class="comment"> * 4.用暴力方法解决的话就会有大量的回溯，每次只移动一位，若是不匹配，移动到下一位接着判断，浪费了大量的时间。(不可行!)</span></span><br><span class="line"><span class="comment"> * https://www.cnblogs.com/ZuoAndFutureGirl/p/9028287.html</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> aparke</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViolenceMatch</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">violenceMatch</span><span class="params">(String str1, String str2)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 第一步先将传进来的字符串转换为字符数组</span></span><br><span class="line">		<span class="keyword">char</span>[] s1 = str1.toCharArray();</span><br><span class="line">		<span class="keyword">char</span>[] s2 = str2.toCharArray();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;<span class="comment">// 字符串s1的索引</span></span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;<span class="comment">// 字符串s2的索引</span></span><br><span class="line">		<span class="keyword">int</span> s1Lenth = s1.length;<span class="comment">// 字符串s1的长度</span></span><br><span class="line">		<span class="keyword">int</span> s2Lenth = s2.length;<span class="comment">// 字符串s2的长度</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (i &lt; s1Lenth &amp;&amp; j &lt; s2Lenth) &#123;<span class="comment">// 保证匹配时，不越界</span></span><br><span class="line">			<span class="keyword">if</span> (s1[i] == s2[j]) &#123;</span><br><span class="line">				i++;</span><br><span class="line">				j++;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;<span class="comment">// 即str1[i]! = str2[j]</span></span><br><span class="line">				i = i - (j - <span class="number">1</span>); <span class="comment">// 重新从str1的下一个位置进行匹配</span></span><br><span class="line">				j = <span class="number">0</span>;<span class="comment">// str2 索引置零 重新匹配</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 如果匹配到的话，返回给下标index</span></span><br><span class="line">		<span class="keyword">if</span> (j == s2Lenth) &#123;<span class="comment">// 如果匹配到的话 j的下标也就是长度 等于了s2的长度</span></span><br><span class="line">			</span><br><span class="line">			<span class="keyword">return</span> i - j;<span class="comment">// i匹配结束减去j的长度 就是匹配到第一个元素的下标</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//测试暴力匹配算法</span></span><br><span class="line">		String str1 = <span class="string">"数数据 大数据你大数 大数据你大数据你好大数据好"</span>;</span><br><span class="line">		String str2 = <span class="string">"大数据你好大数据"</span>;</span><br><span class="line">		<span class="keyword">int</span> index = violenceMatch(str1, str2);</span><br><span class="line">		System.out.println(<span class="string">"index="</span> + index); <span class="comment">//由0开始</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.kmp;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 暴力匹配算法</span></span><br><span class="line"><span class="comment"> * 1.如果用暴力匹配的思路，并假设现在str1匹配到 i 位置，子串str2匹配到 j 位置，则有:</span></span><br><span class="line"><span class="comment"> * 2.如果当前字符匹配成功（即str1[i] == str2[j]），则i++，j++，继续匹配下一个字符</span></span><br><span class="line"><span class="comment"> * 3.如果失配（即str1[i]! = str2[j]），令i = i - (j - 1)，j = 0。   此时i就从第二位开始继续暴力匹配， 相当于每次匹配失败时，i 回溯，j 被置为0。</span></span><br><span class="line"><span class="comment"> * 4.用暴力方法解决的话就会有大量的回溯，每次只移动一位，若是不匹配，移动到下一位接着判断，浪费了大量的时间。(不可行!)</span></span><br><span class="line"><span class="comment"> * https://www.cnblogs.com/ZuoAndFutureGirl/p/9028287.html</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> aparke</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViolenceMatch</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">violenceMatch</span><span class="params">(String str1, String str2)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 第一步先将传进来的字符串转换为字符数组</span></span><br><span class="line">		<span class="keyword">char</span>[] s1 = str1.toCharArray();</span><br><span class="line">		<span class="keyword">char</span>[] s2 = str2.toCharArray();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;<span class="comment">// 字符串s1的索引</span></span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;<span class="comment">// 字符串s2的索引</span></span><br><span class="line">		<span class="keyword">int</span> s1Lenth = s1.length;<span class="comment">// 字符串s1的长度</span></span><br><span class="line">		<span class="keyword">int</span> s2Lenth = s2.length;<span class="comment">// 字符串s2的长度</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (i &lt; s1Lenth &amp;&amp; j &lt; s2Lenth) &#123;<span class="comment">// 保证匹配时，不越界</span></span><br><span class="line">			<span class="keyword">if</span> (s1[i] == s2[j]) &#123;</span><br><span class="line">				i++;</span><br><span class="line">				j++;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;<span class="comment">// 即str1[i]! = str2[j]</span></span><br><span class="line">				i = i - (j - <span class="number">1</span>); <span class="comment">// 重新从str1的下一个位置进行匹配</span></span><br><span class="line">				j = <span class="number">0</span>;<span class="comment">// str2 索引置零 重新匹配</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 如果匹配到的话，返回给下标index</span></span><br><span class="line">		<span class="keyword">if</span> (j == s2Lenth) &#123;<span class="comment">// 如果匹配到的话 j的下标也就是长度 等于了s2的长度</span></span><br><span class="line">			</span><br><span class="line">			<span class="keyword">return</span> i - j;<span class="comment">// i匹配结束减去j的长度 就是匹配到第一个元素的下标</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//测试暴力匹配算法</span></span><br><span class="line">		String str1 = <span class="string">"数数据 大数据你大数 大数据你大数据你好大数据好"</span>;</span><br><span class="line">		String str2 = <span class="string">"大数据你好大数据"</span>;</span><br><span class="line">		<span class="keyword">int</span> index = violenceMatch(str1, str2);</span><br><span class="line">		System.out.println(<span class="string">"index="</span> + index); <span class="comment">//由0开始</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>返回 index=15</p>
+
       
 
       
@@ -326,18 +328,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/19/Java/Java递归/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java实现稀疏数组的转变与恢复
+          Java递归
         
       </div>
     </a>
   
   
-    <a href="/2019/07/17/Java/Java中的局部变量与成员变量/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java中的局部变量与成员变量.md</div>
+    <a href="/2019/07/18/Java/Java中方法的传递机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java中方法的传递机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -525,14 +527,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -542,6 +536,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">

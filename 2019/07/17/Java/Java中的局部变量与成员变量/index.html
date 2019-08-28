@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java中的局部变量与成员变量.md | aparke&#39;s blog</title>
+  <title>Java中的局部变量与成员变量的区别 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog 局部变量与成员变量的区别： 1.声明的位置 1）局部变量在方法体{}中，形参，代码块中 2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量   2.修饰符  局部变量 final 成员变量 public protected private final static volatile transien">
+  <meta name="description" content="Welcome to aparke’s blog 局部变量与成员变量的区别： 1.声明的位置 1）局部变量在方法体{}中，形参，代码块中 2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量   2.修饰符 局部变量 final 成员变量 public protected private final static volatile transient">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中的局部变量与成员变量.md">
+<meta property="og:title" content="Java中的局部变量与成员变量的区别">
 <meta property="og:url" content="http://yoursite.com/2019/07/17/Java/Java中的局部变量与成员变量/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog 局部变量与成员变量的区别： 1.声明的位置 1）局部变量在方法体{}中，形参，代码块中 2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量   2.修饰符  局部变量 final 成员变量 public protected private final static volatile transien">
+<meta property="og:description" content="Welcome to aparke’s blog 局部变量与成员变量的区别： 1.声明的位置 1）局部变量在方法体{}中，形参，代码块中 2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量   2.修饰符 局部变量 final 成员变量 public protected private final static volatile transient">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-28T02:50:54.985Z">
+<meta property="og:updated_time" content="2019-08-28T03:00:24.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中的局部变量与成员变量.md">
-<meta name="twitter:description" content="Welcome to aparke’s blog 局部变量与成员变量的区别： 1.声明的位置 1）局部变量在方法体{}中，形参，代码块中 2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量   2.修饰符  局部变量 final 成员变量 public protected private final static volatile transien">
+<meta name="twitter:title" content="Java中的局部变量与成员变量的区别">
+<meta name="twitter:description" content="Welcome to aparke’s blog 局部变量与成员变量的区别： 1.声明的位置 1）局部变量在方法体{}中，形参，代码块中 2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量   2.修饰符 局部变量 final 成员变量 public protected private final static volatile transient">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Java中的局部变量与成员变量.md
+      Java中的局部变量与成员变量的区别
     </h1>
   
 
@@ -216,54 +216,42 @@ var _hmt = _hmt || [];
 <li>2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量</li>
 </ul>
 </li>
-<li><p>2.修饰符</p>
-<ul>
+<li>2.修饰符<ul>
 <li>局部变量 final</li>
-<li>成员变量 public protected private final static volatile transient</li>
+<li>成员变量 public protected private final static volatile transient  <a id="more"></a></li>
 </ul>
 </li>
-<li><p>3.值存储的位置</p>
-<ul>
+<li>3.值存储的位置<ul>
 <li>局部变量   栈</li>
 <li>成员变量   堆</li>
-<li>类变量      方法区</li>
+<li>类变量     方法区</li>
 </ul>
 </li>
-<li><p>4.作用域</p>
-<ul>
+<li>4.作用域<ul>
 <li>局部变量：从声明处开始，到所属的}结束</li>
 <li>实例变量：在当前类中的this（有时this可以省略），在其它类中的“对象名.”访问</li>
 <li>类变量：在当前类中：“类名.”（有时类名可以省略），在其它类中“类名.”或“对象名.”访问</li>
 </ul>
 </li>
-<li><p>5.生命周期</p>
-<ul>
+<li>5.生命周期<ul>
 <li>局部变量：每一个线程，每一次调用执行都是新的生命周期</li>
 <li>实例变量：随着对象的创建而初始化，随着对象的收回而被消亡，每一个对象实例变量是独立的</li>
 <li>类变量：随着类的初始化而初始化，随着类的卸载而消亡，该类的所有对象的类变量是共享的</li>
 </ul>
 </li>
-<li><p>JVM运行时数据区有五块</p>
-<ul>
+<li>JVM运行时数据区有五块<ul>
 <li>方法区、虚拟机栈、本地方法栈、堆、程序计数器   其中方法区与堆时所有线程共享的数据区 剩下的则为线程私有的数据区</li>
+<li>堆（Heap）,此内存区域的唯一目的就是存放对象实例，几乎所有的对象的实例都在这里分配内存。</li>
+<li>这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配。</li>
 </ul>
 </li>
-</ul>
-<ul>
-<li>堆（Heap）,此内存区域的唯一目的就是存放对象实例，几乎所有的对象的实例都在这里分配内存。</li>
-<li><p>这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配。</p>
-<ul>
 <li>通常所说的栈（stack），是指虚拟机栈。虚拟机栈用于存储局部变量表等。局部变量表存放了编译期可知长度的各种</li>
 <li>数据类型（boolean,byte,char,short,int,long,float,double）、对象引用（reference类型，它不等同于对象本身，</li>
-<li><p>是对象在堆内存的首地址）。方法执行完，自动释放。</p>
-</li>
-<li><p>方法区（Method Area）用于存储已被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据。</p>
-</li>
+<li>是对象在堆内存的首地址）。方法执行完，自动释放。</li>
+<li>方法区（Method Area）用于存储已被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据。</li>
 <li>@author aparke</li>
 </ul>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><a id="more"></a>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><!--more-->
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.base;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Exam3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> s;<span class="comment">////成员变量，类变量</span></span><br><span class="line">	<span class="keyword">int</span> i;<span class="comment">//成员变量，实例变量</span></span><br><span class="line">	<span class="keyword">int</span> j;<span class="comment">//成员变量，实例变量</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//非静态代码块，在实例化的时候会执行 &lt;init&gt;()实例化一次执行一次</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 区分</span></span><br><span class="line"><span class="comment">		 * 在局部变量与实例变量重名时，在实例变量前面加上 this</span></span><br><span class="line"><span class="comment">		 * 在库布变量与类变量重名时，在类变量前面加上类名</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">1</span>; <span class="comment">//非静态代码块中的局部变量i</span></span><br><span class="line">		i++;<span class="comment">//未被this声明，就近原则 为局部变量</span></span><br><span class="line">		j++;<span class="comment">//</span></span><br><span class="line">		s++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> j)</span> </span>&#123; <span class="comment">//形参，局部变量j</span></span><br><span class="line">		j++;</span><br><span class="line">		i++;</span><br><span class="line">		s++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Exam3 obj1 = <span class="keyword">new</span> Exam3();<span class="comment">//局部变量obj1</span></span><br><span class="line">		Exam3 obj2 = <span class="keyword">new</span> Exam3();<span class="comment">//局部变量obj2</span></span><br><span class="line">		obj1.test(<span class="number">10</span>);</span><br><span class="line">		obj1.test(<span class="number">20</span>);</span><br><span class="line">		obj2.test(<span class="number">10</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(obj1.i+<span class="string">","</span>+obj1.j+<span class="string">","</span>+obj1.s);</span><br><span class="line">		System.out.println(obj2.i+<span class="string">","</span>+obj2.j+<span class="string">","</span>+obj2.s);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -378,11 +366,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/07/18/Java/KMP算法前奏暴力破解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          KMP算法前奏暴力破解
+          Java实现稀疏数组的转变与恢复
         
       </div>
     </a>
@@ -417,7 +405,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Java/Java中的局部变量与成员变量" data-title="Java中的局部变量与成员变量.md" data-url="http://yoursite.com/2019/07/17/Java/Java中的局部变量与成员变量/"></div>
+	<div class="ds-thread" data-thread-key="Java/Java中的局部变量与成员变量" data-title="Java中的局部变量与成员变量的区别" data-url="http://yoursite.com/2019/07/17/Java/Java中的局部变量与成员变量/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -577,14 +565,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -594,6 +574,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
