@@ -288,7 +288,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a></p>
-<p>##</p>
 <h3 id="类初始化过程："><a href="#类初始化过程：" class="headerlink" title="类初始化过程："></a>类初始化过程：</h3><ul>
 <li>1.一个类要创建实例需要先加载并初始化该类</li>
 <li>◆main方法所在的类需要先加载和初始化</li>
@@ -296,9 +295,10 @@ var _hmt = _hmt || [];
 <li>3.一个类初始化就是执行&lt; clinit&gt;()方法</li>
 <li>◆&lt; clinit&gt;(方法由静态类变量显示赋值代码和静态代码块组成</li>
 <li>◆类变量显示赋值代码和静态代码块代码从上到下顺序执行</li>
-<li>◆&lt; clinit&gt;()方法只执行一次</li>
-<li></li>
-<li>实例初始化过程</li>
+<li><p>◆&lt; clinit&gt;()方法只执行一次</p>
+</li>
+<li><p>实例初始化过程</p>
+</li>
 <li>1.实例初始化就是执行<init>方法</init></li>
 <li>◆<init>()方法可能重載有多个,有几个构造器就有几个<init>方法</init></init></li>
 <li>◆<init>()方法由非静态实例变量显示赋值代码和非静态代码块、对应构造器代码组成</init></li>
@@ -307,31 +307,9 @@ var _hmt = _hmt || [];
 <li>◆<init>方法的首行是 super()或 super(实参列表),即对应父类的<init>方法</init></init></li>
 <li>@author aparke</li>
 </ul>
-<h3 id="父类的初始化"><a href="#父类的初始化" class="headerlink" title="父类的初始化"></a>父类的初始化</h3><pre><code>1）j = methmod();
-2) 父类的静态代码块
-</code></pre><h3 id="父类的实例化方法："><a href="#父类的实例化方法：" class="headerlink" title="父类的实例化方法："></a>父类的实例化方法：</h3><p>1）super（）&lt;最先&gt;   此处不执行<br>2）i = test();<br>3）父类的非静态代码块  2，3是按照代码顺序先后执行<br>4）父类的无参构造&lt;最后&gt;   </p>
-<p>非静态方法前面其实有一个默认的对象this<br>this在构造器（或<init>）它表示的是正在创建对象，因为这里是在创建Son对象，所以<br>test()执行的是子类重写的代码，不会执行父类的方法  （面向对象多态）<br>这里的i=test()执行的是子类重写的test()方法  </init></p>
-<h3 id="子类的初始化"><a href="#子类的初始化" class="headerlink" title="子类的初始化"></a>子类的初始化<clinit></clinit></h3><pre><code>1）j = methmod();
-1) 子类的静态代码块
- 其中1） 2）  静态方法和静态代码块是按照顺序执行   是按顺序执行    
-</code></pre><p>先初始化父类：5，1<br>再初始化之类 ：6，10<br>如果不创建对象 那么他们的顺序就是5，1，6，10  </p>
-<h3 id="子类的实例化方法："><a href="#子类的实例化方法：" class="headerlink" title="子类的实例化方法："></a>子类的实例化方法：</h3><p>1）super（）&lt;最先&gt;<br>2）i = test();<br>3）子类的非静态代码块  2），3）子类非静态代码块 和 子类非静态方法是按照代码顺序先后执行<br>4）子类的无参构造&lt;最后&gt;                                        </p>
-<p>因为创建了两个Son对象，因此实例化方法执行了<init>执行两次  </init></p>
-<p>### </p>
-<pre><code>/*
- * 1.方法的重写不可以被重写
- *      1）final方法
- *     2）静态方法
- *     3）private等子类中不可见方法
- * 
- * 2.对象的多态性
- *   1）子类对象如果重写了父类的方法，通过子类对象调用的子类一定是子类重写过的代码
- *   2）非静态方法默认的调用对象是this
- *   3）this对象在构造器或者说&lt;init&gt;方法中即使正在创建的对象
- * 
- */
-</code></pre><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="代码Father类"><a href="#代码Father类" class="headerlink" title="代码Father类"></a>代码Father类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.aparke.base;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  父类的初始化&lt;clinit&gt;</span></span><br><span class="line"><span class="comment">  * 1）j = methmod();</span></span><br><span class="line"><span class="comment">  * 2) 父类的静态代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">父类的实例化方法：</span></span><br><span class="line"><span class="comment">1）super（）&lt;最先&gt;   此处不执行</span></span><br><span class="line"><span class="comment">2）i = test();</span></span><br><span class="line"><span class="comment">3）父类的非静态代码块  2，3是按照代码顺序先后执行</span></span><br><span class="line"><span class="comment">4）父类的无参构造&lt;最后&gt; </span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">非静态方法前面其实有一个默认的对象this</span></span><br><span class="line"><span class="comment">this在构造器（或&lt;init&gt;）它表示的是正在创建对象，因为这里是在创建Son对象，所以</span></span><br><span class="line"><span class="comment">test()执行的是子类重写的代码，不会执行父类的方法  （面向对象多态）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">这里的i=test()执行的是子类重写的test()方法</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i = test();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> j = methmod();</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"1父类静态代码块 "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Father() &#123;</span><br><span class="line">		System.out.println(<span class="string">"2父类构造器  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"3父类非静态代码块   "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"4父类非静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">methmod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"5父类静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="代码Son类"><a href="#代码Son类" class="headerlink" title="代码Son类"></a>代码Son类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.base;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"6子类静态代码块  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> j = methmod();</span><br><span class="line">	</span><br><span class="line">	 Son() &#123;</span><br><span class="line"><span class="comment">//		super();//写不写子类都会执行  在子类的构造器中一定会调用父类的构造器</span></span><br><span class="line">		System.out.println(<span class="string">"7子类构造器  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"8子类非静态代码块  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i = test();<span class="comment">//未声明非静态方法 实例化不会自动加载</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 1.方法的重写不可以被重写</span></span><br><span class="line"><span class="comment">		 * 	 1）final方法</span></span><br><span class="line"><span class="comment">		 *	 2）静态方法</span></span><br><span class="line"><span class="comment">		 *	 3）private等子类中不可见方法</span></span><br><span class="line"><span class="comment">		 * </span></span><br><span class="line"><span class="comment">		 * 2.对象的多态性</span></span><br><span class="line"><span class="comment">		 *   1）子类对象如果重写了父类的方法，通过子类对象调用的子类一定是子类重写过的代码</span></span><br><span class="line"><span class="comment">		 *   2）非静态方法默认的调用对象是this</span></span><br><span class="line"><span class="comment">		 *   3）this对象在构造器或者说&lt;init&gt;方法中即使正在创建的对象</span></span><br><span class="line"><span class="comment">		 * </span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//子类对象重写了父类的方法，子类对象调用的子类一定是子类重写过的代码</span></span><br><span class="line">		System.out.println(<span class="string">"9子类非静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">methmod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"10子类静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Son son = <span class="keyword">new</span> Son();</span><br><span class="line">		System.out.println();</span><br><span class="line">		Son son2 = <span class="keyword">new</span> Son();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/07/15/Java/Java类初始化和实例初始化/#more">more >></a>
+        
       
 
       
@@ -1097,15 +1075,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,7 +1083,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
