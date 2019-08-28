@@ -189,6 +189,201 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java/初始Jvm指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/16/Java/初始Jvm指令/">初始Jvm指令</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/16/Java/初始Jvm指令/" class="archive-article-date">
+  	<time datetime="2019-07-15T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a></p>
+<p>通过简单的赋值自增自减运算了解JVM指令集</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
+        
+          <a class="article-more-a" href="/2019/07/16/Java/初始Jvm指令/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/16/Java/初始Jvm指令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java/Java类初始化和实例初始化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/15/Java/Java类初始化和实例初始化/">Java类初始化和实例初始化</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/15/Java/Java类初始化和实例初始化/" class="archive-article-date">
+  	<time datetime="2019-07-14T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a></p>
+<p>##</p>
+<h3 id="类初始化过程："><a href="#类初始化过程：" class="headerlink" title="类初始化过程："></a>类初始化过程：</h3><ul>
+<li>1.一个类要创建实例需要先加载并初始化该类</li>
+<li>◆main方法所在的类需要先加载和初始化</li>
+<li>2.一个子类要初始化需要先初始化父类</li>
+<li>3.一个类初始化就是执行&lt; clinit&gt;()方法</li>
+<li>◆&lt; clinit&gt;(方法由静态类变量显示赋值代码和静态代码块组成</li>
+<li>◆类变量显示赋值代码和静态代码块代码从上到下顺序执行</li>
+<li>◆&lt; clinit&gt;()方法只执行一次</li>
+<li></li>
+<li>实例初始化过程</li>
+<li>1.实例初始化就是执行<init>方法</init></li>
+<li>◆<init>()方法可能重載有多个,有几个构造器就有几个<init>方法</init></init></li>
+<li>◆<init>()方法由非静态实例变量显示赋值代码和非静态代码块、对应构造器代码组成</init></li>
+<li>◆非静态实例变量显示赋值代码和非静态代码块代码从上到下顺序执行,而对应构造器的代码最后执行</li>
+<li>◆每次创建实例对象,调用对应构造器,执行的就是对应的<init>方法</init></li>
+<li>◆<init>方法的首行是 super()或 super(实参列表),即对应父类的<init>方法</init></init></li>
+<li>@author aparke</li>
+</ul>
+<h3 id="父类的初始化"><a href="#父类的初始化" class="headerlink" title="父类的初始化"></a>父类的初始化</h3><pre><code>1）j = methmod();
+2) 父类的静态代码块
+</code></pre><h3 id="父类的实例化方法："><a href="#父类的实例化方法：" class="headerlink" title="父类的实例化方法："></a>父类的实例化方法：</h3><p>1）super（）&lt;最先&gt;   此处不执行<br>2）i = test();<br>3）父类的非静态代码块  2，3是按照代码顺序先后执行<br>4）父类的无参构造&lt;最后&gt;   </p>
+<p>非静态方法前面其实有一个默认的对象this<br>this在构造器（或<init>）它表示的是正在创建对象，因为这里是在创建Son对象，所以<br>test()执行的是子类重写的代码，不会执行父类的方法  （面向对象多态）<br>这里的i=test()执行的是子类重写的test()方法  </init></p>
+<h3 id="子类的初始化"><a href="#子类的初始化" class="headerlink" title="子类的初始化"></a>子类的初始化<clinit></clinit></h3><pre><code>1）j = methmod();
+1) 子类的静态代码块
+ 其中1） 2）  静态方法和静态代码块是按照顺序执行   是按顺序执行    
+</code></pre><p>先初始化父类：5，1<br>再初始化之类 ：6，10<br>如果不创建对象 那么他们的顺序就是5，1，6，10  </p>
+<h3 id="子类的实例化方法："><a href="#子类的实例化方法：" class="headerlink" title="子类的实例化方法："></a>子类的实例化方法：</h3><p>1）super（）&lt;最先&gt;<br>2）i = test();<br>3）子类的非静态代码块  2），3）子类非静态代码块 和 子类非静态方法是按照代码顺序先后执行<br>4）子类的无参构造&lt;最后&gt;                                        </p>
+<p>因为创建了两个Son对象，因此实例化方法执行了<init>执行两次  </init></p>
+<p>### </p>
+<pre><code>/*
+ * 1.方法的重写不可以被重写
+ *      1）final方法
+ *     2）静态方法
+ *     3）private等子类中不可见方法
+ * 
+ * 2.对象的多态性
+ *   1）子类对象如果重写了父类的方法，通过子类对象调用的子类一定是子类重写过的代码
+ *   2）非静态方法默认的调用对象是this
+ *   3）this对象在构造器或者说&lt;init&gt;方法中即使正在创建的对象
+ * 
+ */
+</code></pre><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="代码Father类"><a href="#代码Father类" class="headerlink" title="代码Father类"></a>代码Father类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.aparke.base;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  父类的初始化&lt;clinit&gt;</span></span><br><span class="line"><span class="comment">  * 1）j = methmod();</span></span><br><span class="line"><span class="comment">  * 2) 父类的静态代码块</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">父类的实例化方法：</span></span><br><span class="line"><span class="comment">1）super（）&lt;最先&gt;   此处不执行</span></span><br><span class="line"><span class="comment">2）i = test();</span></span><br><span class="line"><span class="comment">3）父类的非静态代码块  2，3是按照代码顺序先后执行</span></span><br><span class="line"><span class="comment">4）父类的无参构造&lt;最后&gt; </span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">非静态方法前面其实有一个默认的对象this</span></span><br><span class="line"><span class="comment">this在构造器（或&lt;init&gt;）它表示的是正在创建对象，因为这里是在创建Son对象，所以</span></span><br><span class="line"><span class="comment">test()执行的是子类重写的代码，不会执行父类的方法  （面向对象多态）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">这里的i=test()执行的是子类重写的test()方法</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i = test();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> j = methmod();</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"1父类静态代码块 "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Father() &#123;</span><br><span class="line">		System.out.println(<span class="string">"2父类构造器  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"3父类非静态代码块   "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"4父类非静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">methmod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"5父类静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码Son类"><a href="#代码Son类" class="headerlink" title="代码Son类"></a>代码Son类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.base;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"6子类静态代码块  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> j = methmod();</span><br><span class="line">	</span><br><span class="line">	 Son() &#123;</span><br><span class="line"><span class="comment">//		super();//写不写子类都会执行  在子类的构造器中一定会调用父类的构造器</span></span><br><span class="line">		System.out.println(<span class="string">"7子类构造器  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"8子类非静态代码块  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i = test();<span class="comment">//未声明非静态方法 实例化不会自动加载</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 1.方法的重写不可以被重写</span></span><br><span class="line"><span class="comment">		 * 	 1）final方法</span></span><br><span class="line"><span class="comment">		 *	 2）静态方法</span></span><br><span class="line"><span class="comment">		 *	 3）private等子类中不可见方法</span></span><br><span class="line"><span class="comment">		 * </span></span><br><span class="line"><span class="comment">		 * 2.对象的多态性</span></span><br><span class="line"><span class="comment">		 *   1）子类对象如果重写了父类的方法，通过子类对象调用的子类一定是子类重写过的代码</span></span><br><span class="line"><span class="comment">		 *   2）非静态方法默认的调用对象是this</span></span><br><span class="line"><span class="comment">		 *   3）this对象在构造器或者说&lt;init&gt;方法中即使正在创建的对象</span></span><br><span class="line"><span class="comment">		 * </span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//子类对象重写了父类的方法，子类对象调用的子类一定是子类重写过的代码</span></span><br><span class="line">		System.out.println(<span class="string">"9子类非静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">methmod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"10子类静态方法  "</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Son son = <span class="keyword">new</span> Son();</span><br><span class="line">		System.out.println();</span><br><span class="line">		Son son2 = <span class="keyword">new</span> Son();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/15/Java/Java类初始化和实例初始化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-随笔/词法分析C语言代码解析参考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -422,6 +617,83 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-数据结构/java非递归二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/14/数据结构/java非递归二分查找/">java三大排序</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/14/数据结构/java非递归二分查找/" class="archive-article-date">
+  	<time datetime="2019-05-14T05:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<p>非递归实现二分查找<br></p>
+        
+          <a class="article-more-a" href="/2019/05/14/数据结构/java非递归二分查找/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/14/数据结构/java非递归二分查找/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据结构/java之单例设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -467,6 +739,72 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/05/13/数据结构/java之单例设计模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据结构/java之顺序二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/12/数据结构/java之顺序二分查找/">java之顺序二分查找</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/12/数据结构/java之顺序二分查找/" class="archive-article-date">
+  	<time datetime="2019-05-12T05:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h2 id="顺序查找与二分查找动图展示"><a href="#顺序查找与二分查找动图展示" class="headerlink" title="顺序查找与二分查找动图展示"></a>顺序查找与二分查找动图展示</h2><p><img src="/2019/05/12/数据结构/java之顺序二分查找/1.gif" alt="01"><br></p>
+        
+          <a class="article-more-a" href="/2019/05/12/数据结构/java之顺序二分查找/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/12/数据结构/java之顺序二分查找/">展开全文 >></a>
         </p>
       
 
@@ -564,72 +902,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-数据结构/java之顺序二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/12/数据结构/java之顺序二分查找/">java之顺序二分查找</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/12/数据结构/java之顺序二分查找/" class="archive-article-date">
-  	<time datetime="2019-05-12T05:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h2 id="顺序查找与二分查找动图展示"><a href="#顺序查找与二分查找动图展示" class="headerlink" title="顺序查找与二分查找动图展示"></a>顺序查找与二分查找动图展示</h2><p><img src="/2019/05/12/数据结构/java之顺序二分查找/1.gif" alt="01"><br></p>
-        
-          <a class="article-more-a" href="/2019/05/12/数据结构/java之顺序二分查找/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/12/数据结构/java之顺序二分查找/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-随笔/数据库实验一作业" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -678,260 +950,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/05/10/随笔/数据库实验一作业/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java/Java实现WordCount" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/16/Java/Java实现WordCount/">Java实现WordCount</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/16/Java/Java实现WordCount/" class="archive-article-date">
-  	<time datetime="2019-04-15T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a></p>
-<p>Wordcount词频统计</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
-        
-          <a class="article-more-a" href="/2019/04/16/Java/Java实现WordCount/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/16/Java/Java实现WordCount/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-网站/docker下一键快速部署dvwa环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/网站/docker下一键快速部署dvwa环境/">docker下一键快速部署dvwa环境</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/10/网站/docker下一键快速部署dvwa环境/" class="archive-article-date">
-  	<time datetime="2019-04-10T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="简单描述docker"><a href="#简单描述docker" class="headerlink" title="简单描述docker"></a>简单描述docker</h2><blockquote>
-<p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。<br>Docker 支持跨平台可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。<br>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。<br>Docker 一键部署的环境文件不仅小，大概只有几百兆。而且最厉害的是部署的网站环境，即使网站存在漏洞，被恶意拿到权限，因为docker这种沙箱机制，也不会被拿到服务器主机权限。</p></blockquote>
-        
-          <a class="article-more-a" href="/2019/04/10/网站/docker下一键快速部署dvwa环境/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">网站,Linux,docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/网站/docker下一键快速部署dvwa环境/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大数据/使用ALS算法音乐推荐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/23/大数据/使用ALS算法音乐推荐/">使用ALS算法音乐推荐</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/23/大数据/使用ALS算法音乐推荐/" class="archive-article-date">
-  	<time datetime="2019-01-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="">aparke’s blog</a>! </p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
-<p>本章实现的是歌曲推荐，使用的是ALS算法，ALS是spark.mllib中唯一的推荐算法，因为只有ALS算法可以进行并行运算。</p>
-</blockquote>
-<p><strong>使用的算法</strong></p>
-<ol>
-<li>交替最小二乘推荐算法</li>
-</ol>
-<blockquote>
-<p>现在我们要给这个隐式反馈数据选择一个合适的推荐算法。这个数据及只记录了用户和歌曲之间的交互情况。<br>除了歌曲ID的名字外，数据集没有包含用户的信息，也没有提供歌手的其他任何信息。我们要找的学习算法不需要用户和艺术家的属性信息。这类算法通常称为协同过滤算法。</p>
-<p>举个例子：根据两个用户的年龄相同来判断他们可能有相似的偏好，这不叫协同过滤。相反，根据两个用户播放过许多相同歌曲来判断他们可能都喜欢某首歌，这才叫协同过滤</p>
-</blockquote>
-<ol>
-<li>矩阵分解模型</li>
-</ol>
-<blockquote>
-<p>现在我们的用户和产品数据可以视为一个大矩阵A，矩阵第i 行和第j 列上的元素都有值，代表用户i 播放过艺术家 j 的音乐。可以预料到，矩阵A 是稀疏的，里面大多数元素为0.因为相对于所有可能的 用户 – 艺术家 组合，只有很少一部分组合会出现在数据中。这里我们使用的是一种矩阵分解模型( Non-negative matrix factorization)。</p>
-</blockquote>
-<ol>
-<li>潜在因素</li>
-</ol>
-<blockquote>
-<p>潜在因素（factor analysis）模型：<br>潜在因素模型试图通过数量相对较少的未被观察到的底层原因，来解释大量用户和产品之间可观察到的交互。<br>例如：有几千个专辑可选，为什么数百万人偏偏只买其中某些专辑？可以用对类别（可能只有数十种）的偏好来解释用户和专辑的关系，其中偏好信息并不能直接观察到，而数据也没有给出这些信息。<br>这里的偏好，其实就是我们上述要求的 k 里的值。这个k就是潜在因素，用于解释数据中的交互关系。由于k 很小，矩阵分解算法只能是某种近似。所以上述图里用的约等于号。</p></blockquote>
-        
-          <a class="article-more-a" href="/2019/01/23/大数据/使用ALS算法音乐推荐/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/23/大数据/使用ALS算法音乐推荐/">展开全文 >></a>
         </p>
       
 
@@ -1079,11 +1097,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,11 +1109,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
