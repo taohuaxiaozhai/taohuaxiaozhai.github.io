@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java构造死锁 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog  过多的同步导致死锁  使用sleep 可以放大死锁的表现  构成死锁的原因  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。 简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
+  <meta name="description" content="Welcome to aparke’s blog  构成死锁的原因 过多的同步导致死锁  使用sleep 可以放大死锁的表现  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。  简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java构造死锁">
 <meta property="og:url" content="http://yoursite.com/2019/07/21/Java/Java构造死锁/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog  过多的同步导致死锁  使用sleep 可以放大死锁的表现  构成死锁的原因  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。 简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
+<meta property="og:description" content="Welcome to aparke’s blog  构成死锁的原因 过多的同步导致死锁  使用sleep 可以放大死锁的表现  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。  简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-28T02:43:07.883Z">
+<meta property="og:updated_time" content="2019-08-28T03:05:14.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java构造死锁">
-<meta name="twitter:description" content="Welcome to aparke’s blog  过多的同步导致死锁  使用sleep 可以放大死锁的表现  构成死锁的原因  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。 简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
+<meta name="twitter:description" content="Welcome to aparke’s blog  构成死锁的原因 过多的同步导致死锁  使用sleep 可以放大死锁的表现  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。  简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -211,12 +211,12 @@ var _hmt = _hmt || [];
       
         <p>Welcome to <a href="#">aparke’s blog</a></p>
 <ul>
+<li>构成死锁的原因</li>
 <li>过多的同步导致死锁 </li>
 <li><p>使用sleep 可以放大死锁的表现</p>
 </li>
-<li><p>构成死锁的原因</p>
+<li><p>首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。</p>
 </li>
-<li>首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。</li>
 <li>简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。<ul>
 <li>当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的，</li>
 <li>所以产生死锁，具体看CPU的调度。</li>
@@ -537,11 +537,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
