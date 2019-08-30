@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="hive建库建表与数据导入建库建表hive中有一个默认的库：库名： default库目录：hdfs://192.168.179.200:9000/user/hive/warehouse">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-30T14:11:08.026Z">
+<meta property="og:updated_time" content="2019-08-30T14:17:52.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive表创建">
 <meta name="twitter:description" content="hive建库建表与数据导入建库建表hive中有一个默认的库：库名： default库目录：hdfs://192.168.179.200:9000/user/hive/warehouse">
@@ -222,14 +222,13 @@ var _hmt = _hmt || [];
 <p><strong>加载本地数据（local 如果是hdfs就不需要local） 并且给定值为day=20190305</strong><br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">hive (db1)&gt; load data local inpath '/root/hive1/pv.log.4' into table t_log partition(day='20190304');</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">hive (db1)&gt; select * from t_log;</span><br></pre></td></tr></table></figure>
 <p>(查询出来后，会出现一个伪字段 为分区字段 设置分区字段时不能和本身字段相同 )<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">t_log.ip	t_log.url	t_log.access_time	t_log.day</span><br><span class="line">192.168.33.3	http://www.aparke.cn/stu	2019-03-04 15:30:20	20190304</span><br><span class="line">192.168.33.3	http://www.aparke.cn/teach	2019-03-04 15:35:20	20190304</span><br><span class="line">192.168.33.4	http://www.aparke.cn/stu	2019-03-04 15:30:20	20190304</span><br><span class="line">192.168.33.4	http://www.aparke.cn/job	2019-03-04 16:30:20	20190304</span><br><span class="line">192.168.33.5	http://www.aparke.cn/job	2019-03-04 15:40:20	20190304</span><br><span class="line">192.168.33.3	http://www.aparke.cn/stu	2019-03-05 15:30:20	20190305</span><br><span class="line">192.168.44.3	http://www.aparke.cn/teach	2019-03-05 15:35:20	20190305</span><br><span class="line">192.168.33.44	http://www.aparke.cn/stu	2019-03-05 15:30:20	20190305</span><br><span class="line">192.168.33.46	http://www.aparke.cn/job	2019-03-05 16:30:20	20190305</span><br><span class="line">192.168.33.55	http://www.aparke.cn/job	2019-03-05 15:40:20	20190305</span><br></pre></td></tr></table></figure></p>
-<h4 id="查询在2019-03-05中访问stu页面的次数"><a href="#查询在2019-03-05中访问stu页面的次数" class="headerlink" title="查询在2019-03-05中访问stu页面的次数"></a>查询在2019-03-05中访问stu页面的次数</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> t_log <span class="keyword">where</span> <span class="keyword">url</span>=<span class="string">'http://www.aparke.cn/stu'</span> <span class="keyword">and</span> <span class="keyword">day</span>=<span class="string">'20190305'</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="查询访问stu页面的次数"><a href="#查询访问stu页面的次数" class="headerlink" title="查询访问stu页面的次数"></a>查询访问stu页面的次数</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> t_log <span class="keyword">where</span> <span class="keyword">url</span>=<span class="string">'http://www.aparke.cn/stu'</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="建一个与之前存在表结构相似的表结构"><a href="#建一个与之前存在表结构相似的表结构" class="headerlink" title="建一个与之前存在表结构相似的表结构"></a>建一个与之前存在表结构相似的表结构</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_log_2 <span class="keyword">like</span> t_log;</span><br></pre></td></tr></table></figure>
-<h4 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">desc t_log_2;</span><br></pre></td></tr></table></figure>
+<p>查询在2019-03-05中访问stu页面的次数<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> t_log <span class="keyword">where</span> <span class="keyword">url</span>=<span class="string">'http://www.aparke.cn/stu'</span> <span class="keyword">and</span> <span class="keyword">day</span>=<span class="string">'20190305'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>查询访问stu页面的次数<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> t_log <span class="keyword">where</span> <span class="keyword">url</span>=<span class="string">'http://www.aparke.cn/stu'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>建一个与之前存在表结构相似的表结构<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_log_2 <span class="keyword">like</span> t_log;</span><br></pre></td></tr></table></figure></p>
+<p>查看表结构<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">desc t_log_2;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">col_name	data_type	comment</span><br><span class="line">ip                  	string              	                    </span><br><span class="line">url                 	string              	                    </span><br><span class="line">access_time         	string              	                    </span><br><span class="line">day                 	string     (伪字段)         	                    </span><br><span class="line">	 	 </span><br><span class="line"># Partition Information	（分区字段） 	 </span><br><span class="line"># col_name            	data_type           	comment             </span><br><span class="line">	 	 </span><br><span class="line">day                 	string</span><br></pre></td></tr></table></figure>
 <h3 id="将数据文件导入hive的表"><a href="#将数据文件导入hive的表" class="headerlink" title="将数据文件导入hive的表"></a>将数据文件导入hive的表</h3><ul>
-<li><p>方式1：导入数据的一种方式：<br>手动用hdfs命令，将文件放入表目录；</p>
-</li>
+<li>方式1：导入数据的一种方式：<br>手动用hdfs命令，将文件放入表目录；</li>
 <li><p>方式2：在hive的交互式shell中用hive命令来导入本地数据到表目录</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">hive&gt;load data local inpath '/root/order.data.2' into table t_order;</span><br></pre></td></tr></table></figure>
 </li>
@@ -555,11 +554,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,15 +574,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
