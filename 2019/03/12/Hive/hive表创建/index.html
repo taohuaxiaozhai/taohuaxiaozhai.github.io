@@ -8,18 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hive表创建 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hive建库建表与数据导入建库建表hive中有一个默认的库：库名： default库目录：hdfs://192.168.179.200:9000/user/hive/warehouse">
-<meta name="keywords" content="hive">
+  <meta name="keywords" content="hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hive表创建">
 <meta property="og:url" content="http://yoursite.com/2019/03/12/Hive/hive表创建/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="hive建库建表与数据导入建库建表hive中有一个默认的库：库名： default库目录：hdfs://192.168.179.200:9000/user/hive/warehouse">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-30T14:17:52.476Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/12/Hive/hive表创建/4.png">
+<meta property="og:updated_time" content="2019-08-30T14:31:25.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive表创建">
-<meta name="twitter:description" content="hive建库建表与数据导入建库建表hive中有一个默认的库：库名： default库目录：hdfs://192.168.179.200:9000/user/hive/warehouse">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/12/Hive/hive表创建/4.png">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -209,7 +208,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="hive建库建表与数据导入"><a href="#hive建库建表与数据导入" class="headerlink" title="hive建库建表与数据导入"></a>hive建库建表与数据导入</h3><h4 id="建库建表"><a href="#建库建表" class="headerlink" title="建库建表"></a>建库建表</h4><p><strong>hive中有一个默认的库：</strong><br>库名： default<br>库目录：hdfs://192.168.179.200:9000/user/hive/warehouse<br><a id="more"></a><br><strong>建内部表</strong><br>新建库：<br><code>create database db1;</code><br>库建好后，在hdfs中会生成一个库目录：<br>hdfs://192.168.179.200:9000/user/hive/warehouse/db1.db<br>例子<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> db1; </span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_movie(<span class="keyword">id</span> <span class="keyword">string</span>,<span class="keyword">name</span> <span class="keyword">string</span> ,daoyan <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure></p>
+        <p><img src="/2019/03/12/Hive/hive表创建/4.png" alt="01"><br><a id="more"></a></p>
+<h3 id="hive建库建表与数据导入"><a href="#hive建库建表与数据导入" class="headerlink" title="hive建库建表与数据导入"></a>hive建库建表与数据导入</h3><h4 id="建库建表"><a href="#建库建表" class="headerlink" title="建库建表"></a>建库建表</h4><p><strong>hive中有一个默认的库：</strong><br>库名： default<br>库目录：hdfs://192.168.179.200:9000/user/hive/warehouse  </p>
+<p><strong>建内部表</strong><br>新建库：<br><code>create database db1;</code><br>库建好后，在hdfs中会生成一个库目录：<br>hdfs://192.168.179.200:9000/user/hive/warehouse/db1.db<br>例子<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> db1; </span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_movie(<span class="keyword">id</span> <span class="keyword">string</span>,<span class="keyword">name</span> <span class="keyword">string</span> ,daoyan <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure></p>
 <p>本地数据 t_movie.dat<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,zhanlang2,wujing</span><br><span class="line">2,liulangdiqiu,guofan</span><br><span class="line">3,fengkuangwaixinren,ninghao</span><br><span class="line">4,feichirensheng,hanhan</span><br></pre></td></tr></table></figure></p>
 <p>上传至创建的表的hdfs目录下<br><code>hadoop fs -put t_movie.dat /user/hive/warehouse/db1.db/t_movie</code><br>使用hive查看<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_movie;</span><br><span class="line">OK</span><br><span class="line">t_movie.id	t_movie.name	t_movie.daoyan</span><br><span class="line">1	zhanlang2	wujing</span><br><span class="line">2	liulangdiqiu	guofan</span><br><span class="line">3	fengkuangwaixinren	ninghao</span><br><span class="line">4	feichirensheng	hanhan</span><br><span class="line">Time taken: 0.339 seconds, Fetched: 4 row(s)</span><br></pre></td></tr></table></figure></p>
 <p><strong>建外部表：</strong><br>关键字<code>external</code> <code>location</code><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> t_test1(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,age <span class="built_in">int</span>,create_time <span class="built_in">bigint</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\001'</span></span><br><span class="line">location <span class="string">'/external/t_test'</span>;</span><br></pre></td></tr></table></figure></p>
@@ -361,8 +362,8 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/03/12/Hive/hive快速入门/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hive快速入门</div>
+    <a href="/2019/03/12/Hive/hive表查询/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hive表查询</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -562,15 +563,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,10 +584,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
