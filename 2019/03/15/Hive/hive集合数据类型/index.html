@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog!  HIVE 中的复合数据类型    数组Map集合struct条件控制函数：case when条件控制函数：if">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T09:31:11.314Z">
+<meta property="og:updated_time" content="2019-08-31T09:34:14.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive复合数据类型与条件控制函数">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  HIVE 中的复合数据类型    数组Map集合struct条件控制函数：case when条件控制函数：if">
@@ -213,8 +213,8 @@ var _hmt = _hmt || [];
 <p>HIVE 中的复合数据类型  </p>
 <blockquote>
 <p>数组<br>Map集合<br>struct<br>条件控制函数：case when<br>条件控制函数：if<br><a id="more"></a></p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>有如下数据：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">战狼2,吴京:吴刚:龙母,2017-08-16</span><br><span class="line">三生三世十里桃花,刘亦菲:痒痒,2017-08-20</span><br><span class="line">普罗米修斯,苍老师:小泽老师:波多老师,2017-09-17</span><br><span class="line">美女与野兽,吴刚:加藤鹰,2017-09-17</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>有如下数据：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">战狼2,吴京:吴刚:龙母,2017-08-16</span><br><span class="line">三生三世十里桃花,刘亦菲:痒痒,2017-08-20</span><br><span class="line">普罗米修斯,苍老师:小泽老师:波多老师,2017-09-17</span><br><span class="line">美女与野兽,吴刚:加藤鹰,2017-09-17</span><br></pre></td></tr></table></figure></p>
 <p>建表映射：<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_movie(movie_name <span class="keyword">string</span>,actors <span class="built_in">array</span>&lt;<span class="keyword">string</span>&gt;,first_show <span class="built_in">date</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span></span><br><span class="line">collection items <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">':'</span>;</span><br><span class="line"><span class="comment">-- 导入数据</span></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/hivetest/movies.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_movie;</span><br></pre></td></tr></table></figure></p>
 <p>查询<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> movie_name,actors[<span class="number">0</span>],first_show <span class="keyword">from</span> t_movie;</span><br><span class="line">+<span class="comment">-------------+------+-------------+--+</span></span><br><span class="line">| movie_name  | _c1  | first_show  |</span><br><span class="line">+<span class="comment">-------------+------+-------------+--+</span></span><br><span class="line">| 战狼2         | 吴京   | 2017-08-16  |</span><br><span class="line">| 三生三世十里桃花    | 刘亦菲  | 2017-08-20  |</span><br><span class="line">| 普罗米修斯       | 苍老师  | 2017-09-17  |</span><br><span class="line">| 流浪地球        | 吴京   | 2019-01-01  |</span><br><span class="line">| 飞驰人生        | 沈腾   | 2019-01-01  |</span><br><span class="line">| 疯狂的外星人      | 黄渤   | 2019-01-01  |</span><br><span class="line">+<span class="comment">-------------+------+-------------+--+</span></span><br></pre></td></tr></table></figure></p>
 <p>查询演员数组中有吴京的<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> movie_name,actors,first_show</span><br><span class="line"><span class="keyword">from</span> t_movie <span class="keyword">where</span> array_contains(actors,<span class="string">'吴刚'</span>);</span><br><span class="line">+<span class="comment">-------------+--------------------+-------------+--+</span></span><br><span class="line">| movie_name  |       actors       | first_show  |</span><br><span class="line">+<span class="comment">-------------+--------------------+-------------+--+</span></span><br><span class="line">| 战狼2         | ["吴京","吴刚","龙母"]   | 2017-08-16  |</span><br><span class="line">| 流浪地球        | ["吴京","刘启","韩朵朵"]  | 2019-01-01  |</span><br><span class="line">+<span class="comment">-------------+--------------------+-------------+--+</span></span><br></pre></td></tr></table></figure></p>
@@ -582,11 +582,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
