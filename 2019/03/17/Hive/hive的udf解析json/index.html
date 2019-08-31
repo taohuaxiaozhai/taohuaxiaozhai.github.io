@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>aparke&#39;s blog</title>
+  <title>hive的udf解析json | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="aparke,强李,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aparke&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+  <meta name="description" content="Welcome to aparke’s blog!  描述udf自定义函数 1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程">
+<meta name="keywords" content="hive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hive的udf解析json">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/Hive/hive的udf解析json/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="aparke,强李,">
+<meta property="og:description" content="Welcome to aparke’s blog!  描述udf自定义函数 1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-08-31T08:29:46.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aparke&#39;s blog">
-<meta name="twitter:description" content="aparke,强李,">
+<meta name="twitter:title" content="hive的udf解析json">
+<meta name="twitter:description" content="Welcome to aparke’s blog!  描述udf自定义函数 1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -187,260 +189,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Linux/操作系统的发展史（科普章节）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Hive/hive的udf解析json" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/10/Linux/操作系统的发展史（科普章节）/">操作系统的发展史</a>
+    <h1 class="article-title" itemprop="name">
+      hive的udf解析json
     </h1>
   
 
         
-        <a href="/2017/09/10/Linux/操作系统的发展史（科普章节）/" class="archive-article-date">
-  	<time datetime="2017-09-10T13:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>了解操作系统的发展历史</li>
-<li>知道 Linux 内核及发行版的区别</li>
-<li>知道 Linux 的应用领域</li>
-</ul>
-<h2 id="01-操作系统的发展历史"><a href="#01-操作系统的发展历史" class="headerlink" title="01. 操作系统的发展历史"></a>01. 操作系统的发展历史</h2>
-        
-          <a class="article-more-a" href="/2017/09/10/Linux/操作系统的发展史（科普章节）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/10/Linux/操作系统的发展史（科普章节）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux/操作系统（科普章节）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/10/Linux/操作系统（科普章节）/">操作系统</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/10/Linux/操作系统（科普章节）/" class="archive-article-date">
-  	<time datetime="2017-09-10T13:04:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>了解<strong>操作系统</strong>及作用</li>
-</ul>
-<h2 id="1-操作系统（Operation-System，OS）"><a href="#1-操作系统（Operation-System，OS）" class="headerlink" title="1. 操作系统（Operation System，OS）"></a>1. 操作系统（Operation System，OS）</h2><blockquote>
-<p>操作系统作为接口的示意图<br></p></blockquote>
-        
-          <a class="article-more-a" href="/2017/09/10/Linux/操作系统（科普章节）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/10/Linux/操作系统（科普章节）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-随笔/免费下载网易云音乐的收费音乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/01/随笔/免费下载网易云音乐的收费音乐/">免费下载网易云音乐的收费音乐</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/01/随笔/免费下载网易云音乐的收费音乐/" class="archive-article-date">
-  	<time datetime="2017-08-01T09:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a>!<br><img src="/2017/08/01/随笔/免费下载网易云音乐的收费音乐/1.png" alt="01"></p>
-        
-          <a class="article-more-a" href="/2017/08/01/随笔/免费下载网易云音乐的收费音乐/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/01/随笔/免费下载网易云音乐的收费音乐/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-随笔/360个人图书馆-轻松解除网页防复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/26/随笔/360个人图书馆-轻松解除网页防复制/">360个人图书馆-解除网页防复制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/26/随笔/360个人图书馆-轻松解除网页防复制/" class="archive-article-date">
-  	<time datetime="2017-07-26T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-26</time>
+        <a href="/2019/03/17/Hive/hive的udf解析json/" class="archive-article-date">
+  	<time datetime="2019-03-16T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
 </a>
         
       </header>
@@ -448,262 +210,68 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<p><img src="/2017/07/26/随笔/360个人图书馆-轻松解除网页防复制/1.jpg" alt="01"></p>
-<h2 id="360个人图书馆-解除网页防复制"><a href="#360个人图书馆-解除网页防复制" class="headerlink" title="360个人图书馆-解除网页防复制"></a>360个人图书馆-解除网页防复制</h2><blockquote>
-<p>用过360个人图书馆的人都知道要复制别人的文章需要先收藏到自己的图书馆才可以复制，没有账号右键复制它会直接弹出一个提示登录框。不过如果你不经常使用360个人图书馆，你也会懒得专门去注册一个帐号吧？</p></blockquote>
-        
-          <a class="article-more-a" href="/2017/07/26/随笔/360个人图书馆-轻松解除网页防复制/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/26/随笔/360个人图书馆-轻松解除网页防复制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python/PyCharm 的初始设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/13/python/PyCharm 的初始设置/">PyCharm 的初始设置(IDE)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/13/python/PyCharm 的初始设置/" class="archive-article-date">
-  	<time datetime="2017-07-13T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>恢复 PyCharm 的初始设置</li>
-<li>第一次启动 PyCharm</li>
-<li>新建一个 Python 项目</li>
-<li>设置 PyCharm 的字体显示</li>
-<li>PyCharm 的升级以及其他</li></ul>
-        
-          <a class="article-more-a" href="/2017/07/13/python/PyCharm 的初始设置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/13/python/PyCharm 的初始设置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python/第一个 Python 程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/python/第一个 Python 程序/">第一个 Python 程序</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/12/python/第一个 Python 程序/" class="archive-article-date">
-  	<time datetime="2017-07-12T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>第一个 <code>HelloPython</code> 程序</li>
-<li><code>Python 2.x</code> 与 <code>3​​.x</code> 版本简介</li>
-<li>执行 <code>Python</code> 程序的三种方式<ul>
-<li>解释器 —— <code>python</code> / <code>python3</code></li>
-<li>交互式 —— <code>ipython</code></li>
-<li>集成开发环境 —— <code>PyCharm</code></li></ul></li></ul>
-        
-          <a class="article-more-a" href="/2017/07/12/python/第一个 Python 程序/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/python/第一个 Python 程序/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python/认识 Python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/10/python/认识 Python/">认识 Python</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/10/python/认识 Python/" class="archive-article-date">
-  	<time datetime="2017-07-10T02:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<blockquote>
-<p>人生苦短，我用 Python —— Life is short, you need Python</p>
+<h3 id="描述udf自定义函数"><a href="#描述udf自定义函数" class="headerlink" title="描述udf自定义函数"></a>描述udf自定义函数</h3><blockquote>
+<p><strong>1.UDF是什么？</strong><br>hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。<br>UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程序后，执行java方法，类似于像Mapreduce执行过程中加入一个插件，方便扩展. UDF只能实现一进一出的操作，如果需要实现多进一出，则需要实现UDAF<br>Hive可以允许用户编写自己定义的函数UDF，来在查询中使用。  <a id="more"></a><br><strong>2.UDF类型</strong><br>Hive中有3种UDF：  </p>
+<ul>
+<li>UDF：操作单个数据行，产生单个数据行；  </li>
+<li>UDAF：操作多个数据行，产生一个数据行。  </li>
+<li>UDTF：操作一个数据行，产生多个数据行一个表作为输出。 </li>
+</ul>
+<p><strong>3.如何构建UDF</strong><br>用户构建的UDF使用过程如下：<br>第一步：继承UDF或者UDAF或者UDTF，实现特定的方法。<br>第二步：将写好的类打包为jar。如hivefirst.jar.<br>第三步：进入到Hive环境中，利用add jar /home/hadoop/hivefirst.jar.注册该jar文件<br>第四步：为该类起一个别名，create temporary function mylength as  ‘com.whut.StringLength’;这里注意UDF只是为这个Hive会话临时定义的。<br>第五步：在select中使用mylength();<br><strong>4.自定义UDF</strong><br>思路解决要点：<br>hive中如何定义自己的函数：  </p>
+<ul>
+<li>1、先写一个java类（extends UDF,重载方法public C evaluate(A a,B b)），实现你所想要的函数的功能(传入一个json字符串和一个脚标，返回一个值)  </li>
+<li>2、将java程序打成jar包，上传到hive所在的机器  </li>
+<li>3、在hive命令行中将jar包添加到classpath ：<br>  <code>hive&gt;add jar /root/hivetest/myjson.jar;</code>  </li>
+<li>4、在hive命令中用命令创建一个函数叫做myjson，关联你所写的这个java类<br>  <code>hive&gt; create temporary function myjson as &#39;cn.aparke.hive.udf.MyJsonParser&#39;;</code></li>
+</ul>
 </blockquote>
-<p><img src="/2017/07/10/python/认识 Python/001_人生苦短我用python.jpg" alt="001_人生苦短我用python"></p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>Python 的起源</li>
-<li>为什么要用 Python？</li></ul>
-        
-          <a class="article-more-a" href="/2017/07/10/python/认识 Python/#more">more >></a>
-        
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h3 id="场景应用"><a href="#场景应用" class="headerlink" title="场景应用"></a>场景应用</h3><p>有如下json数据：rating.json<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&quot;movie&quot;:&quot;1193&quot;,&quot;rate&quot;:&quot;5&quot;,&quot;timeStamp&quot;:&quot;978300760&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br><span class="line">&#123;&quot;movie&quot;:&quot;661&quot;,&quot;rate&quot;:&quot;3&quot;,&quot;timeStamp&quot;:&quot;978302109&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br><span class="line">&#123;&quot;movie&quot;:&quot;914&quot;,&quot;rate&quot;:&quot;3&quot;,&quot;timeStamp&quot;:&quot;978301968&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br><span class="line">&#123;&quot;movie&quot;:&quot;3408&quot;,&quot;rate&quot;:&quot;4&quot;,&quot;timeStamp&quot;:&quot;978300275&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>需求：求每个人评论的次数</strong><br>1.建表映射上述数据<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_ratingjson(<span class="keyword">json</span> <span class="keyword">string</span>);</span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/rating.json'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_ratingjson;</span><br></pre></td></tr></table></figure></p>
+<p>–由于数据太大之查看前10行<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_ratingjson <span class="keyword">limit</span> <span class="number">10</span>;</span><br><span class="line">+<span class="comment">----------------------------------------------------------------+--+</span></span><br><span class="line">|                       t_ratingjson.json                        |</span><br><span class="line">+<span class="comment">----------------------------------------------------------------+--+</span></span><br><span class="line">| &#123;"movie":"1193","rate":"5","timeStamp":"978300760","uid":"1"&#125;  |</span><br><span class="line">| &#123;"movie":"661","rate":"3","timeStamp":"978302109","uid":"1"&#125;   |</span><br><span class="line">| &#123;"movie":"914","rate":"3","timeStamp":"978301968","uid":"1"&#125;   |</span><br><span class="line">| &#123;"movie":"3408","rate":"4","timeStamp":"978300275","uid":"1"&#125;  |</span><br><span class="line">| &#123;"movie":"2355","rate":"5","timeStamp":"978824291","uid":"1"&#125;  |</span><br><span class="line">| &#123;"movie":"1197","rate":"3","timeStamp":"978302268","uid":"1"&#125;  |</span><br><span class="line">| &#123;"movie":"1287","rate":"5","timeStamp":"978302039","uid":"1"&#125;  |</span><br><span class="line">| &#123;"movie":"2804","rate":"5","timeStamp":"978300719","uid":"1"&#125;  |</span><br><span class="line">| &#123;"movie":"594","rate":"4","timeStamp":"978302268","uid":"1"&#125;   |</span><br><span class="line">| &#123;"movie":"919","rate":"4","timeStamp":"978301368","uid":"1"&#125;   |</span><br><span class="line">+<span class="comment">----------------------------------------------------------------+--+</span></span><br></pre></td></tr></table></figure></p>
+<p>想把上面的原始数据去掉key值变成如下形式：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1193,5,978300760,1</span><br><span class="line">661,3,978302109,1</span><br><span class="line">914,3,978301968,1</span><br><span class="line">3408,4,978300275,1</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>思路：定义一个json解析函数  </p>
+</blockquote>
+<p>写hive（导入lib目录下的jar到项目下 add budilpath）<br>函数（java代码） 打jar包 导入 加载 运行  </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">0: jdbc:hive2://master:10000&gt; add jar /root/hive1/hive_myjson.jar;</span><br><span class="line">INFO  : Added [/root/hive1/hive_myjson.jar] to class path</span><br><span class="line">INFO  : Added resources: [/root/hive1/hive_myjson.jar]</span><br><span class="line">No rows affected (0.021 seconds)</span><br></pre></td></tr></table></figure>
+<p>创建一个临时函数关联jar包<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">function</span> myjson <span class="keyword">as</span> <span class="string">'cn.aparke.udf.myjson'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>使用自己定义的临时函数名构造如下sql 保存结果到新表 t_rate下  </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_rate</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> myjson(<span class="keyword">json</span>,<span class="number">1</span>) <span class="keyword">as</span> movie,<span class="keyword">cast</span>(myjson(<span class="keyword">json</span>,<span class="number">2</span>) <span class="keyword">as</span> <span class="built_in">int</span>) <span class="keyword">as</span> rate,myjson(<span class="keyword">json</span>,<span class="number">3</span>)<span class="keyword">as</span> ts,myjson(<span class="keyword">json</span>,<span class="number">4</span>) <span class="keyword">as</span> uid <span class="keyword">from</span> t_ratingjson;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_rate  <span class="keyword">limit</span> <span class="number">10</span>;</span><br><span class="line">| t_rate.movie  | t_rate.rate  | t_rate.ts  | t_rate.uid  |</span><br><span class="line">+<span class="comment">---------------+--------------+------------+-------------+--+</span></span><br><span class="line">| 1193          | 5            | 978300760  | 1           |</span><br><span class="line">| 661           | 3            | 978302109  | 1           |</span><br><span class="line">| 914           | 3            | 978301968  | 1           |</span><br><span class="line">| 3408          | 4            | 978300275  | 1           |</span><br><span class="line">| 2355          | 5            | 978824291  | 1           |</span><br><span class="line">| 1197          | 3            | 978302268  | 1           |</span><br><span class="line">| 1287          | 5            | 978302039  | 1           |</span><br><span class="line">| 2804          | 5            | 978300719  | 1           |</span><br><span class="line">| 594           | 4            | 978302268  | 1           |</span><br><span class="line">| 919           | 4            | 978301368  | 1           |</span><br><span class="line">+<span class="comment">---------------+--------------+------------+-------------+--+</span></span><br></pre></td></tr></table></figure>
+<p>最后在解析后的表中group by uid 得到每个人评论次数<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> uid,<span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> t_rate <span class="keyword">group</span> <span class="keyword">by</span> uid,rate <span class="keyword">limit</span> <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line">+<span class="comment">-------+------+--+</span></span><br><span class="line">|  uid  | _c1  |</span><br><span class="line">+<span class="comment">-------+------+--+</span></span><br><span class="line">| 1     | 8    |</span><br><span class="line">| 1     | 27   |</span><br><span class="line">| 1     | 18   |</span><br><span class="line">| 10    | 12   |</span><br><span class="line">| 10    | 84   |</span><br><span class="line">| 10    | 151  |</span><br><span class="line">| 10    | 154  |</span><br><span class="line">| 100   | 3    |</span><br><span class="line">| 100   | 15   |</span><br><span class="line">| 100   | 38   |</span><br><span class="line">| 100   | 17   |</span><br><span class="line">| 100   | 3    |</span><br><span class="line">| 1000  | 2    |</span><br><span class="line">| 1000  | 13   |</span><br><span class="line">| 1000  | 41   |</span><br><span class="line">| 1000  | 28   |</span><br><span class="line">| 1001  | 6    |</span><br><span class="line">| 1001  | 68   |</span><br><span class="line">| 1001  | 57   |</span><br><span class="line">| 1001  | 166  |</span><br><span class="line">| 1001  | 80   |</span><br><span class="line">| 1002  | 4    |</span><br><span class="line">| 1002  | 9    |</span><br><span class="line">| 1002  | 27   |</span><br><span class="line">| 1002  | 26   |</span><br><span class="line">| 1003  | 7    |</span><br><span class="line">| 1003  | 11   |</span><br><span class="line">| 1003  | 11   |</span><br><span class="line">| 1004  | 37   |</span><br><span class="line">| 1004  | 98   |</span><br><span class="line">| 1004  | 146  |</span><br><span class="line">| 1004  | 151  |</span><br><span class="line">| 1004  | 49   |</span><br><span class="line">| 1005  | 8    |</span><br><span class="line">| 1005  | 3    |</span><br><span class="line">| 1005  | 7    |</span><br><span class="line">| 1005  | 24   |</span><br><span class="line">| 1005  | 50   |</span><br><span class="line">| 1006  | 7    |</span><br><span class="line">| 1006  | 8    |</span><br><span class="line">| 1006  | 10   |</span><br><span class="line">| 1006  | 13   |</span><br><span class="line">| 1006  | 6    |</span><br><span class="line">| 1007  | 7    |</span><br><span class="line">| 1007  | 11   |</span><br><span class="line">| 1007  | 14   |</span><br><span class="line">| 1008  | 1    |</span><br><span class="line">| 1008  | 1    |</span><br><span class="line">| 1008  | 12   |</span><br><span class="line">| 1008  | 27   |</span><br><span class="line">+<span class="comment">-------+------+--+</span></span><br></pre></td></tr></table></figure></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你，给我糖吃，aparke<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -714,7 +282,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
         		</li>
       		
 		</ul>
@@ -723,16 +291,84 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/10/python/认识 Python/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/17/Hive/hive的udf解析json/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/04/10/网站/docker下一键快速部署dvwa环境/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker下一键快速部署dvwa环境
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/16/Hive/hive窗口分析函数求报表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">窗口分析函数求报表sum() over()</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -752,224 +388,55 @@ var _hmt = _hmt || [];
 
 
 
-
   
-    <article id="post-Linux/install_ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/12/Linux/install_ubuntu/">在虚拟机中安装 Ubuntu</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/12/Linux/install_ubuntu/" class="archive-article-date">
-  	<time datetime="2017-06-12T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>安装前的准备和基本安装</li>
-<li>设置语言环境</li>
-<li>安装常用软件</li>
-</ol>
-<h2 id="1-安装前的准备和基本安装"><a href="#1-安装前的准备和基本安装" class="headerlink" title="1. 安装前的准备和基本安装"></a>1. 安装前的准备和基本安装</h2>
-        
-          <a class="article-more-a" href="/2017/06/12/Linux/install_ubuntu/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/12/Linux/install_ubuntu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-new-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/02/my-new-post/">my new post</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/02/my-new-post/" class="archive-article-date">
-  	<time datetime="2017-06-01T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/02/my-new-post/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/01/hello-world/">hello-world</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-01T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://aparke.cn" target="_blank" rel="noopener">aparke’s blog</a>! </p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建篇新的帖子"><a href="#创建篇新的帖子" class="headerlink" title="创建篇新的帖子"></a>创建篇新的帖子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: Writing</p>
-<h3 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器  "></a>运行服务器</h3>
-        
-          <a class="article-more-a" href="/2017/06/01/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/01/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Hive/hive的udf解析json" data-title="hive的udf解析json" data-url="http://yoursite.com/2019/03/17/Hive/hive的udf解析json/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
-    </nav>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/03/17/Hive/hive的udf解析json/", 
+    sourceId: "Hive/hive的udf解析json",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+  <div id="SOHUCS" sid="Hive/hive的udf解析json" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
+  
+
+  
+
   
 
 
@@ -992,8 +459,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
