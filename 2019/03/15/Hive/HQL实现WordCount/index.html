@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hive | aparke&#39;s blog</title>
+  <title>HQL实现WordCount | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="aparke,强李,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aparke&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/hive/index.html">
+  <meta name="description" content="函数：explode  和 lateral view行转列函数explode()  –英语 炸裂的意思">
+<meta name="keywords" content="hive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HQL实现WordCount">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/Hive/HQL实现WordCount/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="aparke,强李,">
+<meta property="og:description" content="函数：explode  和 lateral view行转列函数explode()  –英语 炸裂的意思">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-08-31T03:10:28.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aparke&#39;s blog">
-<meta name="twitter:description" content="aparke,强李,">
+<meta name="twitter:title" content="HQL实现WordCount">
+<meta name="twitter:description" content="函数：explode  和 lateral view行转列函数explode()  –英语 炸裂的意思">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -187,74 +189,96 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Hive/HQL实现WordCount" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/15/Hive/hive求TopN/" class="archive-article-date">
-  	<time datetime="2019-03-15T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/15/Hive/hive求TopN/">hive求TopN</a>
+    <h1 class="article-title" itemprop="name">
+      HQL实现WordCount
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/15/Hive/HQL实现WordCount/" class="archive-article-date">
+        
+        <a href="/2019/03/15/Hive/HQL实现WordCount/" class="archive-article-date">
   	<time datetime="2019-03-14T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/15/Hive/HQL实现WordCount/">HQL实现WordCount</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数：explode-和-lateral-view"><a href="#函数：explode-和-lateral-view" class="headerlink" title="函数：explode  和 lateral view"></a>函数：explode  和 lateral view</h2><h3 id="行转列函数explode-–英语-炸裂的意思"><a href="#行转列函数explode-–英语-炸裂的意思" class="headerlink" title="行转列函数explode()  –英语 炸裂的意思"></a>行转列函数explode()  –英语 炸裂的意思</h3><a id="more"></a>
+<p><strong>可以将一个数组变成列</strong><br>有如下数据<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,zhangsan,化学:物理:数学:语文</span><br><span class="line">2,lisi,化学:数学:生物:生理:卫生</span><br><span class="line">3,wangwu,化学:语文:英语:体育:生物</span><br></pre></td></tr></table></figure></p>
+<p>创建表<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_subject(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,subjects <span class="built_in">array</span>&lt;<span class="keyword">string</span>&gt;)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span></span><br><span class="line">collection items <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">':'</span>;</span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/fun/subject.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_subject;</span><br><span class="line"></span><br><span class="line">0: jdbc:hive2://master:10000&gt; select subjects from t_subject;</span><br><span class="line">+<span class="comment">-----------------------------+--+</span></span><br><span class="line">|          subjects           |</span><br><span class="line">+<span class="comment">-----------------------------+--+</span></span><br><span class="line">| ["化学","物理","数学","语文"]       |</span><br><span class="line">| ["化学","数学","生物","生理","卫生"]  |</span><br><span class="line">| ["化学","语文","英语","体育","生物"]  |</span><br><span class="line">+<span class="comment">-----------------------------+--+</span></span><br><span class="line">3 rows selected (0.079 seconds)</span><br></pre></td></tr></table></figure></p>
+<p>求不重复的课表  </p>
+<ul>
+<li><p>第一步行转列 此时数据文件仍未表结构：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> explode(subjects) <span class="keyword">from</span> t_subject;</span><br><span class="line">+<span class="comment">------+--+</span></span><br><span class="line">| col  |</span><br><span class="line">+<span class="comment">------+--+</span></span><br><span class="line">| 化学   |</span><br><span class="line">| 物理   |</span><br><span class="line">| 数学   |</span><br><span class="line">| 语文   |</span><br><span class="line">| 化学   |</span><br><span class="line">| 数学   |</span><br><span class="line">| 生物   |</span><br><span class="line">| 生理   |</span><br><span class="line">| 卫生   |</span><br><span class="line">| 化学   |</span><br><span class="line">| 语文   |</span><br><span class="line">| 英语   |</span><br><span class="line">| 体育   |</span><br><span class="line">| 生物   |</span><br><span class="line">+<span class="comment">------+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步 直接distinct查询（查询不重复的数据）但是distinct针对的不能是一个表 只能是一个列所以采用子查询的方法</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> sub</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span>  explode(subjects) <span class="keyword">as</span> sub <span class="keyword">from</span> t_subject) <span class="keyword">as</span> tmp;</span><br><span class="line">+<span class="comment">------+--+</span></span><br><span class="line">| sub  |</span><br><span class="line">+<span class="comment">------+--+</span></span><br><span class="line">| 体育   |</span><br><span class="line">| 化学   |</span><br><span class="line">| 卫生   |</span><br><span class="line">| 数学   |</span><br><span class="line">| 物理   |</span><br><span class="line">| 生物   |</span><br><span class="line">| 生理   |</span><br><span class="line">| 英语   |</span><br><span class="line">| 语文   |</span><br><span class="line">+<span class="comment">------+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="表生成函数lateral-view-补上之前explode出来缺少的别的列（属性）"><a href="#表生成函数lateral-view-补上之前explode出来缺少的别的列（属性）" class="headerlink" title="表生成函数lateral view 补上之前explode出来缺少的别的列（属性）"></a>表生成函数lateral view 补上之前explode出来缺少的别的列（属性）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span>,tmp.sub</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">t_subject</span><br><span class="line">lateral <span class="keyword">view</span></span><br><span class="line">explode(subjects) tmp <span class="keyword">as</span> sub;</span><br><span class="line">+<span class="comment">-----+-----------+----------+--+</span></span><br><span class="line">| id  |   name    | tmp.sub  |</span><br><span class="line">+<span class="comment">-----+-----------+----------+--+</span></span><br><span class="line">| 1   | zhangsan  | 化学       |</span><br><span class="line">| 1   | zhangsan  | 物理       |</span><br><span class="line">| 1   | zhangsan  | 数学       |</span><br><span class="line">| 1   | zhangsan  | 语文       |</span><br><span class="line">| 2   | lisi      | 化学       |</span><br><span class="line">| 2   | lisi      | 数学       |</span><br><span class="line">| 2   | lisi      | 生物       |</span><br><span class="line">| 2   | lisi      | 生理       |</span><br><span class="line">| 2   | lisi      | 卫生       |</span><br><span class="line">| 3   | wangwu    | 化学       |</span><br><span class="line">| 3   | wangwu    | 语文       |</span><br><span class="line">| 3   | wangwu    | 英语       |</span><br><span class="line">| 3   | wangwu    | 体育       |</span><br><span class="line">| 3   | wangwu    | 生物       |</span><br><span class="line">+<span class="comment">-----+-----------+----------+--+</span></span><br></pre></td></tr></table></figure>
+<p>以上两个函数可以将结构化数据打散 知道改变成上一步的时候与原始表结构对比，以上两个函数结合使用更利于查询<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">+<span class="comment">---------------+-----------------+-----------------------------+--+</span></span><br><span class="line">| t_subject.id  | t_subject.name  |     t_subject.subjects      |</span><br><span class="line">+<span class="comment">---------------+-----------------+-----------------------------+--+</span></span><br><span class="line">| 1             | zhangsan        | ["化学","物理","数学","语文"]       |</span><br><span class="line">| 2             | lisi            | ["化学","数学","生物","生理","卫生"]  |</span><br><span class="line">| 3             | wangwu          | ["化学","语文","英语","体育","生物"]  |</span><br><span class="line">+<span class="comment">---------------+-----------------+-----------------------------+--+</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="HQL的wordcount"><a href="#HQL的wordcount" class="headerlink" title="HQL的wordcount"></a>HQL的wordcount</h2><p><strong>利用行专列函数可以实现wordcount</strong>  </p>
+<p>–有如下数据<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hello tom hello tim</span><br><span class="line">hello rose hello tom</span><br><span class="line">tom love rose rose love jim</span><br><span class="line">jim love tom love is what</span><br><span class="line">what is love</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> wordcount(sencen <span class="keyword">string</span>);</span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/wc/wordcount.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> wordcount;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>第一步：切分数据</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">split</span>(sencen,<span class="string">" "</span>) <span class="keyword">from</span> wordcount;</span><br><span class="line">+<span class="comment">--------------------------------------------+--+</span></span><br><span class="line">|                    _c0                     |</span><br><span class="line">+<span class="comment">--------------------------------------------+--+</span></span><br><span class="line">| ["hello","tom","hello","tim"]              |</span><br><span class="line">| ["hello","rose","hello","tom"]             |</span><br><span class="line">| ["tom","love","rose","rose","love","jim"]  |</span><br><span class="line">| ["jim","love","tom","love","is","what"]    |</span><br><span class="line">| ["what","is","love",""]                    |</span><br><span class="line">+<span class="comment">--------------------------------------------+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步：行转列</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> explode(<span class="keyword">split</span>(sencen,<span class="string">" "</span>)) <span class="keyword">from</span> wordcount;</span><br><span class="line">+<span class="comment">--------+--+</span></span><br><span class="line">|  col   |</span><br><span class="line">+<span class="comment">--------+--+</span></span><br><span class="line">| hello  |</span><br><span class="line">| tom    |</span><br><span class="line">| hello  |</span><br><span class="line">| tim    |</span><br><span class="line">| hello  |</span><br><span class="line">| rose   |</span><br><span class="line">| hello  |</span><br><span class="line">| tom    |</span><br><span class="line">| tom    |</span><br><span class="line">| love   |</span><br><span class="line">| rose   |</span><br><span class="line">| rose   |</span><br><span class="line">| love   |</span><br><span class="line">| jim    |</span><br><span class="line">| jim    |</span><br><span class="line">| love   |</span><br><span class="line">| tom    |</span><br><span class="line">| love   |</span><br><span class="line">| is     |</span><br><span class="line">| what   |</span><br><span class="line">| what   |</span><br><span class="line">| is     |</span><br><span class="line">| love   |</span><br><span class="line">|        |</span><br><span class="line">+<span class="comment">--------+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三步：统计每个单词的次数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> word,<span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span> explode(<span class="keyword">split</span>(sencen,<span class="string">" "</span>)) <span class="keyword">as</span> word <span class="keyword">from</span> wordcount) <span class="keyword">as</span> tmp <span class="keyword">group</span> <span class="keyword">by</span> word;</span><br><span class="line">+<span class="comment">--------+------+--+</span></span><br><span class="line">|  word  | _c1  |</span><br><span class="line">+<span class="comment">--------+------+--+</span></span><br><span class="line">|        | 1    |</span><br><span class="line">| hello  | 4    |</span><br><span class="line">| is     | 2    |</span><br><span class="line">| jim    | 2    |</span><br><span class="line">| love   | 5    |</span><br><span class="line">| rose   | 3    |</span><br><span class="line">| tim    | 1    |</span><br><span class="line">| tom    | 4    |</span><br><span class="line">| what   | 2    |</span><br><span class="line">+<span class="comment">--------+------+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>排序  </p>
+</li>
+</ul>
+<p><strong>desc倒序 不加为顺序</strong><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> word,<span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">as</span> ctns</span><br><span class="line"><span class="keyword">from</span>(</span><br><span class="line"><span class="keyword">select</span> explode(<span class="keyword">split</span>(sencen,<span class="string">" "</span>))<span class="keyword">as</span> word </span><br><span class="line"><span class="keyword">from</span> wordcount)tmp </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> word </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> ctns <span class="keyword">desc</span>;</span><br><span class="line">+<span class="comment">--------+-------+--+</span></span><br><span class="line">|  word  | ctns  |</span><br><span class="line">+<span class="comment">--------+-------+--+</span></span><br><span class="line">| love   | 5     |</span><br><span class="line">| tom    | 4     |</span><br><span class="line">| hello  | 4     |</span><br><span class="line">| rose   | 3     |</span><br><span class="line">| what   | 2     |</span><br><span class="line">| jim    | 2     |</span><br><span class="line">| is     | 2     |</span><br><span class="line">| tim    | 1     |</span><br><span class="line">|        | 1     |</span><br><span class="line">+<span class="comment">--------+-------+--+</span></span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你，给我糖吃，aparke<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -266,209 +290,156 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/15/Hive/HQL实现WordCount/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/14/Hive/hive中类型转换与数学函数/" class="archive-article-date">
-  	<time datetime="2019-03-13T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/15/Hive/hive求TopN/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hive求TopN
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/14/Hive/hive中类型转换与数学函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hive中类型转换与数学函数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/Hive/hive中类型转换与数学函数/">hive中类型转换与数学函数</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Hive/HQL实现WordCount" data-title="HQL实现WordCount" data-url="http://yoursite.com/2019/03/15/Hive/HQL实现WordCount/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/03/15/Hive/HQL实现WordCount/", 
+    sourceId: "Hive/HQL实现WordCount",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/13/Hive/hive常用函数/" class="archive-article-date">
-  	<time datetime="2019-03-12T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/13/Hive/hive常用函数/">hive常用函数</a>
-    </h1>
+  <div id="SOHUCS" sid="Hive/HQL实现WordCount" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/12/Hive/hive表创建/" class="archive-article-date">
-  	<time datetime="2019-03-12T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/Hive/hive表创建/">hive表创建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/12/Hive/hive表查询/" class="archive-article-date">
-  	<time datetime="2019-03-12T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/Hive/hive表查询/">hive表查询</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/12/Hive/hive快速入门/" class="archive-article-date">
-  	<time datetime="2019-03-11T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/Hive/hive快速入门/">hive快速入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -491,9 +462,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

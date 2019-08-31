@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hive | aparke&#39;s blog</title>
+  <title>hive求TopN | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="aparke,强李,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aparke&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/hive/index.html">
+  <meta name="description" content="hive内置函数–窗口分析函数–row_number_overrow_number——over 分组TOP_N需求：求出每种性别的最大的年龄两个   row_number() over() 函数">
+<meta name="keywords" content="hive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hive求TopN">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/Hive/hive求TopN/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="aparke,强李,">
+<meta property="og:description" content="hive内置函数–窗口分析函数–row_number_overrow_number——over 分组TOP_N需求：求出每种性别的最大的年龄两个   row_number() over() 函数">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-08-31T03:09:15.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aparke&#39;s blog">
-<meta name="twitter:description" content="aparke,强李,">
+<meta name="twitter:title" content="hive求TopN">
+<meta name="twitter:description" content="hive内置函数–窗口分析函数–row_number_overrow_number——over 分组TOP_N需求：求出每种性别的最大的年龄两个   row_number() over() 函数">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -187,36 +189,81 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Hive/hive求TopN" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      hive求TopN
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/15/Hive/hive求TopN/" class="archive-article-date">
+
+        
+        <a href="/2019/03/15/Hive/hive求TopN/" class="archive-article-date">
   	<time datetime="2019-03-15T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/15/Hive/hive求TopN/">hive求TopN</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="hive内置函数–窗口分析函数–row-number-over"><a href="#hive内置函数–窗口分析函数–row-number-over" class="headerlink" title="hive内置函数–窗口分析函数–row_number_over"></a>hive内置函数–窗口分析函数–row_number_over</h2><p>row_number——over 分组TOP_N<br>需求：求出每种性别的最大的年龄两个  </p>
+<p>row_number() over() 函数  <a id="more"></a><br>造数据：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,18,a,male</span><br><span class="line">2,19,b,male</span><br><span class="line">3,22,c,female</span><br><span class="line">4,16,d,female</span><br><span class="line">5,30,e,male</span><br><span class="line">6,26,f,female</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>创建表</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_rn(<span class="keyword">id</span> <span class="built_in">int</span>,age <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,sex <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导入造的数据</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/rn_top.data'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_rn;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分组标记序号<br><strong>重要 通过设置sex为分区 排序设置按age倒序</strong>  </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,age,<span class="keyword">name</span>,sex,</span><br><span class="line">row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> sex <span class="keyword">order</span> <span class="keyword">by</span> age <span class="keyword">desc</span>) <span class="keyword">as</span> rn </span><br><span class="line"><span class="keyword">from</span> t_rn;</span><br><span class="line">+<span class="comment">-----+------+-------+---------+-----+--+</span></span><br><span class="line">| id  | age  | name  |   sex   | rn  |</span><br><span class="line">+<span class="comment">-----+------+-------+---------+-----+--+</span></span><br><span class="line">| 6   | 26   | f     | female  | 1   |</span><br><span class="line">| 3   | 22   | c     | female  | 2   |</span><br><span class="line">| 4   | 16   | d     | female  | 3   |</span><br><span class="line">| 5   | 30   | e     | male    | 1   |</span><br><span class="line">| 2   | 19   | b     | male    | 2   |</span><br><span class="line">| 1   | 18   | a     | male    | 3   |</span><br><span class="line">+<span class="comment">-----+------+-------+---------+-----+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过子查询 加条件 再查询 top2</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">id</span>,age,<span class="keyword">name</span>,sex,</span><br><span class="line">row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> sex <span class="keyword">order</span> <span class="keyword">by</span> age <span class="keyword">desc</span>) <span class="keyword">as</span> rn </span><br><span class="line"><span class="keyword">from</span> t_rn) tmp</span><br><span class="line"><span class="keyword">where</span> rn&lt;<span class="number">3</span></span><br><span class="line">;</span><br><span class="line">+<span class="comment">---------+----------+-----------+----------+---------+--+</span></span><br><span class="line">| tmp.id  | tmp.age  | tmp.name  | tmp.sex  | tmp.rn  |</span><br><span class="line">+<span class="comment">---------+----------+-----------+----------+---------+--+</span></span><br><span class="line">| 6       | 26       | f         | female   | 1       |</span><br><span class="line">| 3       | 22       | c         | female   | 2       |</span><br><span class="line">| 5       | 30       | e         | male     | 1       |</span><br><span class="line">| 2       | 19       | b         | male     | 2       |</span><br><span class="line">+<span class="comment">---------+----------+-----------+----------+---------+--+</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你，给我糖吃，aparke<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,247 +275,156 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/15/Hive/hive求TopN/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/15/Hive/HQL实现WordCount/" class="archive-article-date">
-  	<time datetime="2019-03-14T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/04/10/网站/docker下一键快速部署dvwa环境/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker下一键快速部署dvwa环境
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/15/Hive/HQL实现WordCount/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HQL实现WordCount</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/15/Hive/HQL实现WordCount/">HQL实现WordCount</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Hive/hive求TopN" data-title="hive求TopN" data-url="http://yoursite.com/2019/03/15/Hive/hive求TopN/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/03/15/Hive/hive求TopN/", 
+    sourceId: "Hive/hive求TopN",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/14/Hive/hive中类型转换与数学函数/" class="archive-article-date">
-  	<time datetime="2019-03-13T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/Hive/hive中类型转换与数学函数/">hive中类型转换与数学函数</a>
-    </h1>
+  <div id="SOHUCS" sid="Hive/hive求TopN" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/13/Hive/hive常用函数/" class="archive-article-date">
-  	<time datetime="2019-03-12T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/13/Hive/hive常用函数/">hive常用函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/12/Hive/hive表创建/" class="archive-article-date">
-  	<time datetime="2019-03-12T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/Hive/hive表创建/">hive表创建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/12/Hive/hive表查询/" class="archive-article-date">
-  	<time datetime="2019-03-12T07:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/Hive/hive表查询/">hive表查询</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/12/Hive/hive快速入门/" class="archive-article-date">
-  	<time datetime="2019-03-11T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/Hive/hive快速入门/">hive快速入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -491,9 +447,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
