@@ -433,7 +433,8 @@ var _hmt = _hmt || [];
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
 <blockquote>
-<p>窗口分析函数  sum() over()  ：可以实现在窗口中进行逐行累加<br>有如下三个人，求出每个人截止到每个月的访问次数总额<br></p></blockquote>
+<p>窗口分析函数  sum() over()  ：可以实现在窗口中进行逐行累加<br>有如下三个人，求出每个人截止到每个月的访问次数总额</p>
+</blockquote>
         
           <a class="article-more-a" href="/2019/03/16/Hive/hive窗口分析函数求报表/#more">more >></a>
         
@@ -744,40 +745,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="HIVE的内置函数"><a href="#HIVE的内置函数" class="headerlink" title="HIVE的内置函数"></a>HIVE的内置函数</h3><h4 id="时间处理函数："><a href="#时间处理函数：" class="headerlink" title="时间处理函数："></a>时间处理函数：</h4><ol>
-<li><p>取当前时间的毫秒时间戳</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select unix_timestamp();</span><br><span class="line">_c0</span><br><span class="line">1552360005</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>unix时间戳转字符串</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from_unixtime(bigint unixtime[,string format])</span><br><span class="line">示例：</span><br><span class="line">select from_unixtime(unix_timestamp());</span><br><span class="line">_c0</span><br><span class="line">2019-03-12 11:10:00</span><br><span class="line">select from_unixtime(unix_timestamp(),&apos;yyyy-MM-dd HH:mm:ss&apos;); </span><br><span class="line">_c0</span><br><span class="line">2019-03-12 11:10:16</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串转时间戳</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unix_timestamp(string date,string pattern)</span><br><span class="line">示例:</span><br><span class="line">select unix_timestamp(&quot;2019-03-12 11:10:16&quot;);</span><br><span class="line">_c0</span><br><span class="line">1552360216</span><br><span class="line">select unix_timestamp(&quot;2019/03/12 11:10:16&quot;,&quot;yyyy/MM/dd HH:mm:ss&quot;);</span><br><span class="line">_c0</span><br><span class="line">1552360216</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将字符串转成date类型</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select to_date(&quot;2019-03-12 11:21:22&quot;);</span><br><span class="line">_c0</span><br><span class="line">2019-03-12</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>时间类型转换函数：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select from_unixtime(cast(&apos;21938792183&apos; as bigint),&apos;yyyy-MM-dd HH:mm:ss&apos;)</span><br><span class="line">_c0</span><br><span class="line">2665-03-19 12:56:23</span><br><span class="line">select cast(&quot;8&quot; as int);--&gt;8</span><br><span class="line">select cast(&quot;2019-03-10&quot; as date); --&gt; 2019-03-10 </span><br><span class="line">select current_timestamp;--时间戳</span><br><span class="line">select current_timestamp;--hive中的，mysql没有</span><br><span class="line">_c0 </span><br><span class="line">2019-03-10 21:26:49.755</span><br><span class="line">select cast (current_timestamp() as date);</span><br><span class="line">_c0</span><br><span class="line">2019-03-10  </span><br><span class="line">select unix_timestamp();--毫秒表示 </span><br><span class="line">1552224511 </span><br><span class="line">select cast(unix_timestamp() as date);,不支持转成date类</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h3><ol>
-<li><p>字符串拼接</p>
-<figure class="highlight plain"><figcaption><span>concat_ws('.','192','168','33','66')</span></figcaption><table><tr><td class="code"><pre><span class="line">_c0</span><br><span class="line">192.168.33.66</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串切割</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select split(&apos;18:male:beijing&apos;,&apos;:&apos;);</span><br><span class="line">_c0</span><br><span class="line">[&quot;18&quot;,&quot;male&quot;,&quot;beijing&quot;]</span><br><span class="line">切完后为一个数组并找出找出他的性别</span><br><span class="line">select split(&apos;18:male:beijing&apos;,&apos;:&apos;)[1];</span><br><span class="line">_c0</span><br><span class="line">male</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串截取</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">substr内置函数元素默认从1开始</span><br><span class="line">select substr(&quot;abcd&quot;,1,3);</span><br><span class="line">select substr(&quot;abcd&quot;,0,3);</span><br><span class="line">substr(&quot;abcd&quot;,1,3)  --&gt;   &apos;abc&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串拼接</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select concat(&apos;abc&apos;,&apos;def&apos;)  --&gt;  &apos;abcdef&apos;</span><br><span class="line">select substr(url,1,21) from groupby.access_time;</span><br><span class="line">+------------------------+--+</span><br><span class="line">|          _c0           |</span><br><span class="line">+------------------------+--+</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">| http://www.aparke.cn/  |</span><br><span class="line">+------------------------+--+</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="Json数据解析函数"><a href="#Json数据解析函数" class="headerlink" title="Json数据解析函数"></a>Json数据解析函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">get_json_object(&apos;&#123;\&quot;key1\&quot;:3333，\&quot;key2\&quot;:4444&#125;&apos; , &apos;$.key1&apos;)  --&gt;  3333</span><br><span class="line"></span><br><span class="line">json_tuple(&apos;&#123;\&quot;key1\&quot;:3333，\&quot;key2\&quot;:4444&#125;&apos;,&apos;key1&apos;,&apos;key2&apos;) as(key1,key2)  --&gt; 3333, 4444</span><br></pre></td></tr></table></figure>
-<h3 id="url解析函数"><a href="#url解析函数" class="headerlink" title="url解析函数"></a>url解析函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">parse_url_tuple(&apos;http://www.edu360.cn/bigdata/baoming?userid=8888&apos;,&apos;HOST&apos;,&apos;PATH&apos;,&apos;QUERY&apos;,&apos;QUERY:userid&apos;)</span><br><span class="line">---&gt;     www.edu360.cn      /bigdata/baoming     userid=8888   8888</span><br></pre></td></tr></table></figure>
-
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h3 id="HIVE的内置函数"><a href="#HIVE的内置函数" class="headerlink" title="HIVE的内置函数"></a>HIVE的内置函数</h3><h4 id="时间处理函数："><a href="#时间处理函数：" class="headerlink" title="时间处理函数："></a>时间处理函数：</h4>
+        
+          <a class="article-more-a" href="/2019/03/13/Hive/hive常用函数/#more">more >></a>
+        
       
 
       
@@ -1100,15 +1072,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
               <li class="article-tag-list-item">

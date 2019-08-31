@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog!   窗口分析函数  sum() over()  ：可以实现在窗口中进行逐行累加有如下三个人，求出每个人截止到每个月的访问次数总额">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T03:41:01.318Z">
+<meta property="og:updated_time" content="2019-08-31T03:42:34.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="窗口分析函数求报表sum() over()">
 <meta name="twitter:description" content="Welcome to aparke’s blog!   窗口分析函数  sum() over()  ：可以实现在窗口中进行逐行累加有如下三个人，求出每个人截止到每个月的访问次数总额">
@@ -211,8 +211,10 @@ var _hmt = _hmt || [];
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
 <blockquote>
-<p>窗口分析函数  sum() over()  ：可以实现在窗口中进行逐行累加<br>有如下三个人，求出每个人截止到每个月的访问次数总额<br><a id="more"></a><br>数据如下<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A,2015-01,5</span><br><span class="line">A,2015-01,15</span><br><span class="line">B,2015-01,5</span><br><span class="line">A,2015-01,8</span><br><span class="line">B,2015-01,25</span><br><span class="line">A,2015-01,5</span><br><span class="line">C,2015-01,10</span><br><span class="line">C,2015-01,20</span><br><span class="line">A,2015-02,4</span><br><span class="line">A,2015-02,6</span><br><span class="line">C,2015-02,30</span><br><span class="line">C,2015-02,10</span><br><span class="line">B,2015-02,10</span><br><span class="line">B,2015-02,5</span><br><span class="line">A,2015-03,14</span><br><span class="line">A,2015-03,6</span><br><span class="line">B,2015-03,20</span><br><span class="line">B,2015-03,25</span><br><span class="line">C,2015-03,10</span><br><span class="line">C,2015-03,20</span><br></pre></td></tr></table></figure></p>
+<p>窗口分析函数  sum() over()  ：可以实现在窗口中进行逐行累加<br>有如下三个人，求出每个人截止到每个月的访问次数总额</p>
 </blockquote>
+<a id="more"></a>
+<p>数据如下<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A,2015-01,5</span><br><span class="line">A,2015-01,15</span><br><span class="line">B,2015-01,5</span><br><span class="line">A,2015-01,8</span><br><span class="line">B,2015-01,25</span><br><span class="line">A,2015-01,5</span><br><span class="line">C,2015-01,10</span><br><span class="line">C,2015-01,20</span><br><span class="line">A,2015-02,4</span><br><span class="line">A,2015-02,6</span><br><span class="line">C,2015-02,30</span><br><span class="line">C,2015-02,10</span><br><span class="line">B,2015-02,10</span><br><span class="line">B,2015-02,5</span><br><span class="line">A,2015-03,14</span><br><span class="line">A,2015-03,6</span><br><span class="line">B,2015-03,20</span><br><span class="line">B,2015-03,25</span><br><span class="line">C,2015-03,10</span><br><span class="line">C,2015-03,20</span><br></pre></td></tr></table></figure></p>
 <p>创建表导入数据<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_access_times(uid <span class="keyword">string</span>,<span class="keyword">month</span> <span class="keyword">string</span>,times <span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/baobiao.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_access_times;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_access_times;</span><br><span class="line">+<span class="comment">----------------------+------------------------+------------------------+--+</span></span><br><span class="line">| t_access_times.uid  | t_access_times.month  | t_access_times.times  |</span><br><span class="line">+<span class="comment">----------------------+------------------------+------------------------+--+</span></span><br><span class="line">| A                    | 2015-01                | 5                      |</span><br><span class="line">| A                    | 2015-01                | 15                     |</span><br><span class="line">| B                    | 2015-01                | 5                      |</span><br><span class="line">| A                    | 2015-01                | 8                      |</span><br><span class="line">| B                    | 2015-01                | 25                     |</span><br><span class="line">| A                    | 2015-01                | 5                      |</span><br><span class="line">| C                    | 2015-01                | 10                     |</span><br><span class="line">| C                    | 2015-01                | 20                     |</span><br><span class="line">| A                    | 2015-02                | 4                      |</span><br><span class="line">| A                    | 2015-02                | 6                      |</span><br><span class="line">| C                    | 2015-02                | 30                     |</span><br><span class="line">| C                    | 2015-02                | 10                     |</span><br><span class="line">| B                    | 2015-02                | 10                     |</span><br><span class="line">| B                    | 2015-02                | 5                      |</span><br><span class="line">| A                    | 2015-03                | 14                     |</span><br><span class="line">| A                    | 2015-03                | 6                      |</span><br><span class="line">| B                    | 2015-03                | 20                     |</span><br><span class="line">| B                    | 2015-03                | 25                     |</span><br><span class="line">| C                    | 2015-03                | 10                     |</span><br><span class="line">| C                    | 2015-03                | 20                     |</span><br><span class="line">+<span class="comment">----------------------+------------------------+-------------------------+--+</span></span><br></pre></td></tr></table></figure>
 <h4 id="方法一：传统方法解决："><a href="#方法一：传统方法解决：" class="headerlink" title="方法一：传统方法解决："></a>方法一：传统方法解决：</h4><p>第一步，先分组聚合，求出每个用户每月的总次数<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> uid,<span class="keyword">month</span>,<span class="keyword">sum</span>(times) <span class="keyword">as</span> times <span class="keyword">from</span> t_access_times</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> uid,<span class="keyword">month</span>;</span><br></pre></td></tr></table></figure></p>
@@ -540,15 +542,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
               <li class="article-tag-list-item">
