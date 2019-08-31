@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hive求TopN | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog!  hive内置函数–窗口分析函数–row_number_overrow_number——over 分组TOP_N row_number() over() 函数需求：求出每种性别的最大的年龄两个">
+  <meta name="description" content="Welcome to aparke’s blog!  hive内置函数–窗口分析函数–row_number_over row_number——over 分组TOP_Nrow_number() over() 函数需求：求出每种性别的最大的年龄两个">
 <meta name="keywords" content="hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hive求TopN">
 <meta property="og:url" content="http://yoursite.com/2019/03/15/Hive/hive求TopN/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog!  hive内置函数–窗口分析函数–row_number_overrow_number——over 分组TOP_N row_number() over() 函数需求：求出每种性别的最大的年龄两个">
+<meta property="og:description" content="Welcome to aparke’s blog!  hive内置函数–窗口分析函数–row_number_over row_number——over 分组TOP_Nrow_number() over() 函数需求：求出每种性别的最大的年龄两个">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T03:26:25.208Z">
+<meta property="og:updated_time" content="2019-08-31T03:31:27.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive求TopN">
-<meta name="twitter:description" content="Welcome to aparke’s blog!  hive内置函数–窗口分析函数–row_number_overrow_number——over 分组TOP_N row_number() over() 函数需求：求出每种性别的最大的年龄两个">
+<meta name="twitter:description" content="Welcome to aparke’s blog!  hive内置函数–窗口分析函数–row_number_over row_number——over 分组TOP_Nrow_number() over() 函数需求：求出每种性别的最大的年龄两个">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -210,8 +210,10 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h2 id="hive内置函数–窗口分析函数–row-number-over"><a href="#hive内置函数–窗口分析函数–row-number-over" class="headerlink" title="hive内置函数–窗口分析函数–row_number_over"></a>hive内置函数–窗口分析函数–row_number_over</h2><p>row_number——over 分组TOP_N</p>
-<p>row_number() over() 函数<br>需求：求出每种性别的最大的年龄两个  <a id="more"></a><br>造数据：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,18,a,male</span><br><span class="line">2,19,b,male</span><br><span class="line">3,22,c,female</span><br><span class="line">4,16,d,female</span><br><span class="line">5,30,e,male</span><br><span class="line">6,26,f,female</span><br></pre></td></tr></table></figure></p>
+<h3 id="hive内置函数–窗口分析函数–row-number-over"><a href="#hive内置函数–窗口分析函数–row-number-over" class="headerlink" title="hive内置函数–窗口分析函数–row_number_over"></a>hive内置函数–窗口分析函数–row_number_over</h3><blockquote>
+<p>row_number——over 分组TOP_N<br>row_number() over() 函数<br>需求：求出每种性别的最大的年龄两个  <a id="more"></a></p>
+</blockquote>
+<p>造数据：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,18,a,male</span><br><span class="line">2,19,b,male</span><br><span class="line">3,22,c,female</span><br><span class="line">4,16,d,female</span><br><span class="line">5,30,e,male</span><br><span class="line">6,26,f,female</span><br></pre></td></tr></table></figure></p>
 <p>1.创建表<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_rn(<span class="keyword">id</span> <span class="built_in">int</span>,age <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,sex <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure></p>
 <p>2.导入造的数据<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/rn_top.data'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_rn;</span><br></pre></td></tr></table></figure></p>
 <p>3.分组标记序号<br><strong>重要 通过设置sex为分区 排序设置按age倒序</strong><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,age,<span class="keyword">name</span>,sex,</span><br><span class="line">row_number() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> sex <span class="keyword">order</span> <span class="keyword">by</span> age <span class="keyword">desc</span>) <span class="keyword">as</span> rn </span><br><span class="line"><span class="keyword">from</span> t_rn;</span><br><span class="line">+<span class="comment">-----+------+-------+---------+-----+--+</span></span><br><span class="line">| id  | age  | name  |   sex   | rn  |</span><br><span class="line">+<span class="comment">-----+------+-------+---------+-----+--+</span></span><br><span class="line">| 6   | 26   | f     | female  | 1   |</span><br><span class="line">| 3   | 22   | c     | female  | 2   |</span><br><span class="line">| 4   | 16   | d     | female  | 3   |</span><br><span class="line">| 5   | 30   | e     | male    | 1   |</span><br><span class="line">| 2   | 19   | b     | male    | 2   |</span><br><span class="line">| 1   | 18   | a     | male    | 3   |</span><br><span class="line">+<span class="comment">-----+------+-------+---------+-----+--+</span></span><br></pre></td></tr></table></figure></p>
@@ -533,11 +535,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">

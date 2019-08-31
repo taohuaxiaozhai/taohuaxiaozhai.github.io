@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>HQL实现WordCount | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="函数：explode  和 lateral view行转列函数explode()  –英语 炸裂的意思">
+  <meta name="description" content="Welcome to aparke’s blog!   函数：explode  和 lateral view  行转列函数explode()  –英语 炸裂的意思">
 <meta name="keywords" content="hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HQL实现WordCount">
 <meta property="og:url" content="http://yoursite.com/2019/03/15/Hive/HQL实现WordCount/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="函数：explode  和 lateral view行转列函数explode()  –英语 炸裂的意思">
+<meta property="og:description" content="Welcome to aparke’s blog!   函数：explode  和 lateral view  行转列函数explode()  –英语 炸裂的意思">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T03:10:28.757Z">
+<meta property="og:updated_time" content="2019-08-31T03:32:28.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HQL实现WordCount">
-<meta name="twitter:description" content="函数：explode  和 lateral view行转列函数explode()  –英语 炸裂的意思">
+<meta name="twitter:description" content="Welcome to aparke’s blog!   函数：explode  和 lateral view  行转列函数explode()  –英语 炸裂的意思">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -209,7 +209,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="函数：explode-和-lateral-view"><a href="#函数：explode-和-lateral-view" class="headerlink" title="函数：explode  和 lateral view"></a>函数：explode  和 lateral view</h2><h3 id="行转列函数explode-–英语-炸裂的意思"><a href="#行转列函数explode-–英语-炸裂的意思" class="headerlink" title="行转列函数explode()  –英语 炸裂的意思"></a>行转列函数explode()  –英语 炸裂的意思</h3><a id="more"></a>
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<blockquote>
+<p>函数：explode  和 lateral view</p>
+</blockquote>
+<h3 id="行转列函数explode-–英语-炸裂的意思"><a href="#行转列函数explode-–英语-炸裂的意思" class="headerlink" title="行转列函数explode()  –英语 炸裂的意思"></a>行转列函数explode()  –英语 炸裂的意思</h3><a id="more"></a>
 <p><strong>可以将一个数组变成列</strong><br>有如下数据<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,zhangsan,化学:物理:数学:语文</span><br><span class="line">2,lisi,化学:数学:生物:生理:卫生</span><br><span class="line">3,wangwu,化学:语文:英语:体育:生物</span><br></pre></td></tr></table></figure></p>
 <p>创建表<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_subject(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,subjects <span class="built_in">array</span>&lt;<span class="keyword">string</span>&gt;)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span></span><br><span class="line">collection items <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">':'</span>;</span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/fun/subject.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_subject;</span><br><span class="line"></span><br><span class="line">0: jdbc:hive2://master:10000&gt; select subjects from t_subject;</span><br><span class="line">+<span class="comment">-----------------------------+--+</span></span><br><span class="line">|          subjects           |</span><br><span class="line">+<span class="comment">-----------------------------+--+</span></span><br><span class="line">| ["化学","物理","数学","语文"]       |</span><br><span class="line">| ["化学","数学","生物","生理","卫生"]  |</span><br><span class="line">| ["化学","语文","英语","体育","生物"]  |</span><br><span class="line">+<span class="comment">-----------------------------+--+</span></span><br><span class="line">3 rows selected (0.079 seconds)</span><br></pre></td></tr></table></figure></p>
 <p>求不重复的课表  </p>
@@ -557,11 +561,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
