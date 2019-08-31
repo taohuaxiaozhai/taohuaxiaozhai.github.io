@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/Hive/hive表查询/3.png">
-<meta property="og:updated_time" content="2019-08-31T01:00:54.614Z">
+<meta property="og:updated_time" content="2019-08-31T01:05:28.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive表查询">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/12/Hive/hive表查询/3.png">
@@ -211,17 +211,19 @@ var _hmt = _hmt || [];
         <p><img src="/2019/03/12/Hive/hive表查询/3.png" alt="01"><br><a id="more"></a></p>
 <p>创建两个表 并导入本地数据<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_a(<span class="keyword">name</span> <span class="keyword">string</span>,<span class="keyword">num</span> <span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_b(<span class="keyword">name</span> <span class="keyword">string</span>,nick <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure></p>
 <p>导入数据<br>load data local inpath ‘/root/hive1/a.txt’ into table t_a;<br>load data local inpath ‘/root/hive1/b.txt’ into table t_b;<br>本地数据<br>a.txt<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a,1</span><br><span class="line">b,2</span><br><span class="line">c,3</span><br><span class="line">d,4</span><br></pre></td></tr></table></figure></p>
-<p>b.txt<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a,xx</span><br><span class="line">b,yy</span><br><span class="line">d,zz</span><br><span class="line">e,pp</span><br><span class="line"></span><br><span class="line">### 各类连接</span><br><span class="line">**1.内连接(inner join)**  </span><br><span class="line">笛卡儿积（每种出现的方式）  </span><br><span class="line">```sql</span><br><span class="line">select a.*,b.* from t_a a join t_b b;</span><br></pre></td></tr></table></figure></p>
+<p>b.txt<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a,xx</span><br><span class="line">b,yy</span><br><span class="line">d,zz</span><br><span class="line">e,pp</span><br></pre></td></tr></table></figure></p>
+<h3 id="各类连接"><a href="#各类连接" class="headerlink" title="各类连接"></a>各类连接</h3><p><strong>1.内连接(inner join)</strong><br>笛卡儿积（每种出现的方式）<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.*,b.* <span class="keyword">from</span> t_a a <span class="keyword">join</span> t_b b;</span><br></pre></td></tr></table></figure></p>
 <p>结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a.name	a.num	b.name	b.nick</span><br><span class="line">a	1	a	xx</span><br><span class="line">b	2	a	xx</span><br><span class="line">c	3	a	xx</span><br><span class="line">d	4	a	xx</span><br><span class="line">a	1	b	yy</span><br><span class="line">b	2	b	yy</span><br><span class="line">c	3	b	yy</span><br><span class="line">d	4	b	yy</span><br><span class="line">a	1	d	zz</span><br><span class="line">b	2	d	zz</span><br><span class="line">c	3	d	zz</span><br><span class="line">d	4	d	zz</span><br><span class="line">a	1	e	pp</span><br><span class="line">b	2	e	pp</span><br><span class="line">c	3	e	pp</span><br><span class="line">d	4	e	pp</span><br></pre></td></tr></table></figure></p>
 <p><strong>2.指定join条件</strong><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.*,b.* <span class="keyword">from</span> t_a a <span class="keyword">join</span> t_b b <span class="keyword">on</span> a.name=b.name;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a.name	a.num	b.name	b.nick</span><br><span class="line">a	1	a	xx</span><br><span class="line">b	2	b	yy</span><br><span class="line">d	4	d	zz</span><br></pre></td></tr></table></figure>
 <p><strong>3.join左外连接左连接）</strong><br>左边全部显示，右边没有匹配的NULL代替<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.*,b.* <span class="keyword">from</span> t_a a <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> t_b b <span class="keyword">on</span> a.name=b.name;</span><br></pre></td></tr></table></figure></p>
 <p>结果</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a.name	a.num	b.name	b.nick</span><br><span class="line">a	1	a	xx</span><br><span class="line">b	2	b	yy</span><br><span class="line">c	3	NULL	NULL</span><br><span class="line">d	4	d	zz</span><br></pre></td></tr></table></figure>
-<p><strong>4.join右外连接（右连接）</strong><br>右边全部显示，左边没有匹配的NULL代替<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.*,b.* <span class="keyword">from</span> t_a a <span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> t_b b <span class="keyword">on</span> a.name=b.name;</span><br><span class="line">```  </span><br><span class="line">结果</span><br></pre></td></tr></table></figure></p>
-<p>a.name    a.num    b.name    b.nick<br>a    1    a    xx<br>b    2    b    yy<br>d    4    d    zz<br>NULL    NULL    e    pp<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**5.全外连接**  </span><br><span class="line">```sql</span><br><span class="line">select a.*,b.* from t_a a full outer join t_b b on a.name=b.name;</span><br><span class="line">```</span><br></pre></td></tr></table></figure></p>
-<p>a.name    a.num    b.name    b.nick<br>a    1    a    xx<br>b    2    b    yy<br>c    3    NULL    NULL<br>d    4    d    zz<br>NULL    NULL    e    pp<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**6.左半连接( left semi ,   hive特有)**  </span><br><span class="line">left semi join 子句中右边的表只能在 ON 子句中设置过滤条件，  </span><br><span class="line">在 WHERE 子句、SELECT 子句或其他地方过滤都不行。  </span><br><span class="line">```sql</span><br><span class="line">select a.* from t_a a left semi join t_b b on a.name=b.name;</span><br><span class="line">```   </span><br><span class="line">**注意：** left semi join的 select子句中，不能有右表的字段</span><br><span class="line">用来查询b表里面又存在a表的数据</span><br></pre></td></tr></table></figure></p>
-<p>a.name    a.num<br>a    1<br>b    2<br>d    4<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">用来查询b表里面又存在a表的数据  </span><br><span class="line">upper函数（小写变大写）   </span><br><span class="line">```sql</span><br><span class="line">select upper(&apos;abc&apos;);</span><br><span class="line">OK</span><br><span class="line">_c0</span><br><span class="line">ABC</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.join右外连接（右连接）</strong><br>右边全部显示，左边没有匹配的NULL代替<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.*,b.* <span class="keyword">from</span> t_a a <span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> t_b b <span class="keyword">on</span> a.name=b.name;</span><br></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a.name	a.num	b.name	b.nick</span><br><span class="line">a	1	a	xx</span><br><span class="line">b	2	b	yy</span><br><span class="line">d	4	d	zz</span><br><span class="line">NULL	NULL	e	pp</span><br></pre></td></tr></table></figure></p>
+<p><strong>5.全外连接</strong><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.*,b.* <span class="keyword">from</span> t_a a <span class="keyword">full</span> <span class="keyword">outer</span> <span class="keyword">join</span> t_b b <span class="keyword">on</span> a.name=b.name;</span><br><span class="line">```</span><br></pre></td></tr></table></figure></p>
+<p>a.name    a.num    b.name    b.nick<br>a    1    a    xx<br>b    2    b    yy<br>c    3    NULL    NULL<br>d    4    d    zz<br>NULL    NULL    e    pp<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">**6.左半连接( left semi ,   hive特有)**  </span><br><span class="line">left semi join 子句中右边的表只能在 ON 子句中设置过滤条件，  </span><br><span class="line">在 WHERE 子句、SELECT 子句或其他地方过滤都不行。  </span><br><span class="line"></span><br><span class="line">```sql</span><br><span class="line">select a.* from t_a a left semi join t_b b on a.name=b.name;</span><br><span class="line">```   </span><br><span class="line">**注意：** left semi join的 select子句中，不能有右表的字段</span><br><span class="line">用来查询b表里面又存在a表的数据</span><br></pre></td></tr></table></figure></p>
+<p>a.name    a.num<br>a    1<br>b    2<br>d    4<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">用来查询b表里面又存在a表的数据  </span><br><span class="line">upper函数（小写变大写）</span><br><span class="line"></span><br><span class="line">```sql</span><br><span class="line">select upper(&apos;abc&apos;);</span><br><span class="line">OK</span><br><span class="line">_c0</span><br><span class="line">ABC</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">0: jdbc:hive2://master:10000&gt; select ip,upper(url) access_time from t_log;</span><br><span class="line">+<span class="comment">----------------+-----------------------------+--+</span></span><br><span class="line">|       ip       |         access_time         |</span><br><span class="line">+<span class="comment">----------------+-----------------------------+--+</span></span><br><span class="line">| 192.168.33.3   | HTTP://WWW.APARKE.CN/STU    |</span><br><span class="line">| 192.168.33.3   | HTTP://WWW.APARKE.CN/TEACH  |</span><br><span class="line">| 192.168.33.4   | HTTP://WWW.APARKE.CN/STU    |</span><br><span class="line">| 192.168.33.4   | HTTP://WWW.APARKE.CN/JOB    |</span><br><span class="line">| 192.168.33.5   | HTTP://WWW.APARKE.CN/JOB    |</span><br><span class="line">| 192.168.33.3   | HTTP://WWW.APARKE.CN/STU    |</span><br><span class="line">| 192.168.44.3   | HTTP://WWW.APARKE.CN/TEACH  |</span><br><span class="line">| 192.168.33.44  | HTTP://WWW.APARKE.CN/STU    |</span><br><span class="line">| 192.168.33.46  | HTTP://WWW.APARKE.CN/JOB    |</span><br><span class="line">| 192.168.33.55  | HTTP://WWW.APARKE.CN/JOB    |</span><br><span class="line">+<span class="comment">----------------+-----------------------------+--+</span></span><br><span class="line">10 rows selected (0.142 seconds)</span><br></pre></td></tr></table></figure>
 <p>针对每一行进行运算<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> ip,<span class="keyword">upper</span>(<span class="keyword">url</span>),access_time <span class="keyword">from</span> t_log;</span><br></pre></td></tr></table></figure></p>
 <p>– 该表达式是对数据中的每一行进行逐行运算。<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">0: jdbc:hive2://master:10000&gt; select ip,upper(url),access_time from t_log;</span><br><span class="line">+<span class="comment">----------------+-----------------------------+----------------------+--+</span></span><br><span class="line">|       ip       |             _c1             |     access_time      |</span><br><span class="line">+<span class="comment">----------------+-----------------------------+----------------------+--+</span></span><br><span class="line">| 192.168.33.3   | HTTP://WWW.APARKE.CN/STU    | 2019-03-04 15:30:20  |</span><br><span class="line">| 192.168.33.3   | HTTP://WWW.APARKE.CN/TEACH  | 2019-03-04 15:35:20  |</span><br><span class="line">| 192.168.33.4   | HTTP://WWW.APARKE.CN/STU    | 2019-03-04 15:30:20  |</span><br><span class="line">| 192.168.33.4   | HTTP://WWW.APARKE.CN/JOB    | 2019-03-04 16:30:20  |</span><br><span class="line">| 192.168.33.5   | HTTP://WWW.APARKE.CN/JOB    | 2019-03-04 15:40:20  |</span><br><span class="line">| 192.168.33.3   | HTTP://WWW.APARKE.CN/STU    | 2019-03-05 15:30:20  |</span><br><span class="line">| 192.168.44.3   | HTTP://WWW.APARKE.CN/TEACH  | 2019-03-05 15:35:20  |</span><br><span class="line">| 192.168.33.44  | HTTP://WWW.APARKE.CN/STU    | 2019-03-05 15:30:20  |</span><br><span class="line">| 192.168.33.46  | HTTP://WWW.APARKE.CN/JOB    | 2019-03-05 16:30:20  |</span><br><span class="line">| 192.168.33.55  | HTTP://WWW.APARKE.CN/JOB    | 2019-03-05 15:40:20  |</span><br><span class="line">+<span class="comment">----------------+-----------------------------+----------------------+--+</span></span><br><span class="line">10 rows selected (0.165 seconds)</span><br></pre></td></tr></table></figure></p>
@@ -365,18 +367,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/04/10/网站/docker下一键快速部署dvwa环境/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/12/Hive/hive表创建/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          docker下一键快速部署dvwa环境
+          hive表创建
         
       </div>
     </a>
   
   
-    <a href="/2019/03/12/Hive/hive表创建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hive表创建</div>
+    <a href="/2019/03/12/Hive/hive快速入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hive快速入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -564,6 +566,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -572,15 +578,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
