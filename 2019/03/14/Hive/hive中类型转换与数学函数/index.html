@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="aparke&#39;s blog">
 <meta property="og:description" content="Welcome to aparke’s blog!  cast强转函数数据文件1,1995-05-05,1200.32,1994-04-05,22003,1996-06-01,80000.5">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T03:16:44.594Z">
+<meta property="og:updated_time" content="2019-08-31T03:20:02.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive中类型转换与数学函数">
 <meta name="twitter:description" content="Welcome to aparke’s blog!  cast强转函数数据文件1,1995-05-05,1200.32,1994-04-05,22003,1996-06-01,80000.5">
@@ -224,7 +224,8 @@ var _hmt = _hmt || [];
 <p>5.取最小值（至少两个参数）<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">least</span>(<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>);</span><br><span class="line"><span class="comment">--&gt;3</span></span><br></pre></td></tr></table></figure></p>
 <p>7.取整函数 : round<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: round(double a)</span><br><span class="line">返回值: BIGINT</span><br><span class="line">说明: 返回double类型的整数值部分 （遵循四舍五入）</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select round(3.1415926)l;</span><br><span class="line">3</span><br><span class="line">hive&gt; select round(3.5)l;</span><br><span class="line">4</span><br></pre></td></tr></table></figure></p>
 <p>8.指定精度取整函数 : round<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: round(double a, int d)</span><br><span class="line">返回值: DOUBLE</span><br><span class="line">说明: 返回指定精度d的double类型</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select round(3.1415926,4)l;</span><br><span class="line">3.1416</span><br><span class="line">``` </span><br><span class="line">9.向下取整函数 : floor</span><br><span class="line">```sql</span><br><span class="line">语法: floor(double a)</span><br><span class="line">返回值: BIGINT</span><br><span class="line">说明: 返回等于或者小于该double变量的最大的整数</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select floor(3.1415926)l;</span><br><span class="line">3</span><br><span class="line">hive&gt; select floor(25)l;</span><br><span class="line">25</span><br><span class="line">``` </span><br><span class="line">10.向上取整函数 : ceil</span><br><span class="line">```sql</span><br><span class="line">语法: ceil(double a)</span><br><span class="line">返回值: BIGINT</span><br><span class="line">说明: 返回等于或者大于该double变量的最小的整数</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select ceil(3.1415926)l;</span><br><span class="line">4</span><br><span class="line">hive&gt; select ceil(46)l;</span><br><span class="line">46</span><br></pre></td></tr></table></figure></p>
-<p>11.向上取整函数 : ceiling<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: ceiling(double a)</span><br><span class="line">返回值: BIGINT</span><br><span class="line">说明: 与ceil功能相同</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select ceiling(3.1415926)l;</span><br><span class="line">4</span><br><span class="line">hive&gt; select ceiling(46)l;</span><br><span class="line">46</span><br><span class="line">``` </span><br><span class="line">12.取随机数函数 : rand</span><br><span class="line">```sql</span><br><span class="line">语法: rand(),rand(int seed)</span><br><span class="line">返回值: double</span><br><span class="line">说明: 返回一个0到1范围内的随机数。如果指定种子seed，则会等到一个稳定的随机数序列</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select rand()l;</span><br><span class="line">0.5577432776034763</span><br></pre></td></tr></table></figure></p>
+<p>11.向上取整函数 : ceiling<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: ceiling(double a)</span><br><span class="line">返回值: BIGINT</span><br><span class="line">说明: 与ceil功能相同</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select ceiling(3.1415926)l;</span><br><span class="line">4</span><br><span class="line">hive&gt; select ceiling(46)l;</span><br><span class="line">46</span><br></pre></td></tr></table></figure></p>
+<p>12.取随机数函数 : rand<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: rand(),rand(int seed)</span><br><span class="line">返回值: double</span><br><span class="line">说明: 返回一个0到1范围内的随机数。如果指定种子seed，则会等到一个稳定的随机数序列</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select rand()l;</span><br><span class="line">0.5577432776034763</span><br></pre></td></tr></table></figure></p>
 <p>13.自然指数函数 : exp<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: exp(double a)</span><br><span class="line">返回值: double</span><br><span class="line">说明: 返回自然对数e的a次方</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select exp(2)l;</span><br><span class="line">7.38905609893065</span><br></pre></td></tr></table></figure></p>
 <p>14.自然对数函数: ln<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: ln(double a)</span><br><span class="line">返回值: double</span><br><span class="line">说明: 返回a的自然对数</span><br></pre></td></tr></table></figure></p>
 <p>15.以 10 为底对数函数 : log10<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: log10(double a)</span><br><span class="line">返回值: double</span><br><span class="line">说明: 返回以10为底的a的对数</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select log10(100)l;</span><br><span class="line">2.0</span><br></pre></td></tr></table></figure></p>
@@ -244,10 +245,7 @@ var _hmt = _hmt || [];
 <p>29.余弦函数 : cos<br><figure class="highlight plain"><figcaption><span>cos(double a)</span></figcaption><table><tr><td class="code"><pre><span class="line">返回值: double</span><br><span class="line">说明: 返回a的余弦值</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select cos(0.9)l;</span><br><span class="line">0.6216099682706644</span><br></pre></td></tr></table></figure></p>
 <p>30.反余弦函数 : acos<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: acos(double a)</span><br><span class="line">返回值: double</span><br><span class="line">说明: 返回a的反余弦值</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select acos(0.6216099682706644)l;</span><br><span class="line">0.9</span><br></pre></td></tr></table></figure></p>
 <p>31.positive<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: positive(int a), positive(double a)</span><br><span class="line">返回值: int double</span><br><span class="line">说明: 返回a</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select positive(-10)l;</span><br><span class="line">-10</span><br><span class="line">hive&gt; select positive(12)l;</span><br><span class="line">12</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>negative取反 函数<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: negative(int a), negative(double a)</span><br><span class="line">返回值: int double</span><br><span class="line">说明: 返回-a</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select negative(-5);</span><br><span class="line">5</span><br><span class="line">hive&gt; select negative(8);</span><br><span class="line">-8</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>32.negative取反 函数<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">语法: negative(int a), negative(double a)</span><br><span class="line">返回值: int double</span><br><span class="line">说明: 返回-a</span><br><span class="line">举例：</span><br><span class="line">hive&gt; select negative(-5);</span><br><span class="line">5</span><br><span class="line">hive&gt; select negative(8);</span><br><span class="line">-8</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -573,11 +571,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
