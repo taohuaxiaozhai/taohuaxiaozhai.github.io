@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hive的udf解析json | aparke&#39;s blog</title>
+  <title>hive的json解析函数与自定义udf解析json | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog!  描述udf自定义函数 1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程">
+  <meta name="description" content="Welcome to aparke’s blog!   通过udf自定义函数解决一些hive解决不了的问题   描述udf自定义函数1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单">
 <meta name="keywords" content="hive">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hive的udf解析json">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/Hive/hive的udf解析json/index.html">
+<meta property="og:title" content="hive的json解析函数与自定义udf解析json">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/Hive/hive的json解析函数与自定义udf解析json/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog!  描述udf自定义函数 1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程">
+<meta property="og:description" content="Welcome to aparke’s blog!   通过udf自定义函数解决一些hive解决不了的问题   描述udf自定义函数1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T08:29:46.293Z">
+<meta property="og:updated_time" content="2019-08-31T09:52:53.547Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hive的udf解析json">
-<meta name="twitter:description" content="Welcome to aparke’s blog!  描述udf自定义函数 1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程">
+<meta name="twitter:title" content="hive的json解析函数与自定义udf解析json">
+<meta name="twitter:description" content="Welcome to aparke’s blog!   通过udf自定义函数解决一些hive解决不了的问题   描述udf自定义函数1.UDF是什么？hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。UDF函数其实就是一个简单">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -189,19 +189,19 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hive/hive的udf解析json" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hive/hive的json解析函数与自定义udf解析json" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hive的udf解析json
+      hive的json解析函数与自定义udf解析json
     </h1>
   
 
         
-        <a href="/2019/03/17/Hive/hive的udf解析json/" class="archive-article-date">
+        <a href="/2019/03/17/Hive/hive的json解析函数与自定义udf解析json/" class="archive-article-date">
   	<time datetime="2019-03-16T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
 </a>
         
@@ -210,8 +210,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h3 id="描述udf自定义函数"><a href="#描述udf自定义函数" class="headerlink" title="描述udf自定义函数"></a>描述udf自定义函数</h3><blockquote>
-<p><strong>1.UDF是什么？</strong><br>hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。<br>UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程序后，执行java方法，类似于像Mapreduce执行过程中加入一个插件，方便扩展. UDF只能实现一进一出的操作，如果需要实现多进一出，则需要实现UDAF<br>Hive可以允许用户编写自己定义的函数UDF，来在查询中使用。  <a id="more"></a><br><strong>2.UDF类型</strong><br>Hive中有3种UDF：  </p>
+<blockquote>
+<p>通过udf自定义函数解决一些hive解决不了的问题  </p>
+<h3 id="描述udf自定义函数"><a href="#描述udf自定义函数" class="headerlink" title="描述udf自定义函数"></a>描述udf自定义函数</h3><p><strong>1.UDF是什么？</strong><br>hive的类SQL预发给数据挖掘工作者带来了很多便利，海量数据通过简单的sql就可以完成分析，有时候hive提供的函数功能满足不了业务需要，就需要我们自己来写UDF函数来辅助完成，下面用一个简单的例子说明过程，以及注意事项。<br>UDF函数其实就是一个简单的函数，执行过程就是在Hive转换成mapreduce程序后，执行java方法，类似于像Mapreduce执行过程中加入一个插件，方便扩展. UDF只能实现一进一出的操作，如果需要实现多进一出，则需要实现UDAF<br>Hive可以允许用户编写自己定义的函数UDF，来在查询中使用。  <a id="more"></a><br><strong>2.UDF类型</strong><br>Hive中有3种UDF：  </p>
 <ul>
 <li>UDF：操作单个数据行，产生单个数据行；  </li>
 <li>UDAF：操作多个数据行，产生一个数据行。  </li>
@@ -224,6 +225,10 @@ var _hmt = _hmt || [];
 <li>3、在hive命令行中将jar包添加到classpath ：<br>  <code>hive&gt;add jar /root/hivetest/myjson.jar;</code>  </li>
 <li>4、在hive命令中用命令创建一个函数叫做myjson，关联你所写的这个java类<br>  <code>hive&gt; create temporary function myjson as &#39;cn.aparke.hive.udf.MyJsonParser&#39;;</code></li>
 </ul>
+</blockquote>
+<p><strong>注：临时函数只在一次hive会话中有效，重启会话后就无效</strong></p>
+<blockquote>
+<p>如果需要经常使用该自定义函数，可以考虑创建永久函数：<br>拷贝jar包到hive的类路径中：<br>cp myjson.jar opt/hive-1.2.1/lib/<br>创建了：<br>create function pfuncx as ‘com.doit.hive.udf.UserInfoParser’;<br>删除函数：<br>DROP  TEMPORARY  FUNCTION  [IF  EXISTS] function_name<br>DROP FUNCTION[IF EXISTS] function_name  </p>
 </blockquote>
 <h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h3 id="场景应用"><a href="#场景应用" class="headerlink" title="场景应用"></a>场景应用</h3><p>有如下json数据：rating.json<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&quot;movie&quot;:&quot;1193&quot;,&quot;rate&quot;:&quot;5&quot;,&quot;timeStamp&quot;:&quot;978300760&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br><span class="line">&#123;&quot;movie&quot;:&quot;661&quot;,&quot;rate&quot;:&quot;3&quot;,&quot;timeStamp&quot;:&quot;978302109&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br><span class="line">&#123;&quot;movie&quot;:&quot;914&quot;,&quot;rate&quot;:&quot;3&quot;,&quot;timeStamp&quot;:&quot;978301968&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br><span class="line">&#123;&quot;movie&quot;:&quot;3408&quot;,&quot;rate&quot;:&quot;4&quot;,&quot;timeStamp&quot;:&quot;978300275&quot;,&quot;uid&quot;:&quot;1&quot;&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>需求：求每个人评论的次数</strong><br>1.建表映射上述数据<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_ratingjson(<span class="keyword">json</span> <span class="keyword">string</span>);</span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hive1/rating.json'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_ratingjson;</span><br></pre></td></tr></table></figure></p>
@@ -238,6 +243,7 @@ var _hmt = _hmt || [];
 <p>使用自己定义的临时函数名构造如下sql 保存结果到新表 t_rate下  </p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_rate</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> myjson(<span class="keyword">json</span>,<span class="number">1</span>) <span class="keyword">as</span> movie,<span class="keyword">cast</span>(myjson(<span class="keyword">json</span>,<span class="number">2</span>) <span class="keyword">as</span> <span class="built_in">int</span>) <span class="keyword">as</span> rate,myjson(<span class="keyword">json</span>,<span class="number">3</span>)<span class="keyword">as</span> ts,myjson(<span class="keyword">json</span>,<span class="number">4</span>) <span class="keyword">as</span> uid <span class="keyword">from</span> t_ratingjson;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_rate  <span class="keyword">limit</span> <span class="number">10</span>;</span><br><span class="line">| t_rate.movie  | t_rate.rate  | t_rate.ts  | t_rate.uid  |</span><br><span class="line">+<span class="comment">---------------+--------------+------------+-------------+--+</span></span><br><span class="line">| 1193          | 5            | 978300760  | 1           |</span><br><span class="line">| 661           | 3            | 978302109  | 1           |</span><br><span class="line">| 914           | 3            | 978301968  | 1           |</span><br><span class="line">| 3408          | 4            | 978300275  | 1           |</span><br><span class="line">| 2355          | 5            | 978824291  | 1           |</span><br><span class="line">| 1197          | 3            | 978302268  | 1           |</span><br><span class="line">| 1287          | 5            | 978302039  | 1           |</span><br><span class="line">| 2804          | 5            | 978300719  | 1           |</span><br><span class="line">| 594           | 4            | 978302268  | 1           |</span><br><span class="line">| 919           | 4            | 978301368  | 1           |</span><br><span class="line">+<span class="comment">---------------+--------------+------------+-------------+--+</span></span><br></pre></td></tr></table></figure>
 <p>最后在解析后的表中group by uid 得到每个人评论次数<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> uid,<span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span> t_rate <span class="keyword">group</span> <span class="keyword">by</span> uid,rate <span class="keyword">limit</span> <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line">+<span class="comment">-------+------+--+</span></span><br><span class="line">|  uid  | _c1  |</span><br><span class="line">+<span class="comment">-------+------+--+</span></span><br><span class="line">| 1     | 8    |</span><br><span class="line">| 1     | 27   |</span><br><span class="line">| 1     | 18   |</span><br><span class="line">| 10    | 12   |</span><br><span class="line">| 10    | 84   |</span><br><span class="line">| 10    | 151  |</span><br><span class="line">| 10    | 154  |</span><br><span class="line">| 100   | 3    |</span><br><span class="line">| 100   | 15   |</span><br><span class="line">| 100   | 38   |</span><br><span class="line">| 100   | 17   |</span><br><span class="line">| 100   | 3    |</span><br><span class="line">| 1000  | 2    |</span><br><span class="line">| 1000  | 13   |</span><br><span class="line">| 1000  | 41   |</span><br><span class="line">| 1000  | 28   |</span><br><span class="line">| 1001  | 6    |</span><br><span class="line">| 1001  | 68   |</span><br><span class="line">| 1001  | 57   |</span><br><span class="line">| 1001  | 166  |</span><br><span class="line">| 1001  | 80   |</span><br><span class="line">| 1002  | 4    |</span><br><span class="line">| 1002  | 9    |</span><br><span class="line">| 1002  | 27   |</span><br><span class="line">| 1002  | 26   |</span><br><span class="line">| 1003  | 7    |</span><br><span class="line">| 1003  | 11   |</span><br><span class="line">| 1003  | 11   |</span><br><span class="line">| 1004  | 37   |</span><br><span class="line">| 1004  | 98   |</span><br><span class="line">| 1004  | 146  |</span><br><span class="line">| 1004  | 151  |</span><br><span class="line">| 1004  | 49   |</span><br><span class="line">| 1005  | 8    |</span><br><span class="line">| 1005  | 3    |</span><br><span class="line">| 1005  | 7    |</span><br><span class="line">| 1005  | 24   |</span><br><span class="line">| 1005  | 50   |</span><br><span class="line">| 1006  | 7    |</span><br><span class="line">| 1006  | 8    |</span><br><span class="line">| 1006  | 10   |</span><br><span class="line">| 1006  | 13   |</span><br><span class="line">| 1006  | 6    |</span><br><span class="line">| 1007  | 7    |</span><br><span class="line">| 1007  | 11   |</span><br><span class="line">| 1007  | 14   |</span><br><span class="line">| 1008  | 1    |</span><br><span class="line">| 1008  | 1    |</span><br><span class="line">| 1008  | 12   |</span><br><span class="line">| 1008  | 27   |</span><br><span class="line">+<span class="comment">-------+------+--+</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="内置json解析函数"><a href="#内置json解析函数" class="headerlink" title="内置json解析函数"></a>内置json解析函数</h3><p>一行解决<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> json_tuple(<span class="keyword">json</span>,<span class="string">'movie'</span>,<span class="string">'rate'</span>,<span class="string">'timeStamp'</span>,<span class="string">'uid'</span>) <span class="keyword">as</span>(movie,rate,ts,uid) <span class="keyword">from</span> t_ratingjson;</span><br><span class="line">+<span class="comment">--------+-------+------------+------+--+</span></span><br><span class="line">| movie  | rate  |     ts     | uid  |</span><br><span class="line">+<span class="comment">--------+-------+------------+------+--+</span></span><br><span class="line">| 1193   | 5     | 978300760  | 1    |</span><br><span class="line">| 661    | 3     | 978302109  | 1    |</span><br><span class="line">| 914    | 3     | 978301968  | 1    |</span><br><span class="line">| 3408   | 4     | 978300275  | 1    |</span><br><span class="line">| 2355   | 5     | 978824291  | 1    |</span><br><span class="line">| 1197   | 3     | 978302268  | 1    |</span><br><span class="line">| 1287   | 5     | 978302039  | 1    |</span><br><span class="line">| 2804   | 5     | 978300719  | 1    |</span><br><span class="line">| 594    | 4     | 978302268  | 1    |</span><br><span class="line">| 919    | 4     | 978301368  | 1    |</span><br><span class="line">+<span class="comment">--------+-------+------------+------+--+</span></span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -338,7 +344,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/17/Hive/hive的udf解析json/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/17/Hive/hive的json解析函数与自定义udf解析json/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -391,7 +397,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Hive/hive的udf解析json" data-title="hive的udf解析json" data-url="http://yoursite.com/2019/03/17/Hive/hive的udf解析json/"></div>
+	<div class="ds-thread" data-thread-key="Hive/hive的json解析函数与自定义udf解析json" data-title="hive的json解析函数与自定义udf解析json" data-url="http://yoursite.com/2019/03/17/Hive/hive的json解析函数与自定义udf解析json/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -414,8 +420,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/03/17/Hive/hive的udf解析json/", 
-    sourceId: "Hive/hive的udf解析json",
+    url: "http://yoursite.com/2019/03/17/Hive/hive的json解析函数与自定义udf解析json/", 
+    sourceId: "Hive/hive的json解析函数与自定义udf解析json",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -424,7 +430,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Hive/hive的udf解析json" ></div> 
+  <div id="SOHUCS" sid="Hive/hive的json解析函数与自定义udf解析json" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -563,7 +569,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +577,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,11 +585,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
