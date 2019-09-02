@@ -815,35 +815,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-大数据/使用Hadoop-Stream实现wordCount" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-大数据/通过MultipleOutputs写到多个文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">使用Hadoop-Stream实现wordCount</a>
+      <a class="article-title" href="/2019/08/13/大数据/通过MultipleOutputs写到多个文件/">通过MultipleOutputs写到多个文件</a>
     </h1>
   
 
         
-        <a href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/" class="archive-article-date">
-  	<time datetime="2019-07-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/08/13/大数据/通过MultipleOutputs写到多个文件/" class="archive-article-date">
+  	<time datetime="2019-08-13T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="">aparke’s blog</a>! </p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
-<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer，例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p>
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h2 id="通过MultipleOutputs写到多个文件"><a href="#通过MultipleOutputs写到多个文件" class="headerlink" title="通过MultipleOutputs写到多个文件"></a>通过MultipleOutputs写到多个文件</h2><blockquote>
+<p>MultipleOutputs 类可以将数据写到多个文件，这些文件的名称源于输出的键和值或者任意字符串。这允许每个 reducer（或者只有 map 作业的 mapper）创建多个文件。<br>采用name-m-nnnnn 形式的文件名用于 map 输出，name-r-nnnnn 形式的文件名用于 reduce 输出，其中 name 是由程序设定的任意名字， nnnnn 是一个指明块号的整数（从 0 开始）。<br>块号保证从不同块（mapper 或 reducer）输出在相同名字情况下不会冲突<br><!--mor--></p>
+<h3 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h3><p>假如这里有一份邮箱数据文件，我们期望统计邮箱出现次数并按照邮箱的类别，将这些邮箱分别输出到不同文件路径下，并统计每个邮箱的次数。<br>数据集<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wolys@21cn.com</span><br><span class="line">zss1984@126.com</span><br><span class="line">294522652@qq.com</span><br><span class="line">simulateboy@163.com</span><br><span class="line">zhoushigang_123@163.com</span><br><span class="line">sirenxing424@126.com</span><br><span class="line">lixinyu23@qq.com</span><br><span class="line">chenlei1201@gmail.com</span><br><span class="line">370433835@qq.com</span><br><span class="line">cxx0409@126.com</span><br><span class="line">viv093@sina.com</span><br><span class="line">q62148830@163.com</span><br><span class="line">65993266@qq.com</span><br><span class="line">summeredison@sohu.com</span><br><span class="line">zhangbao-autumn@163.com</span><br><span class="line">diduo_007@yahoo.com.cn</span><br><span class="line">fxh852@163.com</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer。<br>Hadoop Streaming是利用“标准输入”和“标准输出”与我们编写的Map和Reduce进行数据的交换。<br>那么，任何能够使用“标准输入”和“标准输出”的编程语言都应该可以用来编写MapReduce程序。<br>例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p></blockquote>
-        
-          <a class="article-more-a" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/#more">more >></a>
-        
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.MultipleOutputs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.NullWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.LazyOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmailMultipleOutputs</span> </span>&#123;</span><br><span class="line"><span class="comment">//**做这个案例时，吃了好大的亏，如果使用内部类写的时候，map,reduce类必须使用内部静态要不然加载不到，伤心**</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">EmailMultipleOutputsMapper</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">LongWritable</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line">		IntWritable v = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(LongWritable key, Text value, Mapper&lt;LongWritable, Text, Text, IntWritable&gt;.Context context)</span></span></span><br><span class="line"><span class="function">				<span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">			<span class="comment">//map阶段直接输出，不做逻辑处理</span></span><br><span class="line">		context.write(value, v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">EmailMultipleOutputsReducer</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line">		IntWritable v =<span class="keyword">new</span> IntWritable();</span><br><span class="line">		MultipleOutputs&lt;Text, IntWritable&gt; multipleOutputs=<span class="keyword">null</span>; <span class="comment">// 多路输出器</span></span><br><span class="line">		 </span><br><span class="line">			 <span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setup</span><span class="params">(Reducer&lt;Text, IntWritable, Text, IntWritable&gt;.Context context)</span></span></span><br><span class="line"><span class="function">				<span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">				 multipleOutputs = <span class="keyword">new</span> MultipleOutputs&lt;Text, IntWritable&gt;(context);</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		 <span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span></span></span><br><span class="line"><span class="function"><span class="params">			Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">			 </span><br><span class="line">			 <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">			 <span class="keyword">for</span> (IntWritable value : values) &#123;</span><br><span class="line">				count+=value.get();</span><br><span class="line">			&#125;</span><br><span class="line">			 <span class="comment">//aparke@163.com</span></span><br><span class="line">			String email = key.toString();</span><br><span class="line">			<span class="keyword">int</span> begin = email.indexOf(<span class="string">"@"</span>);</span><br><span class="line">			<span class="keyword">int</span> end = email.indexOf(<span class="string">"."</span>);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (begin &gt;= end) &#123;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//处理空字段</span></span><br><span class="line"><span class="comment">//			if (null == email || "".equals(email)) &#123;</span></span><br><span class="line"><span class="comment">//				return;</span></span><br><span class="line"><span class="comment">//			&#125;</span></span><br><span class="line">			 <span class="comment">//邮箱类别</span></span><br><span class="line">			 String mailType = email.substring(begin+<span class="number">1</span>,end);<span class="comment">//aparke</span></span><br><span class="line">			 <span class="comment">//多路输出控制</span></span><br><span class="line">			 <span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * multipleOutputs.write(key, value, baseOutputPath)方法的第三个函数表明了该输出所在的目录（相对于用户指定的输出目录）。</span></span><br><span class="line"><span class="comment">			 * 如果baseOutputPath不包含文件分隔符"/"，那么输出的文件格式为baseOutputPath-r-nnnnn（name-r-nnnnn)；</span></span><br><span class="line"><span class="comment">			 * 如果包含文件分隔符"/"，例如baseOutputPath="029070-99999/1901/part"，那么输出文件则为029070-99999/1901/part-r-nnnnn</span></span><br><span class="line"><span class="comment">			  */</span></span><br><span class="line">			 v.set(count);</span><br><span class="line">			 multipleOutputs.write(key, v, mailType+<span class="string">"/"</span>+mailType);</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		 <span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">cleanup</span><span class="params">(Reducer&lt;Text, IntWritable, Text, IntWritable&gt;.Context context)</span></span></span><br><span class="line"><span class="function">				<span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">			multipleOutputs.close();</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">	 &#125; </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, Exception </span>&#123;</span><br><span class="line">		Configuration conf = <span class="keyword">new</span> Configuration();</span><br><span class="line">		</span><br><span class="line">		Job job = Job.getInstance(conf);</span><br><span class="line"></span><br><span class="line">		job.setJarByClass(EmailMultipleOutputs.class);</span><br><span class="line"></span><br><span class="line">		job.setMapperClass(EmailMultipleOutputsMapper.class);</span><br><span class="line">		job.setReducerClass(EmailMultipleOutputsReducer.class);</span><br><span class="line"></span><br><span class="line">		job.setMapOutputKeyClass(Text.class);</span><br><span class="line">		job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line">		</span><br><span class="line">		job.setOutputKeyClass(Text.class);</span><br><span class="line">		job.setOutputValueClass(IntWritable.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">//		job.setOutputFormatClass(TextOutputFormat.class);  </span></span><br><span class="line"><span class="comment">// 默认的输出组件,一般不变，除非写成序列化文件等</span></span><br><span class="line"><span class="comment">// 去掉job设置outputFormatClass，改为通过LazyOutputFormat设置</span></span><br><span class="line">		LazyOutputFormat.setOutputFormatClass(job, TextOutputFormat.class);  </span><br><span class="line">		</span><br><span class="line">		Path inpath=<span class="keyword">new</span> Path(<span class="string">"D:\\testdata\\Email\\input"</span>);</span><br><span class="line">		Path outpath=<span class="keyword">new</span> Path(<span class="string">"D:\\testdata\\Email\\output"</span>);</span><br><span class="line">		FileSystem fs = FileSystem.get(conf);</span><br><span class="line">		<span class="keyword">if</span> (fs.exists(outpath)) &#123;</span><br><span class="line">			fs.delete(outpath, <span class="keyword">true</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		FileInputFormat.setInputPaths(job, inpath);</span><br><span class="line">		FileOutputFormat.setOutputPath(job, outpath);</span><br><span class="line">		<span class="keyword">boolean</span> waitForCompletion = job.waitForCompletion(<span class="keyword">true</span>);</span><br><span class="line">		System.exit(waitForCompletion?<span class="number">0</span>:<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h3><p><img src="/2019/08/13/大数据/通过MultipleOutputs写到多个文件/1.png" alt="运行结果"><br><img src="/2019/08/13/大数据/通过MultipleOutputs写到多个文件/2.png" alt="运行结果"><br><img src="/2019/08/13/大数据/通过MultipleOutputs写到多个文件/3.png" alt="运行结果"></p>
+
       
 
       
@@ -866,7 +865,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/13/大数据/通过MultipleOutputs写到多个文件/">展开全文 >></a>
         </p>
       
 
@@ -1091,18 +1090,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -1112,6 +1099,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
               <li class="article-tag-list-item">
