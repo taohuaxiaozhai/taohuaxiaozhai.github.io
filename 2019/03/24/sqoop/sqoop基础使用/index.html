@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java构造死锁 | aparke&#39;s blog</title>
+  <title>sqoop基础使用 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog  构成死锁的原因 过多的同步导致死锁  使用sleep 可以放大死锁的表现  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。  简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
-<meta name="keywords" content="Java">
+  <meta name="description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh#添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOOP_M">
+<meta name="keywords" content="hive">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java构造死锁">
-<meta property="og:url" content="http://yoursite.com/2019/07/21/Java/Java构造死锁/index.html">
+<meta property="og:title" content="sqoop基础使用">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/sqoop/sqoop基础使用/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog  构成死锁的原因 过多的同步导致死锁  使用sleep 可以放大死锁的表现  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。  简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
+<meta property="og:description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh#添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOOP_M">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-28T03:05:14.323Z">
+<meta property="og:updated_time" content="2019-09-04T07:42:02.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java构造死锁">
-<meta name="twitter:description" content="Welcome to aparke’s blog  构成死锁的原因 过多的同步导致死锁  使用sleep 可以放大死锁的表现  首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。  简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。 当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的， 所以产生死锁，具体">
+<meta name="twitter:title" content="sqoop基础使用">
+<meta name="twitter:description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh#添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOOP_M">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -189,42 +189,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java/Java构造死锁" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sqoop/sqoop基础使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java构造死锁
+      sqoop基础使用
     </h1>
   
 
         
-        <a href="/2019/07/21/Java/Java构造死锁/" class="archive-article-date">
-  	<time datetime="2019-07-20T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+        <a href="/2019/03/24/sqoop/sqoop基础使用/" class="archive-article-date">
+  	<time datetime="2019-03-23T21:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="#">aparke’s blog</a></p>
-<ul>
-<li>构成死锁的原因</li>
-<li>过多的同步导致死锁 </li>
-<li><p>使用sleep 可以放大死锁的表现</p>
-</li>
-<li><p>首先，产生死锁需要两个锁对象（假设A，B），两个线程同时运行，并使用两个锁对象。</p>
-</li>
-<li>简单的说就是锁A等待锁B释放，而锁B等待锁A释放，这样就产生了所谓的死锁。<ul>
-<li>当然产生死锁的机率并不是100%，而是有一定的机率；原因是CPU在线程之间切换是没有规律的，</li>
-<li>所以产生死锁，具体看CPU的调度。</li>
-</ul>
-</li>
-</ul>
+        <blockquote>
+<p>sqopp基础命令简单使用</p>
+</blockquote>
+<h3 id="sqoop安装配置文件"><a href="#sqoop安装配置文件" class="headerlink" title="sqoop安装配置文件"></a>sqoop安装配置文件</h3><blockquote>
+<p>1.解压<br>2.修改配置文件<br><code>vim sqoop-env.sh</code><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#添加hadoop家目录  </span><br><span class="line">#添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  </span><br><span class="line">#添加hive的家目录  </span><br><span class="line">#不需配置zookeeper的家目录  </span><br><span class="line">export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  </span><br><span class="line">export HADOOP_MAPRED_HOME=/opt/hadoop-2.9.2  </span><br><span class="line">#export HBASE_HOME=  </span><br><span class="line">export HIVE_HOME=/opt/hive-1.2.1</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <a id="more"></a>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aparke.deadlock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Deadlock</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建两个对象在外部实例化他们</span></span><br><span class="line">		Object g = <span class="keyword">new</span> Object();</span><br><span class="line">		Object m = <span class="keyword">new</span> Object();</span><br><span class="line">		<span class="comment">//将两个对象传进线程一</span></span><br><span class="line">		Test test1 = <span class="keyword">new</span> Test(g, m);</span><br><span class="line">		<span class="comment">//创建线程一</span></span><br><span class="line">		Thread t1=<span class="keyword">new</span> Thread(test1,<span class="string">"线程一"</span>);</span><br><span class="line">		<span class="comment">//启动线程一</span></span><br><span class="line">		t1.start();</span><br><span class="line">		</span><br><span class="line">		Test2 test2 = <span class="keyword">new</span> Test2(g, m);</span><br><span class="line">		Thread t2 = <span class="keyword">new</span> Thread(test2);</span><br><span class="line">		t2.start();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//线程一</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">	Object goods;</span><br><span class="line">	Object money;</span><br><span class="line">	<span class="comment">//有参构造</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">(Object goods, Object money)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.goods = goods;</span><br><span class="line">		<span class="keyword">this</span>.money = money;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//重写线程方法</span></span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			test();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//锁住货物，先给钱再给货</span></span><br><span class="line">		<span class="keyword">synchronized</span> (goods) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;<span class="comment">//延迟</span></span><br><span class="line">			<span class="keyword">synchronized</span> (money) &#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"一首给钱，先给钱再给货"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//线程二</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">	Object goods;</span><br><span class="line">	Object money;</span><br><span class="line">	<span class="comment">//有参构造</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Test2</span><span class="params">(Object goods, Object money)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.goods = goods;</span><br><span class="line">		<span class="keyword">this</span>.money = money;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//重写线程方法</span></span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			test();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//锁住钱，先给货再给钱</span></span><br><span class="line">		<span class="keyword">synchronized</span> (money) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>);<span class="comment">//延迟</span></span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">synchronized</span> (goods) &#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"一首给货，先给货再给钱"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.测试数据库连接<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">列出mysql数据库中的所有数据库</span></span><br><span class="line">sqoop-list-databases --connect jdbc:mysql://localhost:3306 --username root --password 123456</span><br><span class="line"><span class="meta">#</span><span class="bash">显示mysql的数据库hive中的表</span></span><br><span class="line">sqoop-list-tables --connect jdbc:mysql://localhost:3306/hive --username root --password 123456</span><br><span class="line"><span class="meta">#</span><span class="bash">命令中的<span class="built_in">test</span>为mysql数据库中的<span class="built_in">test</span>数据库名称 username password分别为mysql数据库的用户密码</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="将mysql的表导入-hdfs"><a href="#将mysql的表导入-hdfs" class="headerlink" title="将mysql的表导入 hdfs"></a>将mysql的表导入 hdfs</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--target-dir \</span><br><span class="line">/sqooptest \</span><br><span class="line">--fields-terminated-by ',' \</span><br><span class="line">--table emp \</span><br><span class="line">--split-by id \</span><br><span class="line">--m 2</span><br></pre></td></tr></table></figure>
+<h3 id="将mysql数据到hbase"><a href="#将mysql数据到hbase" class="headerlink" title="将mysql数据到hbase"></a>将mysql数据到hbase</h3><h5 id="注意：sqoop目前支持的hbase版本-Hbase-lt-0-95-2-，高版本hbase环境下会报错"><a href="#注意：sqoop目前支持的hbase版本-Hbase-lt-0-95-2-，高版本hbase环境下会报错" class="headerlink" title="注意：sqoop目前支持的hbase版本  Hbase &lt;= 0.95.2  ，高版本hbase环境下会报错"></a>注意：sqoop目前支持的hbase版本  Hbase &lt;= 0.95.2  ，高版本hbase环境下会报错</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--table emp \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--hbase-create-table  \</span><br><span class="line">--hbase-table t_emp \</span><br><span class="line">--hbase-row-key id \</span><br><span class="line">--column-family info \</span><br><span class="line">--m 1</span><br></pre></td></tr></table></figure>
+<h3 id="将关系型数据的表结构复制到hive中-只是复制表的结构，表中的内容没有复制过去。会在hive中创建表结构"><a href="#将关系型数据的表结构复制到hive中-只是复制表的结构，表中的内容没有复制过去。会在hive中创建表结构" class="headerlink" title="将关系型数据的表结构复制到hive中,只是复制表的结构，表中的内容没有复制过去。会在hive中创建表结构"></a>将关系型数据的表结构复制到hive中,只是复制表的结构，表中的内容没有复制过去。会在hive中创建表结构</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop create-hive-table --connect jdbc:mysql://localhost:3306/userdb --table emp_add --username root --password 123456 --hive-table cp_emp_add</span><br><span class="line"><span class="meta">#</span><span class="bash">其中 -table emp_add为mysql中的数据库<span class="built_in">test</span>中的表 -hive-cp_emp_add</span></span><br><span class="line"><span class="meta">#</span><span class="bash">cp_emp_add为hive中新建的表名称</span></span><br></pre></td></tr></table></figure>
+<h3 id="从数据库增量导入表数据到hdfs中"><a href="#从数据库增量导入表数据到hdfs中" class="headerlink" title="从数据库增量导入表数据到hdfs中"></a>从数据库增量导入表数据到hdfs中</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--target-dir /sqooptest  \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table emp \</span><br><span class="line">--m 1 \</span><br><span class="line">--incremental append \</span><br><span class="line">--check-column id \</span><br><span class="line">--last-value 1205</span><br></pre></td></tr></table></figure>
+<h3 id="按需导入表数据子集"><a href="#按需导入表数据子集" class="headerlink" title="按需导入表数据子集"></a>按需导入表数据子集</h3><blockquote>
+<p>我们可以导入表的使用Sqoop导入工具，”where”子句的一个子集。它执行在各自的数据库服务器相应的SQL查询，并将结果存储在HDFS的目标目录。<br>where子句的语法如下。<br>–where <condition>  </condition></p>
+</blockquote>
+<p>下面的命令用来导入emp_add表数据的子集。子集查询检索员工ID和地址，居住城市为：sec-bad<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--where "city ='sec-bad'" \</span><br><span class="line">--target-dir /sqooptest/wherequery \</span><br><span class="line">--table emp_add \</span><br><span class="line">--m 1</span><br></pre></td></tr></table></figure></p>
+<h3 id="按需导入2"><a href="#按需导入2" class="headerlink" title="按需导入2"></a>按需导入2</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import --connect jdbc:mysql://master:3306/userdb --username root --password 123456 --target-dir /sqooptest/wherequery2 --query 'select id,name,deg from emp WHERE id&gt;1206 and $CONDITIONS'  --split-by id  --fields-terminated-by '\t' --m 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir /sqooptest/emp_where \</span><br><span class="line">--query 'select id,name,deg from emp WHERE id&gt;1207 and $CONDITIONS' \</span><br><span class="line">--split-by id \</span><br><span class="line">--fields-terminated-by '\t' \</span><br><span class="line">--m 2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–query 比where很强大<br>–query 后面跟sql语句  每个map task需要执行sql查询语句的副本，结果会根据sqoop推测的边界条件分区。query必须包含$CONDITIONS。<br>这样每个scoop程序都会被替换为一个独立的条件。同时你必须指定–split-by.分区</p>
+</blockquote>
+<h3 id="从关系数据库导入文件到hive中"><a href="#从关系数据库导入文件到hive中" class="headerlink" title="从关系数据库导入文件到hive中"></a>从关系数据库导入文件到hive中</h3><p>–会自己在hive中创建表和mysql表名相同，然后回默认存在hive的hdfs目录下<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import   --connect jdbc:mysql://master:3306/userdb  --username root --password 123456 --table emp --hive-import --fields-terminated-by '|'  --m 1</span><br></pre></td></tr></table></figure></p>
+<p>–指定表名<br>指定hive保存的数据库命–hive-table emp_from_mysql 为emp_from_mysql<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import   --connect jdbc:mysql://master:3306/userdb  --username root --password 123456 --table emp --hive-import --fields-terminated-by '|'  --hive-table emp_from_mysql -m1</span><br></pre></td></tr></table></figure></p>
+<h3 id="将hive中的表数据导入到mysql中-在进行导入之前，mysql中的表hive-test必须已经提起创建好了。"><a href="#将hive中的表数据导入到mysql中-在进行导入之前，mysql中的表hive-test必须已经提起创建好了。" class="headerlink" title="将hive中的表数据导入到mysql中,在进行导入之前，mysql中的表hive_test必须已经提起创建好了。"></a>将hive中的表数据导入到mysql中,在进行导入之前，mysql中的表hive_test必须已经提起创建好了。</h3><blockquote>
+<p>导出到mysql（mysql已经建好表）<br>关键字：export export-dir<br>–input-fields-terminated-by ‘,’ 指定输出的切分格式 （可以不需要指定）  </p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop export --connect jdbc:mysql://master:3306/userdb --username root --password 123456 --table dim_user_active_day --export-dir /user/hive/warehouse/app.db/dim_user_active_day/day=2017-09-21/dim=0000 --input-fields-terminated-by \\001</span><br></pre></td></tr></table></figure>
+<h3 id="将hdfs的文件数据导出到mysql"><a href="#将hdfs的文件数据导出到mysql" class="headerlink" title="将hdfs的文件数据导出到mysql"></a>将hdfs的文件数据导出到mysql</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop export \</span><br><span class="line">--connect jdbc:mysql://mster:3306/userdb \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--input-fields-terminated-by ',' \</span><br><span class="line">--table emp \</span><br><span class="line">--export-dir /sqooptest/</span><br></pre></td></tr></table></figure>
+<h3 id="将hive的表数据（hdfs的文件）导出到mysql"><a href="#将hive的表数据（hdfs的文件）导出到mysql" class="headerlink" title="将hive的表数据（hdfs的文件）导出到mysql"></a>将hive的表数据（hdfs的文件）导出到mysql</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop export \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--input-fields-terminated-by ',' \</span><br><span class="line">--table t_from_hive \</span><br><span class="line">--export-dir /user/hive/warehouse/t_a/</span><br></pre></td></tr></table></figure>
+<h3 id="案例从MySQL数据库服务器中的emp表导入HDFS"><a href="#案例从MySQL数据库服务器中的emp表导入HDFS" class="headerlink" title="案例从MySQL数据库服务器中的emp表导入HDFS"></a>案例从MySQL数据库服务器中的emp表导入HDFS</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sqoop import   \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb  \</span><br><span class="line">--username root  \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table emp   \</span><br><span class="line">--m 1  </span><br><span class="line"></span><br><span class="line">sqoop import   --connect jdbc:mysql://master:3306/userdb  --username root --password 123456 --table emp   --m 1  </span><br><span class="line"></span><br><span class="line">##指定切分方式为|</span><br><span class="line">sqoop import   --connect jdbc:mysql://master:3306/userdb  --username root --password 123456 --table emp --fields-terminated-by &apos;|&apos;  --m 1</span><br><span class="line"></span><br><span class="line">#解释</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb  指定jdbc url </span><br><span class="line">--table emp 指定的表</span><br><span class="line">--split-by id --m 2指定分片的字段（如果用多个maptask就要指定字段，一个可以省略此操作）</span><br><span class="line">--fields-terminated-by &apos;,&apos;  指定使用逗号切分</span><br><span class="line">--target-dir 指定切分后收据存储在HDFS的位置，不指定默认位置在/user/root/表名</span><br><span class="line"></span><br><span class="line">#技巧</span><br><span class="line">常用sqoop import  --help 查方法</span><br><span class="line">##导入hive表</span><br><span class="line"></span><br><span class="line">###关键词--hive-import 不需要指定目录呢</span><br><span class="line">sqoop import   --connect jdbc:mysql://master:3306/userdb  --username root --password 123456 --table emp --hive-import --fields-terminated-by &apos;|&apos;  --m 1</span><br></pre></td></tr></table></figure>
+<h3 id="增量导入"><a href="#增量导入" class="headerlink" title="增量导入"></a>增量导入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">增量导入</span><br><span class="line"></span><br><span class="line">--名词解释：增量导入是仅导入新添加的表中的行的技术。</span><br><span class="line">sqoop支持两种增量MySql导入到hive的模式，</span><br><span class="line"> 	一种是append，即通过指定一个递增的列，比如：</span><br><span class="line">--incremental append  --check-column num_id --last-value 0 </span><br><span class="line">另种是可以根据时间戳，比如：</span><br><span class="line">--incremental lastmodified --check-column created --last-value &apos;2012-02-01 11:0:00&apos; </span><br><span class="line">就是只导入created 比&apos;2012-02-01 11:0:00&apos;更大的数据。</span><br><span class="line"></span><br><span class="line">--应用场景：一般指mysql数据库更新数据后 我们可以只将更新后的数据文件导入到hdfs中</span><br><span class="line">条件导入</span><br><span class="line"></span><br><span class="line">--incremental &lt;mode&gt;     incremental 英语意思：增加的 </span><br><span class="line">--check-column &lt;column name&gt;</span><br><span class="line">--last value &lt;last check column value&gt;  告诉上一次递增到哪一个值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sqoop import --connect jdbc:mysql://master:3306/userdb --username root --password 123456 --table emp --m 1 --incremental append --check-column id --last-value 1205 --target-dir  /user/hive/warehouse/emp</span><br></pre></td></tr></table></figure>
+<h3 id="mysql编码问题"><a href="#mysql编码问题" class="headerlink" title="mysql编码问题"></a>mysql编码问题</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">一、mysql中的编码</span><br><span class="line">mysql&gt; show variables like 'collation_%';  </span><br><span class="line">mysql&gt; show variables like 'character_set_%';</span><br><span class="line">  </span><br><span class="line">缺省是latin1编码，会导致中文乱码。</span><br><span class="line">修改库的编码：</span><br><span class="line">mysql&gt; alter database db_name character set utf8;</span><br><span class="line">修改表的编码：</span><br><span class="line">mysql&gt; ALTER TABLE table_name CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci; </span><br><span class="line"></span><br><span class="line">可以在mysql中设置编码，单个设置 </span><br><span class="line">mysql&gt; set character_set_connection=utf8;</span><br><span class="line">mysql&gt; set character_set_database=utf8;</span><br><span class="line">mysql&gt; set character_set_results=utf8;</span><br><span class="line">mysql&gt; set character_set_server=utf8;</span><br><span class="line">但重启后会失效。</span><br></pre></td></tr></table></figure>
+<p>可以修改配置文件：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@Hadoop48 ~]# vi /etc/my.cnf  </span><br><span class="line">[mysql]  </span><br><span class="line">default-character-set=gbk </span><br><span class="line">[client]  </span><br><span class="line">default-character-set=utf8  </span><br><span class="line">[mysqld]  </span><br><span class="line">default-character-set=utf8  </span><br><span class="line">character_set_server=utf8  </span><br><span class="line">init_connect='SET NAMES utf8' </span><br><span class="line">重启mysql，这样确保缺省编码是utf8</span><br></pre></td></tr></table></figure></p>
+<h3 id="从MySQL数据库服务器中的emp表导入HDFS"><a href="#从MySQL数据库服务器中的emp表导入HDFS" class="headerlink" title="从MySQL数据库服务器中的emp表导入HDFS"></a>从MySQL数据库服务器中的emp表导入HDFS</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">将日新用户维度表改为一级分区</span><br><span class="line"></span><br><span class="line">由于dim_user_new_day</span><br><span class="line">含有二级分区表，所以第一步将二级分区的不同需求合并到2019-03-21。</span><br><span class="line">sqoop解决不了二级分区的问题</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dim_user_new_day_1p(</span><br><span class="line">os_name <span class="keyword">string</span></span><br><span class="line">,city <span class="keyword">string</span></span><br><span class="line">,release_channel <span class="keyword">string</span></span><br><span class="line">,app_ver_name <span class="keyword">string</span></span><br><span class="line">,cnts <span class="built_in">int</span>,</span><br><span class="line">dt <span class="keyword">string</span></span><br><span class="line">) partitioned <span class="keyword">by</span> (<span class="keyword">day</span> <span class="keyword">string</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> dim_user_new_day_1p <span class="keyword">partition</span> (<span class="keyword">day</span>=<span class="string">'2019-03-21'</span>)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">os_name</span><br><span class="line">,city</span><br><span class="line">,release_channel</span><br><span class="line">,app_ver_name</span><br><span class="line">,cnts</span><br><span class="line">,<span class="keyword">day</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">dim_user_new_day</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">day</span>=<span class="string">'2019-03-21'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--TODO  -----</span></span><br><span class="line">将app数据仓库中的 日新用户维度统计报表：dim_user_new_day  导出到mysql的表中去</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 1 在mysql中建库建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> appdata;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dim_user_new_day(</span><br><span class="line">os_name <span class="built_in">varchar</span>(<span class="number">20</span>),city <span class="built_in">varchar</span>(<span class="number">20</span>),release_channel <span class="built_in">varchar</span>(<span class="number">20</span>),app_ver_name <span class="built_in">varchar</span>(<span class="number">20</span>),cnts <span class="built_in">int</span>,dt <span class="built_in">varchar</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">--注意：将库和表的编码集改成utf8,命令如下：</span></span><br><span class="line">修改库的编码：</span><br><span class="line">mysql&gt; alter data_name appdata character set utf8;</span><br><span class="line">mysql&gt; alter database appdata character set utf8;</span><br><span class="line">修改表的编码：</span><br><span class="line">mysql&gt; ALTER TABLE table_name CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci; </span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dim_user_new_day <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci; </span><br><span class="line"></span><br><span class="line">sqoop export  \</span><br><span class="line"><span class="comment">--connect "jdbc:mysql://master:3306/appdata?useUnicode=true&amp;characterEncoding=utf-8"  \</span></span><br><span class="line"><span class="comment">--username root --password 123456 \</span></span><br><span class="line"><span class="comment">--input-fields-terminated-by '\001'  \</span></span><br><span class="line"><span class="comment">--table dim_user_new_day \</span></span><br><span class="line"><span class="comment">--export-dir  /user/hive/warehouse/appdata.db/dim_user_new_day_1p/day=2019-03-21/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">shell开发</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2 用sqoop将hive中的 dim_user_new_day 中的指定日分区的数据导出到mysql 的dim_user_new_day</span></span><br><span class="line">#!/bin/bash</span><br><span class="line">day=`date -d '-1 day' +'%Y-%m-%d'`</span><br><span class="line"></span><br><span class="line">/root/apps/sqoop/bin/sqoop export \</span><br><span class="line"><span class="comment">--connect "jdbc:mysql://master:3306/app?useUnicode=true&amp;characterEncoding=utf-8" \</span></span><br><span class="line"><span class="comment">--username root \</span></span><br><span class="line"><span class="comment">--password 123456\</span></span><br><span class="line"><span class="comment">--input-fields-terminated-by '\001' \</span></span><br><span class="line"><span class="comment">--table dim_user_new_day \</span></span><br><span class="line"><span class="comment">--export-dir /user/hive/warehouse/app.db/dim_user_new_day_1p/day=$&#123;day&#125; /</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -268,7 +286,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
         		</li>
       		
 		</ul>
@@ -324,7 +342,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/21/Java/Java构造死锁/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/24/sqoop/sqoop基础使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,18 +356,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/07/22/Java/Volatile关键字/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/10/网站/docker下一键快速部署dvwa环境/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Volatile关键字
+          docker下一键快速部署dvwa环境
         
       </div>
     </a>
   
   
-    <a href="/2019/07/20/Java/Java集合Map小Demo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java集合Map小Demo</div>
+    <a href="/2019/03/18/Hive/hive求日活与日新并脚本化运行/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hive求日活与日新并脚本化运行</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -377,7 +395,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Java/Java构造死锁" data-title="Java构造死锁" data-url="http://yoursite.com/2019/07/21/Java/Java构造死锁/"></div>
+	<div class="ds-thread" data-thread-key="sqoop/sqoop基础使用" data-title="sqoop基础使用" data-url="http://yoursite.com/2019/03/24/sqoop/sqoop基础使用/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -400,8 +418,8 @@ var _hmt = _hmt || [];
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/07/21/Java/Java构造死锁/", 
-    sourceId: "Java/Java构造死锁",
+    url: "http://yoursite.com/2019/03/24/sqoop/sqoop基础使用/", 
+    sourceId: "sqoop/sqoop基础使用",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -410,7 +428,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Java/Java构造死锁" ></div> 
+  <div id="SOHUCS" sid="sqoop/sqoop基础使用" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
