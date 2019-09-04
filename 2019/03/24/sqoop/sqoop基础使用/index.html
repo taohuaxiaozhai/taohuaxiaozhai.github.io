@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>sqoop基础使用 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh#添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOOP_M">
+  <meta name="description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh   #添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOO">
 <meta name="keywords" content="hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqoop基础使用">
 <meta property="og:url" content="http://yoursite.com/2019/03/24/sqoop/sqoop基础使用/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh#添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOOP_M">
+<meta property="og:description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh   #添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOO">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-04T07:42:02.023Z">
+<meta property="og:updated_time" content="2019-09-04T07:52:50.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqoop基础使用">
-<meta name="twitter:description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh#添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOOP_M">
+<meta name="twitter:description" content="sqopp基础命令简单使用  sqoop安装配置文件 1.解压2.修改配置文件vim sqoop-env.sh   #添加hadoop家目录  #添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  #添加hive的家目录  #不需配置zookeeper的家目录  export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  export HADOO">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -213,8 +213,9 @@ var _hmt = _hmt || [];
 <p>sqopp基础命令简单使用</p>
 </blockquote>
 <h3 id="sqoop安装配置文件"><a href="#sqoop安装配置文件" class="headerlink" title="sqoop安装配置文件"></a>sqoop安装配置文件</h3><blockquote>
-<p>1.解压<br>2.修改配置文件<br><code>vim sqoop-env.sh</code><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#添加hadoop家目录  </span><br><span class="line">#添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  </span><br><span class="line">#添加hive的家目录  </span><br><span class="line">#不需配置zookeeper的家目录  </span><br><span class="line">export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  </span><br><span class="line">export HADOOP_MAPRED_HOME=/opt/hadoop-2.9.2  </span><br><span class="line">#export HBASE_HOME=  </span><br><span class="line">export HIVE_HOME=/opt/hive-1.2.1</span><br></pre></td></tr></table></figure></p>
+<p>1.解压<br>2.修改配置文件<br><code>vim sqoop-env.sh</code> </p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#添加hadoop家目录  </span><br><span class="line">#添加hbase家目录（hbase也有类sqoop的工具，此处不配置）  </span><br><span class="line">#添加hive的家目录  </span><br><span class="line">#不需配置zookeeper的家目录  </span><br><span class="line">export HADOOP_COMMON_HOME=/opt/hadoop-2.9.2  </span><br><span class="line">export HADOOP_MAPRED_HOME=/opt/hadoop-2.9.2  </span><br><span class="line">#export HBASE_HOME=  </span><br><span class="line">export HIVE_HOME=/opt/hive-1.2.1</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>3.测试数据库连接<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">列出mysql数据库中的所有数据库</span></span><br><span class="line">sqoop-list-databases --connect jdbc:mysql://localhost:3306 --username root --password 123456</span><br><span class="line"><span class="meta">#</span><span class="bash">显示mysql的数据库hive中的表</span></span><br><span class="line">sqoop-list-tables --connect jdbc:mysql://localhost:3306/hive --username root --password 123456</span><br><span class="line"><span class="meta">#</span><span class="bash">命令中的<span class="built_in">test</span>为mysql数据库中的<span class="built_in">test</span>数据库名称 username password分别为mysql数据库的用户密码</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="将mysql的表导入-hdfs"><a href="#将mysql的表导入-hdfs" class="headerlink" title="将mysql的表导入 hdfs"></a>将mysql的表导入 hdfs</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/userdb \</span><br><span class="line">--username root \</span><br><span class="line">--password root \</span><br><span class="line">--target-dir \</span><br><span class="line">/sqooptest \</span><br><span class="line">--fields-terminated-by ',' \</span><br><span class="line">--table emp \</span><br><span class="line">--split-by id \</span><br><span class="line">--m 2</span><br></pre></td></tr></table></figure>
@@ -559,18 +560,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -579,7 +568,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,10 +593,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
