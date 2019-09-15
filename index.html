@@ -189,6 +189,399 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据库/mysql优化之开启慢查询日志记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/">mysql优化之开启慢查询.md</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/" class="archive-article-date">
+  	<time datetime="2019-09-12T02:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h3 id="查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"><a href="#查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置" class="headerlink" title="查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"></a>查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%slow_query_log%'</span>;</span><br></pre></td></tr></table></figure>
+<p>什么是慢查询</p>
+<blockquote>
+<p>1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，<br>则会被记录到慢查询日志中。<br>2.具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。  long_query_time的默认值为10，意思是运行10秒以上的语句。<br>3.由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能收集超过5秒的sql，结合之前explain进行全面分析。<br></p></blockquote>
+        
+          <a class="article-more-a" href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库/索引查询优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/11/数据库/索引查询优化/">索引查询优化</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/11/数据库/索引查询优化/" class="archive-article-date">
+  	<time datetime="2019-09-11T02:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h3 id="一、关联查询优化"><a href="#一、关联查询优化" class="headerlink" title="一、关联查询优化"></a>一、关联查询优化</h3><h4 id="建表插入数据"><a href="#建表插入数据" class="headerlink" title="建表插入数据"></a>建表插入数据</h4>
+        
+          <a class="article-more-a" href="/2019/09/11/数据库/索引查询优化/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/11/数据库/索引查询优化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库/索引单表使用索引及常见索引失效案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/数据库/索引单表使用索引及常见索引失效案例/">索引单表使用索引及常见索引失效案例</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/10/数据库/索引单表使用索引及常见索引失效案例/" class="archive-article-date">
+  	<time datetime="2019-09-10T11:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="###">aparke’s blog</a>! </p>
+<p>单表使用索引及常见索引失效</p>
+<h3 id="案例-索引失效"><a href="#案例-索引失效" class="headerlink" title="案例(索引失效)"></a>案例(索引失效)</h3><h3 id="删除索引函数"><a href="#删除索引函数" class="headerlink" title="删除索引函数"></a>删除索引函数</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CALL</span> proc_drop_index(<span class="string">"learning"</span>,<span class="string">"emp"</span>)</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_age_deptid_name <span class="keyword">ON</span> emp(age,deptid,<span class="keyword">NAME</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="1-全职匹配我最爱-索引没有失效，正常按照顺序创建索引"><a href="#1-全职匹配我最爱-索引没有失效，正常按照顺序创建索引" class="headerlink" title="1.全职匹配我最爱 索引没有失效，正常按照顺序创建索引"></a>1.全职匹配我最爱 索引没有失效，正常按照顺序创建索引</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">SELECT</span> SQL_NO_CACHE * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.age=<span class="number">30</span>  </span><br><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">SELECT</span> SQL_NO_CACHE * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.age=<span class="number">30</span> <span class="keyword">AND</span> deptid=<span class="number">4</span></span><br><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">SELECT</span> SQL_NO_CACHE * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.age=<span class="number">30</span> <span class="keyword">AND</span> deptid=<span class="number">4</span> <span class="keyword">AND</span> emp.name = <span class="string">'abcd'</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/09/10/数据库/索引单表使用索引及常见索引失效案例/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/10/数据库/索引单表使用索引及常见索引失效案例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库/索引优化批量创建50w数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/数据库/索引优化批量创建50w数据/">索引优化批量创建50w数据</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/10/数据库/索引优化批量创建50w数据/" class="archive-article-date">
+  	<time datetime="2019-09-10T02:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<p>批量数据脚本</p>
+<h3 id="往表里插入50W数据"><a href="#往表里插入50W数据" class="headerlink" title="往表里插入50W数据"></a>往表里插入50W数据</h3><h4 id="1-建表"><a href="#1-建表" class="headerlink" title="1.建表"></a>1.建表</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`dept`</span> (</span><br><span class="line"> <span class="string">`id`</span> <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line"> <span class="string">`deptName`</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> <span class="string">`address`</span> <span class="built_in">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> ceo <span class="built_in">INT</span> <span class="literal">NULL</span> ,</span><br><span class="line"> PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">INNODB</span> AUTO_INCREMENT=<span class="number">1</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`emp`</span> (</span><br><span class="line"> <span class="string">`id`</span> <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line"> <span class="string">`empno`</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> ,</span><br><span class="line"> <span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> <span class="string">`age`</span> <span class="built_in">INT</span>(<span class="number">3</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> <span class="string">`deptId`</span> <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line"> #<span class="keyword">CONSTRAINT</span> <span class="string">`fk_dept_id`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`deptId`</span>) <span class="keyword">REFERENCES</span> <span class="string">`t_dept`</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">INNODB</span> AUTO_INCREMENT=<span class="number">1</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/09/10/数据库/索引优化批量创建50w数据/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/10/数据库/索引优化批量创建50w数据/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库/数据库索引简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/09/数据库/数据库索引简介/">数据库索引简介</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/09/数据库/数据库索引简介/" class="archive-article-date">
+  	<time datetime="2019-09-09T09:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
+<h3 id="索引是什么"><a href="#索引是什么" class="headerlink" title="索引是什么"></a>索引是什么</h3><blockquote>
+<p>1.MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取数据的数据结构。可以得到索引的本质：索引是数据结构。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">索引的目的在于提高查询效率，可以类比字典，</span><br><span class="line">如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下找到y字母，再找到剩下的sql。</span><br><span class="line">如果没有索引，那么你可能需要a----z，如果我想找到Java开头的单词呢？或者Oracle开头的单词呢？</span><br><span class="line">是不是觉得如果没有索引，这个事情根本无法完成？</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2019/09/09/数据库/数据库索引简介/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/09/数据库/数据库索引简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-大数据/MapReduce/MapReduce编程案例八" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -579,401 +972,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-大数据/MapReduce/MapReduce编程案例三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/19/大数据/MapReduce/MapReduce编程案例三/">MapReduce编程案例三</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/19/大数据/MapReduce/MapReduce编程案例三/" class="archive-article-date">
-  	<time datetime="2019-08-18T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a></p>
-<p>Mapreduce经典案例之全局TopN</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>统计求当日每个网站页面被访问次数最多的前几个</p>
-        
-          <a class="article-more-a" href="/2019/08/19/大数据/MapReduce/MapReduce编程案例三/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/19/大数据/MapReduce/MapReduce编程案例三/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大数据/MapReduce/MapReduce编程案例二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/18/大数据/MapReduce/MapReduce编程案例二/">MapReduce编程案例二</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/18/大数据/MapReduce/MapReduce编程案例二/" class="archive-article-date">
-  	<time datetime="2019-08-17T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a></p>
-<p>Mapreduce经典案例之Partitioner</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>统计不同归属地的用户上网流量</p>
-        
-          <a class="article-more-a" href="/2019/08/18/大数据/MapReduce/MapReduce编程案例二/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/18/大数据/MapReduce/MapReduce编程案例二/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大数据/MapReduce/MapReduce编程案例一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/大数据/MapReduce/MapReduce编程案例一/">MapReduce编程案例一</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/16/大数据/MapReduce/MapReduce编程案例一/" class="archive-article-date">
-  	<time datetime="2019-08-15T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a></p>
-<p>Mapreduce经典案例之GroupingComparator</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>用户在某个位置从某个时刻开始停留了多长时间  </p>
-<blockquote>
-<p><strong>现有如下数据文件需要处理</strong><br>格式：input.csv<br>字段：用户ID，位置ID，开始时间，停留时长(分钟）<br>4行样例：<br>UserA,LocationA,2018-01-01 08:00:00,60<br>UserA,LocationA,2018-01-01 09:00:00,60<br>UserA,LocationB,2018-01-01 10:00:00,60<br>UserA,LocationA,2018-01-01 11:00:00,60</p></blockquote>
-        
-          <a class="article-more-a" href="/2019/08/16/大数据/MapReduce/MapReduce编程案例一/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/16/大数据/MapReduce/MapReduce编程案例一/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大数据/MapReduce/通过MultipleOutputs写到多个文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/13/大数据/MapReduce/通过MultipleOutputs写到多个文件/">通过MultipleOutputs写到多个文件</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/13/大数据/MapReduce/通过MultipleOutputs写到多个文件/" class="archive-article-date">
-  	<time datetime="2019-08-13T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h2 id="通过MultipleOutputs写到多个文件"><a href="#通过MultipleOutputs写到多个文件" class="headerlink" title="通过MultipleOutputs写到多个文件"></a>通过MultipleOutputs写到多个文件</h2><blockquote>
-<p>MultipleOutputs 类可以将数据写到多个文件，这些文件的名称源于输出的键和值或者任意字符串。这允许每个 reducer（或者只有 map 作业的 mapper）创建多个文件。<br>采用name-m-nnnnn 形式的文件名用于 map 输出，name-r-nnnnn 形式的文件名用于 reduce 输出，其中 name 是由程序设定的任意名字， nnnnn 是一个指明块号的整数（从 0 开始）。<br>块号保证从不同块（mapper 或 reducer）输出在相同名字情况下不会冲突<br></p></blockquote>
-        
-          <a class="article-more-a" href="/2019/08/13/大数据/MapReduce/通过MultipleOutputs写到多个文件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/13/大数据/MapReduce/通过MultipleOutputs写到多个文件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大数据/使用Hadoop-Stream实现wordCount" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">使用Hadoop-Stream实现wordCount</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/" class="archive-article-date">
-  	<time datetime="2019-07-23T01:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="">aparke’s blog</a>! </p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
-<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer，例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p>
-</blockquote>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>Hadoop Streaming是Hadoop提供的一个编程工具，它允许用户使用任何可执行文件或者脚本作为Mapper和Reducer。<br>Hadoop Streaming是利用“标准输入”和“标准输出”与我们编写的Map和Reduce进行数据的交换。<br>那么，任何能够使用“标准输入”和“标准输出”的编程语言都应该可以用来编写MapReduce程序。<br>例如： 采用shell脚本语言中的一些命令作为mapper和reducer（cat作为mapper，wc作为reduce）</p></blockquote>
-        
-          <a class="article-more-a" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/大数据/使用Hadoop-Stream实现wordCount/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1092,7 +1090,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1108,7 +1110,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1121,14 +1127,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">网站,Linux,docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
