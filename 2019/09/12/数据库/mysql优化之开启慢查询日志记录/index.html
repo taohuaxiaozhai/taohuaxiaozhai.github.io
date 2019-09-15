@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>mysql优化之开启慢查询.md | aparke&#39;s blog</title>
+  <title>mysql优化之开启慢查询 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to aparke’s blog!  查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置SHOW VARIABLES LIKE &apos;%slow_query_log%&apos;; 什么是慢查询  1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日">
+  <meta name="description" content="Welcome to aparke’s blog!  一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置SHOW VARIABLES LIKE &apos;%slow_query_log%&apos;; 什么是慢查询  1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查">
 <meta name="keywords" content="sql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql优化之开启慢查询.md">
+<meta property="og:title" content="mysql优化之开启慢查询">
 <meta property="og:url" content="http://yoursite.com/2019/09/12/数据库/mysql优化之开启慢查询日志记录/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="Welcome to aparke’s blog!  查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置SHOW VARIABLES LIKE &apos;%slow_query_log%&apos;; 什么是慢查询  1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日">
+<meta property="og:description" content="Welcome to aparke’s blog!  一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置SHOW VARIABLES LIKE &apos;%slow_query_log%&apos;; 什么是慢查询  1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-15T13:00:33.330Z">
+<meta property="og:updated_time" content="2019-09-15T13:08:36.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql优化之开启慢查询.md">
-<meta name="twitter:description" content="Welcome to aparke’s blog!  查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置SHOW VARIABLES LIKE &apos;%slow_query_log%&apos;; 什么是慢查询  1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日">
+<meta name="twitter:title" content="mysql优化之开启慢查询">
+<meta name="twitter:description" content="Welcome to aparke’s blog!  一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置SHOW VARIABLES LIKE &apos;%slow_query_log%&apos;; 什么是慢查询  1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      mysql优化之开启慢查询.md
+      mysql优化之开启慢查询
     </h1>
   
 
@@ -210,18 +210,22 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h3 id="查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"><a href="#查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置" class="headerlink" title="查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"></a>查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%slow_query_log%'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"><a href="#一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置" class="headerlink" title="一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"></a>一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%slow_query_log%'</span>;</span><br></pre></td></tr></table></figure>
 <p>什么是慢查询</p>
 <blockquote>
-<p>1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，<br>则会被记录到慢查询日志中。<br>2.具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。  long_query_time的默认值为10，意思是运行10秒以上的语句。<br>3.由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能收集超过5秒的sql，结合之前explain进行全面分析。<br><a id="more"></a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>默认情况下，MySQL数据库没有开启慢查询日志，需要我们手动来设置这个参数。<br>当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。<br>慢查询日志支持将日志记录写入文件<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查询开启慢查询后，默认记录到日志中的类型默认时间为10秒</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%long_query_time%'</span>;</span><br><span class="line"># 开启慢查询 重启失效</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> slow_query_log=<span class="number">0.1</span>;</span><br><span class="line">#测试</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp;</span><br><span class="line">#查看日志为0</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">STATUS</span> <span class="keyword">LIKE</span> <span class="string">'%Slow_queries%'</span>;</span><br><span class="line">#设置慢查询的阈值为0.1秒 测试用 重启失效</span><br><span class="line"><span class="keyword">SET</span>  long_query_time=<span class="number">0.1</span></span><br><span class="line">#查看日志为<span class="number">1</span>条</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">STATUS</span> <span class="keyword">LIKE</span> <span class="string">'%Slow_queries%'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，<br>则会被记录到慢查询日志中。<br>2.具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。  long_query_time的默认值为10，意思是运行10秒以上的语句。<br>3.由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能收集超过5秒的sql，结合之前explain进行全面分析。  </p>
 </blockquote>
-<h3 id="永久设置生效"><a href="#永久设置生效" class="headerlink" title="永久设置生效"></a>永久设置生效</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">my.cnf</span><br><span class="line">【mysqld】下配置：</span><br><span class="line">sow_query_log=1;</span><br><span class="line">slow_query_log_file=/var/lib/mysql/hostname-slow.log</span><br><span class="line">long_query_time=3;</span><br><span class="line">log_output=FILE</span><br><span class="line"></span><br><span class="line">如果要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）</span><br><span class="line">修改my.cnf文件，[mysqld]下增加或修改参数</span><br><span class="line">slow_query_log 和slow_query_log_file后，然后重启MySQL服务器。也即将如下两行配置</span><br><span class="line"></span><br><span class="line">进my.cnf文件</span><br><span class="line">slow_query_log =1</span><br><span class="line">slow_query_log_file=/var/lib/mysql/aparke-slow.log</span><br><span class="line">关于慢查询的参数slow_query_log_file ，它指定慢查询日志文件的存放路径，系统默认会给一个缺省的文件host_name-slow.log（如果没有指定参数slow_query_log_file的话）</span><br></pre></td></tr></table></figure>
-<h3 id="日志分析工具mysqldumpslow"><a href="#日志分析工具mysqldumpslow" class="headerlink" title="日志分析工具mysqldumpslow"></a>日志分析工具mysqldumpslow</h3><blockquote>
-<p>在生产环境中，如果要手工分析日志，查找、分析SQL，显然是个体力活，MySQL提供了日志分析工具mysqldumpslow。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysqldumpslow --<span class="built_in">help</span> 使用</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="二、说明"><a href="#二、说明" class="headerlink" title="二、说明"></a>二、说明</h3><blockquote>
+<p>默认情况下，MySQL数据库没有开启慢查询日志，需要我们手动来设置这个参数。<br>当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。<br>慢查询日志支持将日志记录写入文件<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查询开启慢查询后，默认记录到日志中的类型默认时间为10秒</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%long_query_time%'</span>;</span><br><span class="line"># 开启慢查询 重启失效</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> slow_query_log=<span class="number">0.1</span>;</span><br><span class="line">#测试</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp;</span><br><span class="line">#查看日志为0</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">STATUS</span> <span class="keyword">LIKE</span> <span class="string">'%Slow_queries%'</span>;</span><br><span class="line">#设置慢查询的阈值为0.1秒 测试用 重启失效</span><br><span class="line"><span class="keyword">SET</span>  long_query_time=<span class="number">0.1</span></span><br><span class="line">#查看日志为<span class="number">1</span>条</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">GLOBAL</span> <span class="keyword">STATUS</span> <span class="keyword">LIKE</span> <span class="string">'%Slow_queries%'</span>;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">得到返回记录集最多的10个SQL</span><br><span class="line">mysqldumpslow -s r -t 10 /var/lib/mysql/aparke-slow.log</span><br><span class="line"> </span><br><span class="line">得到访问次数最多的10个SQL</span><br><span class="line">mysqldumpslow -s c -t 10 /var/lib/mysql/aparke-slow.log</span><br><span class="line"> </span><br><span class="line">得到按照时间排序的前10条里面含有左连接的查询语句</span><br><span class="line">mysqldumpslow -s t -t 10 -g "left join" /var/lib/mysql/aparke-slow.log</span><br><span class="line"> </span><br><span class="line">另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现爆屏情况</span><br><span class="line">mysqldumpslow -s r -t 10 /var/lib/mysql/aparke-slow.log | more</span><br></pre></td></tr></table></figure>
-<h3 id="SHOW-PROCESSLIST"><a href="#SHOW-PROCESSLIST" class="headerlink" title="SHOW PROCESSLIST"></a>SHOW PROCESSLIST</h3><h4 id="能干什么：查询所有用户正在干什么"><a href="#能干什么：查询所有用户正在干什么" class="headerlink" title="能干什么：查询所有用户正在干什么"></a>能干什么：查询所有用户正在干什么</h4><h4 id="如果出现不顺眼的"><a href="#如果出现不顺眼的" class="headerlink" title="如果出现不顺眼的"></a>如果出现不顺眼的</h4><h4 id="kill-id"><a href="#kill-id" class="headerlink" title="kill [id]"></a>kill [id]</h4>
+<h3 id="三、永久设置生效"><a href="#三、永久设置生效" class="headerlink" title="三、永久设置生效"></a>三、永久设置生效</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">my.cnf</span><br><span class="line">【mysqld】下配置：</span><br><span class="line">sow_query_log=1;</span><br><span class="line">slow_query_log_file=/var/lib/mysql/hostname-slow.log</span><br><span class="line">long_query_time=3;</span><br><span class="line">log_output=FILE</span><br><span class="line"></span><br><span class="line">如果要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）</span><br><span class="line">修改my.cnf文件，[mysqld]下增加或修改参数</span><br><span class="line">slow_query_log 和slow_query_log_file后，然后重启MySQL服务器。也即将如下两行配置</span><br><span class="line"></span><br><span class="line">进my.cnf文件</span><br><span class="line">slow_query_log =1</span><br><span class="line">slow_query_log_file=/var/lib/mysql/aparke-slow.log</span><br><span class="line">关于慢查询的参数slow_query_log_file ，它指定慢查询日志文件的存放路径，系统默认会给一个缺省的文件host_name-slow.log（如果没有指定参数slow_query_log_file的话）</span><br></pre></td></tr></table></figure>
+<h3 id="四、日志分析工具mysqldumpslow"><a href="#四、日志分析工具mysqldumpslow" class="headerlink" title="四、日志分析工具mysqldumpslow"></a>四、日志分析工具mysqldumpslow</h3><blockquote>
+<p>在生产环境中，如果要手工分析日志，查找、分析SQL，显然是个体力活，MySQL提供了日志分析工具mysqldumpslow。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysqldumpslow --<span class="built_in">help</span> 使用</span><br></pre></td></tr></table></figure>
+<h4 id="工作种常用"><a href="#工作种常用" class="headerlink" title="工作种常用"></a>工作种常用</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">得到返回记录集最多的10个SQL</span><br><span class="line">mysqldumpslow -s r -t 10 /var/lib/mysql/aparke-slow.log</span><br><span class="line"> </span><br><span class="line">得到访问次数最多的10个SQL</span><br><span class="line">mysqldumpslow -s c -t 10 /var/lib/mysql/aparke-slow.log</span><br><span class="line"> </span><br><span class="line">得到按照时间排序的前10条里面含有左连接的查询语句</span><br><span class="line">mysqldumpslow -s t -t 10 -g "left join" /var/lib/mysql/aparke-slow.log</span><br><span class="line"> </span><br><span class="line">另外建议在使用这些命令时结合 | 和more 使用 ，否则有可能出现爆屏情况</span><br><span class="line">mysqldumpslow -s r -t 10 /var/lib/mysql/aparke-slow.log | more</span><br></pre></td></tr></table></figure>
+<h3 id="五、SHOW-PROCESSLIST命令"><a href="#五、SHOW-PROCESSLIST命令" class="headerlink" title="五、SHOW PROCESSLIST命令"></a>五、SHOW PROCESSLIST命令</h3><h4 id="能干什么：查询所有用户正在干什么"><a href="#能干什么：查询所有用户正在干什么" class="headerlink" title="能干什么：查询所有用户正在干什么"></a>能干什么：查询所有用户正在干什么</h4><h4 id="如果出现不顺眼的"><a href="#如果出现不顺眼的" class="headerlink" title="如果出现不顺眼的"></a>如果出现不顺眼的</h4><h4 id="kill-id"><a href="#kill-id" class="headerlink" title="kill [id]"></a>kill [id]</h4>
       
 
       
@@ -365,7 +369,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="数据库/mysql优化之开启慢查询日志记录" data-title="mysql优化之开启慢查询.md" data-url="http://yoursite.com/2019/09/12/数据库/mysql优化之开启慢查询日志记录/"></div>
+	<div class="ds-thread" data-thread-key="数据库/mysql优化之开启慢查询日志记录" data-title="mysql优化之开启慢查询" data-url="http://yoursite.com/2019/09/12/数据库/mysql优化之开启慢查询日志记录/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -525,6 +529,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -545,15 +553,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

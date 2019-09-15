@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/">mysql优化之开启慢查询.md</a>
+      <a class="article-title" href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/">mysql优化之开启慢查询</a>
     </h1>
   
 
@@ -210,10 +210,11 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
-<h3 id="查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"><a href="#查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置" class="headerlink" title="查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"></a>查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%slow_query_log%'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"><a href="#一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置" class="headerlink" title="一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置"></a>一、查看慢查询日志记录是否开启，默认为OFF，以及保存日志的目录位置</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%slow_query_log%'</span>;</span><br></pre></td></tr></table></figure>
 <p>什么是慢查询</p>
 <blockquote>
-<p>1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，<br>则会被记录到慢查询日志中。<br>2.具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。  long_query_time的默认值为10，意思是运行10秒以上的语句。<br>3.由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能收集超过5秒的sql，结合之前explain进行全面分析。<br></p></blockquote>
+<p>1.MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的SQL，<br>则会被记录到慢查询日志中。<br>2.具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。  long_query_time的默认值为10，意思是运行10秒以上的语句。<br>3.由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能收集超过5秒的sql，结合之前explain进行全面分析。  </p>
+</blockquote>
         
           <a class="article-more-a" href="/2019/09/12/数据库/mysql优化之开启慢查询日志记录/#more">more >></a>
         
@@ -1090,6 +1091,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -1110,15 +1115,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
