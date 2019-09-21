@@ -683,7 +683,7 @@ var _hmt = _hmt || [];
         <p>Welcome to <a href="#">aparke’s blog</a>! </p>
 <h2 id="分组-TopN-问题"><a href="#分组-TopN-问题" class="headerlink" title="分组 TopN 问题"></a>分组 TopN 问题</h2><p>实现每个班级成绩前两名的学生信息</p>
 <blockquote>
-<p>在mysqlL的最新版本mysql8已经支持了排名函数RANK，DENSE_RANK和ROW_NUMBER。但是在就得版本中还不支持这些函数，只能自己实现。实现方法主要用到了条件判断语句（CASE WHEN或IF）和添加临时变量。<br>区别RANK，DENSE_RANK和ROW_NUMBER<br>RANK并列跳跃排名，并列即相同的值，相同的值保留重复名次，遇到下一个不同值时，跳跃到总共的排名。<br>DENSE_RANK并列连续排序，并列即相同的值，相同的值保留重复名次，遇到下一个不同值时，依然按照连续数字排名。<br>ROW_NUMBER连续排名，即使相同的值，依旧按照连续数字进行排名。</p>
+<p>在mysql的最新版本mysql8已经支持了排名函数RANK，DENSE_RANK和ROW_NUMBER。但是在就得版本中还不支持这些函数，只能自己实现。实现方法主要用到了条件判断语句（CASE WHEN或IF）和添加临时变量。<br>区别RANK，DENSE_RANK和ROW_NUMBER<br>RANK并列跳跃排名，并列即相同的值，相同的值保留重复名次，遇到下一个不同值时，跳跃到总共的排名。<br>DENSE_RANK并列连续排序，并列即相同的值，相同的值保留重复名次，遇到下一个不同值时，依然按照连续数字排名。<br>ROW_NUMBER连续排名，即使相同的值，依旧按照连续数字进行排名。</p>
 <p>这些函数再hive中都有实现 hive的窗口分析函数<br></p></blockquote>
         
           <a class="article-more-a" href="/2019/09/07/数据库/mysql实现求分组topn/#more">more >></a>
@@ -1092,18 +1092,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
@@ -1116,11 +1104,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
