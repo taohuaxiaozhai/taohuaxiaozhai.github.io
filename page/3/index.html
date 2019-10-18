@@ -189,6 +189,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java/Volatile关键字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/22/Java/Volatile关键字/">Volatile关键字</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/22/Java/Volatile关键字/" class="archive-article-date">
+  	<time datetime="2019-07-21T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="#">aparke’s blog</a></p>
+<h3 id="验证volatile关键字-可见性-、原子性"><a href="#验证volatile关键字-可见性-、原子性" class="headerlink" title="验证volatile关键字 可见性 、原子性"></a>验证volatile关键字 可见性 、原子性</h3><p><strong>1.volatile 关键字</strong><br>volatile是Java虚拟机提供的轻量级的同步机制<br>主要有三大特性：</p>
+<ul>
+<li>1.1保证可见性：是指线程之间的可见性，一个线程修改的状态对另一个线程是可见的</li>
+<li>1.2不保证原子性：原子是世界上的最小单位，具有不可分割性</li>
+<li>1.3有序性禁止指令重排：<br><strong>2.JMM之内存模型可见性</strong><br>JMM(Java内存模型 Java Memory Mode,简称JMM)<br>本身是一种抽象的概念并不真实存在,它描述的是一组规则或规范,通过这组规范定义了程序中各个变量(包括实例字段,<br>静态字段和构成数组对象的元素)的访问方式。<br><strong>3.JMM关于同步的规定:</strong></li></ul>
+        
+          <a class="article-more-a" href="/2019/07/22/Java/Volatile关键字/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/22/Java/Volatile关键字/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java/Java构造死锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -666,88 +747,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Java/Java实现稀疏数组的转变与恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/">Java实现稀疏数组的转变与恢复</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/" class="archive-article-date">
-  	<time datetime="2019-07-17T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="#">aparke’s blog</a></p>
-<h3 id="稀疏数组描述"><a href="#稀疏数组描述" class="headerlink" title="稀疏数组描述"></a>稀疏数组描述</h3><p>当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p>
-<p>稀疏数组的处理方法是:   </p>
-<pre><code>* 记录数组一共有几行几列，有多少个不同的值  
-* 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  
-</code></pre><p>见代码注释帮助理解  </p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
-        
-          <a class="article-more-a" href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Java/Java中方法的传递机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -911,20 +910,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Java/Java中的局部变量与成员变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java/Java实现稀疏数组的转变与恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/Java/Java中的局部变量与成员变量/">Java中的局部变量与成员变量的区别</a>
+      <a class="article-title" href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/">Java实现稀疏数组的转变与恢复</a>
     </h1>
   
 
         
-        <a href="/2019/07/17/Java/Java中的局部变量与成员变量/" class="archive-article-date">
-  	<time datetime="2019-07-16T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+        <a href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/" class="archive-article-date">
+  	<time datetime="2019-07-17T18:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
 </a>
         
       </header>
@@ -932,17 +931,14 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="#">aparke’s blog</a></p>
-<h3 id="局部变量与成员变量的区别："><a href="#局部变量与成员变量的区别：" class="headerlink" title="局部变量与成员变量的区别："></a>局部变量与成员变量的区别：</h3><ul>
-<li>1.声明的位置<ul>
-<li>1）局部变量在方法体{}中，形参，代码块中</li>
-<li>2）成员变量在 类中方法外 类变量有static修饰 实例变量没有static修饰  都属于成员变量</li>
-</ul>
-</li>
-<li>2.修饰符<ul>
-<li>局部变量 final</li>
-<li>成员变量 public protected private final static volatile transient</li></ul></li></ul>
+<h3 id="稀疏数组描述"><a href="#稀疏数组描述" class="headerlink" title="稀疏数组描述"></a>稀疏数组描述</h3><p>当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p>
+<p>稀疏数组的处理方法是:   </p>
+<pre><code>* 记录数组一共有几行几列，有多少个不同的值  
+* 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  
+</code></pre><p>见代码注释帮助理解  </p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
         
-          <a class="article-more-a" href="/2019/07/17/Java/Java中的局部变量与成员变量/#more">more >></a>
+          <a class="article-more-a" href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/#more">more >></a>
         
       
 
@@ -966,7 +962,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/Java/Java中的局部变量与成员变量/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/18/Java/Java实现稀疏数组的转变与恢复/">展开全文 >></a>
         </p>
       
 
@@ -1126,6 +1122,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -1134,15 +1134,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,6 +1143,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网站,Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
