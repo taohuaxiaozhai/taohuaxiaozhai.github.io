@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>sqoop高级使用 | aparke&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第1章 Sqoop简介Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如： MySQL ,Oracle,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。 Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来">
+  <meta name="description" content="第1章 Sqoop简介Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如：MySQL ,Oracle,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了">
 <meta name="keywords" content="sqoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqoop高级使用">
 <meta property="og:url" content="http://yoursite.com/2019/11/13/sqoop/sqoop高级使用/index.html">
 <meta property="og:site_name" content="aparke&#39;s blog">
-<meta property="og:description" content="第1章 Sqoop简介Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如： MySQL ,Oracle,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。 Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来">
+<meta property="og:description" content="第1章 Sqoop简介Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如：MySQL ,Oracle,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-13T07:14:54.267Z">
+<meta property="og:updated_time" content="2019-11-13T07:41:32.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqoop高级使用">
-<meta name="twitter:description" content="第1章 Sqoop简介Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如： MySQL ,Oracle,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。 Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来">
+<meta name="twitter:description" content="第1章 Sqoop简介Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如：MySQL ,Oracle,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了">
   
     <link rel="alternative" href="/atom.xml" title="aparke&#39;s blog" type="application/atom+xml">
   
@@ -209,9 +209,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第1章-Sqoop简介"><a href="#第1章-Sqoop简介" class="headerlink" title="第1章 Sqoop简介"></a>第1章 Sqoop简介</h1><p>Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如<br>： MySQL ,Oracle<br>,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</p>
-<p>Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了让使用者能够快速部署，也为了让开发人员能够更快速的迭代开发，Sqoop独立成为一个<a href="https://baike.baidu.com/item/Apache/6265" target="_blank" rel="noopener">Apache</a>项目。<a id="more"></a></p>
-<p>Sqoop2的最新版本是1.99.7。请注意，2与1不兼容，且特征不完整，它并不打算用于生产部署。</p>
+        <h1 id="第1章-Sqoop简介"><a href="#第1章-Sqoop简介" class="headerlink" title="第1章 Sqoop简介"></a>第1章 Sqoop简介</h1><p>Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如：MySQL ,Oracle<br>,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。<br>Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了让使用者能够快速部署，也为了让开发人员能够更快速的迭代开发，Sqoop独立成为一个<a href="https://baike.baidu.com/item/Apache/6265" target="_blank" rel="noopener">Apache</a>项目。<br>Sqoop2的最新版本是1.99.7。请注意，2与1不兼容，且特征不完整，它并不打算用于生产部署。<a id="more"></a></p>
 <h1 id="第2章-Sqoop原理"><a href="#第2章-Sqoop原理" class="headerlink" title="第2章 Sqoop原理"></a>第2章 Sqoop原理</h1><p>将导入或导出命令翻译成mapreduce程序来实现。</p>
 <p>在翻译出的mapreduce中主要是对inputformat和outputformat进行定制。</p>
 <h1 id="第3章-Sqoop安装"><a href="#第3章-Sqoop安装" class="headerlink" title="第3章 Sqoop安装"></a>第3章 Sqoop安装</h1><p>安装Sqoop的前提是已经具备Java和Hadoop的环境。</p>
@@ -247,20 +245,20 @@ var _hmt = _hmt || [];
 <p>2) 在Mysql中新建一张表并插入一些数据</p>
 <p>\$ mysql -uroot -p123456<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">mysql\&gt; create database company;</span><br><span class="line"></span><br><span class="line">mysql\&gt; create table company.staff(id int(4) primary key not null</span><br><span class="line">auto_increment, name varchar(255), sex varchar(255));</span><br><span class="line"></span><br><span class="line">mysql\&gt; insert into company.staff(name, sex) values('Thomas', 'Male');</span><br><span class="line"></span><br><span class="line">mysql\&gt; insert into company.staff(name, sex) values('Catalina', 'FeMale');</span><br></pre></td></tr></table></figure></p>
 <p>3) 导入数据</p>
-<p><strong>（1）全部导入</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--table staff \\</span><br><span class="line"></span><br><span class="line">\--target-dir /user/company \\</span><br><span class="line"></span><br><span class="line">\--delete-target-dir \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--fields-terminated-by "\\t"</span><br></pre></td></tr></table></figure></p>
-<p><strong>（2）查询导入</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--target-dir /user/company \\</span><br><span class="line"></span><br><span class="line">\--delete-target-dir \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--fields-terminated-by "\\t" \\</span><br><span class="line"></span><br><span class="line">\--query 'select name,sex from staff where id \&lt;=1 and \$CONDITIONS;'</span><br><span class="line"></span><br><span class="line">提示：must contain '\$CONDITIONS' in WHERE clause.</span><br><span class="line"></span><br><span class="line">如果query后使用的是双引号，则\$CONDITIONS前必须加转移符，防止shell识别为自己的变量。</span><br></pre></td></tr></table></figure></p>
-<p><strong>（3）导入指定列</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--target-dir /user/company \\</span><br><span class="line"></span><br><span class="line">\--delete-target-dir \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--fields-terminated-by "\\t" \\</span><br><span class="line"></span><br><span class="line">\--columns id,sex \\</span><br><span class="line"></span><br><span class="line">\--table staff</span><br><span class="line"></span><br><span class="line">提示：columns中如果涉及到多列，用逗号分隔，分隔时不要添加空格</span><br></pre></td></tr></table></figure></p>
-<p><strong>（4）使用sqoop关键字筛选查询导入数据</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--target-dir /user/company \\</span><br><span class="line"></span><br><span class="line">\--delete-target-dir \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--fields-terminated-by "\\t" \\</span><br><span class="line"></span><br><span class="line">\--table staff \\</span><br><span class="line"></span><br><span class="line">\--where "id=1"</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-1-2-RDBMS到Hive"><a href="#4-1-2-RDBMS到Hive" class="headerlink" title="4.1.2 RDBMS到Hive"></a>4.1.2 RDBMS到Hive</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--table staff \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--hive-import \\</span><br><span class="line"></span><br><span class="line">\--fields-terminated-by "\\t" \\</span><br><span class="line"></span><br><span class="line">\--hive-overwrite \\</span><br><span class="line"></span><br><span class="line">\--hive-table staff_hive</span><br><span class="line"></span><br><span class="line">提示：该过程分为两步，第一步将数据导入到HDFS，第二步将导入到HDFS的数据迁移到Hive仓库，第一步默认的临时目录是/user/atguigu/表名</span><br></pre></td></tr></table></figure>
-<h3 id="4-1-3-RDBMS到Hbase"><a href="#4-1-3-RDBMS到Hbase" class="headerlink" title="4.1.3 RDBMS到Hbase"></a>4.1.3 RDBMS到Hbase</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--table company \\</span><br><span class="line"></span><br><span class="line">\--columns "id,name,sex" \\</span><br><span class="line"></span><br><span class="line">\--column-family "info" \\</span><br><span class="line"></span><br><span class="line">\--hbase-create-table \\</span><br><span class="line"></span><br><span class="line">\--hbase-row-key "id" \\</span><br><span class="line"></span><br><span class="line">\--hbase-table "hbase_company" \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--split-by id</span><br><span class="line"></span><br><span class="line">提示：sqoop1.4.6只支持HBase1.0.1之前的版本的自动创建HBase表的功能</span><br><span class="line"></span><br><span class="line">解决方案：手动创建HBase表</span><br><span class="line"></span><br><span class="line">hbase\&gt; create 'hbase_company,'info'</span><br></pre></td></tr></table></figure>
+<p><strong>（1）全部导入</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--table staff \</span><br><span class="line"></span><br><span class="line">--target-dir /user/company \</span><br><span class="line"></span><br><span class="line">--delete-target-dir \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--fields-terminated-by "\t"</span><br></pre></td></tr></table></figure></p>
+<p><strong>（2）查询导入</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--target-dir /user/company \</span><br><span class="line"></span><br><span class="line">--delete-target-dir \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--fields-terminated-by "\t" \</span><br><span class="line"></span><br><span class="line">--query 'select name,sex from staff where id \&lt;=1 and \$CONDITIONS;'</span><br><span class="line"></span><br><span class="line">提示：must contain '\$CONDITIONS' in WHERE clause.</span><br><span class="line"></span><br><span class="line">如果query后使用的是双引号，则\$CONDITIONS前必须加转移符，防止shell识别为自己的变量。</span><br></pre></td></tr></table></figure></p>
+<p><strong>（3）导入指定列</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--target-dir /user/company \</span><br><span class="line"></span><br><span class="line">--delete-target-dir \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--fields-terminated-by "\t" \</span><br><span class="line"></span><br><span class="line">--columns id,sex \</span><br><span class="line"></span><br><span class="line">--table staff</span><br><span class="line"></span><br><span class="line">提示：columns中如果涉及到多列，用逗号分隔，分隔时不要添加空格</span><br></pre></td></tr></table></figure></p>
+<p><strong>（4）使用sqoop关键字筛选查询导入数据</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--target-dir /user/company \</span><br><span class="line"></span><br><span class="line">--delete-target-dir \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--fields-terminated-by "\t" \</span><br><span class="line"></span><br><span class="line">--table staff \</span><br><span class="line"></span><br><span class="line">--where "id=1"</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-1-2-RDBMS到Hive"><a href="#4-1-2-RDBMS到Hive" class="headerlink" title="4.1.2 RDBMS到Hive"></a>4.1.2 RDBMS到Hive</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--table staff \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--hive-import \</span><br><span class="line"></span><br><span class="line">--fields-terminated-by "\t" \</span><br><span class="line"></span><br><span class="line">--hive-overwrite \</span><br><span class="line"></span><br><span class="line">--hive-table staff_hive</span><br><span class="line"></span><br><span class="line">提示：该过程分为两步，第一步将数据导入到HDFS，第二步将导入到HDFS的数据迁移到Hive仓库，第一步默认的临时目录是/user/atguigu/表名</span><br></pre></td></tr></table></figure>
+<h3 id="4-1-3-RDBMS到Hbase"><a href="#4-1-3-RDBMS到Hbase" class="headerlink" title="4.1.3 RDBMS到Hbase"></a>4.1.3 RDBMS到Hbase</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--table company \</span><br><span class="line"></span><br><span class="line">--columns "id,name,sex" \</span><br><span class="line"></span><br><span class="line">--column-family "info" \</span><br><span class="line"></span><br><span class="line">--hbase-create-table \</span><br><span class="line"></span><br><span class="line">--hbase-row-key "id" \</span><br><span class="line"></span><br><span class="line">--hbase-table "hbase_company" \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--split-by id</span><br><span class="line"></span><br><span class="line">提示：sqoop1.4.6只支持HBase1.0.1之前的版本的自动创建HBase表的功能</span><br><span class="line"></span><br><span class="line">解决方案：手动创建HBase表</span><br><span class="line"></span><br><span class="line">hbase\&gt; create 'hbase_company,'info'</span><br></pre></td></tr></table></figure>
 <p><strong>(5) 在HBase中scan这张表得到如下内容</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hbase\&gt; scan ‘hbase_company’</span><br></pre></td></tr></table></figure></p>
 <h2 id="4-2、导出数据"><a href="#4-2、导出数据" class="headerlink" title="4.2、导出数据"></a>4.2、导出数据</h2><p>在Sqoop中，“导出”概念指：从大数据集群（HDFS，HIVE，HBASE）向非大数据集群（RDBMS）中传输数据，叫做：导出，即使用export关键字。</p>
-<h3 id="4-2-1-HIVE-HDFS到RDBMS"><a href="#4-2-1-HIVE-HDFS到RDBMS" class="headerlink" title="4.2.1 HIVE/HDFS到RDBMS"></a>4.2.1 HIVE/HDFS到RDBMS</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop export \\</span><br><span class="line"></span><br><span class="line">\--connect jdbc:mysql://master:3306/company \\</span><br><span class="line"></span><br><span class="line">\--username root \\</span><br><span class="line"></span><br><span class="line">\--password 123456 \\</span><br><span class="line"></span><br><span class="line">\--table staff \\</span><br><span class="line"></span><br><span class="line">\--num-mappers 1 \\</span><br><span class="line"></span><br><span class="line">\--export-dir /user/hive/warehouse/staff_hive \\</span><br><span class="line"></span><br><span class="line">\--input-fields-terminated-by "\\t"</span><br><span class="line"></span><br><span class="line">提示：Mysql中如果表不存在，不会自动创建</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-1-HIVE-HDFS到RDBMS"><a href="#4-2-1-HIVE-HDFS到RDBMS" class="headerlink" title="4.2.1 HIVE/HDFS到RDBMS"></a>4.2.1 HIVE/HDFS到RDBMS</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop export \</span><br><span class="line"></span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line"></span><br><span class="line">--username root \</span><br><span class="line"></span><br><span class="line">--password 123456 \</span><br><span class="line"></span><br><span class="line">--table staff \</span><br><span class="line"></span><br><span class="line">--num-mappers 1 \</span><br><span class="line"></span><br><span class="line">--export-dir /user/hive/warehouse/staff_hive \</span><br><span class="line"></span><br><span class="line">--input-fields-terminated-by "\t"</span><br><span class="line"></span><br><span class="line">提示：Mysql中如果表不存在，不会自动创建</span><br></pre></td></tr></table></figure>
 <h2 id="4-3-脚本打包"><a href="#4-3-脚本打包" class="headerlink" title="4.3 脚本打包"></a>4.3 脚本打包</h2><p>使用opt格式的文件打包sqoop命令，然后执行</p>
 <p><strong>1) 创建一个.opt文件</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ mkdir opt</span><br><span class="line"></span><br><span class="line">\$ touch opt/job_HDFS2RDBMS.opt</span><br></pre></td></tr></table></figure>
 <p><strong>2) 编写sqoop脚本</strong></p>
-<p>\$ vi opt/job_HDFS2RDBMS.opt<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export</span><br><span class="line"></span><br><span class="line">\--connect</span><br><span class="line"></span><br><span class="line">jdbc:mysql://master:3306/company</span><br><span class="line"></span><br><span class="line">\--username</span><br><span class="line"></span><br><span class="line">root</span><br><span class="line"></span><br><span class="line">\--password</span><br><span class="line"></span><br><span class="line">123456</span><br><span class="line"></span><br><span class="line">\--table</span><br><span class="line"></span><br><span class="line">staff</span><br><span class="line"></span><br><span class="line">\--num-mappers</span><br><span class="line"></span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">\--export-dir</span><br><span class="line"></span><br><span class="line">/user/hive/warehouse/staff_hive</span><br><span class="line"></span><br><span class="line">\--input-fields-terminated-by</span><br><span class="line"></span><br><span class="line">"\\t"</span><br></pre></td></tr></table></figure></p>
+<p>\$ vi opt/job_HDFS2RDBMS.opt<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export</span><br><span class="line"></span><br><span class="line">--connect</span><br><span class="line"></span><br><span class="line">jdbc:mysql://master:3306/company</span><br><span class="line"></span><br><span class="line">--username</span><br><span class="line"></span><br><span class="line">root</span><br><span class="line"></span><br><span class="line">--password</span><br><span class="line"></span><br><span class="line">123456</span><br><span class="line"></span><br><span class="line">--table</span><br><span class="line"></span><br><span class="line">staff</span><br><span class="line"></span><br><span class="line">--num-mappers</span><br><span class="line"></span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">--export-dir</span><br><span class="line"></span><br><span class="line">/user/hive/warehouse/staff_hive</span><br><span class="line"></span><br><span class="line">--input-fields-terminated-by</span><br><span class="line"></span><br><span class="line">"\t"</span><br></pre></td></tr></table></figure></p>
 <p><strong>3) 执行该脚本</strong></p>
 <p>\$ bin/sqoop –options-file opt/job_HDFS2RDBMS.opt</p>
 <h1 id="第5章-Sqoop一些常用命令及参数"><a href="#第5章-Sqoop一些常用命令及参数" class="headerlink" title="第5章 Sqoop一些常用命令及参数"></a>第5章 Sqoop一些常用命令及参数</h1><h2 id="5-1-常用命令列举"><a href="#5-1-常用命令列举" class="headerlink" title="5.1 常用命令列举"></a>5.1 常用命令列举</h2><p>这里给大家列出来了一部分Sqoop操作时的常用参数，以供参考，需要深入学习的可以参看对应类的源代码。</p>
@@ -367,37 +365,37 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--connect</td>
+<td>–connect</td>
 <td>连接关系型数据库的URL</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--connection-manager</td>
+<td>–connection-manager</td>
 <td>指定要使用的连接管理类</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--driver</td>
+<td>–driver</td>
 <td>Hadoop根目录</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--help</td>
+<td>–help</td>
 <td>打印帮助信息</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--password</td>
+<td>–password</td>
 <td>连接数据库的密码</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--username</td>
+<td>–username</td>
 <td>连接数据库的用户名</td>
 </tr>
 <tr>
 <td>7</td>
-<td>--verbose</td>
+<td>–verbose</td>
 <td>在控制台打印出详细信息</td>
 </tr>
 </tbody>
@@ -413,32 +411,32 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--enclosed-by \<char\></char\></td>
+<td>–enclosed-by \<char\></char\></td>
 <td>给字段值前加上指定的字符</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--escaped-by \<char\></char\></td>
+<td>–escaped-by \<char\></char\></td>
 <td>对字段中的双引号加转义符</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--fields-terminated-by \<char\></char\></td>
+<td>–fields-terminated-by \<char\></char\></td>
 <td>设定每个字段是以什么符号作为结束，默认为逗号</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--lines-terminated-by \<char\></char\></td>
+<td>–lines-terminated-by \<char\></char\></td>
 <td>设定每行记录之间的分隔符，默认是\n</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--mysql-delimiters</td>
+<td>–mysql-delimiters</td>
 <td>Mysql默认的分隔符设置，字段之间以逗号分隔，行之间以\n分隔，默认转义符是\，字段值以单引号包裹。</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--optionally-enclosed-by \<char\></char\></td>
+<td>–optionally-enclosed-by \<char\></char\></td>
 <td>给带有双引号或单引号的字段值前后加上指定字符。</td>
 </tr>
 </tbody>
@@ -454,27 +452,27 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--input-enclosed-by \<char\></char\></td>
+<td>–input-enclosed-by \<char\></char\></td>
 <td>对字段值前后加上指定字符</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--input-escaped-by \<char\></char\></td>
+<td>–input-escaped-by \<char\></char\></td>
 <td>对含有转移符的字段做转义处理</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--input-fields-terminated-by \<char\></char\></td>
+<td>–input-fields-terminated-by \<char\></char\></td>
 <td>字段之间的分隔符</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--input-lines-terminated-by \<char\></char\></td>
+<td>–input-lines-terminated-by \<char\></char\></td>
 <td>行之间的分隔符</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--input-optionally-enclosed-by \<char\></char\></td>
+<td>–input-optionally-enclosed-by \<char\></char\></td>
 <td>给带有双引号或单引号的字段前后加上指定字符</td>
 </tr>
 </tbody>
@@ -490,57 +488,57 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--hive-delims-replacement \<arg\></arg\></td>
+<td>–hive-delims-replacement \<arg\></arg\></td>
 <td>用自定义的字符串替换掉数据中的\r\n和\013 \010等字符</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--hive-drop-import-delims</td>
+<td>–hive-drop-import-delims</td>
 <td>在导入数据到hive时，去掉数据中的\r\n\013\010这样的字符</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--map-column-hive \<arg\></arg\></td>
+<td>–map-column-hive \<arg\></arg\></td>
 <td>生成hive表时，可以更改生成字段的数据类型</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--hive-partition-key</td>
+<td>–hive-partition-key</td>
 <td>创建分区，后面直接跟分区名，分区字段的默认类型为string</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--hive-partition-value \<v\></v\></td>
+<td>–hive-partition-value \<v\></v\></td>
 <td>导入数据时，指定某个分区的值</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--hive-home \<dir\></dir\></td>
+<td>–hive-home \<dir\></dir\></td>
 <td>hive的安装目录，可以通过该参数覆盖之前默认配置的目录</td>
 </tr>
 <tr>
 <td>7</td>
-<td>--hive-import</td>
+<td>–hive-import</td>
 <td>将数据从关系数据库中导入到hive表中</td>
 </tr>
 <tr>
 <td>8</td>
-<td>--hive-overwrite</td>
+<td>–hive-overwrite</td>
 <td>覆盖掉在hive表中已经存在的数据</td>
 </tr>
 <tr>
 <td>9</td>
-<td>--create-hive-table</td>
+<td>–create-hive-table</td>
 <td>默认是false，即，如果目标表已经存在了，那么创建任务失败。</td>
 </tr>
 <tr>
 <td>10</td>
-<td>--hive-table</td>
+<td>–hive-table</td>
 <td>后面接要创建的hive表,默认使用MySQL的表名</td>
 </tr>
 <tr>
 <td>11</td>
-<td>--table</td>
+<td>–table</td>
 <td>指定关系数据库的表名</td>
 </tr>
 </tbody>
@@ -548,34 +546,16 @@ var _hmt = _hmt || [];
 <p>公用参数介绍完之后，我们来按照命令介绍命令对应的特有参数。</p>
 <h3 id="5-2-5-命令-amp-参数：import"><a href="#5-2-5-命令-amp-参数：import" class="headerlink" title="5.2.5 命令&amp;参数：import"></a>5.2.5 命令&amp;参数：import</h3><p>将关系型数据库中的数据导入到HDFS（包括Hive，HBase）中，如果导入的是Hive，那么当Hive中没有对应表时，则自动创建。</p>
 <p><strong>1) 命令：</strong></p>
-<p>如：导入数据到hive中</p>
-<table>
-<thead>
-<tr>
-<th>\$ bin/sqoop import \ –connect jdbc:mysql://master:3306/company \ –username root \ –password 123456 \ –table staff \ –hive-import</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>如：导入数据到hive中<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff \</span><br><span class="line">--hive-import</span><br></pre></td></tr></table></figure></p>
 <p>如：增量导入数据到hive中，mode=append</p>
-<table>
-<thead>
-<tr>
-<th>append导入： \$ bin/sqoop import \ –connect jdbc:mysql://master:3306/company \ –username root \ –password 123456 \ –table staff \ –num-mappers 1 \ –fields-terminated-by “\t” \ –target-dir /user/hive/warehouse/staff_hive \ –check-column id \ –incremental append \ –last-value 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>append导入：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--fields-terminated-by "\t" \</span><br><span class="line">--target-dir /user/hive/warehouse/staff_hive \</span><br><span class="line">--check-column id \</span><br><span class="line">--incremental append \</span><br><span class="line">--last-value 3</span><br></pre></td></tr></table></figure></p>
 <p><strong>尖叫提示</strong>：append不能与–hive-等参数同时使用（Append mode for hive imports is not<br>yet supported. Please remove the parameter –append-mode）</p>
-<p>如：增量导入数据到hdfs中，mode=lastmodified<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 先在mysql中建表并插入几条数据： </span><br><span class="line">mysql\&gt; create table company.staff_timestamp(id int(4), name varchar(255), sex varchar(255), last_modified timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP); </span><br><span class="line">mysql\&gt; insert into company.staff_timestamp (id, name, sex) values(1, &apos;AAA&apos;, &apos;female&apos;);</span><br><span class="line">mysql\&gt; insert into company.staff_timestamp (id, name, sex) values(2, &apos;BBB&apos;, &apos;female&apos;); </span><br><span class="line"></span><br><span class="line">先导入一部分数据：  </span><br><span class="line">\$ bin/sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff_timestamp \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--m 1</span><br><span class="line"></span><br><span class="line">再增量导入一部分数据：  </span><br><span class="line">mysql\&gt; insert into company.staff_timestamp (id, name, sex) values(3, &apos;CCC&apos;, &apos;female&apos;);</span><br><span class="line"></span><br><span class="line">\$ bin/sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff_timestamp \</span><br><span class="line">--check-column last_modified \</span><br><span class="line">--incremental lastmodified \</span><br><span class="line">--last-value &quot;2019-09-28 22:20:38&quot; \</span><br><span class="line">--m 1 \ </span><br><span class="line">--append</span><br></pre></td></tr></table></figure></p>
+<p>如：增量导入数据到hdfs中，mode=lastmodified</p>
+<p>先在mysql中建表并插入几条数据：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql\&gt; create table company.staff_timestamp(id int(4), name varchar(255), sex varchar(255), last_modified timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP); </span><br><span class="line">mysql\&gt; insert into company.staff_timestamp (id, name, sex) values(1, 'AAA', 'female');</span><br><span class="line">mysql\&gt; insert into company.staff_timestamp (id, name, sex) values(2, 'BBB', 'female');</span><br></pre></td></tr></table></figure></p>
+<p>先导入一部分数据：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff_timestamp \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--m 1</span><br></pre></td></tr></table></figure></p>
+<p>再增量导入一部分数据：  </p>
+<p>mysql> insert into company.staff_timestamp (id, name, sex) values(3, ‘CCC’, ‘female’);</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff_timestamp \</span><br><span class="line">--check-column last_modified \</span><br><span class="line">--incremental lastmodified \</span><br><span class="line">--last-value "2019-09-28 22:20:38" \</span><br><span class="line">--m 1 \ </span><br><span class="line">--append</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>尖叫提示</strong>：使用lastmodified方式导入数据要指定增量数据是要–append（追加）还是要–merge-key（合并）</p>
 <p><strong>尖叫提示</strong>：last-value指定的值是会包含于增量导入的数据中</p>
@@ -591,136 +571,124 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--append</td>
+<td>–append</td>
 <td>将数据追加到HDFS中已经存在的DataSet中，如果使用该参数，sqoop会把数据先导入到临时文件目录，再合并。</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--as-avrodatafile</td>
+<td>–as-avrodatafile</td>
 <td>将数据导入到一个Avro数据文件中</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--as-sequencefile</td>
+<td>–as-sequencefile</td>
 <td>将数据导入到一个sequence文件中</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--as-textfile</td>
+<td>–as-textfile</td>
 <td>将数据导入到一个普通文本文件中</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--boundary-query \<statement\></statement\></td>
+<td>–boundary-query \<statement\></statement\></td>
 <td>边界查询，导入的数据为该参数的值（一条sql语句）所执行的结果区间内的数据。</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--columns \<col1, col2,="" col3\=""></col1,></td>
+<td>–columns \<col1, col2,="" col3\=""></col1,></td>
 <td>指定要导入的字段</td>
 </tr>
 <tr>
 <td>7</td>
-<td>--direct</td>
+<td>–direct</td>
 <td>直接导入模式，使用的是关系数据库自带的导入导出工具，以便加快导入导出过程。</td>
 </tr>
 <tr>
 <td>8</td>
-<td>--direct-split-size</td>
+<td>–direct-split-size</td>
 <td>在使用上面direct直接导入的基础上，对导入的流按字节分块，即达到该阈值就产生一个新的文件</td>
 </tr>
 <tr>
 <td>9</td>
-<td>--inline-lob-limit</td>
+<td>–inline-lob-limit</td>
 <td>设定大对象数据类型的最大值</td>
 </tr>
 <tr>
 <td>10</td>
-<td>--m或–num-mappers</td>
+<td>–m或–num-mappers</td>
 <td>启动N个map来并行导入数据，默认4个。</td>
 </tr>
 <tr>
 <td>11</td>
-<td>--query或–e \<statement\></statement\></td>
+<td>–query或–e \<statement\></statement\></td>
 <td>将查询结果的数据导入，使用时必须伴随参–target-dir，–hive-table，如果查询中有where条件，则条件后必须加上\$CONDITIONS关键字</td>
 </tr>
 <tr>
 <td>12</td>
-<td>--split-by \<column-name\></column-name\></td>
+<td>–split-by \<column-name\></column-name\></td>
 <td>按照某一列来切分表的工作单元，不能与–autoreset-to-one-mapper连用（请参考官方文档）</td>
 </tr>
 <tr>
 <td>13</td>
-<td>--table \<table-name\></table-name\></td>
+<td>–table \<table-name\></table-name\></td>
 <td>关系数据库的表名</td>
 </tr>
 <tr>
 <td>14</td>
-<td>--target-dir \<dir\></dir\></td>
+<td>–target-dir \<dir\></dir\></td>
 <td>指定HDFS路径</td>
 </tr>
 <tr>
 <td>15</td>
-<td>--warehouse-dir \<dir\></dir\></td>
+<td>–warehouse-dir \<dir\></dir\></td>
 <td>与14参数不能同时使用，导入数据到HDFS时指定的目录</td>
 </tr>
 <tr>
 <td>16</td>
-<td>--where</td>
+<td>–where</td>
 <td>从关系数据库导入数据时的查询条件</td>
 </tr>
 <tr>
 <td>17</td>
-<td>--z或–compress</td>
+<td>–z或–compress</td>
 <td>允许压缩</td>
 </tr>
 <tr>
 <td>18</td>
-<td>--compression-codec</td>
+<td>–compression-codec</td>
 <td>指定hadoop压缩编码类，默认为gzip(Use Hadoop codec default gzip)</td>
 </tr>
 <tr>
 <td>19</td>
-<td>--null-string \<null-string\></null-string\></td>
+<td>–null-string \<null-string\></null-string\></td>
 <td>string类型的列如果null，替换为指定字符串</td>
 </tr>
 <tr>
 <td>20</td>
-<td>--null-non-string \<null-string\></null-string\></td>
+<td>–null-non-string \<null-string\></null-string\></td>
 <td>非string类型的列如果null，替换为指定字符串</td>
 </tr>
 <tr>
 <td>21</td>
-<td>--check-column \<col\></col\></td>
+<td>–check-column \<col\></col\></td>
 <td>作为增量导入判断的列名</td>
 </tr>
 <tr>
 <td>22</td>
-<td>--incremental \<mode\></mode\></td>
+<td>–incremental \<mode\></mode\></td>
 <td>mode：append或lastmodified</td>
 </tr>
 <tr>
 <td>23</td>
-<td>--last-value \<value\></value\></td>
+<td>–last-value \<value\></value\></td>
 <td>指定某一个值，用于标记增量导入的位置</td>
 </tr>
 </tbody>
 </table>
 <h3 id="5-2-6-命令-amp-参数：export"><a href="#5-2-6-命令-amp-参数：export" class="headerlink" title="5.2.6 命令&amp;参数：export"></a>5.2.6 命令&amp;参数：export</h3><p>从HDFS（包括Hive和HBase）中奖数据导出到关系型数据库中。</p>
 <p><strong>1) 命令：</strong></p>
-<p><strong>如：</strong></p>
-<table>
-<thead>
-<tr>
-<th>\$ bin/sqoop export \ –connect jdbc:mysql://master:3306/company \ –username root \ –password 123456 \ –table staff \ –export-dir /user/company \ –input-fields-terminated-by “\t” \ –num-mappers 1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p><strong>如：</strong><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">\$ bin/sqoop export \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff \</span><br><span class="line">--export-dir /user/company \</span><br><span class="line">--input-fields-terminated-by "\t" \</span><br><span class="line">--num-mappers 1</span><br></pre></td></tr></table></figure></p>
 <p><strong>2) 参数：</strong></p>
 <table>
 <thead>
@@ -733,12 +701,12 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--direct</td>
+<td>–direct</td>
 <td>利用数据库自带的导入导出工具，以便于提高效率</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--export-dir \<dir\></dir\></td>
+<td>–export-dir \<dir\></dir\></td>
 <td>存放数据的HDFS的源目录</td>
 </tr>
 <tr>
@@ -748,37 +716,37 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td>4</td>
-<td>--table \<table-name\></table-name\></td>
+<td>–table \<table-name\></table-name\></td>
 <td>指定导出到哪个RDBMS中的表</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--update-key \<col-name\></col-name\></td>
+<td>–update-key \<col-name\></col-name\></td>
 <td>对某一列的字段进行更新操作</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--update-mode \<mode\></mode\></td>
+<td>–update-mode \<mode\></mode\></td>
 <td>updateonly allowinsert(默认)</td>
 </tr>
 <tr>
 <td>7</td>
-<td>--input-null-string \<null-string\></null-string\></td>
+<td>–input-null-string \<null-string\></null-string\></td>
 <td>请参考import该类似参数说明</td>
 </tr>
 <tr>
 <td>8</td>
-<td>--input-null-non-string \<null-string\></null-string\></td>
+<td>–input-null-non-string \<null-string\></null-string\></td>
 <td>请参考import该类似参数说明</td>
 </tr>
 <tr>
 <td>9</td>
-<td>--staging-table \<staging-table-name\></staging-table-name\></td>
+<td>–staging-table \<staging-table-name\></staging-table-name\></td>
 <td>创建一张临时表，用于存放所有事务的结果，然后将所有事务结果一次性导入到目标表中，防止错误。</td>
 </tr>
 <tr>
 <td>10</td>
-<td>--clear-staging-table</td>
+<td>–clear-staging-table</td>
 <td>如果第9个参数非空，则可以在导出操作执行前，清空临时事务结果表</td>
 </tr>
 </tbody>
@@ -801,52 +769,52 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td>1</td>
-<td>--bindir \<dir\></dir\></td>
+<td>–bindir \<dir\></dir\></td>
 <td>指定生成的Java文件、编译成的class文件及将生成文件打包为jar的文件输出路径</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--class-name \<name\></name\></td>
+<td>–class-name \<name\></name\></td>
 <td>设定生成的Java文件指定的名称</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--outdir \<dir\></dir\></td>
+<td>–outdir \<dir\></dir\></td>
 <td>生成Java文件存放的路径</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--package-name \<name\></name\></td>
+<td>–package-name \<name\></name\></td>
 <td>包名，如com.z，就会生成com和z两级目录</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--input-null-non-string \<null-str\></null-str\></td>
+<td>–input-null-non-string \<null-str\></null-str\></td>
 <td>在生成的Java文件中，可以将null字符串或者不存在的字符串设置为想要设定的值（例如空字符串）</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--input-null-string \<null-str\></null-str\></td>
+<td>–input-null-string \<null-str\></null-str\></td>
 <td>将null字符串替换成想要替换的值（一般与5同时使用）</td>
 </tr>
 <tr>
 <td>7</td>
-<td>--map-column-java \<arg\></arg\></td>
+<td>–map-column-java \<arg\></arg\></td>
 <td>数据库字段在生成的Java文件中会映射成各种属性，且默认的数据类型与数据库类型保持对应关系。该参数可以改变默认类型，例如：–map-column-java id=long, name=String</td>
 </tr>
 <tr>
 <td>8</td>
-<td>--null-non-string \<null-str\></null-str\></td>
+<td>–null-non-string \<null-str\></null-str\></td>
 <td>在生成Java文件时，可以将不存在或者null的字符串设置为其他值</td>
 </tr>
 <tr>
 <td>9</td>
-<td>--null-string \<null-str\></null-str\></td>
+<td>–null-string \<null-str\></null-str\></td>
 <td>在生成Java文件时，将null字符串设置为其他值（一般与8同时使用）</td>
 </tr>
 <tr>
 <td>10</td>
-<td>--table \<table-name\></table-name\></td>
+<td>–table \<table-name\></table-name\></td>
 <td>对应关系数据库中的表名，生成的Java文件中的各个属性与该表的各个字段一一对应</td>
 </tr>
 </tbody>
@@ -878,27 +846,27 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--hive-home \<dir\></dir\></td>
+<td>–hive-home \<dir\></dir\></td>
 <td>Hive的安装目录，可以通过该参数覆盖掉默认的Hive目录</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--hive-overwrite</td>
+<td>–hive-overwrite</td>
 <td>覆盖掉在Hive表中已经存在的数据</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--create-hive-table</td>
+<td>–create-hive-table</td>
 <td>默认是false，如果目标表已经存在了，那么创建任务会失败</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--hive-table</td>
+<td>–hive-table</td>
 <td>后面接要创建的hive表</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--table</td>
+<td>–table</td>
 <td>指定关系数据库的表名</td>
 </tr>
 </tbody>
@@ -930,7 +898,7 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--query或–e</td>
+<td>–query或–e</td>
 <td>后跟查询的SQL语句</td>
 </tr>
 </tbody>
@@ -962,42 +930,42 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--as-avrodatafile</td>
+<td>–as-avrodatafile</td>
 <td>这些参数的含义均和import对应的含义一致</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--as-sequencefile</td>
+<td>–as-sequencefile</td>
 <td></td>
 </tr>
 <tr>
 <td>3</td>
-<td>--as-textfile</td>
+<td>–as-textfile</td>
 <td></td>
 </tr>
 <tr>
 <td>4</td>
-<td>--direct</td>
+<td>–direct</td>
 <td></td>
 </tr>
 <tr>
 <td>5</td>
-<td>--direct-split-size \<n\></n\></td>
+<td>–direct-split-size \<n\></n\></td>
 <td></td>
 </tr>
 <tr>
 <td>6</td>
-<td>--inline-lob-limit \<n\></n\></td>
+<td>–inline-lob-limit \<n\></n\></td>
 <td></td>
 </tr>
 <tr>
 <td>7</td>
-<td>--m或—num-mappers \<n\></n\></td>
+<td>–m或—num-mappers \<n\></n\></td>
 <td></td>
 </tr>
 <tr>
 <td>8</td>
-<td>--warehouse-dir \<dir\></dir\></td>
+<td>–warehouse-dir \<dir\></dir\></td>
 <td></td>
 </tr>
 <tr>
@@ -1007,7 +975,7 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td>10</td>
-<td>--compression-codec</td>
+<td>–compression-codec</td>
 </tr>
 </tbody>
 </table>
@@ -1040,42 +1008,42 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--create \<job-id\></job-id\></td>
+<td>–create \<job-id\></job-id\></td>
 <td>创建job参数</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--delete \<job-id\></job-id\></td>
+<td>–delete \<job-id\></job-id\></td>
 <td>删除一个job</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--exec \<job-id\></job-id\></td>
+<td>–exec \<job-id\></job-id\></td>
 <td>执行一个job</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--help</td>
+<td>–help</td>
 <td>显示job帮助</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--list</td>
+<td>–list</td>
 <td>显示job列表</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--meta-connect \<jdbc-uri\></jdbc-uri\></td>
+<td>–meta-connect \<jdbc-uri\></jdbc-uri\></td>
 <td>用来连接metastore服务</td>
 </tr>
 <tr>
 <td>7</td>
-<td>--show \<job-id\></job-id\></td>
+<td>–show \<job-id\></job-id\></td>
 <td>显示一个job的信息</td>
 </tr>
 <tr>
 <td>8</td>
-<td>--verbose</td>
+<td>–verbose</td>
 <td>打印命令运行时的详细信息</td>
 </tr>
 </tbody>
@@ -1139,7 +1107,7 @@ var _hmt = _hmt || [];
 </table>
 <p>尖叫提示：上边数据的列之间的分隔符应该为\t，行与行之间的分割符为\n，如果直接复制，请检查之。</p>
 <p><strong>命令：</strong></p>
-<p>如：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">创建JavaBean：  </span><br><span class="line">\$ bin/sqoop codegen \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff \</span><br><span class="line">--bindir /home/admin/Desktop/staff \</span><br><span class="line">--class-name Staff \</span><br><span class="line">--fields-terminated-by "\\t"</span><br><span class="line"></span><br><span class="line">开始合并：</span><br><span class="line"> \$ bin/sqoop merge \</span><br><span class="line">--new-data /test/new/ \</span><br><span class="line">--onto /test/old/ \</span><br><span class="line">--target-dir /test/merged \</span><br><span class="line">--jar-file /home/admin/Desktop/staff/Staff.jar \</span><br><span class="line">--class-name Staff \</span><br><span class="line">--merge-key id</span><br></pre></td></tr></table></figure></p>
+<p>如：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">创建JavaBean：  </span><br><span class="line">\$ bin/sqoop codegen \</span><br><span class="line">--connect jdbc:mysql://master:3306/company \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table staff \</span><br><span class="line">--bindir /home/admin/Desktop/staff \</span><br><span class="line">--class-name Staff \</span><br><span class="line">--fields-terminated-by "\t"</span><br><span class="line"></span><br><span class="line">开始合并：</span><br><span class="line"> \$ bin/sqoop merge \</span><br><span class="line">--new-data /test/new/ \</span><br><span class="line">--onto /test/old/ \</span><br><span class="line">--target-dir /test/merged \</span><br><span class="line">--jar-file /home/admin/Desktop/staff/Staff.jar \</span><br><span class="line">--class-name Staff \</span><br><span class="line">--merge-key id</span><br></pre></td></tr></table></figure></p>
 <p>结果：<br>1 AAA MALE<br>2 BBB MALE<br>3 CCC MALE<br>4 DDD MALE<br>6 DDD FEMALE</p>
 <hr>
 <p>参数：</p>
@@ -1154,32 +1122,32 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--new-data \<path\></path\></td>
+<td>–new-data \<path\></path\></td>
 <td>HDFS 待合并的数据目录，合并后在新的数据集中保留</td>
 </tr>
 <tr>
 <td>2</td>
-<td>--onto \<path\></path\></td>
+<td>–onto \<path\></path\></td>
 <td>HDFS合并后，重复的部分在新的数据集中被覆盖</td>
 </tr>
 <tr>
 <td>3</td>
-<td>--merge-key \<col\></col\></td>
+<td>–merge-key \<col\></col\></td>
 <td>合并键，一般是主键ID</td>
 </tr>
 <tr>
 <td>4</td>
-<td>--jar-file \<file\></file\></td>
+<td>–jar-file \<file\></file\></td>
 <td>合并时引入的jar包，该jar包是通过Codegen工具生成的jar包</td>
 </tr>
 <tr>
 <td>5</td>
-<td>--class-name \<class\></class\></td>
+<td>–class-name \<class\></class\></td>
 <td>对应的表名或对象名，该class类是包含在jar包中的</td>
 </tr>
 <tr>
 <td>6</td>
-<td>--target-dir \<path\></path\></td>
+<td>–target-dir \<path\></path\></td>
 <td>合并后的数据在HDFS里存放的目录</td>
 </tr>
 </tbody>
@@ -1211,7 +1179,7 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>--shutdown</td>
+<td>–shutdown</td>
 <td>关闭metastore</td>
 </tr>
 </tbody>
